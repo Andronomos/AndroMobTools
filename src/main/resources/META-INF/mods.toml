@@ -5,7 +5,7 @@ license="All rights reserved"
 [[mods]] #mandatory
 modId="andromobtools" #mandatory
 version="${file.jarVersion}" #mandatory
-displayName="Andro Mob Utils" #mandatory
+displayName="Andro Mob Tools" #mandatory
 logoFile="examplemod.png" #optional
 credits="Thanks for this example mod goes to Java" #optional
 authors="Love, Cheese and small house plants" #optional
