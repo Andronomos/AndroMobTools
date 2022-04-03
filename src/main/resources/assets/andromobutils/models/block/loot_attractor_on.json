@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "down": "andromobutils:block/machine_bottom",
+    "up": "andromobutils:block/loot_attractor_on_top",
+    "north": "andromobutils:block/loot_attractor_on_side",
+    "south": "andromobutils:block/loot_attractor_on_side",
+    "east": "andromobutils:block/loot_attractor_on_side",
+    "west": "andromobutils:block/loot_attractor_on_side"
+  }
+}

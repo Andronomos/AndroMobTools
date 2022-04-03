@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "andromobutils:block/strong_acceleration_pad"
+    },
+    "facing=south": {
+      "model": "andromobutils:block/strong_acceleration_pad",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "andromobutils:block/strong_acceleration_pad",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "andromobutils:block/strong_acceleration_pad",
+      "y": 90
+    }
+  }
+}

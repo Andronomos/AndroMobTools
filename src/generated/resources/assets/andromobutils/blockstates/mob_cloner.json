@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "andromobutils:block/mob_cloner"
+    }
+  }
+}

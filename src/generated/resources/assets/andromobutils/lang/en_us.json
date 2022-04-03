@@ -1,0 +1,19 @@
+{
+  "block.andromobutils.loot_attractor": "Loot Attractor",
+  "block.andromobutils.loot_incinerator": "Loot Incinerator",
+  "block.andromobutils.mob_cloner": "Mob Cloner",
+  "block.andromobutils.mob_killing_pad": "Mob Killing Pad",
+  "block.andromobutils.strong_acceleration_pad": "Strong Acceleration Pad",
+  "block.andromobutils.weak_acceleration_pad": "Weak Acceleration Pad",
+  "item.andromobutils.advanced_chip": "Advanced Chip",
+  "item.andromobutils.basic_chip": "Basic Chip",
+  "item.andromobutils.mob_storage_cell": "Mob Storage Cell",
+  "item.andromobutils.portable_loot_attractor": "Portable Loot Attractor",
+  "itemGroup.andromobutils_group": "Andro Mob Utils",
+  "screen.andromobutils.loot_attractor": "Loot Attractor",
+  "screen.andromobutils.loot_incinerator": "Loot Incinerator",
+  "screen.andromobutils.mob_killing_pad": "Mob Killing Pad",
+  "screen.mobtools.mob_cloner": "Mob Cloner",
+  "tooltip.andromobutils.mob_storage_cell.health": "Health: ",
+  "tooltip.andromobutils.mob_storage_cell.mob": "Mob: "
+}
