@@ -1,8 +1,0 @@
-{
-  "parent": "andromobutils:block/pad_base",
-  "textures": {
-    "particle": "andromobutils:block/mob_killing_pad_top",
-    "design": "andromobutils:block/mob_killing_pad_top",
-    "pad": "andromobutils:block/machine_bottom"
-  }
-}
