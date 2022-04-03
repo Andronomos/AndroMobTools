@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "down": "andromobutils:block/machine_bottom",
-    "up": "andromobutils:block/loot_attractor_off_top",
-    "north": "andromobutils:block/loot_attractor_off_side",
-    "south": "andromobutils:block/loot_attractor_off_side",
-    "east": "andromobutils:block/loot_attractor_off_side",
-    "west": "andromobutils:block/loot_attractor_off_side"
+    "down": "andromobtools:block/machine_bottom",
+    "up": "andromobtools:block/loot_attractor_off_top",
+    "north": "andromobtools:block/loot_attractor_off_side",
+    "south": "andromobtools:block/loot_attractor_off_side",
+    "east": "andromobtools:block/loot_attractor_off_side",
+    "west": "andromobtools:block/loot_attractor_off_side"
   }
 }
