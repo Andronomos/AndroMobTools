@@ -1,12 +1,12 @@
 {
   "replace": false,
   "values": [
-    "andromobutils:mob_cloner",
-    "andromobutils:loot_attractor",
-    "andromobutils:loot_incinerator",
-    "andromobutils:mob_killing_pad",
-    "andromobutils:weak_acceleration_pad",
-    "andromobutils:strong_acceleration_pad",
-    "andromobutils:loot_attractor"
+    "andromobtools:mob_cloner",
+    "andromobtools:loot_attractor",
+    "andromobtools:loot_incinerator",
+    "andromobtools:mob_killing_pad",
+    "andromobtools:weak_acceleration_pad",
+    "andromobtools:strong_acceleration_pad",
+    "andromobtools:loot_attractor"
   ]
 }

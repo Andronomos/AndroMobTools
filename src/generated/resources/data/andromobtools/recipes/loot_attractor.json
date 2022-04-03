@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "252",
+    "414",
+    "232"
+  ],
+  "key": {
+    "1": {
+      "item": "andromobtools:portable_loot_attractor"
+    },
+    "2": {
+      "item": "minecraft:iron_ingot"
+    },
+    "3": {
+      "tag": "forge:chests"
+    },
+    "4": {
+      "item": "minecraft:redstone"
+    },
+    "5": {
+      "item": "andromobtools:advanced_chip"
+    }
+  },
+  "result": {
+    "item": "andromobtools:loot_attractor"
+  }
+}
