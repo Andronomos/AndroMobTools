@@ -1,0 +1,8 @@
+{
+  "parent": "androtech:block/pad_base",
+  "textures": {
+    "particle": "androtech:block/acceleration_pad_strong_top",
+    "design": "androtech:block/acceleration_pad_strong_top",
+    "pad": "androtech:block/machine_bottom"
+  }
+}

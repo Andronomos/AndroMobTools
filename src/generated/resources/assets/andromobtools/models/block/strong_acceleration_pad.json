@@ -1,8 +1,0 @@
-{
-  "parent": "andromobtools:block/pad_base",
-  "textures": {
-    "particle": "andromobtools:block/acceleration_pad_strong_top",
-    "design": "andromobtools:block/acceleration_pad_strong_top",
-    "pad": "andromobtools:block/machine_bottom"
-  }
-}

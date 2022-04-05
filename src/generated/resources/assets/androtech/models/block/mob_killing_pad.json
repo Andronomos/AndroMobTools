@@ -1,0 +1,8 @@
+{
+  "parent": "androtech:block/pad_base",
+  "textures": {
+    "particle": "androtech:block/mob_killing_pad_top",
+    "design": "androtech:block/mob_killing_pad_top",
+    "pad": "androtech:block/machine_bottom"
+  }
+}

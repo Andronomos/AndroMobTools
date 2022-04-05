@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "andromobtools:item/portable_loot_attractor"
-  }
-}

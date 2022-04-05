@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "androtech:block/mob_cloner"
+    }
+  }
+}

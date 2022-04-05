@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "androtech:block/machine_bottom",
+    "up": "androtech:block/loot_incinerator_top",
+    "north": "androtech:block/loot_incinerator_side",
+    "south": "androtech:block/loot_incinerator_side",
+    "east": "androtech:block/loot_incinerator_side",
+    "west": "androtech:block/loot_incinerator_side"
+  }
+}
