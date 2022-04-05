@@ -43,7 +43,7 @@ public class AndroTech
 
     private void clientSetup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            MenuScreens.register(ModContainers.MOB_CLONER.get(), GoldenSpawnerScreen::new);
+            MenuScreens.register(ModContainers.MOB_CLONER.get(), MobClonerScreen::new);
             MenuScreens.register(ModContainers.LOOT_ATTRACTOR.get(), LootAttractorScreen::new);
             MenuScreens.register(ModContainers.LOOT_INCINERATOR.get(), LootIncineratorScreen::new);
             MenuScreens.register(ModContainers.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);

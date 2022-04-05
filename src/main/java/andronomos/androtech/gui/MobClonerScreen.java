@@ -1,13 +1,13 @@
 package andronomos.androtech.gui;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.inventory.GoldenSpawnerContainer;
+import andronomos.androtech.inventory.MobClonerContainer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
-public class GoldenSpawnerScreen extends BaseScreen<GoldenSpawnerContainer> {
-	public GoldenSpawnerScreen(GoldenSpawnerContainer container, Inventory inventory, Component component) {
+public class MobClonerScreen extends BaseScreen<MobClonerContainer> {
+	public MobClonerScreen(MobClonerContainer container, Inventory inventory, Component component) {
 		super(container, inventory, component);
 	}
 

@@ -14,10 +14,10 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
-public class GoldenSpawnerContainer extends BaseContainerMenu {
+public class MobClonerContainer extends BaseContainerMenu {
 	private BlockEntity blockEntity;
 
-	public GoldenSpawnerContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player) {
+	public MobClonerContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player) {
 		super(ModContainers.MOB_CLONER.get(), windowId);
 		blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
 		playerEntity = player;
@@ -34,7 +34,7 @@ public class GoldenSpawnerContainer extends BaseContainerMenu {
 
 	@Override
 	public boolean stillValid(Player player) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.MOB_CLONER.get());
+		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.TEST_BLOCK.get());
 	}
 
 	@Override

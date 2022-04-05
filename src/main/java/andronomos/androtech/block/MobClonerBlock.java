@@ -1,7 +1,7 @@
 package andronomos.androtech.block;
 
 import andronomos.androtech.block.entity.MobClonerBE;
-import andronomos.androtech.inventory.GoldenSpawnerContainer;
+import andronomos.androtech.inventory.MobClonerContainer;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -45,9 +45,9 @@ public class MobClonerBlock extends Block implements EntityBlock {
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
 		return (level2, pos, state2, blockEntity) -> {
 			if(level.isClientSide()) {
-				if(blockEntity instanceof MobClonerBE advancedSpawner) advancedSpawner.clientTick(level2, pos, state2, advancedSpawner);
+				if(blockEntity instanceof MobClonerBE mobCloner) mobCloner.clientTick(level2, pos, state2, mobCloner);
 			} else {
-				if(blockEntity instanceof MobClonerBE advancedSpawner) advancedSpawner.serverTick((ServerLevel) level2, pos, state2, advancedSpawner);
+				if(blockEntity instanceof MobClonerBE mobCloner) mobCloner.serverTick((ServerLevel) level2, pos, state2, mobCloner);
 			}
 		};
 	}
@@ -66,7 +66,7 @@ public class MobClonerBlock extends Block implements EntityBlock {
 
 					@Override
 					public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-						return new GoldenSpawnerContainer(windowId, pos, playerInventory, playerEntity);
+						return new MobClonerContainer(windowId, pos, playerInventory, playerEntity);
 					}
 				};
 				NetworkHooks.openGui((ServerPlayer) player, containerProvider, be.getBlockPos());

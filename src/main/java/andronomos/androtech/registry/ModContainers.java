@@ -12,10 +12,10 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModContainers {
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, andronomos.androtech.AndroTech.MOD_ID);
 
-    public static final RegistryObject<MenuType<GoldenSpawnerContainer>> MOB_CLONER = CONTAINERS.register("mob_cloner", () -> IForgeMenuType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<MobClonerContainer>> MOB_CLONER = CONTAINERS.register("mob_cloner", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level level = inv.player.getCommandSenderWorld();
-        return new GoldenSpawnerContainer(windowId, pos, inv, inv.player);
+        return new MobClonerContainer(windowId, pos, inv, inv.player);
     }));
 
     public static final RegistryObject<MenuType<LootAttractorContainer>> LOOT_ATTRACTOR = CONTAINERS.register("loot_attractor", () -> IForgeMenuType.create((windowId, inv, data) -> {
