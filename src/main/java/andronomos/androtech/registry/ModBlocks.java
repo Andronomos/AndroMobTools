@@ -1,9 +1,7 @@
 package andronomos.androtech.registry;
 
 
-import andronomos.androtech.block.MobClonerBlock;
-import andronomos.androtech.block.LootAttractorBlock;
-import andronomos.androtech.block.LootIncineratorBlock;
+import andronomos.androtech.block.*;
 import andronomos.androtech.block.pad.MobKillingPadBlock;
 import andronomos.androtech.block.pad.emiiter.EmitterPadBlock;
 import andronomos.androtech.block.pad.emiiter.effect.PadEffect;
@@ -31,12 +29,15 @@ public class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, andronomos.androtech.AndroTech.MOD_ID);
 
+    public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block", () -> new TestBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
+
     public static final RegistryObject<Block> MOB_CLONER = registerBlock("mob_cloner", () -> new MobClonerBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
     public static final RegistryObject<Block> LOOT_ATTRACTOR = registerBlock("loot_attractor", () -> new LootAttractorBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
     public static final RegistryObject<Block> LOOT_INCINERATOR = registerBlock("loot_incinerator", () -> new LootIncineratorBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
     public static final RegistryObject<Block> MOB_KILLING_PAD = registerBlock("mob_killing_pad", () -> new MobKillingPadBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
     public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, false);
     public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, false);
+    public static final RegistryObject<Block> FARMLAND_HYDRATOR = registerBlock("farmland_hydrator", () -> new FarmlandHydratorBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
 
 
     private static <T extends Block> RegistryObject<Block> registerPad(String name, PadEffect effect, boolean shouledAffectPlayer) {

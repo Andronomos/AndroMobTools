@@ -9,6 +9,13 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, andronomos.androtech.AndroTech.MOD_ID);
 
+    public static final RegistryObject<BlockEntityType<TestBlockBE>> TEST_BLOCK = BLOCK_ENTITIES.register("test_block_be", () -> BlockEntityType.Builder
+            .of(TestBlockBE::new, ModBlocks.TEST_BLOCK.get())
+            .build(null));
+
+
+
+
     public static final RegistryObject<BlockEntityType<MobClonerBE>> MOB_CLONER_BE = BLOCK_ENTITIES.register("mob_cloner_be", () -> BlockEntityType.Builder
             .of(MobClonerBE::new, ModBlocks.MOB_CLONER.get())
             .build(null));
@@ -23,5 +30,9 @@ public class ModBlockEntities {
 
     public static final RegistryObject<BlockEntityType<MobKillingPadBE>> MOB_KILLING_PAD = BLOCK_ENTITIES.register("mob_killing_pad_be", () -> BlockEntityType.Builder
             .of(MobKillingPadBE::new, ModBlocks.MOB_KILLING_PAD.get())
+            .build(null));
+
+    public static final RegistryObject<BlockEntityType<FarmlandHydratorBE>> FARMLAND_HYDRATOR = BLOCK_ENTITIES.register("farmland_hydrator_be", () -> BlockEntityType.Builder
+            .of(FarmlandHydratorBE::new, ModBlocks.FARMLAND_HYDRATOR.get())
             .build(null));
 }

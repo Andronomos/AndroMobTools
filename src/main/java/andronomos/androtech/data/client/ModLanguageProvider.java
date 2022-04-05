@@ -31,6 +31,9 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
 
 		//blocks
+		add(ModBlocks.TEST_BLOCK.get(), "Test Block");
+
+
 		add(SCREEN_MOB_CLONER, "Mob Cloner");
 		add(ModBlocks.MOB_CLONER.get(), "Mob Cloner");
 		add(ModBlocks.LOOT_ATTRACTOR.get(), "Loot Attractor");
@@ -41,5 +44,6 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(SCREEN_MOB_KILLING_PAD, "Mob Killing Pad");
 		add(ModBlocks.WEAK_ACCELERATION_PAD.get(), "Weak Acceleration Pad");
 		add(ModBlocks.STRONG_ACCELERATION_PAD.get(), "Strong Acceleration Pad");
+		add(ModBlocks.FARMLAND_HYDRATOR.get(), "Farmland Hydrator");
 	}
 }
