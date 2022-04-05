@@ -33,7 +33,7 @@ public class MobClonerBE extends BaseContainerBlockEntity {
 		super(ModBlockEntities.MOB_CLONER_BE.get(), pos, state);
 	}
 
-	public void clientTick(Level level, BlockPos pos, BlockState state, MobClonerBE advancedSpawner) {
+	public void clientTick(Level level, BlockPos pos, BlockState state, MobClonerBE mobCloner) {
 		if (this.isNearPlayer(level, pos)) {
 			ItemStack stack = inputItems.getStackInSlot(0);
 
@@ -51,7 +51,7 @@ public class MobClonerBE extends BaseContainerBlockEntity {
 		}
 	}
 
-	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MobClonerBE advancedSpawner) {
+	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MobClonerBE mobCloner) {
 		if (!this.isNearPlayer(this.level, pos)) return;
 
 		ItemStack stack = inputItems.getStackInSlot(0);

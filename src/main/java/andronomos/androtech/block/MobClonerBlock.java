@@ -57,7 +57,7 @@ public class MobClonerBlock extends Block implements EntityBlock {
 		if(!level.isClientSide()) {
 			BlockEntity be = level.getBlockEntity(pos);
 
-			if (be instanceof MobClonerBE generator) {
+			if (be instanceof MobClonerBE mobCloner) {
 				MenuProvider containerProvider = new MenuProvider() {
 					@Override
 					public Component getDisplayName() {

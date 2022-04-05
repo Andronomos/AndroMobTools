@@ -1,21 +1,15 @@
 package andronomos.androtech.block.entity;
 
-import andronomos.androtech.Const;
-import andronomos.androtech.item.MobStorageCellItem;
 import andronomos.androtech.registry.ModBlockEntities;
-import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+
+import java.util.List;
 
 public class TestBlockBE extends BlockEntity {
 	public TestBlockBE(BlockPos pos, BlockState state) {
@@ -27,6 +21,7 @@ public class TestBlockBE extends BlockEntity {
 	}
 
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, TestBlockBE testBlock) {
+		//List<BlockEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, new AABB(getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), getBlockPos().getX() + 1D, getBlockPos().getY() + 1D, getBlockPos().getZ() + 1D).inflate(0.0625D, 0.0625D, 0.0625D));
 
 	}
 

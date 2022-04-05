@@ -1,9 +1,11 @@
 {
+  "block.androtech.farmland_hydrator": "Farmland Hydrator",
   "block.androtech.loot_attractor": "Loot Attractor",
   "block.androtech.loot_incinerator": "Loot Incinerator",
   "block.androtech.mob_cloner": "Mob Cloner",
   "block.androtech.mob_killing_pad": "Mob Killing Pad",
   "block.androtech.strong_acceleration_pad": "Strong Acceleration Pad",
+  "block.androtech.test_block": "Test Block",
   "block.androtech.weak_acceleration_pad": "Weak Acceleration Pad",
   "item.androtech.advanced_chip": "Advanced Chip",
   "item.androtech.basic_chip": "Basic Chip",

@@ -1,6 +1,5 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.block.entity.MobClonerBE;
 import andronomos.androtech.block.entity.TestBlockBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -11,6 +10,9 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.Nullable;
 
 public class TestBlock extends Block implements EntityBlock {
@@ -34,5 +36,10 @@ public class TestBlock extends Block implements EntityBlock {
 				if(blockEntity instanceof TestBlockBE testBlock) testBlock.serverTick((ServerLevel) level2, pos, state2, testBlock);
 			}
 		};
+	}
+
+	@Override
+	public FluidState getFluidState(BlockState p_60577_) {
+		return Fluids.WATER.defaultFluidState();
 	}
 }
