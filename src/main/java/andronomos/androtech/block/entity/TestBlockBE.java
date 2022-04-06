@@ -23,6 +23,6 @@ public class TestBlockBE extends BlockEntity {
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, TestBlockBE testBlock) {
 		//List<BlockEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, new AABB(getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), getBlockPos().getX() + 1D, getBlockPos().getY() + 1D, getBlockPos().getZ() + 1D).inflate(0.0625D, 0.0625D, 0.0625D));
 
-	}
 
+	}
 }

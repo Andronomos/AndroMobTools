@@ -77,7 +77,7 @@ public class MobClonerBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMOving) {
+	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
 		if(state.getBlock() != newState.getBlock()) {
 			final MobClonerBE tileEntity = (MobClonerBE)level.getBlockEntity(pos);
 
@@ -87,6 +87,6 @@ public class MobClonerBlock extends Block implements EntityBlock {
 			});
 		}
 
-		super.onRemove(state, level, pos, newState, isMOving);
+		super.onRemove(state, level, pos, newState, isMoving);
 	}
 }

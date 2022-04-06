@@ -34,7 +34,7 @@ public class MobClonerContainer extends BaseContainerMenu {
 
 	@Override
 	public boolean stillValid(Player player) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.TEST_BLOCK.get());
+		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.MOB_CLONER.get());
 	}
 
 	@Override
