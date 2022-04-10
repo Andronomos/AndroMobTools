@@ -37,11 +37,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapedRecipeBuilder.shaped(ModItems.ADVANCED_CHIP.get(), 4)
                 .define('1', Items.DIAMOND)
-                .define('2', Items.QUARTZ)
-                .define('3', Items.REDSTONE)
-                .pattern("313")
+                .define('2', Items.REDSTONE)
+                .define('3', ModItems.BASIC_CHIP.get())
                 .pattern("212")
                 .pattern("313")
+                .pattern("212")
                 .unlockedBy("has_item", has(Items.DIAMOND))
                 .save(consumer);
 

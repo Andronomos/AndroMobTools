@@ -23,15 +23,15 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.Nullable;
 
-public class TestBlock extends Block implements EntityBlock  {
+public class TestBlock extends Block implements EntityBlock, LiquidBlockContainer  {
 	public TestBlock(Properties properties) {
 		super(properties);
 	}
 
 	@Nullable
 	@Override
-	public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-		return null;
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new TestBlockBE(pos, state);
 	}
 
 	@Nullable
@@ -47,5 +47,18 @@ public class TestBlock extends Block implements EntityBlock  {
 	}
 
 
+	@Override
+	public FluidState getFluidState(BlockState p_60577_) {
+		return Fluids.WATER.getFlowing(1, false);
+	}
 
+	@Override
+	public boolean canPlaceLiquid(BlockGetter getter, BlockPos pos, BlockState state, Fluid fluid) {
+		return false;
+	}
+
+	@Override
+	public boolean placeLiquid(LevelAccessor accessor, BlockPos pos, BlockState blockState, FluidState fluidState) {
+		return false;
+	}
 }

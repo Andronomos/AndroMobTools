@@ -42,6 +42,7 @@ public class ModLootTableProvider extends LootTableProvider {
         lootTables.put(ModBlocks.MOB_KILLING_PAD.get(), createSimpleTable("mob_killing_pad", ModBlocks.MOB_KILLING_PAD.get()));
         lootTables.put(ModBlocks.WEAK_ACCELERATION_PAD.get(), createSimpleTable("weak_acceleration_pad", ModBlocks.WEAK_ACCELERATION_PAD.get()));
         lootTables.put(ModBlocks.STRONG_ACCELERATION_PAD.get(), createSimpleTable("strong_acceleration_pad", ModBlocks.STRONG_ACCELERATION_PAD.get()));
+        lootTables.put(ModBlocks.CROP_HARVESTER.get(), createSimpleTable("crop_harvester", ModBlocks.CROP_HARVESTER.get()));
     }
 
     protected LootTable.Builder createSimpleTable(String name, Block block) {

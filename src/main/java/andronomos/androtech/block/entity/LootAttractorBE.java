@@ -1,6 +1,7 @@
 package andronomos.androtech.block.entity;
 
 import andronomos.androtech.registry.ModBlockEntities;
+import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -84,10 +85,10 @@ public class LootAttractorBE extends BaseContainerBlockEntity {
 			if(item == null)
 				return;
 
-			ItemStack itemstack = insertAttractedItem(item.getItem().copy());
+			ItemStack stack = ItemStackUtil.insertIntoContainer(item.getItem().copy(), itemHandler);
 
-			if (!itemstack.isEmpty()) {
-				item.setItem(itemstack);
+			if (!stack.isEmpty()) {
+				item.setItem(stack);
 			} else {
 				item.remove(Entity.RemovalReason.KILLED);
 			}
@@ -96,16 +97,6 @@ public class LootAttractorBE extends BaseContainerBlockEntity {
 
 	public List<ItemEntity> getCapturedItems() {
 		return getLevel().getEntitiesOfClass(ItemEntity.class, getAABBWithModifiers(), EntitySelector.ENTITY_STILL_ALIVE);
-	}
-
-	private ItemStack insertAttractedItem(ItemStack stack) {
-		AtomicReference<ItemStack> returnStack = new AtomicReference<>(stack.copy());
-		itemHandler.ifPresent(h -> {
-			for(int i = 0; i < h.getSlots() && !returnStack.get().isEmpty(); ++i) {
-				returnStack.set(h.insertItem(i, returnStack.get(), false));
-			}
-		});
-		return returnStack.get();
 	}
 
 	public List<ExperienceOrb> getCapturedXP() {
@@ -123,18 +114,5 @@ public class LootAttractorBE extends BaseContainerBlockEntity {
 		double y = getBlockPos().getY() + 0.5D;
 		double z = getBlockPos().getZ() + 0.5D;
 		return new AABB(x - 9.5D, y - 9.5D, z - 9.5D, x + 9.5D, y + 9.5D, z + 9.5D);
-	}
-
-	@Override
-	protected void saveAdditional(CompoundTag tag) {
-		tag.put("Inventory", inputItems.serializeNBT());
-	}
-
-	@Override
-	public void load(CompoundTag tag) {
-		super.load(tag);
-		if (tag.contains("Inventory")) {
-			inputItems.deserializeNBT(tag.getCompound("Inventory"));
-		}
 	}
 }

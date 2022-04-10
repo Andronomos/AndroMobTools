@@ -11,6 +11,7 @@ public class ModItems {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, andronomos.androtech.AndroTech.MOD_ID);
 
+    public static final RegistryObject<Item> DEBUG_STICK = ITEMS.register("debug_stick", () -> new DebugStickItem(BASE_PROPERTIES));
     public static final RegistryObject<Item> BASIC_CHIP = register("basic_chip");
     public static final RegistryObject<Item> ADVANCED_CHIP = register("advanced_chip");
     public static final RegistryObject<Item> MOB_STORAGE_CELL = ITEMS.register("mob_storage_cell", () -> new MobStorageCellItem(BASE_PROPERTIES));

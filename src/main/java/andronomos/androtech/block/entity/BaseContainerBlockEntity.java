@@ -2,6 +2,7 @@ package andronomos.androtech.block.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,16 +31,6 @@ public abstract class BaseContainerBlockEntity extends BlockEntity {
 
 	protected abstract ItemStackHandler createItemHandler();
 
-	//@Override
-	//public void load(CompoundTag tag) {
-	//	super.load(tag);
-	//}
-	//
-	//@Override
-	//protected void saveAdditional(CompoundTag tag) {
-	//	super.saveAdditional(tag);
-	//}
-
 	@Nonnull
 	@Override
 	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
@@ -54,5 +45,18 @@ public abstract class BaseContainerBlockEntity extends BlockEntity {
 		super.invalidateCaps();
 		if (itemHandler != null)
 			itemHandler.invalidate();
+	}
+
+	@Override
+	protected void saveAdditional(CompoundTag tag) {
+		tag.put("Inventory", inputItems.serializeNBT());
+	}
+
+	@Override
+	public void load(CompoundTag tag) {
+		super.load(tag);
+		if (tag.contains("Inventory")) {
+			inputItems.deserializeNBT(tag.getCompound("Inventory"));
+		}
 	}
 }

@@ -47,6 +47,7 @@ public class AndroTech
             MenuScreens.register(ModContainers.LOOT_ATTRACTOR.get(), LootAttractorScreen::new);
             MenuScreens.register(ModContainers.LOOT_INCINERATOR.get(), LootIncineratorScreen::new);
             MenuScreens.register(ModContainers.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);
+            MenuScreens.register(ModContainers.CROP_HARVESTER.get(), CropHarvesterScreen::new);
         });
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MOB_CLONER.get(), RenderType.cutout());

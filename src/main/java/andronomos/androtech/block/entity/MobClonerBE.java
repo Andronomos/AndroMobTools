@@ -13,27 +13,28 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-//public class AdvancedSpawnerBE extends BaseContainerBlockEntity implements BlockEntityTicker<AdvancedSpawnerBE> {
-public class MobClonerBE extends BaseContainerBlockEntity {
+public class MobClonerBE extends BaseContainerBlockEntity implements TickingBlockEntity {
 	private double spin;
 	private double oSpin;
 	private int maxNearbyEntities = 6;
 	private int requiredPlayerRange = 64;
 	private int spawnCount = 4;
 	private int spawnRange = 4;
+	private int tickDelay = Const.TicksInSeconds.FIVESECONDS;
 	private int tickCounter = 0;
 
 	public MobClonerBE(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.MOB_CLONER_BE.get(), pos, state);
 	}
 
-	public void clientTick(Level level, BlockPos pos, BlockState state, MobClonerBE mobCloner) {
+	public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
 		if (this.isNearPlayer(level, pos)) {
 			ItemStack stack = inputItems.getStackInSlot(0);
 
@@ -51,7 +52,7 @@ public class MobClonerBE extends BaseContainerBlockEntity {
 		}
 	}
 
-	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MobClonerBE mobCloner) {
+	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
 		if (!this.isNearPlayer(this.level, pos)) return;
 
 		ItemStack stack = inputItems.getStackInSlot(0);
@@ -61,11 +62,7 @@ public class MobClonerBE extends BaseContainerBlockEntity {
 				|| !(stack.getItem() instanceof MobStorageCellItem)
 				|| !ItemStackUtil.containsEntity(stack)) return;
 
-		if(tickCounter != Const.TicksInSeconds.THREESECONDS) {
-			tickCounter++;
-		} else {
-			tickCounter = 0;
-
+		if(shouldTick()) {
 			for(int i = 0; i < spawnCount; ++i) {
 				Entity entity = ItemStackUtil.getEntityFromStack(stack, this.level, true);
 				entity.setUUID(Mth.createInsecureUUID());
@@ -82,6 +79,16 @@ public class MobClonerBE extends BaseContainerBlockEntity {
 				}
 			}
 		}
+	}
+
+	public boolean shouldTick() {
+		if (tickCounter < tickDelay) {
+			tickCounter++;
+			return false;
+		} else {
+			tickCounter = 0;
+		}
+		return true;
 	}
 
 	private boolean isNearPlayer(Level level, BlockPos blockPos) {

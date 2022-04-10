@@ -36,4 +36,10 @@ public class ModContainers {
         return new MobKillingPadContainer(windowId, pos, inv, inv.player);
     }));
 
+    public static final RegistryObject<MenuType<CropHarvesterContainer>> CROP_HARVESTER = CONTAINERS.register("crop_harvester", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level level = inv.player.getCommandSenderWorld();
+        return new CropHarvesterContainer(windowId, pos, inv, inv.player);
+    }));
+
 }

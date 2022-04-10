@@ -37,7 +37,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> MOB_KILLING_PAD = registerBlock("mob_killing_pad", () -> new MobKillingPadBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
     public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, false);
     public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, false);
-    public static final RegistryObject<Block> FARMLAND_HYDRATOR = registerBlock("farmland_hydrator", () -> new FarmlandHydratorBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
+    public static final RegistryObject<Block> CROP_HARVESTER = registerBlock("crop_harvester", () -> new CropHarvesterBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
 
 
     private static <T extends Block> RegistryObject<Block> registerPad(String name, PadEffect effect, boolean shouledAffectPlayer) {

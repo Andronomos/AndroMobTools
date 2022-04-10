@@ -1,5 +1,5 @@
 {
-  "block.androtech.farmland_hydrator": "Farmland Hydrator",
+  "block.androtech.crop_harvester": "Crop Harvester",
   "block.androtech.loot_attractor": "Loot Attractor",
   "block.androtech.loot_incinerator": "Loot Incinerator",
   "block.androtech.mob_cloner": "Mob Cloner",
@@ -12,6 +12,7 @@
   "item.androtech.mob_storage_cell": "Mob Storage Cell",
   "item.androtech.portable_loot_attractor": "Portable Loot Attractor",
   "itemGroup.androtech_group": "Andro Mob Utils",
+  "screen.androtech.crop_harvester": "Crop Harvester",
   "screen.androtech.loot_attractor": "Loot Attractor",
   "screen.androtech.loot_incinerator": "Loot Incinerator",
   "screen.androtech.mob_killing_pad": "Mob Killing Pad",

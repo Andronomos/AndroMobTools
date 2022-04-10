@@ -13,9 +13,6 @@ public class ModBlockEntities {
             .of(TestBlockBE::new, ModBlocks.TEST_BLOCK.get())
             .build(null));
 
-
-
-
     public static final RegistryObject<BlockEntityType<MobClonerBE>> MOB_CLONER_BE = BLOCK_ENTITIES.register("mob_cloner_be", () -> BlockEntityType.Builder
             .of(MobClonerBE::new, ModBlocks.MOB_CLONER.get())
             .build(null));
@@ -32,7 +29,7 @@ public class ModBlockEntities {
             .of(MobKillingPadBE::new, ModBlocks.MOB_KILLING_PAD.get())
             .build(null));
 
-    public static final RegistryObject<BlockEntityType<FarmlandHydratorBE>> FARMLAND_HYDRATOR = BLOCK_ENTITIES.register("farmland_hydrator_be", () -> BlockEntityType.Builder
-            .of(FarmlandHydratorBE::new, ModBlocks.FARMLAND_HYDRATOR.get())
+    public static final RegistryObject<BlockEntityType<CropHarvesterBE>> CROP_HARVESTER = BLOCK_ENTITIES.register("crop_harvester_be", () -> BlockEntityType.Builder
+            .of(CropHarvesterBE::new, ModBlocks.CROP_HARVESTER.get())
             .build(null));
 }

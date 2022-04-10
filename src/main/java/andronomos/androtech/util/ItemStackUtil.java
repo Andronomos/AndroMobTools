@@ -8,8 +8,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.IItemHandler;
 
 import javax.annotation.Nullable;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ItemStackUtil {
 
@@ -47,7 +50,15 @@ public class ItemStackUtil {
         return null;
     }
 
-
+    public static ItemStack insertIntoContainer(ItemStack stack, LazyOptional<IItemHandler> itemHandler) {
+        AtomicReference<ItemStack> returnStack = new AtomicReference<>(stack.copy());
+        itemHandler.ifPresent(h -> {
+            for(int i = 0; i < h.getSlots() && !returnStack.get().isEmpty(); ++i) {
+                returnStack.set(h.insertItem(i, returnStack.get(), false));
+            }
+        });
+        return returnStack.get();
+    }
 
 
 
