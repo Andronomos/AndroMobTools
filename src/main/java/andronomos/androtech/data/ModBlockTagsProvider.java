@@ -21,7 +21,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.MOB_KILLING_PAD.get())
                 .add(ModBlocks.WEAK_ACCELERATION_PAD.get())
                 .add(ModBlocks.STRONG_ACCELERATION_PAD.get())
-                .add(ModBlocks.LOOT_ATTRACTOR.get());
+                .add(ModBlocks.LOOT_ATTRACTOR.get())
+                .add(ModBlocks.CROP_HARVESTER.get());
 
         //tag(BlockTags.NEEDS_DIAMOND_TOOL)
         //        .add(ModBlocks.ADVANCED_SPAWNER.get());

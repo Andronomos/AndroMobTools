@@ -8,6 +8,7 @@
     "androtech:mob_killing_pad",
     "androtech:weak_acceleration_pad",
     "androtech:strong_acceleration_pad",
-    "androtech:loot_attractor"
+    "androtech:loot_attractor",
+    "androtech:crop_harvester"
   ]
 }
