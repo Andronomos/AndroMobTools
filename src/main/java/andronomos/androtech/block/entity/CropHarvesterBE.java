@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CropHarvesterBE extends BaseContainerBlockEntity implements TickingBlockEntity {
-	private int tickDelay = Const.TicksInSeconds.FIVESECONDS;
+	private int tickDelay = Const.TicksInSeconds.FIVEMINUTES;
 	private int tickCounter = 0;
 	private final List<IHarvester> harvesters = new ArrayList<>();
 
@@ -70,8 +70,6 @@ public class CropHarvesterBE extends BaseContainerBlockEntity implements Ticking
 		double z = pos.getZ();
 		AABB area = new AABB(x - 4, y + 1, z - 4, x + 4, y + 1, z + 4);
 
-		//IHarvester cropHarvester = null;
-
 		List<BlockPos> nearbyCrops = BlockUtils.getNearbyCrops(area, level);
 
 		for (BlockPos nearbyCropPos : nearbyCrops) {
@@ -85,26 +83,6 @@ public class CropHarvesterBE extends BaseContainerBlockEntity implements Ticking
 					break;
 				}
 			}
-
-			//if(block instanceof NetherWartBlock) {
-			//	cropHarvester = new NetherWartHarvester();
-			//}
-			//
-			//if(block instanceof CropBlock) {
-			//	cropHarvester = new CropHarvester();
-			//}
-			//
-			//if(block instanceof StemGrownBlock) {
-			//	cropHarvester = new StemGrownBlockHarvester();
-			//}
-			//
-			//if(block instanceof SweetBerryBushBlock) {
-			//	cropHarvester = new SweetBerryHarvester();
-			//}
-			//
-			//if(cropHarvester != null) {
-			//	cropHarvester.tryHarvest(block, cropState, level, nearbyCropPos, itemHandler);
-			//}
 		}
 	}
 
