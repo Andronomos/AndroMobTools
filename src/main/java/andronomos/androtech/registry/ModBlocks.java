@@ -31,6 +31,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block", () -> new TestBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
 
+    public static final RegistryObject<Block> MACHINE_BLOCK = registerBlock("machine_block", () -> new Block(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
     public static final RegistryObject<Block> MOB_CLONER = registerBlock("mob_cloner", () -> new MobClonerBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
     public static final RegistryObject<Block> LOOT_ATTRACTOR = registerBlock("loot_attractor", () -> new LootAttractorBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);
     public static final RegistryObject<Block> LOOT_INCINERATOR = registerBlock("loot_incinerator", () -> new LootIncineratorBlock(MACHINE_PROPERTIES), ModItems.BASE_PROPERTIES);

@@ -1,18 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
+    "343",
     "212",
-    "313",
-    "212"
+    "343"
   ],
   "key": {
     "1": {
-      "item": "minecraft:diamond"
+      "tag": "forge:gems/diamond"
     },
     "2": {
-      "item": "minecraft:redstone"
+      "item": "minecraft:quartz"
     },
     "3": {
+      "tag": "forge:dusts/redstone"
+    },
+    "4": {
       "item": "androtech:basic_chip"
     }
   },

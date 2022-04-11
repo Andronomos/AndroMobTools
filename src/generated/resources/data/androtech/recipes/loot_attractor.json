@@ -10,13 +10,13 @@
       "item": "androtech:portable_loot_attractor"
     },
     "2": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "3": {
       "tag": "forge:chests"
     },
     "4": {
-      "item": "minecraft:redstone"
+      "tag": "forge:dusts/redstone"
     },
     "5": {
       "item": "androtech:advanced_chip"

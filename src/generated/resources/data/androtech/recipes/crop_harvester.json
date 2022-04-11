@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "   ",
-    "131",
-    "222"
+    "212",
+    "343",
+    "252"
   ],
   "key": {
     "1": {
@@ -13,11 +13,16 @@
       "tag": "forge:ingots/iron"
     },
     "3": {
-      "item": "minecraft:diamond_sword"
+      "item": "minecraft:diamond_hoe"
+    },
+    "4": {
+      "item": "minecraft:water_bucket"
+    },
+    "5": {
+      "tag": "forge:chests"
     }
   },
   "result": {
-    "item": "androtech:mob_killing_pad",
-    "count": 4
+    "item": "androtech:crop_harvester"
   }
 }

@@ -10,7 +10,7 @@
       "item": "minecraft:lava_bucket"
     },
     "2": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "3": {
       "tag": "forge:chests"

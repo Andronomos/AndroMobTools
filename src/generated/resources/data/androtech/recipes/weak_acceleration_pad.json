@@ -10,7 +10,7 @@
       "item": "androtech:basic_chip"
     },
     "2": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "3": {
       "item": "minecraft:sugar"

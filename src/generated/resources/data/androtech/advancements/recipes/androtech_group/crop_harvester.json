@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "androtech:advanced_chip"
+      "androtech:crop_harvester"
     ]
   },
   "criteria": {
@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:gems/diamond"
+            "items": [
+              "minecraft:lava_bucket"
+            ]
           }
         ]
       }
@@ -19,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "androtech:advanced_chip"
+        "recipe": "androtech:crop_harvester"
       }
     }
   },
