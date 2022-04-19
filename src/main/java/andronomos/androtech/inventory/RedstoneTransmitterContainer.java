@@ -13,7 +13,7 @@ import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class RedstoneTransmitterContainer extends BaseContainerMenu {
-	private BlockEntity blockEntity;
+	public BlockEntity blockEntity;
 
 	public RedstoneTransmitterContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player) {
 		super(ModContainers.REDSTONE_TRANSMITTER.get(), windowId);

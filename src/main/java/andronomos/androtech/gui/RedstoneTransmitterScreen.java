@@ -5,8 +5,13 @@ import andronomos.androtech.inventory.RedstoneTransmitterContainer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 public class RedstoneTransmitterScreen extends BaseScreen<RedstoneTransmitterContainer> {
+    private RedstoneTransmitterContainer container;
+
     public RedstoneTransmitterScreen(RedstoneTransmitterContainer container, Inventory inventory, Component component) {
         super(container, inventory, component);
     }
@@ -25,12 +30,13 @@ public class RedstoneTransmitterScreen extends BaseScreen<RedstoneTransmitterCon
 
     @Override
     protected void renderBg(PoseStack poseStack, float partialTicks, int mouseX, int mouseY) {
-        this.drawBackground(poseStack, INVENTORY);
+        this.drawBackground(poseStack, INVENTORY_PLAIN);
 
-        //draw the redstone receiver card slots
-        for (int slotCounter = 0; slotCounter < 9; slotCounter++) {
-            this.drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * slotCounter, 26, SLOT_CARD, Const.SCREEN_SLOT_SIZE);
-        }
+        container.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+            for(int slotCounter = 0; slotCounter < 9; slotCounter++) {
+                this.drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * slotCounter, 26, SLOT_CARD, Const.SCREEN_SLOT_SIZE);
+            }
+        });
     }
 
 }
