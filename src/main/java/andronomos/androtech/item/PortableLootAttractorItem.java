@@ -38,10 +38,10 @@ public class PortableLootAttractorItem extends AbstractActivatableItem {
 		return InteractionResultHolder.success(stack);
 	}
 
-	public void inventoryTick(ItemStack stack, Level level, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (!isActivated(stack) || !canUse(stack) || !(entityIn instanceof Player)) return;
+	public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
+		if (!isActivated(stack) || !canUse(stack) || !(entity instanceof Player)) return;
 
-		Player player = (Player)entityIn;
+		Player player = (Player)entity;
 
 		AABB area = new AABB(player.position().add(-pickupRange, -pickupRange, -pickupRange), player.position().add(pickupRange, pickupRange, pickupRange));
 

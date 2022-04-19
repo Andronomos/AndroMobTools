@@ -35,7 +35,6 @@ public class ModLootTableProvider extends LootTableProvider {
     }
 
      private void addTables() {
-        //lootTables.put(ModBlocks.MACHINE_CASING.get(), createSimpleTable("advanced_spawner", ModBlocks.MACHINE_CASING.get()));
         lootTables.put(ModBlocks.MOB_CLONER.get(), createSimpleTable("magic_spawner", ModBlocks.MOB_CLONER.get()));
         lootTables.put(ModBlocks.LOOT_ATTRACTOR.get(), createSimpleTable("loot_attractor", ModBlocks.LOOT_ATTRACTOR.get()));
         lootTables.put(ModBlocks.LOOT_INCINERATOR.get(), createSimpleTable("loot_incinerator", ModBlocks.LOOT_INCINERATOR.get()));
@@ -43,6 +42,9 @@ public class ModLootTableProvider extends LootTableProvider {
         lootTables.put(ModBlocks.WEAK_ACCELERATION_PAD.get(), createSimpleTable("weak_acceleration_pad", ModBlocks.WEAK_ACCELERATION_PAD.get()));
         lootTables.put(ModBlocks.STRONG_ACCELERATION_PAD.get(), createSimpleTable("strong_acceleration_pad", ModBlocks.STRONG_ACCELERATION_PAD.get()));
         lootTables.put(ModBlocks.CROP_HARVESTER.get(), createSimpleTable("crop_harvester", ModBlocks.CROP_HARVESTER.get()));
+        lootTables.put(ModBlocks.WIRELESS_LIGHT.get(), createSimpleTable("wireless_light", ModBlocks.WIRELESS_LIGHT.get()));
+        lootTables.put(ModBlocks.REDSTONE_RECEIVER.get(), createSimpleTable("redstone_receiver", ModBlocks.REDSTONE_RECEIVER.get()));
+        lootTables.put(ModBlocks.REDSTONE_TRANSMITTER.get(), createSimpleTable("redstone_transmitter", ModBlocks.REDSTONE_TRANSMITTER.get()));
     }
 
     protected LootTable.Builder createSimpleTable(String name, Block block) {

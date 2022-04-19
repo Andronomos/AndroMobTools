@@ -1,0 +1,9 @@
+{
+  "parent": "androtech:block/redstone_transmitter_off",
+  "display": {
+    "gui": {
+      "rotation": [30, 225, 0],
+      "scale": [0.625, 0.625, 0.625]
+    }
+  }
+}

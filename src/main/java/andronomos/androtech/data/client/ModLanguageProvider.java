@@ -10,7 +10,9 @@ import static andronomos.androtech.block.CropHarvesterBlock.SCREEN_CROP_HARVESTE
 import static andronomos.androtech.block.MobClonerBlock.SCREEN_MOB_CLONER;
 import static andronomos.androtech.block.LootAttractorBlock.SCREEN_LOOT_ATTRACTOR;
 import static andronomos.androtech.block.LootIncineratorBlock.SCREEN_LOOT_INCINERATOR;
+import static andronomos.androtech.block.RedstoneTransmitterBlock.SCREEN_REDSTONE_TRANSMITTER;
 import static andronomos.androtech.block.pad.MobKillingPadBlock.SCREEN_MOB_KILLING_PAD;
+//import static andronomos.androtech.item.BackpackItem.SCREEN_BACKPACK;
 import static andronomos.androtech.item.MobStorageCellItem.*;
 
 public class ModLanguageProvider extends LanguageProvider {
@@ -21,7 +23,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
 	@Override
 	protected void addTranslations() {
-		add("itemGroup." + TAB_NAME, "Andro Mob Utils");
+		add("itemGroup." + TAB_NAME, "AndroTech");
 
 		//items
 		add(ModItems.MOB_STORAGE_CELL.get(), "Mob Storage Cell");
@@ -30,6 +32,9 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.PORTABLE_LOOT_ATTRACTOR.get(), "Portable Loot Attractor");
 		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
 		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
+		add(ModItems.SPEED_EMITTER.get(), "Speed Emitter");
+		add(ModItems.REDSTONE_RECEIVER_CARD.get(), "Redstone Receiver Card");
+		//add(SCREEN_BACKPACK, "Backpack");
 
 		//blocks
 		add(ModBlocks.TEST_BLOCK.get(), "Test Block");
@@ -47,5 +52,9 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModBlocks.STRONG_ACCELERATION_PAD.get(), "Strong Acceleration Pad");
 		add(SCREEN_CROP_HARVESTER, "Crop Harvester");
 		add(ModBlocks.CROP_HARVESTER.get(), "Crop Harvester");
+		add(ModBlocks.WIRELESS_LIGHT.get(), "Wireless Light");
+		add(ModBlocks.REDSTONE_TRANSMITTER.get(), "Redstone Transmitter");
+		add(SCREEN_REDSTONE_TRANSMITTER, "Redstone Transmitter");
+		add(ModBlocks.REDSTONE_RECEIVER.get(), "Redstone Receiver");
 	}
 }

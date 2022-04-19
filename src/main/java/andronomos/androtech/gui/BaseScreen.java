@@ -1,5 +1,6 @@
 package andronomos.androtech.gui;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.util.ChatUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -10,11 +11,12 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 
 public abstract class BaseScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {
-	public static final ResourceLocation INVENTORY = new ResourceLocation(andronomos.androtech.AndroTech.MOD_ID, "textures/gui/inventory.png");
-	public static final ResourceLocation INVENTORY_PLAIN = new ResourceLocation(andronomos.androtech.AndroTech.MOD_ID, "textures/gui/inventory_plain.png");
-	public static final ResourceLocation INVENTORY_LARGE = new ResourceLocation(andronomos.androtech.AndroTech.MOD_ID, "textures/gui/inventory_large.png");
-	public static final ResourceLocation SLOT = new ResourceLocation(andronomos.androtech.AndroTech.MOD_ID, "textures/gui/slot.png");
-	public static final ResourceLocation SLOT_ENCHANTED_BOOK = new ResourceLocation(andronomos.androtech.AndroTech.MOD_ID, "textures/gui/slot_enchanted_book.png");
+	public static final ResourceLocation INVENTORY = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/inventory.png");
+	public static final ResourceLocation INVENTORY_PLAIN = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/inventory_plain.png");
+	public static final ResourceLocation INVENTORY_LARGE = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/inventory_large.png");
+	public static final ResourceLocation SLOT = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot.png");
+	public static final ResourceLocation SLOT_CARD = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_card.png");
+	public static final ResourceLocation SLOT_ENCHANTED_BOOK = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_enchanted_book.png");
 
 	public BaseScreen(T screenContainer, Inventory inventory, Component component) {
 		super(screenContainer, inventory, component);

@@ -9,6 +9,9 @@
     "androtech:weak_acceleration_pad",
     "androtech:strong_acceleration_pad",
     "androtech:loot_attractor",
-    "androtech:crop_harvester"
+    "androtech:crop_harvester",
+    "androtech:wireless_light",
+    "androtech:redstone_receiver",
+    "androtech:redstone_transmitter"
   ]
 }

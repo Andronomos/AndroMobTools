@@ -19,7 +19,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "basic_chip");
         builder(itemGenerated, "advanced_chip");
         builder(itemGenerated, "portable_loot_attractor");
+        builder(itemGenerated, "speed_emitter");
         builder(itemGenerated, "debug_stick");
+        builder(itemGenerated, "redstone_receiver_card");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {

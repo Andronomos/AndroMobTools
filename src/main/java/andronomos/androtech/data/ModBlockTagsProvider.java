@@ -22,7 +22,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.WEAK_ACCELERATION_PAD.get())
                 .add(ModBlocks.STRONG_ACCELERATION_PAD.get())
                 .add(ModBlocks.LOOT_ATTRACTOR.get())
-                .add(ModBlocks.CROP_HARVESTER.get());
+                .add(ModBlocks.CROP_HARVESTER.get())
+                .add(ModBlocks.WIRELESS_LIGHT.get())
+                .add(ModBlocks.REDSTONE_RECEIVER.get())
+                .add(ModBlocks.REDSTONE_TRANSMITTER.get());
 
         //tag(BlockTags.NEEDS_DIAMOND_TOOL)
         //        .add(ModBlocks.ADVANCED_SPAWNER.get());

@@ -42,4 +42,14 @@ public class ModContainers {
         return new CropHarvesterContainer(windowId, pos, inv, inv.player);
     }));
 
+    //public static final RegistryObject<MenuType<BackpackContainer>> BACKPACK = CONTAINERS.register("backpack", () -> IForgeMenuType.create((windowId, inv, data) -> {
+    //    Level level = inv.player.getCommandSenderWorld();
+    //    return new BackpackContainer(windowId, inv, inv.player);
+    //}));
+
+    public static final RegistryObject<MenuType<RedstoneTransmitterContainer>> REDSTONE_TRANSMITTER = CONTAINERS.register("redstone_transmitter", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level level = inv.player.getCommandSenderWorld();
+        return new RedstoneTransmitterContainer(windowId, pos, inv, inv.player);
+    }));
 }

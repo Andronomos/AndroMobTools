@@ -25,7 +25,7 @@ public class MobClonerScreen extends BaseScreen<MobClonerContainer> {
 
 	@Override
 	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(stack, INVENTORY);
+		drawBackground(stack, INVENTORY_PLAIN);
 		drawSlot(stack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 4, 29);
 	}
 }

@@ -34,26 +34,26 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 		super(ModBlockEntities.MOB_CLONER_BE.get(), pos, state);
 	}
 
+	public boolean shouldActivate(Level level, BlockPos pos) {
+		if (!this.isNearPlayer(this.level, pos)) return false;
+		if(level.hasNeighborSignal(pos)) return false;
+
+		return true;
+	}
+
 	public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
-		if (this.isNearPlayer(level, pos)) {
-			ItemStack stack = inputItems.getStackInSlot(0);
+		if(!shouldActivate(level, pos)) return;
 
-			if(stack == null
-					|| stack.isEmpty()
-					|| !(stack.getItem() instanceof MobStorageCellItem)
-					|| !ItemStackUtil.containsEntity(stack)) return;
-
-			double d0 = (double)pos.getX() + level.random.nextDouble();
-			double d1 = (double)pos.getY() + level.random.nextDouble();
-			double d2 = (double)pos.getZ() + level.random.nextDouble();
-			level.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-			level.addParticle(ParticleTypes.FLAME, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-			this.spin = (this.spin + (double)(1000.0F / (20 + 200.0F))) % 360.0D;
-		}
+		double d0 = (double)pos.getX() + level.random.nextDouble();
+		double d1 = (double)pos.getY() + level.random.nextDouble();
+		double d2 = (double)pos.getZ() + level.random.nextDouble();
+		level.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+		level.addParticle(ParticleTypes.FLAME, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+		this.spin = (this.spin + (double)(1000.0F / (20 + 200.0F))) % 360.0D;
 	}
 
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
-		if (!this.isNearPlayer(this.level, pos)) return;
+		if(!shouldActivate(level, pos)) return;
 
 		ItemStack stack = inputItems.getStackInSlot(0);
 
@@ -102,7 +102,7 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 
 	@Nonnull
 	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(54) {
+		return new ItemStackHandler(1) {
 			@Override
 			public int getSlotLimit(int slot) {
 				return 64;

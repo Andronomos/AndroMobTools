@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "242",
-    "414",
+    "515",
     "232"
   ],
   "key": {
@@ -17,6 +17,9 @@
     },
     "4": {
       "tag": "forge:glass"
+    },
+    "5": {
+      "tag": "forge:dusts/redstone"
     }
   },
   "result": {

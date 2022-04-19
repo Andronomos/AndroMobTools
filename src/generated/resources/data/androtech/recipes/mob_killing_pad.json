@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "   ",
-    "131",
-    "222"
+    "232",
+    "313",
+    "232"
   ],
   "key": {
     "1": {
@@ -13,7 +13,7 @@
       "tag": "forge:ingots/iron"
     },
     "3": {
-      "item": "minecraft:diamond_sword"
+      "item": "minecraft:iron_sword"
     }
   },
   "result": {

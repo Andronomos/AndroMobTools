@@ -1,8 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "CRAFTING_MISC",
   "pattern": [
     "212",
-    "343",
+    "364",
     "252"
   ],
   "key": {
@@ -20,6 +21,9 @@
     },
     "5": {
       "tag": "forge:chests"
+    },
+    "6": {
+      "tag": "forge:dusts/redstone"
     }
   },
   "result": {

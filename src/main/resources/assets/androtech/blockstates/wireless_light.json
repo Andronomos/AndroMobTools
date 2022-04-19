@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "androtech:block/wireless_light",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "androtech:block/wireless_light",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east": {
+      "model": "androtech:block/wireless_light",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "androtech:block/wireless_light",
+      "x": 90,
+      "y": 270
+    },
+    "facing=up": {
+      "model": "androtech:block/wireless_light"
+    },
+    "facing=down": {
+      "model": "androtech:block/wireless_light",
+      "x": 180
+    }
+  }
+}
