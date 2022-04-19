@@ -5,15 +5,14 @@ import andronomos.androtech.inventory.RedstoneTransmitterContainer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
 
 public class RedstoneTransmitterScreen extends BaseScreen<RedstoneTransmitterContainer> {
     private RedstoneTransmitterContainer container;
 
     public RedstoneTransmitterScreen(RedstoneTransmitterContainer container, Inventory inventory, Component component) {
         super(container, inventory, component);
+        this.container = container;
     }
 
     @Override

@@ -25,6 +25,7 @@ public class RedstoneTransmitterBE extends BaseContainerBlockEntity implements T
      *  Keeps a receiver synced with the transmitter when is placed in the world
      */
     private void updateReceiver(BlockPos receiverPos) {
+        if(receiverPos == null) return; //this should only happen when the receiver card doesn't have any coords
         BlockState receiverState = level.getBlockState(receiverPos);
         if(receiverState == null) return;
         if(receiverState.getBlock() != ModBlocks.REDSTONE_RECEIVER.get()) return;
@@ -54,7 +55,13 @@ public class RedstoneTransmitterBE extends BaseContainerBlockEntity implements T
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return stack.getItem() == ModItems.REDSTONE_RECEIVER_CARD.get();
+                if(stack.getItem() == ModItems.REDSTONE_RECEIVER_CARD.get()) {
+                    if(NBTUtil.getItemStackBlockPos(stack) != null) {
+                        return true;
+                    }
+                }
+
+                return false;
             }
 
             @Nonnull
