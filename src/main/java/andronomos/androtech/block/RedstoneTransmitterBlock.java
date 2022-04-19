@@ -103,8 +103,8 @@ public class RedstoneTransmitterBlock extends Block implements EntityBlock {
                 }
             } else {
                 level.setBlock(pos, state.cycle(POWERED), 3);
-                final RedstoneTransmitterBE tileEntity = (RedstoneTransmitterBE)level.getBlockEntity(pos);
-                tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(itemHandler -> {
+                final RedstoneTransmitterBE blockEntity = (RedstoneTransmitterBE)level.getBlockEntity(pos);
+                blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(itemHandler -> {
                     BlockState transmitterState = level.getBlockState(pos);
                     for(int slotIndex = 0; slotIndex < 9; slotIndex++) {
                         ItemStack receiverCard = itemHandler.getStackInSlot(slotIndex);
