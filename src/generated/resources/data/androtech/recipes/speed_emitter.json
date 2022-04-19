@@ -2,18 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "353",
-    "242"
+    "454",
+    "232"
   ],
   "key": {
     "1": {
       "item": "androtech:advanced_chip"
     },
     "2": {
-      "tag": "forge:ingots/iron"
+      "item": "minecraft:iron_ingot"
     },
     "3": {
-      "tag": "forge:dusts/redstone"
+      "item": "minecraft:redstone"
     },
     "4": {
       "item": "minecraft:sugar"

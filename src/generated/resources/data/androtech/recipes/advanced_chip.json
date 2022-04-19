@@ -16,7 +16,7 @@
       "tag": "forge:dusts/redstone"
     },
     "4": {
-      "item": "androtech:basic_chip"
+      "tag": "forge:ingots/iron"
     }
   },
   "result": {

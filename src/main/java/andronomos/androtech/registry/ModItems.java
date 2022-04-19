@@ -3,7 +3,6 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.item.*;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
@@ -24,7 +23,7 @@ public class ModItems {
     public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword", () -> new FakeSword());
     public static final RegistryObject<Item> PORTABLE_LOOT_ATTRACTOR = ITEMS.register("portable_loot_attractor", () -> new PortableLootAttractorItem(BASE_PROPERTIES));
     public static final RegistryObject<Item> SPEED_EMITTER = ITEMS.register("speed_emitter", () -> new EffectEmitterItem(BASE_PROPERTIES, MobEffects.MOVEMENT_SPEED, Const.EffectAmplifier.V));
-    public static final RegistryObject<Item> REDSTONE_RECEIVER_CARD = ITEMS.register("redstone_receiver_card", () -> new RedstoneReceiverCardItem(BASE_PROPERTIES));
+    public static final RegistryObject<Item> GPS_CARD = ITEMS.register("gps_card", () -> new GPSCardItem(BASE_PROPERTIES));
 
     //private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, Supplier<T> block) {
     //    return ITEMS.register(name, () -> new BlockItem(block.get(), BASE_PROPERTIES));

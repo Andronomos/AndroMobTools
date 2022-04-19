@@ -21,7 +21,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "portable_loot_attractor");
         builder(itemGenerated, "speed_emitter");
         builder(itemGenerated, "debug_stick");
-        builder(itemGenerated, "redstone_receiver_card");
+        builder(itemGenerated, "gps_card");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {

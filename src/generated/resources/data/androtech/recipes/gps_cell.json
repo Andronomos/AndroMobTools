@@ -2,27 +2,24 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "353",
+    "434",
     "242"
   ],
   "key": {
     "1": {
-      "item": "androtech:advanced_chip"
+      "item": "androtech:basic_chip"
     },
     "2": {
       "item": "minecraft:iron_ingot"
     },
     "3": {
-      "item": "minecraft:redstone"
+      "item": "minecraft:map"
     },
     "4": {
-      "item": "androtech:mob_storage_cell"
-    },
-    "5": {
-      "item": "minecraft:spawner"
+      "item": "minecraft:redstone"
     }
   },
   "result": {
-    "item": "androtech:mob_cloner"
+    "item": "androtech:gps_cell"
   }
 }

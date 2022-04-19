@@ -1,25 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "242",
-    "515",
-    "232"
+    "121",
+    "232",
+    "121"
   ],
   "key": {
     "1": {
-      "item": "minecraft:lava_bucket"
+      "item": "minecraft:iron_ingot"
     },
     "2": {
-      "tag": "forge:ingots/iron"
+      "item": "minecraft:glass"
     },
     "3": {
-      "tag": "forge:chests"
-    },
-    "4": {
-      "tag": "forge:glass"
-    },
-    "5": {
-      "tag": "forge:dusts/redstone"
+      "item": "minecraft:lava_bucket"
     }
   },
   "result": {

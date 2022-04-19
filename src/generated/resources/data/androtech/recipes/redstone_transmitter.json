@@ -7,7 +7,7 @@
   ],
   "key": {
     "1": {
-      "item": "androtech:advanced_chip"
+      "item": "androtech:basic_chip"
     },
     "2": {
       "item": "minecraft:iron_ingot"
@@ -16,13 +16,13 @@
       "item": "minecraft:redstone"
     },
     "4": {
-      "item": "androtech:mob_storage_cell"
+      "item": "minecraft:ender_pearl"
     },
     "5": {
-      "item": "minecraft:spawner"
+      "item": "minecraft:redstone_block"
     }
   },
   "result": {
-    "item": "androtech:mob_cloner"
+    "item": "androtech:redstone_transmitter"
   }
 }

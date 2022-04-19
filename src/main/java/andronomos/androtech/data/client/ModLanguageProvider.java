@@ -33,7 +33,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
 		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
 		add(ModItems.SPEED_EMITTER.get(), "Speed Emitter");
-		add(ModItems.REDSTONE_RECEIVER_CARD.get(), "Redstone Receiver Card");
+		add(ModItems.GPS_CARD.get(), "GPS Cell");
 		//add(SCREEN_BACKPACK, "Backpack");
 
 		//blocks

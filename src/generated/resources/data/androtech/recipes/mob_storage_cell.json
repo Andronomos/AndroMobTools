@@ -1,21 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "131",
-    "242",
-    "131"
+    "212",
+    "454",
+    "232"
   ],
   "key": {
     "1": {
-      "tag": "forge:ingots/iron"
-    },
-    "2": {
-      "tag": "forge:dusts/redstone"
-    },
-    "3": {
       "item": "androtech:basic_chip"
     },
+    "2": {
+      "item": "minecraft:iron_ingot"
+    },
+    "3": {
+      "item": "minecraft:redstone"
+    },
     "4": {
+      "item": "minecraft:redstone"
+    },
+    "5": {
       "item": "minecraft:lead"
     }
   },

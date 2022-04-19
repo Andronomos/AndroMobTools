@@ -24,9 +24,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class RedstoneReceiverCardItem extends Item {
+public class GPSCardItem extends Item {
 
-    public RedstoneReceiverCardItem(Properties properties) {
+    public GPSCardItem(Properties properties) {
         super(properties);
     }
 
@@ -47,7 +47,7 @@ public class RedstoneReceiverCardItem extends Item {
         Level world = player.level;
         Block block = world.getBlockState(pos).getBlock();
         if(block != ModBlocks.REDSTONE_RECEIVER.get()) return false;
-        ItemStack drop = new ItemStack(ModItems.REDSTONE_RECEIVER_CARD.get());
+        ItemStack drop = new ItemStack(ModItems.GPS_CARD.get());
         NBTUtil.setItemStackBlockPos(drop, pos);
         if(!player.addItem(drop)) ItemStackUtil.drop(player.level, player.blockPosition(), drop);
         return true;

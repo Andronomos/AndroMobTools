@@ -1,25 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "252",
-    "414",
-    "232"
+    "212",
+    "353",
+    "242"
   ],
   "key": {
     "1": {
-      "item": "androtech:portable_loot_attractor"
+      "item": "androtech:advanced_chip"
     },
     "2": {
-      "tag": "forge:ingots/iron"
+      "item": "minecraft:iron_ingot"
     },
     "3": {
-      "tag": "forge:chests"
+      "item": "minecraft:redstone"
     },
     "4": {
-      "tag": "forge:dusts/redstone"
+      "item": "minecraft:chest"
     },
     "5": {
-      "item": "androtech:advanced_chip"
+      "item": "androtech:portable_loot_attractor"
     }
   },
   "result": {
