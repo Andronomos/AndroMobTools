@@ -28,75 +28,25 @@ public class ModRecipeProvider extends RecipeProvider {
         registerChip(ModItems.ADVANCED_CHIP.get(), Tags.Items.GEMS_DIAMOND, consumer);
 
         /** Equipment **/
-        registerEquipment(ModItems.MOB_STORAGE_CELL.get(), ModItems.BASIC_CHIP.get(), Tags.Items.DUSTS_REDSTONE, Items.LEAD, consumer);
+        registerEquipment(ModItems.MOB_STORAGE_CELL.get(), ModItems.BASIC_CHIP.get(), Items.REDSTONE, Items.LEAD, consumer);
         registerEquipment(ModItems.PORTABLE_LOOT_ATTRACTOR.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, Items.HOPPER, consumer);
         registerEquipment(ModItems.SPEED_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.SUGAR, Items.BEACON, consumer);
 
         /** Machines **/
-        ShapedRecipeBuilder.shaped(ModBlocks.MOB_CLONER.get())
-                .define('1', ModItems.ADVANCED_CHIP.get())
-                .define('2', Tags.Items.INGOTS_IRON)
-                .define('3', Tags.Items.DUSTS_REDSTONE)
-                .define('4', Items.SPAWNER)
-                .pattern("212")
-                .pattern("343")
-                .pattern("232")
-                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
-                .save(consumer);
+        registerBasicMachine(ModBlocks.LOOT_ATTRACTOR.get(), Items.CHEST, ModItems.PORTABLE_LOOT_ATTRACTOR.get(), consumer);
+        registerBasicMachine(ModBlocks.LOOT_INCINERATOR.get(), Items.GLASS, Items.LAVA_BUCKET, consumer);
+        registerBasicMachine(ModBlocks.REDSTONE_RECEIVER.get(), Items.ENDER_PEARL, Items.REDSTONE_BLOCK, consumer);
+        registerBasicMachine(ModBlocks.REDSTONE_TRANSMITTER.get(), Items.ENDER_PEARL, Items.REDSTONE_BLOCK, consumer);
 
-        ShapedRecipeBuilder.shaped(ModBlocks.LOOT_ATTRACTOR.get())
-                .define('1', ModItems.BASIC_CHIP.get())
-                .define('2', Tags.Items.INGOTS_IRON)
-                .define('3', Tags.Items.DUSTS_REDSTONE)
-                .define('4', Tags.Items.CHESTS)
-                .define('5', ModItems.PORTABLE_LOOT_ATTRACTOR.get())
-                .pattern("212")
-                .pattern("353")
-                .pattern("242")
-                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
-                .save(consumer);
+        registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.MOB_STORAGE_CELL.get(), Items.SPAWNER, consumer);
+        registerAdvancedMachine(ModBlocks.CROP_HARVESTER.get(), Items.DIAMOND_HOE, Items.WATER_BUCKET, consumer);
 
-        ShapedRecipeBuilder.shaped(ModBlocks.LOOT_INCINERATOR.get())
-                .define('1', ModItems.BASIC_CHIP.get())
-                .define('2', Tags.Items.INGOTS_IRON)
-                .define('3', Tags.Items.DUSTS_REDSTONE)
-                .define('4', Items.LAVA_BUCKET)
-                .pattern("212")
-                .pattern("343")
-                .pattern("232")
-                .unlockedBy("has_item", has(Items.LAVA_BUCKET))
-                .save(consumer);
+        registerAdvancedContainerMachine(ModBlocks.CROP_HARVESTER.get(), Items.DIAMOND_HOE, Items.WATER_BUCKET, consumer);
 
-        ShapedRecipeBuilder.shaped(ModBlocks.CROP_HARVESTER.get())
-                .define('1', ModItems.ADVANCED_CHIP.get())
-                .define('2', Tags.Items.INGOTS_IRON)
-                .define('3', Tags.Items.DUSTS_REDSTONE)
-                .define('4', Items.DIAMOND_HOE)
-                .define('5', Items.WATER_BUCKET)
-                .define('6', Tags.Items.CHESTS)
-                .pattern("212")
-                .pattern("465")
-                .pattern("232")
-                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
-                .group(RecipeBookCategories.CRAFTING_MISC.name())
-                .save(consumer);
-
+        /** Pads **/
         registerPad(ModBlocks.MOB_KILLING_PAD.get(), ModItems.ADVANCED_CHIP.get(), Items.IRON_SWORD, consumer);
         registerPad(ModBlocks.WEAK_ACCELERATION_PAD.get(), ModItems.BASIC_CHIP.get(), Items.SUGAR, consumer);
         registerPad(ModBlocks.STRONG_ACCELERATION_PAD.get(), ModItems.BASIC_CHIP.get(), Items.RABBIT_FOOT, consumer);
-
-        ShapedRecipeBuilder.shaped(ModBlocks.REDSTONE_RECEIVER.get())
-                .define('1', ModItems.BASIC_CHIP.get())
-                .define('2', Tags.Items.INGOTS_IRON)
-                .define('3', Items.REDSTONE_BLOCK)
-                .pattern("212")
-                .pattern("232")
-                .pattern("252")
-                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
-                .group(RecipeBookCategories.CRAFTING_MISC.name())
-                .save(consumer);
-
-        //registerbasicMachine(ModBlocks.REDSTONE_RECEIVER.get(), consumer);
     }
 
     private void registerChip(Item chip, Tags.IOptionalNamedTag<Item> material, Consumer<FinishedRecipe> consumer) {
@@ -122,19 +72,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("343")
                 .pattern("232")
                 .unlockedBy("has_item", has(item2))
-                .save(consumer);
-    }
-
-    private void registerEquipment(Item output, Item chip, Tags.IOptionalNamedTag<Item> item, Item item2, Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(output, 4)
-                .define('1', chip)
-                .define('2', Tags.Items.INGOTS_IRON)
-                .define('3', item)
-                .define('4', item2)
-                .pattern("212")
-                .pattern("343")
-                .pattern("232")
-                .unlockedBy("has_item", has(item2))
+                .group(RecipeBookCategories.CRAFTING_EQUIPMENT.name())
                 .save(consumer);
     }
 
@@ -146,20 +84,55 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("232")
                 .pattern("313")
                 .pattern("232")
+                .unlockedBy("has_item", has(item))
+                .group(RecipeBookCategories.CRAFTING_MISC.name())
                 .save(consumer);
     }
 
-    private void registerbasicMachine(Block outputBlock, Consumer<FinishedRecipe> consumer) {
+    private void registerBasicMachine(Block outputBlock, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
+        registerMachine(outputBlock, ModItems.BASIC_CHIP.get(), item, item2, consumer);
+    }
+
+    private void registerAdvancedMachine(Block outputBlock, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
+        registerMachine(outputBlock, ModItems.ADVANCED_CHIP.get(), item, item2, consumer);
+    }
+
+    private void registerMachine(Block outputBlock, Item chip, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(outputBlock)
-                .define('1', ModItems.BASIC_CHIP.get())
-                .define('2', Tags.Items.INGOTS_IRON)
+                .define('1', chip)
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.REDSTONE)
+                .define('4', item)
+                .define('5', item2)
                 .pattern("212")
-                .pattern("   ")
-                .pattern("2 2")
+                .pattern("353")
+                .pattern("242")
+                .unlockedBy("has_item", has(item2))
+                .group(RecipeBookCategories.CRAFTING_MISC.name())
                 .save(consumer);
     }
 
-    private void registerAdvancedMachine(Consumer<FinishedRecipe> consumer) {
+    private void registerBasicContainerMachine(Block outputBlock, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
+        registerContainerMachine(outputBlock, ModItems.BASIC_CHIP.get(), item, item2, consumer);
+    }
 
+    private void registerAdvancedContainerMachine(Block outputBlock, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
+        registerContainerMachine(outputBlock, ModItems.ADVANCED_CHIP.get(), item, item2, consumer);
+    }
+
+    private void registerContainerMachine(Block outputBlock, Item chip, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(outputBlock)
+                .define('1', chip)
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.REDSTONE)
+                .define('4', item)
+                .define('5', item)
+                .define('6', Items.CHEST)
+                .pattern("212")
+                .pattern("435")
+                .pattern("262")
+                .unlockedBy("has_item", has(item))
+                .group(RecipeBookCategories.CRAFTING_MISC.name())
+                .save(consumer);
     }
 }
