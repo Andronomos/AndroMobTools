@@ -12,7 +12,7 @@
   "block.androtech.wireless_light": "Wireless Light",
   "item.androtech.advanced_chip": "Advanced Chip",
   "item.androtech.basic_chip": "Basic Chip",
-  "item.androtech.gps_cell": "GPS Cell",
+  "item.androtech.gps_card": "GPS Cell",
   "item.androtech.mob_storage_cell": "Mob Storage Cell",
   "item.androtech.portable_loot_attractor": "Portable Loot Attractor",
   "item.androtech.speed_emitter": "Speed Emitter",
@@ -23,6 +23,10 @@
   "screen.androtech.mob_killing_pad": "Mob Killing Pad",
   "screen.androtech.redstone_transmitter": "Redstone Transmitter",
   "screen.mobtools.mob_cloner": "Mob Cloner",
+  "tooltip.androtech.gps_card_location": "Location",
+  "tooltip.androtech.gps_card_x": "X: ",
+  "tooltip.androtech.gps_card_y": "Y: ",
+  "tooltip.androtech.gps_card_z": "Z: ",
   "tooltip.androtech.mob_storage_cell.health": "Health: ",
   "tooltip.androtech.mob_storage_cell.mob": "Mob: "
 }

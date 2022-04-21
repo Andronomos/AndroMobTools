@@ -16,10 +16,10 @@
       "item": "minecraft:map"
     },
     "4": {
-      "item": "minecraft:redstone"
+      "item": "minecraft:black_dye"
     }
   },
   "result": {
-    "item": "androtech:gps_cell"
+    "item": "androtech:gps_card"
   }
 }

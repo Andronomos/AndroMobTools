@@ -15,28 +15,23 @@ import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ItemStackUtil {
-
-    /* */
     public static void damageItem(LivingEntity player, ItemStack stack, int amount) {
         stack.hurtAndBreak(amount, player, (p) -> {
             p.broadcastBreakEvent(InteractionHand.MAIN_HAND);
         });
     }
 
-    /* */
     public static void drop(Level level, BlockPos pos, ItemStack drop) {
         if (!level.isClientSide()) {
             level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), drop));
         }
     }
 
-    /* */
     public static boolean containsEntity(ItemStack stack)
     {
         return !stack.isEmpty() && stack.hasTag() && stack.getTag().contains("entity");
     }
 
-    /* Returns the entity in the stack */
     @Nullable
     public static Entity getEntityFromStack(ItemStack stack, Level world, boolean withInfo)
     {
@@ -59,7 +54,4 @@ public class ItemStackUtil {
         });
         return returnStack.get();
     }
-
-
-
 }

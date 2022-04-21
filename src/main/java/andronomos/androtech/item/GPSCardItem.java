@@ -25,6 +25,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class GPSCardItem extends Item {
+    public static final String TOOLTIP_GPS_CARD = "tooltip.androtech.gps_card_location";
+    public static final String TOOLTIP_GPS_CARD_X = "tooltip.androtech.gps_card_x";
+    public static final String TOOLTIP_GPS_CARD_Y = "tooltip.androtech.gps_card_y";
+    public static final String TOOLTIP_GPS_CARD_Z = "tooltip.androtech.gps_card_z";
 
     public GPSCardItem(Properties properties) {
         super(properties);
@@ -64,10 +68,12 @@ public class GPSCardItem extends Item {
         BlockPos pos = NBTUtil.getItemStackBlockPos(stack);
 
         if(pos != null) {
-            String tooltipLine = ChatUtil.createTranslation("item.androtech.redstone_receiver_card.tooltip.location");
-            tooltip.add(new TextComponent(tooltipLine + pos.getX() + ", " + pos.getY() + ", " + pos.getZ()).withStyle(ChatFormatting.BLUE));
-        } else {
-            tooltip.add(new TextComponent(getDescriptionId() + ".tooltip").withStyle(ChatFormatting.GRAY));
+            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_GPS_CARD)).withStyle(ChatFormatting.GRAY));
+            String xCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_GPS_CARD_X), pos.getX());
+            String yCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_GPS_CARD_Y), pos.getY());
+            String zCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_GPS_CARD_Z), pos.getZ());
+            String coords = String.format("%s %s %s", xCoord, yCoord, zCoord);
+            tooltip.add(new TextComponent(coords).withStyle(ChatFormatting.BLUE));
         }
     }
 }

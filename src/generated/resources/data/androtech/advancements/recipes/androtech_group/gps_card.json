@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "androtech:gps_cell"
+      "androtech:gps_card"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "androtech:gps_cell"
+        "recipe": "androtech:gps_card"
       }
     }
   },

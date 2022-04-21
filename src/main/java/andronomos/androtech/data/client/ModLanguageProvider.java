@@ -13,6 +13,7 @@ import static andronomos.androtech.block.LootIncineratorBlock.SCREEN_LOOT_INCINE
 import static andronomos.androtech.block.RedstoneTransmitterBlock.SCREEN_REDSTONE_TRANSMITTER;
 import static andronomos.androtech.block.pad.MobKillingPadBlock.SCREEN_MOB_KILLING_PAD;
 //import static andronomos.androtech.item.BackpackItem.SCREEN_BACKPACK;
+import static andronomos.androtech.item.GPSCardItem.*;
 import static andronomos.androtech.item.MobStorageCellItem.*;
 
 public class ModLanguageProvider extends LanguageProvider {
@@ -25,21 +26,25 @@ public class ModLanguageProvider extends LanguageProvider {
 	protected void addTranslations() {
 		add("itemGroup." + TAB_NAME, "AndroTech");
 
-		//items
+		/** Items **/
 		add(ModItems.MOB_STORAGE_CELL.get(), "Mob Storage Cell");
 		add(TOOLTIP_MOB_STORAGE_CELL_MOB, "Mob: ");
 		add(TOOLTIP_MOB_STORAGE_CELL_HEALTH, "Health: ");
 		add(ModItems.PORTABLE_LOOT_ATTRACTOR.get(), "Portable Loot Attractor");
 		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
 		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
-		add(ModItems.SPEED_EMITTER.get(), "Speed Emitter");
 		add(ModItems.GPS_CARD.get(), "GPS Cell");
-		//add(SCREEN_BACKPACK, "Backpack");
+		add(TOOLTIP_GPS_CARD, "Location");
+		add(TOOLTIP_GPS_CARD_X, "X: ");
+		add(TOOLTIP_GPS_CARD_Y, "Y: ");
+		add(TOOLTIP_GPS_CARD_Z, "Z: ");
+		add(ModItems.SPEED_EMITTER.get(), "Speed Emitter");
+		add(ModItems.FIRE_RESISTANCE_EMITTER.get(), "Fire Resistance Emitter");
+		add(ModItems.POISON_NULLIFIER.get(), "Poison NUllifier");
+		add(ModItems.WITHER_NULLIFIER.get(), "Wither NUllifier");
 
-		//blocks
+		/** Blocks **/
 		add(ModBlocks.TEST_BLOCK.get(), "Test Block");
-
-
 		add(SCREEN_MOB_CLONER, "Mob Cloner");
 		add(ModBlocks.MOB_CLONER.get(), "Mob Cloner");
 		add(ModBlocks.LOOT_ATTRACTOR.get(), "Loot Attractor");

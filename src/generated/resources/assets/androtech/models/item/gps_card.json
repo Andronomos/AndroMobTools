@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/redstone_receiver_card"
+    "layer0": "androtech:item/gps_card"
   }
 }

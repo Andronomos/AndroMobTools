@@ -1,11 +1,17 @@
 package andronomos.androtech.item;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.util.ItemStackUtil;
 import com.google.common.collect.Iterables;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
@@ -19,6 +25,30 @@ import net.minecraftforge.common.PlantType;
 public class DebugStickItem extends Item {
 	public DebugStickItem(Properties properties) {
 		super(properties);
+	}
+
+	@Override
+	public int getDamage(ItemStack stack) {
+		return super.getDamage(stack);
+	}
+
+	@Override
+	public int getMaxDamage(ItemStack stack) {
+		return 10;
+	}
+
+	@Override
+	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+		ItemStack stack = player.getItemInHand(hand);
+
+		AndroTech.LOGGER.info("DebugStickItem#use | getMaxDamage={}", stack.getMaxDamage());
+		AndroTech.LOGGER.info("DebugStickItem#use | getDamageValue={}", stack.getDamageValue());
+
+		ItemStackUtil.damageItem(player, stack, 1);
+
+		AndroTech.LOGGER.info("DebugStickItem#use | getDamageValue after damaging={}", stack.getDamageValue());
+
+		return InteractionResultHolder.success(stack);
 	}
 
 	public InteractionResult useOn(UseOnContext context) {

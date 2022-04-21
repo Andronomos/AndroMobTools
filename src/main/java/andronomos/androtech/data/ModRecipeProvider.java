@@ -22,7 +22,7 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         super.buildCraftingRecipes(consumer);
 
-        /** * Crafting components **/
+        /** Crafting components **/
         registerChip(ModItems.BASIC_CHIP.get(), Tags.Items.INGOTS_GOLD, consumer);
         registerChip(ModItems.ADVANCED_CHIP.get(), Tags.Items.GEMS_DIAMOND, consumer);
 
@@ -35,7 +35,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.MAP)
-                .define('4', Items.REDSTONE)
+                .define('4', Items.BLACK_DYE)
                 .pattern("212")
                 .pattern("434")
                 .pattern("242")

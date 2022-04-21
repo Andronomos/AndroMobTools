@@ -17,29 +17,30 @@ public class PortableLootAttractorItem extends AbstractActivatableItem {
 	private final int pickupRange = 10;
 
 	public PortableLootAttractorItem(Properties properties) {
-		super(properties);
+		super(properties, true, true);
 	}
 
 	@Override
 	public int getDamage(ItemStack stack) {
-		return 115200; //should last for ~50 inventories worth of item stacks
+		//return 115200; //should last for ~50 inventories worth of item stacks
+		return 64; //for debugging purposes, last for one stack worth of items
 	}
 
 	@Override
 	public InteractionResultHolder use(Level level, Player player, InteractionHand hand) {
 		ItemStack stack = player.getItemInHand(hand);
 
-		if(!isActivated(stack) && canUse(stack)) {
-			this.setState(stack, 1);
+		if(!isActivated(stack) && isBroken(stack)) {
+			activate(stack, player);
 		} else {
-			this.setState(stack, 0);
+			deactivate(stack, player);
 		}
 
 		return InteractionResultHolder.success(stack);
 	}
 
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
-		if (!isActivated(stack) || !canUse(stack) || !(entity instanceof Player)) return;
+		if (!isActivated(stack) || !isBroken(stack) || !(entity instanceof Player)) return;
 
 		Player player = (Player)entity;
 
@@ -51,8 +52,11 @@ public class PortableLootAttractorItem extends AbstractActivatableItem {
 		);
 
 		itemsInRange.forEach(item -> {
-			item.setPos(player.getX(), player.getY(), player.getZ());
-			ItemStackUtil.damageItem(player, stack, 1);
+			//check to make sure the item hasn't broken
+			if(isBroken(stack)) {
+				item.setPos(player.getX(), player.getY(), player.getZ());
+				doDamage(stack, player);
+			}
 		});
 
 		if (!level.isClientSide()){
@@ -65,4 +69,26 @@ public class PortableLootAttractorItem extends AbstractActivatableItem {
 		}
 	}
 
+	@Override
+	public void doDamage(ItemStack stack, Entity entity) {
+		if(this.takeDamage) {
+			if(stack.getDamageValue() > 0) {
+				ItemStackUtil.damageItem((Player)entity, stack, 1);
+
+				if(!isBroken(stack)) {
+					deactivate(stack, (Player)entity);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void deactivate(ItemStack stack, Player player) {
+		this.setActivated(stack, 1);
+	}
+
+	@Override
+	public void activate(ItemStack stack, Player player) {
+		this.setActivated(stack, 0);
+	}
 }

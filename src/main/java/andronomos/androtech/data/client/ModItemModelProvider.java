@@ -19,9 +19,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "basic_chip");
         builder(itemGenerated, "advanced_chip");
         builder(itemGenerated, "portable_loot_attractor");
-        builder(itemGenerated, "speed_emitter");
         builder(itemGenerated, "debug_stick");
         builder(itemGenerated, "gps_card");
+        builder(itemGenerated, "speed_emitter");
+        builder(itemGenerated, "fire_resistance_emitter");
+        builder(itemGenerated, "poison_nullifier");
+        builder(itemGenerated, "wither_nullifier");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
