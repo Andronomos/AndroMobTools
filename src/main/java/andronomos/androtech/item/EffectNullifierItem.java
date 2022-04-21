@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class EffectNullifierItem extends AbstractActivatableItem {
-    public static final int NULLIFIER_DURABILITY = 2; //will last for 1000 effect removals
+    public static final int NULLIFIER_DURABILITY = 1000; //will last for 1000 effect removals
 
     private final MobEffect effect;
 
@@ -29,7 +29,7 @@ public class EffectNullifierItem extends AbstractActivatableItem {
         ItemStack stack = player.getItemInHand(hand);
 
         if(!level.isClientSide) {
-            if(!isActivated(stack) && isBroken(stack)) {
+            if(!isActivated(stack) && !isBroken(stack)) {
                 activate(stack, player);
             } else {
                 deactivate(stack, player);

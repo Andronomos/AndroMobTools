@@ -18,6 +18,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "mob_storage_cell");
         builder(itemGenerated, "basic_chip");
         builder(itemGenerated, "advanced_chip");
+        builder(itemGenerated, "withered_bone");
         builder(itemGenerated, "portable_loot_attractor");
         builder(itemGenerated, "debug_stick");
         builder(itemGenerated, "gps_card");
