@@ -27,39 +27,53 @@ public class ModLanguageProvider extends LanguageProvider {
 		add("itemGroup." + TAB_NAME, "AndroTech");
 
 		/** Items **/
+		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
+		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
+		add(ModItems.WITHERED_BONE.get(), "Withered Bone");
+
 		add(ModItems.MOB_STORAGE_CELL.get(), "Mob Storage Cell");
 		add(TOOLTIP_MOB_STORAGE_CELL_MOB, "Mob: ");
 		add(TOOLTIP_MOB_STORAGE_CELL_HEALTH, "Health: ");
 		add(ModItems.PORTABLE_LOOT_ATTRACTOR.get(), "Portable Loot Attractor");
-		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
-		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
+
 		add(ModItems.GPS_CARD.get(), "GPS Cell");
 		add(TOOLTIP_GPS_CARD, "Location");
 		add(TOOLTIP_GPS_CARD_X, "X: ");
 		add(TOOLTIP_GPS_CARD_Y, "Y: ");
 		add(TOOLTIP_GPS_CARD_Z, "Z: ");
+
 		add(ModItems.SPEED_EMITTER.get(), "Speed Emitter");
 		add(ModItems.FIRE_RESISTANCE_EMITTER.get(), "Fire Resistance Emitter");
 		add(ModItems.POISON_NULLIFIER.get(), "Poison NUllifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither NUllifier");
 
+
 		/** Blocks **/
 		add(ModBlocks.TEST_BLOCK.get(), "Test Block");
-		add(SCREEN_MOB_CLONER, "Mob Cloner");
+
 		add(ModBlocks.MOB_CLONER.get(), "Mob Cloner");
+		add(SCREEN_MOB_CLONER, "Mob Cloner");
+
 		add(ModBlocks.LOOT_ATTRACTOR.get(), "Loot Attractor");
 		add(SCREEN_LOOT_ATTRACTOR, "Loot Attractor");
+
 		add(ModBlocks.LOOT_INCINERATOR.get(), "Loot Incinerator");
 		add(SCREEN_LOOT_INCINERATOR, "Loot Incinerator");
+
 		add(ModBlocks.MOB_KILLING_PAD.get(), "Mob Killing Pad");
 		add(SCREEN_MOB_KILLING_PAD, "Mob Killing Pad");
+
 		add(ModBlocks.WEAK_ACCELERATION_PAD.get(), "Weak Acceleration Pad");
 		add(ModBlocks.STRONG_ACCELERATION_PAD.get(), "Strong Acceleration Pad");
-		add(SCREEN_CROP_HARVESTER, "Crop Harvester");
+
 		add(ModBlocks.CROP_HARVESTER.get(), "Crop Harvester");
+		add(SCREEN_CROP_HARVESTER, "Crop Harvester");
+
 		add(ModBlocks.WIRELESS_LIGHT.get(), "Wireless Light");
+
 		add(ModBlocks.REDSTONE_TRANSMITTER.get(), "Redstone Transmitter");
 		add(SCREEN_REDSTONE_TRANSMITTER, "Redstone Transmitter");
+
 		add(ModBlocks.REDSTONE_RECEIVER.get(), "Redstone Receiver");
 	}
 }

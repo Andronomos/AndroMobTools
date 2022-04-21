@@ -26,6 +26,7 @@ public class ModItems {
     /** Crafting components **/
     public static final RegistryObject<Item> BASIC_CHIP = register("basic_chip");
     public static final RegistryObject<Item> ADVANCED_CHIP = register("advanced_chip");
+    public static final RegistryObject<Item> WITHERED_BONE = ITEMS.register("withered_bone", () -> new Item(BASE_PROPERTIES));
 
     /** Equipment **/
     public static final RegistryObject<Item> MOB_STORAGE_CELL = ITEMS.register("mob_storage_cell", () -> new MobStorageCellItem(BASE_PROPERTIES));

@@ -3,10 +3,7 @@ package andronomos.androtech;
 import andronomos.androtech.gui.*;
 import andronomos.androtech.event.SpawnerEventHandler;
 import andronomos.androtech.network.MobToolsPacketHandler;
-import andronomos.androtech.registry.ModBlockEntities;
-import andronomos.androtech.registry.ModBlocks;
-import andronomos.androtech.registry.ModContainers;
-import andronomos.androtech.registry.ModItems;
+import andronomos.androtech.registry.*;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -35,6 +32,7 @@ public class AndroTech
         ModItems.ITEMS.register(modEventBus);
         ModContainers.CONTAINERS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModLoot.LOOT_MODIFIERS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new SpawnerEventHandler());
 
