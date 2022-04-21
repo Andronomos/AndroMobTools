@@ -2,7 +2,7 @@ package andronomos.androtech.network.packet;
 
 import andronomos.androtech.item.MobStorageCellItem;
 import andronomos.androtech.util.ItemStackUtil;
-import andronomos.androtech.util.SpawnerUtils;
+import andronomos.androtech.util.SpawnerUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -42,7 +42,7 @@ public class SyncSpawnerMagicLeadDrop {
 			SpawnerBlockEntity spawner = (SpawnerBlockEntity)level.getBlockEntity(msg.pos);
 			BaseSpawner logic = spawner.getSpawner();
 
-			String entityString = SpawnerUtils.getEntityString(logic);
+			String entityString = SpawnerUtil.getEntityString(logic);
 
 			if(entityString == "")
 				return;

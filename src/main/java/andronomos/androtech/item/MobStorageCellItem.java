@@ -3,7 +3,7 @@ package andronomos.androtech.item;
 import andronomos.androtech.registry.ModItems;
 import andronomos.androtech.util.ChatUtil;
 import andronomos.androtech.util.ItemStackUtil;
-import andronomos.androtech.util.SpawnerUtils;
+import andronomos.androtech.util.SpawnerUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -56,7 +56,7 @@ public class MobStorageCellItem extends Item {
                     || !ItemStackUtil.containsEntity(stack)) return InteractionResult.PASS;
 
             //Get the entity name of the entity contained in the spawner
-            String spawnerEntity = SpawnerUtils.getEntityString(((SpawnerBlockEntity) clickedEntity).getSpawner());
+            String spawnerEntity = SpawnerUtil.getEntityString(((SpawnerBlockEntity) clickedEntity).getSpawner());
 
             //If the spawner already contains an entity then we want to cancel the interaction.
             //Spawners containing entities should only drop magic leads when right-clicked

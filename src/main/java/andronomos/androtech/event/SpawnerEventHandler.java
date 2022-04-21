@@ -3,9 +3,9 @@ package andronomos.androtech.event;
 import andronomos.androtech.item.MobStorageCellItem;
 import andronomos.androtech.network.MobToolsPacketHandler;
 import andronomos.androtech.network.packet.SyncSpawnerMagicLeadDrop;
-import andronomos.androtech.util.EnchantmentUtils;
+import andronomos.androtech.util.EnchantmentUtil;
 import andronomos.androtech.util.ItemStackUtil;
-import andronomos.androtech.util.SpawnerUtils;
+import andronomos.androtech.util.SpawnerUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
@@ -45,7 +45,7 @@ public class SpawnerEventHandler {
 			if(!heldStack.canPerformAction(ToolActions.PICKAXE_DIG))
 				return;
 
-			if(!EnchantmentUtils.hasEnchantment(Enchantments.SILK_TOUCH, heldStack))
+			if(!EnchantmentUtil.hasEnchantment(Enchantments.SILK_TOUCH, heldStack))
 				return;
 
 			//BlockEntity entity = event.getWorld().getBlockEntity(event.getPos());
@@ -120,7 +120,7 @@ public class SpawnerEventHandler {
 		SpawnerBlockEntity spawner = (SpawnerBlockEntity)level.getBlockEntity(pos);
 		BaseSpawner logic = spawner.getSpawner();
 
-		String entityString = SpawnerUtils.getEntityString(logic);
+		String entityString = SpawnerUtil.getEntityString(logic);
 
 		if(entityString == "")
 			return;

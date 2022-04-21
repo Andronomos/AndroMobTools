@@ -3,7 +3,7 @@ package andronomos.androtech.block.entity;
 import andronomos.androtech.Const;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.registry.ModItems;
-import andronomos.androtech.util.EnchantmentUtils;
+import andronomos.androtech.util.EnchantmentUtil;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -89,7 +89,7 @@ public class MobKillingPadBE extends BaseContainerBlockEntity {
 
         if(!stack.isEmpty()) {
             if(stack.getItem() == Items.ENCHANTED_BOOK) {
-                return EnchantmentUtils.hasEnchantment(enchantment, stack);
+                return EnchantmentUtil.hasEnchantment(enchantment, stack);
             }
         }
 

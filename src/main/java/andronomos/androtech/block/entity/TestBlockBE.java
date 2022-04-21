@@ -1,24 +1,20 @@
 package andronomos.androtech.block.entity;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.block.TestBlock;
 import andronomos.androtech.registry.ModBlockEntities;
-import andronomos.androtech.registry.ModBlocks;
-import andronomos.androtech.util.BlockUtils;
+import andronomos.androtech.util.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
-import net.minecraftforge.items.ItemHandlerHelper;
 
 import java.util.List;
 
@@ -90,7 +86,7 @@ public class TestBlockBE extends BlockEntity implements TickingBlockEntity {
 		double y = pos.getY();
 		double z = pos.getZ();
 		AABB area = new AABB(x - 1, y + 1, z - 1, x + 1, y + 1, z + 1);
-		List<BlockPos> blocksInArea = BlockUtils.getBlockPosInAABB(area);
+		List<BlockPos> blocksInArea = BlockUtil.getBlockPosInAABB(area);
 		return blocksInArea;
 	}
 

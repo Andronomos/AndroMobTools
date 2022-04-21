@@ -4,7 +4,7 @@ import andronomos.androtech.Const;
 import andronomos.androtech.block.entity.MobKillingPadBE;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
-import andronomos.androtech.util.EnchantmentUtils;
+import andronomos.androtech.util.EnchantmentUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -61,12 +61,12 @@ public class MobKillingPadContainer extends BaseContainerMenu {
                 slot.onQuickCraft(stack, returnStack);
             } else {
                 if(stack.getItem() == Items.ENCHANTED_BOOK) {
-                    if(EnchantmentUtils.hasEnchantment(Enchantments.MOB_LOOTING, stack)) {
+                    if(EnchantmentUtil.hasEnchantment(Enchantments.MOB_LOOTING, stack)) {
                         //attempt to move the stack to slot 0.
                         if (!this.moveItemStackTo(stack, 0, 1, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (EnchantmentUtils.hasEnchantment(Enchantments.FIRE_ASPECT, stack)) {
+                    } else if (EnchantmentUtil.hasEnchantment(Enchantments.FIRE_ASPECT, stack)) {
                         //attempt to move the stack to slot 1.
                         if (!this.moveItemStackTo(stack, 1, 2, false)) {
                             return ItemStack.EMPTY;

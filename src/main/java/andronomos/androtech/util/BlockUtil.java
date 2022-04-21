@@ -11,7 +11,7 @@ import net.minecraftforge.common.PlantType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlockUtils {
+public class BlockUtil {
 	public static List<BlockPos> getBlockPosInAABB(AABB axisAlignedBB) {
 		List<BlockPos> blocks = new ArrayList<>();
 

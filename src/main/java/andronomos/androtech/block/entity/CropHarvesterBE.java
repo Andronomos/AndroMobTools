@@ -3,7 +3,7 @@ package andronomos.androtech.block.entity;
 import andronomos.androtech.Const;
 import andronomos.androtech.block.harvester.*;
 import andronomos.androtech.registry.ModBlockEntities;
-import andronomos.androtech.util.BlockUtils;
+import andronomos.androtech.util.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
@@ -70,7 +70,7 @@ public class CropHarvesterBE extends BaseContainerBlockEntity implements Ticking
 		double z = pos.getZ();
 		AABB area = new AABB(x - 4, y + 1, z - 4, x + 4, y + 1, z + 4);
 
-		List<BlockPos> nearbyCrops = BlockUtils.getNearbyCrops(area, level);
+		List<BlockPos> nearbyCrops = BlockUtil.getNearbyCrops(area, level);
 
 		for (BlockPos nearbyCropPos : nearbyCrops) {
 			BlockState cropState = level.getBlockState(nearbyCropPos);
