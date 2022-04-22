@@ -64,13 +64,13 @@ public class EffectNullifierItem extends AbstractActivatableItem {
     }
 
     @Override
-    public void deactivate(ItemStack stack, Player player) {
-        this.setActivated(stack, 0);
-    }
-
-    @Override
     public void activate(ItemStack stack, Player player) {
         this.setActivated(stack, 1);
         nullifyEffect(stack, player);
+    }
+
+    @Override
+    public void deactivate(ItemStack stack, Player player) {
+        this.setActivated(stack, 0);
     }
 }

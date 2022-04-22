@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "androtech:item/portable_loot_attractor"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "androtech:activated": 1
+      },
+      "model": "androtech:item/portable_loot_attractor_activated"
+    }
+  ]
+}

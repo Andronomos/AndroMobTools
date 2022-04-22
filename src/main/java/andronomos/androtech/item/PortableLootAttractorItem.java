@@ -14,33 +14,34 @@ import net.minecraft.world.phys.AABB;
 import java.util.List;
 
 public class PortableLootAttractorItem extends AbstractActivatableItem {
+	public static final int PORTABLE_LOOT_ATTRACTOR_DURABILITY = 720;
 	private final int pickupRange = 10;
+
+	public PortableLootAttractorItem(Properties properties, boolean takeDamage, boolean isRepairable) {
+		super(properties, takeDamage, isRepairable);
+	}
 
 	public PortableLootAttractorItem(Properties properties) {
 		super(properties, true, true);
 	}
 
 	@Override
-	public int getDamage(ItemStack stack) {
-		//return 115200; //should last for ~50 inventories worth of item stacks
-		return 64; //for debugging purposes, last for one stack worth of items
-	}
-
-	@Override
 	public InteractionResultHolder use(Level level, Player player, InteractionHand hand) {
 		ItemStack stack = player.getItemInHand(hand);
 
-		if(!isActivated(stack) && isBroken(stack)) {
-			activate(stack, player);
-		} else {
-			deactivate(stack, player);
+		if(!level.isClientSide) {
+			if(!isActivated(stack) && !isBroken(stack)) {
+				activate(stack, player);
+			} else {
+				deactivate(stack, player);
+			}
 		}
 
 		return InteractionResultHolder.success(stack);
 	}
 
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
-		if (!isActivated(stack) || !isBroken(stack) || !(entity instanceof Player)) return;
+		if (level.isClientSide || !isActivated(stack) || isBroken(stack) || !(entity instanceof Player)) return;
 
 		Player player = (Player)entity;
 
@@ -52,43 +53,41 @@ public class PortableLootAttractorItem extends AbstractActivatableItem {
 		);
 
 		itemsInRange.forEach(item -> {
-			//check to make sure the item hasn't broken
-			if(isBroken(stack)) {
+			if(!isBroken(stack)) {
 				item.setPos(player.getX(), player.getY(), player.getZ());
-				doDamage(stack, player);
+				if(this.takeDamage) {
+					doDamage(stack, player);
+				}
 			}
 		});
 
-		if (!level.isClientSide()){
-			List<ExperienceOrb> experienceOrbs = level.getEntitiesOfClass(ExperienceOrb.class, area);
+		List<ExperienceOrb> experienceOrbs = level.getEntitiesOfClass(ExperienceOrb.class, area);
 
-			experienceOrbs.forEach(orb -> {
+		experienceOrbs.forEach(orb -> {
+			if(!isBroken(stack)) {
 				player.takeXpDelay = 0;
 				orb.playerTouch(player);
-			});
-		}
+				if(this.takeDamage) {
+					doDamage(stack, player);
+				}
+			}
+		});
 	}
 
 	@Override
 	public void doDamage(ItemStack stack, Entity entity) {
-		if(this.takeDamage) {
-			if(stack.getDamageValue() > 0) {
-				ItemStackUtil.damageItem((Player)entity, stack, 1);
-
-				if(!isBroken(stack)) {
-					deactivate(stack, (Player)entity);
-				}
-			}
+		if(stack.getDamageValue() < stack.getMaxDamage()) {
+			ItemStackUtil.damageItem((Player)entity, stack, 1);
 		}
 	}
 
 	@Override
-	public void deactivate(ItemStack stack, Player player) {
+	public void activate(ItemStack stack, Player player) {
 		this.setActivated(stack, 1);
 	}
 
 	@Override
-	public void activate(ItemStack stack, Player player) {
+	public void deactivate(ItemStack stack, Player player) {
 		this.setActivated(stack, 0);
 	}
 }

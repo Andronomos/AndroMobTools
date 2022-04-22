@@ -37,7 +37,7 @@ public abstract class AbstractActivatableItem extends Item implements IActivatab
 		if(takeDamage) {
 			int maxDamage = stack.getMaxDamage();
 
-			if(maxDamage > 0) {
+ 			if(maxDamage > 0) {
 				int currentDamage = stack.getDamageValue();
 
 				if (currentDamage == 0) return false;

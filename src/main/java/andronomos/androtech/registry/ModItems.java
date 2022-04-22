@@ -11,6 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static andronomos.androtech.item.EffectEmitterItem.EMITTER_DURABILITY;
 import static andronomos.androtech.item.EffectNullifierItem.NULLIFIER_DURABILITY;
+import static andronomos.androtech.item.PortableLootAttractorItem.PORTABLE_LOOT_ATTRACTOR_DURABILITY;
 
 public class ModItems {
     public static final Item.Properties BASE_PROPERTIES = new Item.Properties().tab(andronomos.androtech.AndroTech.ANDROTECH_TAB);
@@ -31,13 +32,13 @@ public class ModItems {
     /** Equipment **/
     public static final RegistryObject<Item> MOB_STORAGE_CELL = ITEMS.register("mob_storage_cell", () -> new MobStorageCellItem(BASE_PROPERTIES));
     public static final RegistryObject<Item> PORTABLE_LOOT_ATTRACTOR = ITEMS.register("portable_loot_attractor",
-            () -> new PortableLootAttractorItem(BASE_PROPERTIES));
+            () -> new PortableLootAttractorItem(BASE_PROPERTIES.durability(PORTABLE_LOOT_ATTRACTOR_DURABILITY)));
 
     public static final RegistryObject<Item> SPEED_EMITTER = ITEMS.register("speed_emitter",
-            () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.MOVEMENT_SPEED, Const.EffectAmplifier.V, true, true));
+            () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.MOVEMENT_SPEED, Const.EffectAmplifier.V));
 
     public static final RegistryObject<Item> FIRE_RESISTANCE_EMITTER = ITEMS.register("fire_resistance_emitter",
-            () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.FIRE_RESISTANCE, Const.EffectAmplifier.I, true, true));
+            () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.FIRE_RESISTANCE, Const.EffectAmplifier.I));
 
     public static final RegistryObject<Item> POISON_NULLIFIER = ITEMS.register("poison_nullifier",
             () -> new EffectNullifierItem(NULLIFIER_PROPERTIES, MobEffects.POISON, true, true));

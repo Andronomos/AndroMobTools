@@ -29,13 +29,13 @@ public class Const {
         public final static int FOURSECONDS = 80;
         public final static int FIVESECONDS = 100;
         public final static int TENSECONDS = 200;
-        public final static int ONEMINUTE = 3600;
-        public final static int TWOMINUTES = 9600;
-        public final static int THREEMINUTES = 11000;
-        public final static int FIVEMINUTES = 18000;
-        public final static int TENMINUTES = 39000;
-        public final static int TWENTYMINUTES = 72000;
-        public final static int THIRTYMINUTES = 108000;
-        public final static int ONEHOUR = 216000;
+        public final static int ONEMINUTE = 1200;
+        public final static int TWOMINUTES = 2400;
+        public final static int THREEMINUTES = 3600;
+        public final static int FIVEMINUTES = 6000;
+        public final static int TENMINUTES = 1200;
+        public final static int TWENTYMINUTES = 2400;
+        public final static int THIRTYMINUTES = 3600;
+        public final static int ONEHOUR = 7200;
     }
 }

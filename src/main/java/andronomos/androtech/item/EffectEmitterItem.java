@@ -25,7 +25,7 @@ public class EffectEmitterItem extends AbstractActivatableItem {
     }
 
     public EffectEmitterItem(Properties properties, MobEffect effect, int amplifier) {
-        super(properties.setNoRepair(), false, false);
+        super(properties.setNoRepair(), true, true);
         this.effect = effect;
         this.amplifier = amplifier;
     }
@@ -33,7 +33,7 @@ public class EffectEmitterItem extends AbstractActivatableItem {
     public InteractionResultHolder use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
 
-        if(level.isClientSide) {
+        if(!level.isClientSide) {
             if(!isActivated(stack) && !isBroken(stack)) {
                 activate(stack, player);
             } else {
@@ -78,10 +78,7 @@ public class EffectEmitterItem extends AbstractActivatableItem {
         this.setActivated(stack, 1);
         if (!player.hasEffect(this.effect)) {
             //effect, duration, amplifier, ambient, showParticles
-            player.addEffect(new MobEffectInstance(this.effect, 100000, this.amplifier, false, false));
-            //if(this.takeDamage) {
-            //    doDamage(stack, player);
-            //}
+            player.addEffect(new MobEffectInstance(this.effect, 6000, this.amplifier, false, false));
         }
     }
 
