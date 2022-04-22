@@ -55,7 +55,7 @@ public class AndroTech
 
             ItemProperties.register(ModItems.PORTABLE_LOOT_ATTRACTOR.get(),
                     new ResourceLocation(AndroTech.MOD_ID, "activated"), (stack, level, living, id) -> {
-                        return living != null && living.isUsingItem() && living.getUseItem() == stack && stackIsActivated(stack) ? 1 : 0;
+                        return stackIsActivated(stack) ? 1 : 0;
                     });
         });
 
