@@ -5,7 +5,7 @@ license="All rights reserved"
 [[mods]] #mandatory
 modId="androtech" #mandatory
 version="${file.jarVersion}" #mandatory
-displayName="Andro Tech" #mandatory
+displayName="AndroTech" #mandatory
 logoFile="examplemod.png" #optional
 credits="Thanks for this example mod goes to Java" #optional
 authors="Andronomos" #optional
