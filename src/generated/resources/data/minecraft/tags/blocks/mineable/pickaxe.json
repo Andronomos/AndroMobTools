@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "androtech:test_block",
     "androtech:mob_cloner",
     "androtech:loot_attractor",
     "androtech:loot_incinerator",
