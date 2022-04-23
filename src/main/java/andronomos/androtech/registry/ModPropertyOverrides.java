@@ -17,7 +17,6 @@ public class ModPropertyOverrides {
 					return ItemStackUtil.containsEntity(stack) ? 1 : 0;
 				});
 
-		registerActivatableItem(ModItems.MOB_DNA_UNIT.get());
 		registerActivatableItem(ModItems.PORTABLE_LOOT_ATTRACTOR.get());
 		registerActivatableItem(ModItems.SPEED_EMITTER.get());
 		registerActivatableItem(ModItems.SPEED_EMITTER.get());

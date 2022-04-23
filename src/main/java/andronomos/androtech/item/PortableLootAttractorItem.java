@@ -1,5 +1,6 @@
 package andronomos.androtech.item;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -8,13 +9,14 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 
 public class PortableLootAttractorItem extends AbstractActivatableItem {
-	public static final int PORTABLE_LOOT_ATTRACTOR_DURABILITY = 720;
+	public static final int PORTABLE_LOOT_ATTRACTOR_DURABILITY = 7000;
 	private final int pickupRange = 10;
 
 	public PortableLootAttractorItem(Properties properties, boolean takeDamage, boolean isRepairable) {
@@ -54,10 +56,16 @@ public class PortableLootAttractorItem extends AbstractActivatableItem {
 
 		itemsInRange.forEach(item -> {
 			if(!isBroken(stack)) {
-				item.setPos(player.getX(), player.getY(), player.getZ());
-				if(this.takeDamage) {
-					doDamage(stack, player);
+				if(player.getInventory().add(item.getItem())) {
+					if(this.takeDamage) {
+						doDamage(stack, player);
+					}
 				}
+
+				//item.setPos(player.getX(), player.getY(), player.getZ());
+				//if(this.takeDamage) {
+				//	doDamage(stack, player);
+				//}
 			}
 		});
 
