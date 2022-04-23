@@ -1,6 +1,6 @@
 package andronomos.androtech.network.packet;
 
-import andronomos.androtech.item.MobStorageCellItem;
+import andronomos.androtech.item.MobDnaUnitItem;
 import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.SpawnerUtil;
 import net.minecraft.core.BlockPos;
@@ -49,7 +49,7 @@ public class SyncSpawnerMagicLeadDrop {
 
 			CompoundTag tag = new CompoundTag();
 			tag.putString("entity", entityString);
-			ItemStackUtil.drop(level, msg.pos, MobStorageCellItem.create(level, msg.pos, tag, entityString));
+			ItemStackUtil.drop(level, msg.pos, MobDnaUnitItem.create(level, msg.pos, tag, entityString));
 
 			// Replace the entity inside the spawner with default entity
 			logic.setEntityId(EntityType.AREA_EFFECT_CLOUD);

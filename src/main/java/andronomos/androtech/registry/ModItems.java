@@ -1,6 +1,5 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.item.*;
 import net.minecraft.world.effect.MobEffects;
@@ -49,8 +48,8 @@ public class ModItems {
 
     /** Misc **/
     public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword", () -> new FakeSword());
-    public static final RegistryObject<Item> MOB_DNA_UNIT = ITEMS.register("mob_dna_unit", () -> new MobStorageCellItem(GetBaseProperties()));
-    public static final RegistryObject<Item> BLOCK_GPS_UNIT = ITEMS.register("block_gps_unit", () -> new GPSCardItem(GetBaseProperties()));
+    public static final RegistryObject<Item> MOB_DNA_UNIT = ITEMS.register("mob_dna_unit", () -> new MobDnaUnitItem(GetBaseProperties()));
+    public static final RegistryObject<Item> BLOCK_GPS_UNIT = ITEMS.register("block_gps_unit", () -> new BlockGpsUnit(GetBaseProperties()));
 
 
     private static RegistryObject<Item> register(String name) {

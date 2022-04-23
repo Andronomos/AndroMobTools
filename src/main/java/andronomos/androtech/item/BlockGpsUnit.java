@@ -24,13 +24,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class GPSCardItem extends Item {
+public class BlockGpsUnit extends Item {
     public static final String TOOLTIP_BLOCK_GPS_UNIT = "tooltip.androtech.block_gps_unit_location";
     public static final String TOOLTIP_BLOCK_GPS_UNIT_X = "tooltip.androtech.block_gps_unit_x";
     public static final String TOOLTIP_BLOCK_GPS_UNIT_Y = "tooltip.androtech.block_gps_unit_y";
     public static final String TOOLTIP_BLOCK_GPS_UNIT_Z = "tooltip.androtech.block_gps_unit_z";
 
-    public GPSCardItem(Properties properties) {
+    public BlockGpsUnit(Properties properties) {
         super(properties);
     }
 

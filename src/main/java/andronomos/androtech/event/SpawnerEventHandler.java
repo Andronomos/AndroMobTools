@@ -1,6 +1,6 @@
 package andronomos.androtech.event;
 
-import andronomos.androtech.item.MobStorageCellItem;
+import andronomos.androtech.item.MobDnaUnitItem;
 import andronomos.androtech.network.MobToolsPacketHandler;
 import andronomos.androtech.network.packet.SyncSpawnerMagicLeadDrop;
 import andronomos.androtech.util.EnchantmentUtil;
@@ -127,7 +127,7 @@ public class SpawnerEventHandler {
 
 		CompoundTag tag = new CompoundTag();
 		tag.putString("entity", entityString);
-		ItemStackUtil.drop(level, pos, MobStorageCellItem.create(level, pos, tag, entityString));
+		ItemStackUtil.drop(level, pos, MobDnaUnitItem.create(level, pos, tag, entityString));
 
 		// Replace the entity inside the spawner with default entity
 		logic.setEntityId(EntityType.AREA_EFFECT_CLOUD);

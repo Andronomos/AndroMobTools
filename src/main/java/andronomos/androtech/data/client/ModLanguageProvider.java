@@ -13,8 +13,8 @@ import static andronomos.androtech.block.LootIncineratorBlock.SCREEN_LOOT_INCINE
 import static andronomos.androtech.block.RedstoneTransmitterBlock.SCREEN_REDSTONE_TRANSMITTER;
 import static andronomos.androtech.block.pad.MobKillingPadBlock.SCREEN_MOB_KILLING_PAD;
 //import static andronomos.androtech.item.BackpackItem.SCREEN_BACKPACK;
-import static andronomos.androtech.item.GPSCardItem.*;
-import static andronomos.androtech.item.MobStorageCellItem.*;
+import static andronomos.androtech.item.BlockGpsUnit.*;
+import static andronomos.androtech.item.MobDnaUnitItem.*;
 
 public class ModLanguageProvider extends LanguageProvider {
 

@@ -31,11 +31,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MobStorageCellItem extends Item {
+public class MobDnaUnitItem extends Item {
     public static final String TOOLTIP_MOB_DNA_UNIT_MOB = "tooltip.androtech.mob_dna_unit.mob";
     public static final String TOOLTIP_MOB_DNA_UNIT_HEALTH = "tooltip.androtech.mob_dna_unit.health";
 
-    public MobStorageCellItem(Properties properties) {
+    public MobDnaUnitItem(Properties properties) {
         super(properties);
     }
 

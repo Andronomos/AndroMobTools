@@ -1,7 +1,7 @@
 package andronomos.androtech.block.entity;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.item.MobStorageCellItem;
+import andronomos.androtech.item.MobDnaUnitItem;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
@@ -59,7 +59,7 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 
 		if(stack == null
 				|| stack.isEmpty()
-				|| !(stack.getItem() instanceof MobStorageCellItem)
+				|| !(stack.getItem() instanceof MobDnaUnitItem)
 				|| !ItemStackUtil.containsEntity(stack)) return;
 
 		if(shouldTick()) {
@@ -117,7 +117,7 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 
 			@Override
 			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-				return stack.getItem() instanceof MobStorageCellItem;
+				return stack.getItem() instanceof MobDnaUnitItem;
 			}
 		};
 	}

@@ -2,6 +2,7 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.item.AbstractActivatableItem;
+import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -11,6 +12,12 @@ public class ModPropertyOverrides {
 	public static final ResourceLocation IS_ACTIVATED = new ResourceLocation(AndroTech.MOD_ID, "activated");
 
 	public static void register() {
+		ItemProperties.register(ModItems.MOB_DNA_UNIT.get(),
+				IS_ACTIVATED, (stack, level, living, id) -> {
+					return ItemStackUtil.containsEntity(stack) ? 1 : 0;
+				});
+
+		registerActivatableItem(ModItems.MOB_DNA_UNIT.get());
 		registerActivatableItem(ModItems.PORTABLE_LOOT_ATTRACTOR.get());
 		registerActivatableItem(ModItems.SPEED_EMITTER.get());
 		registerActivatableItem(ModItems.SPEED_EMITTER.get());
