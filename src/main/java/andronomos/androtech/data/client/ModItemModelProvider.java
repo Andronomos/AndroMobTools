@@ -18,12 +18,12 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
-        createSingleTexture("mob_storage_cell");
+        createSingleTexture("mob_dna_unit");
         createSingleTexture("basic_chip");
         createSingleTexture("advanced_chip");
         createSingleTexture("withered_bone");
         createSingleTexture("debug_stick");
-        createSingleTexture("gps_card");
+        createSingleTexture("block_gps_unit");
 
         buildActivatableItem("portable_loot_attractor");
         buildActivatableItem("speed_emitter");

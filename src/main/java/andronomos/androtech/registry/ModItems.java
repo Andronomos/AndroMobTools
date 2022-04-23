@@ -29,7 +29,6 @@ public class ModItems {
     public static final RegistryObject<Item> WITHERED_BONE = ITEMS.register("withered_bone", () -> new Item(GetBaseProperties()));
 
     /** Equipment **/
-    public static final RegistryObject<Item> MOB_STORAGE_CELL = ITEMS.register("mob_storage_cell", () -> new MobStorageCellItem(GetBaseProperties()));
     public static final RegistryObject<Item> PORTABLE_LOOT_ATTRACTOR = ITEMS.register("portable_loot_attractor",
             () -> new PortableLootAttractorItem(GetBaseProperties().durability(PORTABLE_LOOT_ATTRACTOR_DURABILITY)));
 
@@ -50,7 +49,8 @@ public class ModItems {
 
     /** Misc **/
     public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword", () -> new FakeSword());
-    public static final RegistryObject<Item> GPS_CARD = ITEMS.register("gps_card", () -> new GPSCardItem(GetBaseProperties()));
+    public static final RegistryObject<Item> MOB_DNA_UNIT = ITEMS.register("mob_dna_unit", () -> new MobStorageCellItem(GetBaseProperties()));
+    public static final RegistryObject<Item> BLOCK_GPS_UNIT = ITEMS.register("block_gps_unit", () -> new GPSCardItem(GetBaseProperties()));
 
 
     private static RegistryObject<Item> register(String name) {

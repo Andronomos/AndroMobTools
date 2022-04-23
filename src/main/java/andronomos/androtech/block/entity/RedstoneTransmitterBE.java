@@ -55,7 +55,7 @@ public class RedstoneTransmitterBE extends BaseContainerBlockEntity implements T
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                if(stack.getItem() == ModItems.GPS_CARD.get()) {
+                if(stack.getItem() == ModItems.BLOCK_GPS_UNIT.get()) {
                     if(NBTUtil.getItemStackBlockPos(stack) != null) {
                         return true;
                     }
@@ -67,7 +67,7 @@ public class RedstoneTransmitterBE extends BaseContainerBlockEntity implements T
             @Nonnull
             @Override
             public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                if (stack.getItem() != ModItems.GPS_CARD.get()) {
+                if (stack.getItem() != ModItems.BLOCK_GPS_UNIT.get()) {
                     return stack;
                 }
                 return super.insertItem(slot, stack, simulate);

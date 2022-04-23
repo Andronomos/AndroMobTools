@@ -31,17 +31,17 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
 		add(ModItems.WITHERED_BONE.get(), "Withered Bone");
 
-		add(ModItems.MOB_STORAGE_CELL.get(), "Mob Storage Cell");
-		add(TOOLTIP_MOB_STORAGE_CELL_MOB, "Mob: ");
-		add(TOOLTIP_MOB_STORAGE_CELL_HEALTH, "Health: ");
+		add(ModItems.MOB_DNA_UNIT.get(), "Mob DNA Unit");
+		add(TOOLTIP_MOB_DNA_UNIT_MOB, "Mob: ");
+		add(TOOLTIP_MOB_DNA_UNIT_HEALTH, "Health: ");
+
+		add(ModItems.BLOCK_GPS_UNIT.get(), "Block GPS Unit");
+		add(TOOLTIP_BLOCK_GPS_UNIT, "Location");
+		add(TOOLTIP_BLOCK_GPS_UNIT_X, "X: ");
+		add(TOOLTIP_BLOCK_GPS_UNIT_Y, "Y: ");
+		add(TOOLTIP_BLOCK_GPS_UNIT_Z, "Z: ");
+
 		add(ModItems.PORTABLE_LOOT_ATTRACTOR.get(), "Portable Loot Attractor");
-
-		add(ModItems.GPS_CARD.get(), "GPS Cell");
-		add(TOOLTIP_GPS_CARD, "Location");
-		add(TOOLTIP_GPS_CARD_X, "X: ");
-		add(TOOLTIP_GPS_CARD_Y, "Y: ");
-		add(TOOLTIP_GPS_CARD_Z, "Z: ");
-
 		add(ModItems.SPEED_EMITTER.get(), "Speed Emitter");
 		add(ModItems.FIRE_RESISTANCE_EMITTER.get(), "Fire Resistance Emitter");
 		add(ModItems.REGENERATION_EMITTER.get(), "Regeneration Emitter");
@@ -50,8 +50,6 @@ public class ModLanguageProvider extends LanguageProvider {
 
 
 		/** Blocks **/
-		add(ModBlocks.TEST_BLOCK.get(), "Test Block");
-
 		add(ModBlocks.MOB_CLONER.get(), "Mob Cloner");
 		add(SCREEN_MOB_CLONER, "Mob Cloner");
 

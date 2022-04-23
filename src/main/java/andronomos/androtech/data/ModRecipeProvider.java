@@ -27,7 +27,6 @@ public class ModRecipeProvider extends RecipeProvider {
         registerChip(ModItems.ADVANCED_CHIP.get(), Tags.Items.GEMS_DIAMOND, consumer);
 
         /** Equipment **/
-        registerEquipment(ModItems.MOB_STORAGE_CELL.get(), ModItems.BASIC_CHIP.get(), Items.REDSTONE, Items.LEAD, consumer);
         registerEquipment(ModItems.PORTABLE_LOOT_ATTRACTOR.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, Items.HOPPER, consumer);
         registerEquipment(ModItems.SPEED_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.SUGAR, Items.BEACON, consumer);
         registerEquipment(ModItems.FIRE_RESISTANCE_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.FLINT_AND_STEEL, Items.BEACON, consumer);
@@ -35,7 +34,9 @@ public class ModRecipeProvider extends RecipeProvider {
         registerEquipment(ModItems.POISON_NULLIFIER.get(), ModItems.ADVANCED_CHIP.get(), Items.POISONOUS_POTATO, Items.BEACON, consumer);
         registerEquipment(ModItems.WITHER_NULLIFIER.get(), ModItems.ADVANCED_CHIP.get(), ModItems.WITHERED_BONE.get(), Items.BEACON, consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.GPS_CARD.get())
+        /** Misc **/
+        registerEquipment(ModItems.MOB_DNA_UNIT.get(), ModItems.BASIC_CHIP.get(), Items.REDSTONE, Items.LEAD, consumer);
+        ShapedRecipeBuilder.shaped(ModItems.BLOCK_GPS_UNIT.get())
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.MAP)
@@ -43,14 +44,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("212")
                 .pattern("434")
                 .pattern("242")
-                .unlockedBy("has_item", has(ModItems.PORTABLE_LOOT_ATTRACTOR.get()))
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
         /** Machines **/
         registerBasicMachine(ModBlocks.REDSTONE_RECEIVER.get(), Items.ENDER_PEARL, Items.REDSTONE_BLOCK, consumer);
         registerBasicMachine(ModBlocks.REDSTONE_TRANSMITTER.get(), Items.ENDER_PEARL, Items.REDSTONE_BLOCK, consumer);
 
-        registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.MOB_STORAGE_CELL.get(), Items.SPAWNER, consumer);
+        registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.MOB_DNA_UNIT.get(), Items.SPAWNER, consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.LOOT_INCINERATOR.get())
                 .define('1', Items.IRON_INGOT)
@@ -59,7 +60,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("121")
                 .pattern("232")
                 .pattern("121")
-                .unlockedBy("has_item", has(ModItems.PORTABLE_LOOT_ATTRACTOR.get()))
+                .unlockedBy("has_item", has(Items.LAVA_BUCKET))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.LOOT_ATTRACTOR.get())
@@ -71,7 +72,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("212")
                 .pattern("353")
                 .pattern("242")
-                .unlockedBy("has_item", has(ModItems.PORTABLE_LOOT_ATTRACTOR.get()))
+                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.CROP_HARVESTER.get())
@@ -84,7 +85,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("212")
                 .pattern("536")
                 .pattern("242")
-                .unlockedBy("has_item", has(ModItems.PORTABLE_LOOT_ATTRACTOR.get()))
+                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
                 .save(consumer);
 
         /** Pads **/
@@ -116,7 +117,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("212")
                 .pattern("454")
                 .pattern("232")
-                .unlockedBy("has_item", has(item2))
+                .unlockedBy("has_item", has(chip))
                 .save(consumer);
     }
 
@@ -128,7 +129,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("232")
                 .pattern("313")
                 .pattern("232")
-                .unlockedBy("has_item", has(item))
+                .unlockedBy("has_item", has(chip))
                 .save(consumer);
     }
 

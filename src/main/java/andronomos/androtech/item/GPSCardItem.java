@@ -25,10 +25,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class GPSCardItem extends Item {
-    public static final String TOOLTIP_GPS_CARD = "tooltip.androtech.gps_card_location";
-    public static final String TOOLTIP_GPS_CARD_X = "tooltip.androtech.gps_card_x";
-    public static final String TOOLTIP_GPS_CARD_Y = "tooltip.androtech.gps_card_y";
-    public static final String TOOLTIP_GPS_CARD_Z = "tooltip.androtech.gps_card_z";
+    public static final String TOOLTIP_BLOCK_GPS_UNIT = "tooltip.androtech.block_gps_unit_location";
+    public static final String TOOLTIP_BLOCK_GPS_UNIT_X = "tooltip.androtech.block_gps_unit_x";
+    public static final String TOOLTIP_BLOCK_GPS_UNIT_Y = "tooltip.androtech.block_gps_unit_y";
+    public static final String TOOLTIP_BLOCK_GPS_UNIT_Z = "tooltip.androtech.block_gps_unit_z";
 
     public GPSCardItem(Properties properties) {
         super(properties);
@@ -51,7 +51,7 @@ public class GPSCardItem extends Item {
         Level world = player.level;
         Block block = world.getBlockState(pos).getBlock();
         if(block != ModBlocks.REDSTONE_RECEIVER.get()) return false;
-        ItemStack drop = new ItemStack(ModItems.GPS_CARD.get());
+        ItemStack drop = new ItemStack(ModItems.BLOCK_GPS_UNIT.get());
         NBTUtil.setItemStackBlockPos(drop, pos);
         if(!player.addItem(drop)) ItemStackUtil.drop(player.level, player.blockPosition(), drop);
         return true;
@@ -68,10 +68,10 @@ public class GPSCardItem extends Item {
         BlockPos pos = NBTUtil.getItemStackBlockPos(stack);
 
         if(pos != null) {
-            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_GPS_CARD)).withStyle(ChatFormatting.GRAY));
-            String xCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_GPS_CARD_X), pos.getX());
-            String yCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_GPS_CARD_Y), pos.getY());
-            String zCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_GPS_CARD_Z), pos.getZ());
+            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_UNIT)).withStyle(ChatFormatting.GRAY));
+            String xCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_UNIT_X), pos.getX());
+            String yCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_UNIT_Y), pos.getY());
+            String zCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_UNIT_Z), pos.getZ());
             String coords = String.format("%s %s %s", xCoord, yCoord, zCoord);
             tooltip.add(new TextComponent(coords).withStyle(ChatFormatting.BLUE));
         }

@@ -32,8 +32,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class MobStorageCellItem extends Item {
-    public static final String TOOLTIP_MOB_STORAGE_CELL_MOB = "tooltip.androtech.mob_storage_cell.mob";
-    public static final String TOOLTIP_MOB_STORAGE_CELL_HEALTH = "tooltip.androtech.mob_storage_cell.health";
+    public static final String TOOLTIP_MOB_DNA_UNIT_MOB = "tooltip.androtech.mob_dna_unit.mob";
+    public static final String TOOLTIP_MOB_DNA_UNIT_HEALTH = "tooltip.androtech.mob_dna_unit.health";
 
     public MobStorageCellItem(Properties properties) {
         super(properties);
@@ -115,7 +115,7 @@ public class MobStorageCellItem extends Item {
 
     public static ItemStack create(Level level, BlockPos pos, CompoundTag tag, String entityName) {
         tag.putString("entity", entityName);
-        ItemStack drop = new ItemStack(ModItems.MOB_STORAGE_CELL.get());
+        ItemStack drop = new ItemStack(ModItems.MOB_DNA_UNIT.get());
         drop.setTag(tag);
         return drop;
     }
@@ -123,8 +123,8 @@ public class MobStorageCellItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level levelIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(ItemStackUtil.containsEntity(stack)) {
-            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_STORAGE_CELL_MOB) + stack.getTag().getString("entity")).withStyle(ChatFormatting.BLUE));
-            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_STORAGE_CELL_HEALTH) + stack.getTag().getDouble("Health")).withStyle(ChatFormatting.RED));
+            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_DNA_UNIT_MOB) + stack.getTag().getString("entity")).withStyle(ChatFormatting.BLUE));
+            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_DNA_UNIT_HEALTH) + stack.getTag().getDouble("Health")).withStyle(ChatFormatting.RED));
         } else {
             super.appendHoverText(stack, levelIn, tooltip, flagIn);
         }
