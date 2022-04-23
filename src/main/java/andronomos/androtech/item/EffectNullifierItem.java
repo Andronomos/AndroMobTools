@@ -3,6 +3,7 @@ package andronomos.androtech.item;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,7 +22,7 @@ public class EffectNullifierItem extends AbstractActivatableItem {
     }
 
     public EffectNullifierItem(Properties properties, MobEffect effect) {
-        super(properties.setNoRepair(), false, false);
+        super(properties.setNoRepair(), true, true);
         this.effect = effect;
     }
 

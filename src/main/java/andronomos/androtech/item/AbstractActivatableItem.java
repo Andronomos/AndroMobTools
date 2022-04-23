@@ -69,11 +69,6 @@ public abstract class AbstractActivatableItem extends Item implements IActivatab
 		NBTUtil.setItemStackNBTVal(stack, TAG_ACTIVATED, activated);
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	public boolean isFoil(ItemStack stack) {
-		return isActivated(stack);
-	}
-
 	public abstract void doDamage(ItemStack stack, Entity entity);
 	public abstract void deactivate(ItemStack stack, Player player);
 	public abstract void activate(ItemStack stack, Player player);

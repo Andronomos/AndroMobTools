@@ -53,10 +53,7 @@ public class AndroTech
             MenuScreens.register(ModContainers.CROP_HARVESTER.get(), CropHarvesterScreen::new);
             MenuScreens.register(ModContainers.REDSTONE_TRANSMITTER.get(), RedstoneTransmitterScreen::new);
 
-            ItemProperties.register(ModItems.PORTABLE_LOOT_ATTRACTOR.get(),
-                    new ResourceLocation(AndroTech.MOD_ID, "activated"), (stack, level, living, id) -> {
-                        return stackIsActivated(stack) ? 1 : 0;
-                    });
+            ModPropertyOverrides.register();
         });
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.MOB_CLONER.get(), RenderType.cutout());
@@ -64,15 +61,5 @@ public class AndroTech
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WIRELESS_LIGHT.get(), RenderType.cutout());
     }
 
-    private boolean stackIsActivated(ItemStack stack) {
-        Item item = stack.getItem();
 
-        if(item instanceof AbstractActivatableItem) {
-            if(((AbstractActivatableItem)item).isActivated(stack)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
 }

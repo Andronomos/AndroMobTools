@@ -44,6 +44,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
 		add(ModItems.SPEED_EMITTER.get(), "Speed Emitter");
 		add(ModItems.FIRE_RESISTANCE_EMITTER.get(), "Fire Resistance Emitter");
+		add(ModItems.REGENERATION_EMITTER.get(), "Regeneration Emitter");
 		add(ModItems.POISON_NULLIFIER.get(), "Poison NUllifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither NUllifier");
 

@@ -2,5 +2,19 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "androtech:item/speed_emitter"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "androtech:activated": 0.0
+      },
+      "model": "androtech:item/speed_emitter"
+    },
+    {
+      "predicate": {
+        "androtech:activated": 1.0
+      },
+      "model": "androtech:item/speed_emitter_activated"
+    }
+  ]
 }

@@ -30,6 +30,10 @@ public class ModRecipeProvider extends RecipeProvider {
         registerEquipment(ModItems.MOB_STORAGE_CELL.get(), ModItems.BASIC_CHIP.get(), Items.REDSTONE, Items.LEAD, consumer);
         registerEquipment(ModItems.PORTABLE_LOOT_ATTRACTOR.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, Items.HOPPER, consumer);
         registerEquipment(ModItems.SPEED_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.SUGAR, Items.BEACON, consumer);
+        registerEquipment(ModItems.FIRE_RESISTANCE_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.FLINT_AND_STEEL, Items.BEACON, consumer);
+        registerEquipment(ModItems.REGENERATION_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.GOLDEN_APPLE, Items.BEACON, consumer);
+        registerEquipment(ModItems.POISON_NULLIFIER.get(), ModItems.ADVANCED_CHIP.get(), Items.POISONOUS_POTATO, Items.BEACON, consumer);
+        registerEquipment(ModItems.WITHER_NULLIFIER.get(), ModItems.ADVANCED_CHIP.get(), ModItems.WITHERED_BONE.get(), Items.BEACON, consumer);
 
         ShapedRecipeBuilder.shaped(ModItems.GPS_CARD.get())
                 .define('1', ModItems.BASIC_CHIP.get())

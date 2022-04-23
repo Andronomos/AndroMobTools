@@ -40,11 +40,14 @@ public class ModItems {
     public static final RegistryObject<Item> FIRE_RESISTANCE_EMITTER = ITEMS.register("fire_resistance_emitter",
             () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.FIRE_RESISTANCE, Const.EffectAmplifier.I));
 
+    public static final RegistryObject<Item> REGENERATION_EMITTER = ITEMS.register("regeneration_emitter",
+            () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.REGENERATION, Const.EffectAmplifier.V));
+
     public static final RegistryObject<Item> POISON_NULLIFIER = ITEMS.register("poison_nullifier",
-            () -> new EffectNullifierItem(NULLIFIER_PROPERTIES, MobEffects.POISON, true, true));
+            () -> new EffectNullifierItem(NULLIFIER_PROPERTIES, MobEffects.POISON));
 
     public static final RegistryObject<Item> WITHER_NULLIFIER = ITEMS.register("wither_nullifier",
-            () -> new EffectNullifierItem(NULLIFIER_PROPERTIES, MobEffects.WITHER, true, true));
+            () -> new EffectNullifierItem(NULLIFIER_PROPERTIES, MobEffects.WITHER));
 
     /** Misc **/
     public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword", () -> new FakeSword());

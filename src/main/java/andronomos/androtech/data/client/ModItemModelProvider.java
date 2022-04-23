@@ -1,6 +1,9 @@
 package andronomos.androtech.data.client;
 
+import andronomos.androtech.AndroTech;
+import andronomos.androtech.registry.ModPropertyOverrides;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -15,20 +18,35 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
-        builder(itemGenerated, "mob_storage_cell");
-        builder(itemGenerated, "basic_chip");
-        builder(itemGenerated, "advanced_chip");
-        builder(itemGenerated, "withered_bone");
-        //builder(itemGenerated, "portable_loot_attractor");
-        builder(itemGenerated, "debug_stick");
-        builder(itemGenerated, "gps_card");
-        builder(itemGenerated, "speed_emitter");
-        builder(itemGenerated, "fire_resistance_emitter");
-        builder(itemGenerated, "poison_nullifier");
-        builder(itemGenerated, "wither_nullifier");
+        createSingleTexture("mob_storage_cell");
+        createSingleTexture("basic_chip");
+        createSingleTexture("advanced_chip");
+        createSingleTexture("withered_bone");
+        createSingleTexture("debug_stick");
+        createSingleTexture("gps_card");
+
+        buildActivatableItem("portable_loot_attractor");
+        buildActivatableItem("speed_emitter");
+        buildActivatableItem("fire_resistance_emitter");
+        buildActivatableItem("regeneration_emitter");
+        buildActivatableItem("poison_nullifier");
+        buildActivatableItem("wither_nullifier");
     }
 
-    private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
-        return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+    private ItemModelBuilder createSingleTexture(String name) {
+        return singleTexture(name, mcLoc("item/generated"), "layer0", modLoc("item/" + name));
+    }
+
+    private void buildActivatableItem(String name) {
+        ItemModelBuilder modelNormal = createSingleTexture(name);
+        ModelFile modelactivated = createSingleTexture(name + "_activated");
+        modelNormal.override()
+                .predicate(ModPropertyOverrides.IS_ACTIVATED, 0)
+                .model(modelNormal)
+                .end()
+                .override()
+                .predicate(ModPropertyOverrides.IS_ACTIVATED, 1)
+                .model(modelactivated)
+                .end();
     }
 }

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "212",
+    "454",
+    "232"
+  ],
+  "key": {
+    "1": {
+      "item": "androtech:advanced_chip"
+    },
+    "2": {
+      "item": "minecraft:iron_ingot"
+    },
+    "3": {
+      "item": "minecraft:redstone"
+    },
+    "4": {
+      "item": "minecraft:golden_apple"
+    },
+    "5": {
+      "item": "minecraft:beacon"
+    }
+  },
+  "result": {
+    "item": "androtech:regeneration_emitter"
+  }
+}
