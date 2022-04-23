@@ -130,8 +130,8 @@ public class MobDnaUnitItem extends Item {
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public boolean isFoil(ItemStack stack) {
-        return ItemStackUtil.containsEntity(stack);
-    }
+    //@OnlyIn(Dist.CLIENT)
+    //public boolean isFoil(ItemStack stack) {
+    //    return ItemStackUtil.containsEntity(stack);
+    //}
 }
