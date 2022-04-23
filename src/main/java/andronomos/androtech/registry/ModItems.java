@@ -14,10 +14,9 @@ import static andronomos.androtech.item.EffectNullifierItem.NULLIFIER_DURABILITY
 import static andronomos.androtech.item.PortableLootAttractorItem.PORTABLE_LOOT_ATTRACTOR_DURABILITY;
 
 public class ModItems {
-    public static final Item.Properties BASE_PROPERTIES = new Item.Properties().tab(andronomos.androtech.AndroTech.ANDROTECH_TAB).stacksTo(64);
     public static final Item.Properties DEBUG_PROPERTIES = new Item.Properties();
-    private static final Item.Properties EMITTER_PROPERTIES = new Item.Properties().tab(AndroTech.ANDROTECH_TAB).durability(EMITTER_DURABILITY);
-    private static final Item.Properties NULLIFIER_PROPERTIES = new Item.Properties().tab(AndroTech.ANDROTECH_TAB).durability(NULLIFIER_DURABILITY);
+    private static final Item.Properties EMITTER_PROPERTIES = GetBaseProperties().durability(EMITTER_DURABILITY);
+    private static final Item.Properties NULLIFIER_PROPERTIES = GetBaseProperties().durability(NULLIFIER_DURABILITY);
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, andronomos.androtech.AndroTech.MOD_ID);
 
@@ -27,12 +26,12 @@ public class ModItems {
     /** Crafting components **/
     public static final RegistryObject<Item> BASIC_CHIP = register("basic_chip");
     public static final RegistryObject<Item> ADVANCED_CHIP = register("advanced_chip");
-    public static final RegistryObject<Item> WITHERED_BONE = ITEMS.register("withered_bone", () -> new Item(BASE_PROPERTIES));
+    public static final RegistryObject<Item> WITHERED_BONE = ITEMS.register("withered_bone", () -> new Item(GetBaseProperties()));
 
     /** Equipment **/
-    public static final RegistryObject<Item> MOB_STORAGE_CELL = ITEMS.register("mob_storage_cell", () -> new MobStorageCellItem(BASE_PROPERTIES));
+    public static final RegistryObject<Item> MOB_STORAGE_CELL = ITEMS.register("mob_storage_cell", () -> new MobStorageCellItem(GetBaseProperties()));
     public static final RegistryObject<Item> PORTABLE_LOOT_ATTRACTOR = ITEMS.register("portable_loot_attractor",
-            () -> new PortableLootAttractorItem(BASE_PROPERTIES.durability(PORTABLE_LOOT_ATTRACTOR_DURABILITY)));
+            () -> new PortableLootAttractorItem(GetBaseProperties().durability(PORTABLE_LOOT_ATTRACTOR_DURABILITY)));
 
     public static final RegistryObject<Item> SPEED_EMITTER = ITEMS.register("speed_emitter",
             () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.MOVEMENT_SPEED, Const.EffectAmplifier.V));
@@ -51,10 +50,14 @@ public class ModItems {
 
     /** Misc **/
     public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword", () -> new FakeSword());
-    public static final RegistryObject<Item> GPS_CARD = ITEMS.register("gps_card", () -> new GPSCardItem(BASE_PROPERTIES));
+    public static final RegistryObject<Item> GPS_CARD = ITEMS.register("gps_card", () -> new GPSCardItem(GetBaseProperties()));
 
 
     private static RegistryObject<Item> register(String name) {
-        return ITEMS.register(name, () -> new Item(BASE_PROPERTIES));
+        return ITEMS.register(name, () -> new Item(GetBaseProperties()));
+    }
+
+    public static Item.Properties GetBaseProperties() {
+        return new Item.Properties().tab(andronomos.androtech.AndroTech.ANDROTECH_TAB);
     }
 }
