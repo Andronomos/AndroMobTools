@@ -33,7 +33,7 @@ public class RedstoneTransmitterScreen extends BaseScreen<RedstoneTransmitterCon
 
         container.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
             for(int slotCounter = 0; slotCounter < 9; slotCounter++) {
-                this.drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * slotCounter, 26, SLOT_CARD, Const.SCREEN_SLOT_SIZE);
+                this.drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * slotCounter, 26, SLOT_UNIT, Const.SCREEN_SLOT_SIZE);
             }
         });
     }
