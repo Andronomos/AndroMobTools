@@ -14,7 +14,7 @@ import static andronomos.androtech.item.EffectNullifierItem.NULLIFIER_DURABILITY
 import static andronomos.androtech.item.PortableLootAttractorItem.PORTABLE_LOOT_ATTRACTOR_DURABILITY;
 
 public class ModItems {
-    public static final Item.Properties BASE_PROPERTIES = new Item.Properties().tab(andronomos.androtech.AndroTech.ANDROTECH_TAB);
+    public static final Item.Properties BASE_PROPERTIES = new Item.Properties().tab(andronomos.androtech.AndroTech.ANDROTECH_TAB).stacksTo(64);
     public static final Item.Properties DEBUG_PROPERTIES = new Item.Properties();
     private static final Item.Properties EMITTER_PROPERTIES = new Item.Properties().tab(AndroTech.ANDROTECH_TAB).durability(EMITTER_DURABILITY);
     private static final Item.Properties NULLIFIER_PROPERTIES = new Item.Properties().tab(AndroTech.ANDROTECH_TAB).durability(NULLIFIER_DURABILITY);

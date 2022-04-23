@@ -14,6 +14,7 @@ public class ModPropertyOverrides {
 		registerActivatableItem(ModItems.PORTABLE_LOOT_ATTRACTOR.get());
 		registerActivatableItem(ModItems.SPEED_EMITTER.get());
 		registerActivatableItem(ModItems.SPEED_EMITTER.get());
+		registerActivatableItem(ModItems.REGENERATION_EMITTER.get());
 		registerActivatableItem(ModItems.FIRE_RESISTANCE_EMITTER.get());
 		registerActivatableItem(ModItems.POISON_NULLIFIER.get());
 		registerActivatableItem(ModItems.WITHER_NULLIFIER.get());
