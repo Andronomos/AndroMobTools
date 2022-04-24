@@ -26,3 +26,12 @@ Accelerate any item or mob that lands on it.
 
 ### Strong Acceleration Pad
 Accelerate any item or mob that lands on it.
+
+### Crop Harvester
+Crops in a 10x10x1 area above the block are automatically harvested when fully grown and placed inside the Harvester's inventory. Seeds from the crop are used to replant the crop. Also functions as a water source block.
+
+### Redstone Transmitter
+Wirelessly sends a redstone signal to a RedStone Reciever. The Transmitter accepts up to 9 GPS Units marking the location of Receivers in the world.
+
+### Redstone Receiver
+Wirelessly accepts a redsone signal from a RedStone Reciever. When activated, acts as a redstone block.
