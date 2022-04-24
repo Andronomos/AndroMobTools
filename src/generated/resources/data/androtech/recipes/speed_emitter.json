@@ -2,24 +2,24 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "454",
-    "232"
+    "353",
+    "242"
   ],
   "key": {
     "1": {
-      "item": "androtech:advanced_chip"
+      "item": "androtech:basic_chip"
     },
     "2": {
       "item": "minecraft:iron_ingot"
     },
     "3": {
-      "item": "minecraft:redstone"
+      "item": "minecraft:amethyst_shard"
     },
     "4": {
       "item": "minecraft:sugar"
     },
     "5": {
-      "item": "minecraft:beacon"
+      "item": "minecraft:nether_star"
     }
   },
   "result": {

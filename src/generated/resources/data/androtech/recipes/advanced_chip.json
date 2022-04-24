@@ -7,7 +7,7 @@
   ],
   "key": {
     "1": {
-      "tag": "forge:gems/diamond"
+      "item": "minecraft:diamond"
     },
     "2": {
       "item": "minecraft:quartz"

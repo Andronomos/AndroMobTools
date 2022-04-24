@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "454",
+    "343",
     "232"
   ],
   "key": {
@@ -13,12 +13,9 @@
       "item": "minecraft:iron_ingot"
     },
     "3": {
-      "item": "minecraft:redstone"
-    },
-    "4": {
       "item": "minecraft:amethyst_shard"
     },
-    "5": {
+    "4": {
       "item": "minecraft:nether_star"
     }
   },

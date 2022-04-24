@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "434",
-    "242"
+    "343",
+    "232"
   ],
   "key": {
     "1": {
@@ -13,10 +13,10 @@
       "item": "minecraft:iron_ingot"
     },
     "3": {
-      "item": "minecraft:map"
+      "item": "minecraft:amethyst_shard"
     },
     "4": {
-      "item": "minecraft:black_dye"
+      "item": "minecraft:map"
     }
   },
   "result": {
