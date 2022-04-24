@@ -16,13 +16,13 @@
       "item": "minecraft:redstone"
     },
     "4": {
-      "item": "androtech:dna_unit"
+      "item": "minecraft:chest"
     },
     "5": {
-      "item": "minecraft:spawner"
+      "item": "androtech:attractor_unit"
     }
   },
   "result": {
-    "item": "androtech:mob_cloner"
+    "item": "androtech:item_attractor"
   }
 }

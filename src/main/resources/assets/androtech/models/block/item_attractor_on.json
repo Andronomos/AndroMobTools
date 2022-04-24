@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "down": "androtech:block/machine_bottom",
+    "up": "androtech:block/item_attractor_on_top",
+    "north": "androtech:block/item_attractor_on_side",
+    "south": "androtech:block/item_attractor_on_side",
+    "east": "androtech:block/item_attractor_on_side",
+    "west": "androtech:block/item_attractor_on_side"
+  }
+}

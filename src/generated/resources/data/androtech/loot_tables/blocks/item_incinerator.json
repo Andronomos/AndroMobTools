@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "mob_cloner",
+      "name": "item_incinerator",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "androtech:mob_cloner"
+          "name": "androtech:item_incinerator"
         }
       ]
     }

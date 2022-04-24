@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "powered=true":  { "model": "androtech:block/loot_attractor_on" },
-    "powered=false": { "model": "androtech:block/loot_attractor_off" }
-  }
-}
