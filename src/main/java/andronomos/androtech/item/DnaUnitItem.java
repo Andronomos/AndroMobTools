@@ -44,7 +44,6 @@ public class DnaUnitItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        BlockEntity clickedEntity = context.getLevel().getBlockEntity(context.getClickedPos());
         Player player = context.getPlayer();
         ItemStack stack = player.getItemInHand(context.getHand());
 
