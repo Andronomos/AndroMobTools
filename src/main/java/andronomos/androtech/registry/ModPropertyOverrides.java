@@ -3,6 +3,7 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.item.AbstractActivatableItem;
 import andronomos.androtech.util.ItemStackUtil;
+import andronomos.androtech.util.NBTUtil;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -15,6 +16,11 @@ public class ModPropertyOverrides {
 		ItemProperties.register(ModItems.DNA_UNIT.get(),
 				IS_ACTIVATED, (stack, level, living, id) -> {
 					return ItemStackUtil.containsEntity(stack) ? 1 : 0;
+				});
+
+		ItemProperties.register(ModItems.GPS_UNIT.get(),
+				IS_ACTIVATED, (stack, level, living, id) -> {
+					return NBTUtil.getItemStackBlockPos(stack) != null ? 1 : 0;
 				});
 
 		registerActivatableItem(ModItems.ATTRACTOR_UNIT.get());

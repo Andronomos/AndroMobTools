@@ -55,7 +55,7 @@ public class EffectEmitterItem extends AbstractActivatableItem {
 
         if(tickCounter == tickDelay) {
             if(takeDamage) {
-                doDamage(stack, entity, false);
+                doDamage(stack, entity, 1,false);
             }
 
             tickCounter = 0;

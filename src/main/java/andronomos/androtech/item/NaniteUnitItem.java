@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class NaniteUnitItem extends AbstractActivatableItem {
+    public static final int ATTRACTOR_UNIT_DURABILITY = 1000;
     private int repairAmount = 5;
 
     public NaniteUnitItem(Properties properties, boolean takeDamage, boolean isRepairable) {
@@ -63,7 +64,7 @@ public class NaniteUnitItem extends AbstractActivatableItem {
                 if(!ItemStackUtil.isRepairable(currItem)) continue;
                 currItem.setDamageValue(currItem.getDamageValue() - this.repairAmount);
                 if(this.takeDamage) {
-                    doDamage(stack, player, true);
+                    doDamage(stack, player, repairAmount, true);
                 }
             }
         }

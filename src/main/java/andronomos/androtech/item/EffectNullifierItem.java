@@ -58,7 +58,7 @@ public class EffectNullifierItem extends AbstractActivatableItem {
         if(living.hasEffect(this.effect)) {
             living.removeEffect(this.effect);
             if(takeDamage) {
-                doDamage(stack, living, false);
+                doDamage(stack, living, 1,false);
             }
         }
     }

@@ -50,7 +50,7 @@ public class ModItems {
     public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword", () -> new FakeSword());
     public static final RegistryObject<Item> DNA_UNIT = ITEMS.register("dna_unit", () -> new DnaUnitItem(GetBaseProperties()));
     public static final RegistryObject<Item> GPS_UNIT = ITEMS.register("gps_unit", () -> new GpsUnitItem(GetBaseProperties()));
-    public static final RegistryObject<Item> NANITE_UNIT = ITEMS.register("nanite_unit", () -> new NaniteUnitItem(GetBaseProperties()));
+    public static final RegistryObject<Item> NANITE_UNIT = ITEMS.register("nanite_unit", () -> new NaniteUnitItem(GetBaseProperties().durability(ATTRACTOR_UNIT_DURABILITY)));
 
 
     private static RegistryObject<Item> register(String name) {

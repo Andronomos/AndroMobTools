@@ -56,7 +56,7 @@ public class AttractorUnitItem extends AbstractActivatableItem {
 			if(!isBroken(stack)) {
 				if(player.getInventory().add(item.getItem())) {
 					if(takeDamage) {
-						doDamage(stack, player, true);
+						doDamage(stack, player, 1,true);
 					}
 				}
 
@@ -74,7 +74,7 @@ public class AttractorUnitItem extends AbstractActivatableItem {
 				player.takeXpDelay = 0;
 				orb.playerTouch(player);
 				if(takeDamage) {
-					doDamage(stack, player, true);
+					doDamage(stack, player, 1,true);
 				}
 			}
 		});
