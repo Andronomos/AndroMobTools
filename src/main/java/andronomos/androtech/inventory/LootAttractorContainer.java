@@ -38,7 +38,7 @@ public class LootAttractorContainer extends BaseContainerMenu {
 
 	@Override
 	public boolean stillValid(Player playerIn) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.ATTRACTOR.get());
+		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.ITEM_ATTRACTOR.get());
 	}
 
 	@Override

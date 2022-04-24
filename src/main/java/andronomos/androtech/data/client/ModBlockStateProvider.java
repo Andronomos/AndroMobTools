@@ -16,7 +16,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         registerMachineStateAndModel(ModBlocks.MOB_CLONER.get(), "mob_cloner_top", "machine_bottom", "mob_cloner_side");
-        registerMachineStateAndModel(ModBlocks.INCINERATOR.get(), "loot_incinerator_top", "loot_incinerator_bottom", "loot_incinerator_side");
+        registerMachineStateAndModel(ModBlocks.ITEM_INCINERATOR.get(), "incinerator_top", "incinerator_bottom", "incinerator_side");
         registerMachineStateAndModel(ModBlocks.CROP_HARVESTER.get(), "crop_harvester_top", "machine_bottom", "crop_harvester_side");
         registerPadStateAndModel(ModBlocks.MOB_KILLING_PAD.get(), "mob_killing_pad_top");
         registerPadStateAndModel(ModBlocks.WEAK_ACCELERATION_PAD.get(), "acceleration_pad_weak_top", true);

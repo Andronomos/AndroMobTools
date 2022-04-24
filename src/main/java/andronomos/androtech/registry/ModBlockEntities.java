@@ -14,11 +14,11 @@ public class ModBlockEntities {
             .build(null));
 
     public static final RegistryObject<BlockEntityType<LootAttractorBE>> LOOT_ATTRACTOR = BLOCK_ENTITIES.register("loot_attractor_be", () -> BlockEntityType.Builder
-            .of(LootAttractorBE::new, ModBlocks.ATTRACTOR.get())
+            .of(LootAttractorBE::new, ModBlocks.ITEM_ATTRACTOR.get())
             .build(null));
 
     public static final RegistryObject<BlockEntityType<LootIncineratorBE>> LOOT_INCINERATOR = BLOCK_ENTITIES.register("loot_incinerator_be", () -> BlockEntityType.Builder
-            .of(LootIncineratorBE::new, ModBlocks.INCINERATOR.get())
+            .of(LootIncineratorBE::new, ModBlocks.ITEM_INCINERATOR.get())
             .build(null));
 
     public static final RegistryObject<BlockEntityType<MobKillingPadBE>> MOB_KILLING_PAD = BLOCK_ENTITIES.register("mob_killing_pad_be", () -> BlockEntityType.Builder

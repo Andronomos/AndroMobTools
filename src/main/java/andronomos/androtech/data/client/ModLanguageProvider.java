@@ -8,8 +8,8 @@ import net.minecraftforge.common.data.LanguageProvider;
 import static andronomos.androtech.AndroTech.TAB_NAME;
 import static andronomos.androtech.block.CropHarvesterBlock.SCREEN_CROP_HARVESTER;
 import static andronomos.androtech.block.MobClonerBlock.SCREEN_MOB_CLONER;
-import static andronomos.androtech.block.AttractorBlock.SCREEN_LOOT_ATTRACTOR;
-import static andronomos.androtech.block.IncineratorBlock.SCREEN_LOOT_INCINERATOR;
+import static andronomos.androtech.block.ItemAttractorBlock.SCREEN_LOOT_ATTRACTOR;
+import static andronomos.androtech.block.ItemIncineratorBlock.SCREEN_LOOT_INCINERATOR;
 import static andronomos.androtech.block.RedstoneTransmitterBlock.SCREEN_REDSTONE_TRANSMITTER;
 import static andronomos.androtech.block.pad.MobKillingPadBlock.SCREEN_MOB_KILLING_PAD;
 //import static andronomos.androtech.item.BackpackItem.SCREEN_BACKPACK;
@@ -54,10 +54,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModBlocks.MOB_CLONER.get(), "Mob Cloner");
 		add(SCREEN_MOB_CLONER, "Mob Cloner");
 
-		add(ModBlocks.ATTRACTOR.get(), "Item Attractor");
+		add(ModBlocks.ITEM_ATTRACTOR.get(), "Item Attractor");
 		add(SCREEN_LOOT_ATTRACTOR, "Item Attractor");
 
-		add(ModBlocks.INCINERATOR.get(), "Item Incinerator");
+		add(ModBlocks.ITEM_INCINERATOR.get(), "Item Incinerator");
 		add(SCREEN_LOOT_INCINERATOR, "Item Incinerator");
 
 		add(ModBlocks.MOB_KILLING_PAD.get(), "Mob Killing Pad");

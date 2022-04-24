@@ -36,8 +36,8 @@ public class ModLootTableProvider extends LootTableProvider {
 
      private void addTables() {
         lootTables.put(ModBlocks.MOB_CLONER.get(), createSimpleTable("magic_spawner", ModBlocks.MOB_CLONER.get()));
-        lootTables.put(ModBlocks.ATTRACTOR.get(), createSimpleTable("loot_attractor", ModBlocks.ATTRACTOR.get()));
-        lootTables.put(ModBlocks.INCINERATOR.get(), createSimpleTable("loot_incinerator", ModBlocks.INCINERATOR.get()));
+        lootTables.put(ModBlocks.ITEM_ATTRACTOR.get(), createSimpleTable("loot_attractor", ModBlocks.ITEM_ATTRACTOR.get()));
+        lootTables.put(ModBlocks.ITEM_INCINERATOR.get(), createSimpleTable("loot_incinerator", ModBlocks.ITEM_INCINERATOR.get()));
         lootTables.put(ModBlocks.MOB_KILLING_PAD.get(), createSimpleTable("mob_killing_pad", ModBlocks.MOB_KILLING_PAD.get()));
         lootTables.put(ModBlocks.WEAK_ACCELERATION_PAD.get(), createSimpleTable("weak_acceleration_pad", ModBlocks.WEAK_ACCELERATION_PAD.get()));
         lootTables.put(ModBlocks.STRONG_ACCELERATION_PAD.get(), createSimpleTable("strong_acceleration_pad", ModBlocks.STRONG_ACCELERATION_PAD.get()));

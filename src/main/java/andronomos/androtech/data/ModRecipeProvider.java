@@ -77,7 +77,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.DNA_UNIT.get(), Items.SPAWNER, consumer);
 
-        ShapedRecipeBuilder.shaped(ModBlocks.INCINERATOR.get())
+        ShapedRecipeBuilder.shaped(ModBlocks.ITEM_INCINERATOR.get())
                 .define('1', Items.IRON_INGOT)
                 .define('2', Items.GLASS)
                 .define('3', Items.LAVA_BUCKET)
@@ -87,7 +87,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(Items.LAVA_BUCKET))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModBlocks.ATTRACTOR.get())
+        ShapedRecipeBuilder.shaped(ModBlocks.ITEM_ATTRACTOR.get())
                 .define('1', ModItems.ADVANCED_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.REDSTONE)

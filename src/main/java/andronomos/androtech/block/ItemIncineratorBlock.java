@@ -21,10 +21,10 @@ import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public class IncineratorBlock extends Block implements EntityBlock {
+public class ItemIncineratorBlock extends Block implements EntityBlock {
     public static final String SCREEN_LOOT_INCINERATOR = "screen.androtech.loot_incinerator";
 
-    public IncineratorBlock(Properties properties) {
+    public ItemIncineratorBlock(Properties properties) {
         super(properties);
     }
 

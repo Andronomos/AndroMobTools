@@ -27,11 +27,11 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class AttractorBlock extends Block implements EntityBlock {
+public class ItemAttractorBlock extends Block implements EntityBlock {
 	public static final String SCREEN_LOOT_ATTRACTOR = "screen.androtech.loot_attractor";
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
-	public AttractorBlock(Properties properties) {
+	public ItemAttractorBlock(Properties properties) {
 		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)));
 	}
