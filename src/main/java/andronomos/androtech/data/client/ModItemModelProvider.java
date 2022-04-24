@@ -18,7 +18,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
-        buildActivatableItem("mob_dna_unit");
+        buildActivatableItem("dna_unit");
         createSingleTexture("basic_chip");
         createSingleTexture("advanced_chip");
         createSingleTexture("withered_bone");
