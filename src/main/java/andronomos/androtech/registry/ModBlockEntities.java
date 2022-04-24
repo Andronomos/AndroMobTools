@@ -13,11 +13,11 @@ public class ModBlockEntities {
             .of(MobClonerBE::new, ModBlocks.MOB_CLONER.get())
             .build(null));
 
-    public static final RegistryObject<BlockEntityType<LootAttractorBE>> LOOT_ATTRACTOR = BLOCK_ENTITIES.register("loot_attractor_be", () -> BlockEntityType.Builder
+    public static final RegistryObject<BlockEntityType<LootAttractorBE>> ITEM_ATTRACTOR = BLOCK_ENTITIES.register("item_attractor_be", () -> BlockEntityType.Builder
             .of(LootAttractorBE::new, ModBlocks.ITEM_ATTRACTOR.get())
             .build(null));
 
-    public static final RegistryObject<BlockEntityType<LootIncineratorBE>> LOOT_INCINERATOR = BLOCK_ENTITIES.register("loot_incinerator_be", () -> BlockEntityType.Builder
+    public static final RegistryObject<BlockEntityType<LootIncineratorBE>> ITEM_INCINERATOR = BLOCK_ENTITIES.register("item_incinerator_be", () -> BlockEntityType.Builder
             .of(LootIncineratorBE::new, ModBlocks.ITEM_INCINERATOR.get())
             .build(null));
 

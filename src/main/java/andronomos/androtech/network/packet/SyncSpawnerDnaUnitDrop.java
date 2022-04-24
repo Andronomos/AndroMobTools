@@ -15,24 +15,23 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class SyncSpawnerMagicLeadDrop {
+public class SyncSpawnerDnaUnitDrop {
 	private final BlockPos pos;
 
-	public SyncSpawnerMagicLeadDrop(BlockPos pos) {
+	public SyncSpawnerDnaUnitDrop(BlockPos pos) {
 		this.pos = pos;
 	}
 
-	public static void encode(SyncSpawnerMagicLeadDrop msg, FriendlyByteBuf buf) {
+	public static void encode(SyncSpawnerDnaUnitDrop msg, FriendlyByteBuf buf) {
 		buf.writeBlockPos(msg.pos);
 	}
 
-	public static SyncSpawnerMagicLeadDrop decode(FriendlyByteBuf buf) {
+	public static SyncSpawnerDnaUnitDrop decode(FriendlyByteBuf buf) {
 		BlockPos pos = new BlockPos(buf.readBlockPos());
-
-		return new SyncSpawnerMagicLeadDrop(pos);
+		return new SyncSpawnerDnaUnitDrop(pos);
 	}
 
-	public static void handle(SyncSpawnerMagicLeadDrop msg, Supplier<NetworkEvent.Context> ctx) {
+	public static void handle(SyncSpawnerDnaUnitDrop msg, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
 			Level level = ctx.get().getSender().level;
 

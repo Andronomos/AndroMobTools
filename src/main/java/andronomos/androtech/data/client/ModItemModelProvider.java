@@ -23,9 +23,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         createSingleTexture("advanced_chip");
         createSingleTexture("withered_bone");
         createSingleTexture("debug_stick");
-        createSingleTexture("block_gps_unit");
+        createSingleTexture("gps_unit");
 
-        buildActivatableItem("portable_loot_attractor");
+        buildActivatableItem("attractor_unit");
         buildActivatableItem("speed_emitter");
         buildActivatableItem("fire_resistance_emitter");
         buildActivatableItem("regeneration_emitter");

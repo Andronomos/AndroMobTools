@@ -17,7 +17,7 @@ public class LootIncineratorContainer extends BaseContainerMenu {
     private BlockEntity blockEntity;
 
     public LootIncineratorContainer(int windowId, BlockPos pos, Inventory inventory, Player player) {
-        super(ModContainers.LOOT_INCINERATOR.get(), windowId);
+        super(ModContainers.ITEM_INCINERATOR.get(), windowId);
         blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
         this.playerEntity = player;
         this.playerInventory = new InvWrapper(inventory);

@@ -2,7 +2,7 @@ package andronomos.androtech;
 
 import andronomos.androtech.gui.*;
 import andronomos.androtech.event.SpawnerEventHandler;
-import andronomos.androtech.network.MobToolsPacketHandler;
+import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.registry.*;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -27,7 +27,7 @@ public class AndroTech
 
     public AndroTech() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        MobToolsPacketHandler.register();
+        //AndroTechPacketHandler.register();
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
         ModContainers.CONTAINERS.register(modEventBus);
@@ -42,8 +42,8 @@ public class AndroTech
     private void clientSetup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             MenuScreens.register(ModContainers.MOB_CLONER.get(), MobClonerScreen::new);
-            MenuScreens.register(ModContainers.LOOT_ATTRACTOR.get(), LootAttractorScreen::new);
-            MenuScreens.register(ModContainers.LOOT_INCINERATOR.get(), LootIncineratorScreen::new);
+            MenuScreens.register(ModContainers.ITEM_ATTRACTOR.get(), LootAttractorScreen::new);
+            MenuScreens.register(ModContainers.ITEM_INCINERATOR.get(), LootIncineratorScreen::new);
             MenuScreens.register(ModContainers.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);
             MenuScreens.register(ModContainers.CROP_HARVESTER.get(), CropHarvesterScreen::new);
             MenuScreens.register(ModContainers.REDSTONE_TRANSMITTER.get(), RedstoneTransmitterScreen::new);
@@ -55,6 +55,7 @@ public class AndroTech
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ITEM_ATTRACTOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WIRELESS_LIGHT.get(), RenderType.cutout());
     }
+
 
 
 }

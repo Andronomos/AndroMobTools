@@ -131,8 +131,8 @@ public class RedstoneTransmitterBlock extends Block implements EntityBlock {
             final RedstoneTransmitterBE tileEntity = (RedstoneTransmitterBE)level.getBlockEntity(pos);
 
             tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
-                ItemStack magicLead = itemHandler.getStackInSlot(0);
-                ItemStackUtil.drop(level, pos, magicLead);
+                ItemStack dnaUnit = itemHandler.getStackInSlot(0);
+                ItemStackUtil.drop(level, pos, dnaUnit);
             });
             level.updateNeighbourForOutputSignal(pos, this);
         }

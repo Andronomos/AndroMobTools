@@ -22,7 +22,7 @@ import net.minecraftforge.network.NetworkHooks;
 import javax.annotation.Nullable;
 
 public class ItemIncineratorBlock extends Block implements EntityBlock {
-    public static final String SCREEN_LOOT_INCINERATOR = "screen.androtech.loot_incinerator";
+    public static final String SCREEN_ITEM_INCINERATOR = "screen.androtech.item_incinerator";
 
     public ItemIncineratorBlock(Properties properties) {
         super(properties);
@@ -43,7 +43,7 @@ public class ItemIncineratorBlock extends Block implements EntityBlock {
                 MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public TextComponent getDisplayName() {
-                        return new TextComponent(SCREEN_LOOT_INCINERATOR);
+                        return new TextComponent(SCREEN_ITEM_INCINERATOR);
                     }
 
                     @Nullable

@@ -18,7 +18,7 @@ public class LootAttractorContainer extends BaseContainerMenu {
 	public final BlockEntity blockEntity;
 
 	public LootAttractorContainer(int windowId, BlockPos pos, Inventory inventory, Player player) {
-		super(ModContainers.LOOT_ATTRACTOR.get(), windowId);
+		super(ModContainers.ITEM_ATTRACTOR.get(), windowId);
 
 		blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
 		this.playerEntity = player;

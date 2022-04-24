@@ -18,13 +18,13 @@ public class ModContainers {
         return new MobClonerContainer(windowId, pos, inv, inv.player);
     }));
 
-    public static final RegistryObject<MenuType<LootAttractorContainer>> LOOT_ATTRACTOR = CONTAINERS.register("loot_attractor", () -> IForgeMenuType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<LootAttractorContainer>> ITEM_ATTRACTOR = CONTAINERS.register("item_attractor", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level level = inv.player.getCommandSenderWorld();
         return new LootAttractorContainer(windowId, pos, inv, inv.player);
     }));
 
-    public static final RegistryObject<MenuType<LootIncineratorContainer>> LOOT_INCINERATOR = CONTAINERS.register("loot_incinerator", () -> IForgeMenuType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<LootIncineratorContainer>> ITEM_INCINERATOR = CONTAINERS.register("item_incinerator", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level level = inv.player.getCommandSenderWorld();
         return new LootIncineratorContainer(windowId, pos, inv, inv.player);

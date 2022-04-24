@@ -3,7 +3,6 @@ package andronomos.androtech.block.entity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
@@ -20,13 +19,12 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class LootAttractorBE extends BaseContainerBlockEntity {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public LootAttractorBE(BlockPos pos, BlockState state) {
-		super(ModBlockEntities.LOOT_ATTRACTOR.get(), pos, state);
+		super(ModBlockEntities.ITEM_ATTRACTOR.get(), pos, state);
 	}
 
 	@Nonnull

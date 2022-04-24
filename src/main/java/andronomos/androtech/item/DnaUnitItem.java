@@ -57,13 +57,11 @@ public class DnaUnitItem extends Item {
             String spawnerEntity = SpawnerUtil.getEntityString(((SpawnerBlockEntity) clickedEntity).getSpawner());
 
             //If the spawner already contains an entity then we want to cancel the interaction.
-            //Spawners containing entities should only drop magic leads when right-clicked
+            //Spawners containing entities should only drop dna units when right-clicked
             // with an empty main hand.
             if(spawnerEntity != "") return InteractionResult.PASS;
 
-            //Retried the entity from the magic lead
             Entity entity = ItemStackUtil.getEntityFromStack(stack, context.getLevel(), true);
-            //Set the spawner's entity to the entity in the magic lead
             ((SpawnerBlockEntity) clickedEntity).getSpawner().setEntityId(entity.getType());
             player.setItemInHand(context.getHand(), ItemStack.EMPTY);
         } else {
@@ -127,9 +125,4 @@ public class DnaUnitItem extends Item {
             super.appendHoverText(stack, levelIn, tooltip, flagIn);
         }
     }
-
-    //@OnlyIn(Dist.CLIENT)
-    //public boolean isFoil(ItemStack stack) {
-    //    return ItemStackUtil.containsEntity(stack);
-    //}
 }

@@ -91,7 +91,7 @@ public class SpawnerEventHandler {
 	//	if(!level.isClientSide || event.getPlayer().isSpectator())
 	//		return;
 	//
-	//	MobToolsPacketHandler.INSTANCE.sendToServer(new SyncSpawnerMagicLeadDrop(blockpos));
+	//	AndroTechPacketHandler.INSTANCE.sendToServer(new SyncSpawnerDnaUnitDrop(blockpos));
 	//}
 
 	//private void dropDnaUnit(BlockPos pos, Level level) {

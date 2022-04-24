@@ -10,7 +10,7 @@ import javax.annotation.Nonnull;
 
 public class LootIncineratorBE extends BaseContainerBlockEntity {
     public LootIncineratorBE(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.LOOT_INCINERATOR.get(), pos, state);
+        super(ModBlockEntities.ITEM_INCINERATOR.get(), pos, state);
     }
 
     @Override

@@ -82,8 +82,8 @@ public class MobClonerBlock extends Block implements EntityBlock {
 			final MobClonerBE tileEntity = (MobClonerBE)level.getBlockEntity(pos);
 
 			tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
-				ItemStack magicLead = itemHandler.getStackInSlot(0);
-				ItemStackUtil.drop(level, pos, magicLead);
+				ItemStack dnaUnit = itemHandler.getStackInSlot(0);
+				ItemStackUtil.drop(level, pos, dnaUnit);
 			});
 		}
 

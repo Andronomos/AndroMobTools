@@ -28,7 +28,7 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemAttractorBlock extends Block implements EntityBlock {
-	public static final String SCREEN_LOOT_ATTRACTOR = "screen.androtech.loot_attractor";
+	public static final String SCREEN_ITEM_ATTRACTOR = "screen.androtech.item_attractor";
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public ItemAttractorBlock(Properties properties) {
@@ -67,7 +67,7 @@ public class ItemAttractorBlock extends Block implements EntityBlock {
 					MenuProvider containerProvider = new MenuProvider() {
 						@Override
 						public TextComponent getDisplayName() {
-							return new TextComponent(SCREEN_LOOT_ATTRACTOR);
+							return new TextComponent(SCREEN_ITEM_ATTRACTOR);
 						}
 
 						@Override

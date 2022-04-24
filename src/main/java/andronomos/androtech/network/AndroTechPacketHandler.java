@@ -1,11 +1,11 @@
 package andronomos.androtech.network;
 
-import andronomos.androtech.network.packet.SyncSpawnerMagicLeadDrop;
+import andronomos.androtech.network.packet.SyncSpawnerDnaUnitDrop;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
-public class MobToolsPacketHandler {
+public class AndroTechPacketHandler {
 	private static final String PROTOCOL_VERSION = "1";
 
 	public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
@@ -19,10 +19,10 @@ public class MobToolsPacketHandler {
 		int messageId = 0;
 
 		INSTANCE.registerMessage(messageId++,
-				SyncSpawnerMagicLeadDrop.class,
-				SyncSpawnerMagicLeadDrop::encode,
-				SyncSpawnerMagicLeadDrop::decode,
-				SyncSpawnerMagicLeadDrop::handle);
+				SyncSpawnerDnaUnitDrop.class,
+				SyncSpawnerDnaUnitDrop::encode,
+				SyncSpawnerDnaUnitDrop::decode,
+				SyncSpawnerDnaUnitDrop::handle);
 	}
 
 }
