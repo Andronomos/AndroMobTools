@@ -48,26 +48,8 @@ public class DnaUnitItem extends Item {
         Player player = context.getPlayer();
         ItemStack stack = player.getItemInHand(context.getHand());
 
-        if(clickedEntity != null) {
-            if(!(clickedEntity instanceof SpawnerBlockEntity)
-                    || context.getHand() != InteractionHand.MAIN_HAND
-                    || !ItemStackUtil.containsEntity(stack)) return InteractionResult.PASS;
-
-            //Get the entity name of the entity contained in the spawner
-            String spawnerEntity = SpawnerUtil.getEntityString(((SpawnerBlockEntity) clickedEntity).getSpawner());
-
-            //If the spawner already contains an entity then we want to cancel the interaction.
-            //Spawners containing entities should only drop dna units when right-clicked
-            // with an empty main hand.
-            if(spawnerEntity != "") return InteractionResult.PASS;
-
-            Entity entity = ItemStackUtil.getEntityFromStack(stack, context.getLevel(), true);
-            ((SpawnerBlockEntity) clickedEntity).getSpawner().setEntityId(entity.getType());
-            player.setItemInHand(context.getHand(), ItemStack.EMPTY);
-        } else {
-            if (!releaseEntity(stack, player, context.getClickedFace(), context.getLevel(), context.getClickedPos()))
-                return InteractionResult.FAIL;
-        }
+        if (!releaseEntity(stack, player, context.getClickedFace(), context.getLevel(), context.getClickedPos()))
+            return InteractionResult.FAIL;
 
         stack.setTag(null);
         stack.shrink(1);
