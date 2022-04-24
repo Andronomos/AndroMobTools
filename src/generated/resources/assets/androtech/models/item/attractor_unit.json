@@ -1,20 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/portable_loot_attractor"
+    "layer0": "androtech:item/attractor_unit"
   },
   "overrides": [
     {
       "predicate": {
         "androtech:activated": 0.0
       },
-      "model": "androtech:item/portable_loot_attractor"
+      "model": "androtech:item/attractor_unit"
     },
     {
       "predicate": {
         "androtech:activated": 1.0
       },
-      "model": "androtech:item/portable_loot_attractor_activated"
+      "model": "androtech:item/attractor_unit_activated"
     }
   ]
 }
