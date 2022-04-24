@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "androtech:item/nanite_unit"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "androtech:activated": 0.0
+      },
+      "model": "androtech:item/nanite_unit"
+    },
+    {
+      "predicate": {
+        "androtech:activated": 1.0
+      },
+      "model": "androtech:item/nanite_unit_activated"
+    }
+  ]
+}

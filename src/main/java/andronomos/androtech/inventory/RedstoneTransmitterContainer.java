@@ -57,7 +57,7 @@ public class RedstoneTransmitterContainer extends BaseContainerMenu {
 				}
 				slot.onQuickCraft(stack, returnStack);
 			} else {
-				if(stack.getItem() == ModItems.BLOCK_GPS_UNIT.get()) {
+				if(stack.getItem() == ModItems.GPS_UNIT.get()) {
 					if(NBTUtil.getItemStackBlockPos(stack) != null) {
 						if(!this.moveItemStackTo(stack, 0, 9, false)) {
 							return ItemStack.EMPTY;

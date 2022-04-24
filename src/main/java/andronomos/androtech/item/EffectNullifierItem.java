@@ -3,7 +3,6 @@ package andronomos.androtech.item;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -44,6 +43,13 @@ public class EffectNullifierItem extends AbstractActivatableItem {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         if (level.isClientSide || !(entity instanceof Player) || !isActivated(stack)) return;
 
+        if(takeDamage) {
+            if(isBroken(stack)) {
+                deactivate(stack, (Player)entity);
+                return;
+            }
+        }
+
         Player player = (Player) entity;
         nullifyEffect(stack, player);
     }
@@ -51,27 +57,15 @@ public class EffectNullifierItem extends AbstractActivatableItem {
     private void nullifyEffect(ItemStack stack, LivingEntity living) {
         if(living.hasEffect(this.effect)) {
             living.removeEffect(this.effect);
-            if(this.takeDamage) {
-                doDamage(stack, living);
+            if(takeDamage) {
+                doDamage(stack, living, false);
             }
         }
     }
 
     @Override
-    public void doDamage(ItemStack stack, Entity entity) {
-        if(stack.getDamageValue() < stack.getMaxDamage()) {
-            ItemStackUtil.damageItem((Player)entity, stack, 1);
-        }
-    }
-
-    @Override
     public void activate(ItemStack stack, Player player) {
-        this.setActivated(stack, 1);
+        super.activate(stack, player);
         nullifyEffect(stack, player);
-    }
-
-    @Override
-    public void deactivate(ItemStack stack, Player player) {
-        this.setActivated(stack, 0);
     }
 }

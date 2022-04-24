@@ -1,9 +1,7 @@
 package andronomos.androtech.item;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -48,34 +46,27 @@ public class EffectEmitterItem extends AbstractActivatableItem {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         if(level.isClientSide || !(entity instanceof Player) || !isActivated(stack)) return;
 
-        if(this.takeDamage) {
+        if(takeDamage) {
             if(isBroken(stack)) {
                 deactivate(stack, (Player)entity);
                 return;
             }
         }
 
-        if(this.tickCounter == this.tickDelay) {
-            if(this.takeDamage) {
-                doDamage(stack, entity);
+        if(tickCounter == tickDelay) {
+            if(takeDamage) {
+                doDamage(stack, entity, false);
             }
 
-            this.tickCounter = 0;
+            tickCounter = 0;
         }
 
-        this.tickCounter++;
-    }
-
-    @Override
-    public void doDamage(ItemStack stack, Entity entity) {
-        if(stack.getDamageValue() < stack.getMaxDamage()) {
-            ItemStackUtil.damageItem((Player)entity, stack, 1);
-        }
+        tickCounter++;
     }
 
     @Override
     public void activate(ItemStack stack, Player player) {
-        this.setActivated(stack, 1);
+        super.activate(stack, player);
         if (!player.hasEffect(this.effect)) {
             //effect, duration, amplifier, ambient, showParticles
             player.addEffect(new MobEffectInstance(this.effect, 6000, this.amplifier, false, false));
@@ -84,7 +75,7 @@ public class EffectEmitterItem extends AbstractActivatableItem {
 
     @Override
     public void deactivate(ItemStack stack, Player player) {
-        this.setActivated(stack, 0);
+        super.deactivate(stack, player);
         if (player.hasEffect(this.effect)) {
             player.removeEffect(this.effect);
         }

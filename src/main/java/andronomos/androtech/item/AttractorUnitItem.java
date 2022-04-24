@@ -1,6 +1,5 @@
 package andronomos.androtech.item;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -9,21 +8,20 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 
-public class PortableLootAttractorItem extends AbstractActivatableItem {
-	public static final int PORTABLE_LOOT_ATTRACTOR_DURABILITY = 7000;
+public class AttractorUnitItem extends AbstractActivatableItem {
+	public static final int ATTRACTOR_UNIT_DURABILITY = 1000;
 	private final int pickupRange = 10;
 
-	public PortableLootAttractorItem(Properties properties, boolean takeDamage, boolean isRepairable) {
+	public AttractorUnitItem(Properties properties, boolean takeDamage, boolean isRepairable) {
 		super(properties, takeDamage, isRepairable);
 	}
 
-	public PortableLootAttractorItem(Properties properties) {
+	public AttractorUnitItem(Properties properties) {
 		super(properties, true, true);
 	}
 
@@ -57,8 +55,8 @@ public class PortableLootAttractorItem extends AbstractActivatableItem {
 		itemsInRange.forEach(item -> {
 			if(!isBroken(stack)) {
 				if(player.getInventory().add(item.getItem())) {
-					if(this.takeDamage) {
-						doDamage(stack, player);
+					if(takeDamage) {
+						doDamage(stack, player, true);
 					}
 				}
 
@@ -75,27 +73,10 @@ public class PortableLootAttractorItem extends AbstractActivatableItem {
 			if(!isBroken(stack)) {
 				player.takeXpDelay = 0;
 				orb.playerTouch(player);
-				if(this.takeDamage) {
-					doDamage(stack, player);
+				if(takeDamage) {
+					doDamage(stack, player, true);
 				}
 			}
 		});
-	}
-
-	@Override
-	public void doDamage(ItemStack stack, Entity entity) {
-		if(stack.getDamageValue() < stack.getMaxDamage()) {
-			ItemStackUtil.damageItem((Player)entity, stack, 1);
-		}
-	}
-
-	@Override
-	public void activate(ItemStack stack, Player player) {
-		this.setActivated(stack, 1);
-	}
-
-	@Override
-	public void deactivate(ItemStack stack, Player player) {
-		this.setActivated(stack, 0);
 	}
 }

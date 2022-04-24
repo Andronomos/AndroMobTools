@@ -28,23 +28,14 @@ public class DebugStickItem extends Item {
 	}
 
 	@Override
-	public int getDamage(ItemStack stack) {
-		return super.getDamage(stack);
-	}
-
-	@Override
-	public int getMaxDamage(ItemStack stack) {
-		return 10;
-	}
-
-	@Override
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
 		ItemStack stack = player.getItemInHand(hand);
 
 		AndroTech.LOGGER.info("DebugStickItem#use | getMaxDamage={}", stack.getMaxDamage());
 		AndroTech.LOGGER.info("DebugStickItem#use | getDamageValue={}", stack.getDamageValue());
 
-		ItemStackUtil.damageItem(player, stack, 1);
+		//ItemStackUtil.damageItem(player, stack, 1);
+		ItemStackUtil.damageItem(player, stack, 1, true);
 
 		AndroTech.LOGGER.info("DebugStickItem#use | getDamageValue after damaging={}", stack.getDamageValue());
 

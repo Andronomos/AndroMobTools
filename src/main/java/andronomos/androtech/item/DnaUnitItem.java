@@ -29,11 +29,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MobDnaUnitItem extends Item {
-    public static final String TOOLTIP_MOB_DNA_UNIT_MOB = "tooltip.androtech.mob_dna_unit.mob";
-    public static final String TOOLTIP_MOB_DNA_UNIT_HEALTH = "tooltip.androtech.mob_dna_unit.health";
+public class DnaUnitItem extends Item {
+    public static final String TOOLTIP_DNA_UNIT_MOB = "tooltip.androtech.dna_unit.mob";
+    public static final String TOOLTIP_DNA_UNIT_HEALTH = "tooltip.androtech.dna_unit.health";
 
-    public MobDnaUnitItem(Properties properties) {
+    public DnaUnitItem(Properties properties) {
         super(properties);
     }
 
@@ -113,7 +113,7 @@ public class MobDnaUnitItem extends Item {
 
     public static ItemStack create(Level level, BlockPos pos, CompoundTag tag, String entityName) {
         tag.putString("entity", entityName);
-        ItemStack drop = new ItemStack(ModItems.MOB_DNA_UNIT.get());
+        ItemStack drop = new ItemStack(ModItems.DNA_UNIT.get());
         drop.setTag(tag);
         return drop;
     }
@@ -121,8 +121,8 @@ public class MobDnaUnitItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level levelIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(ItemStackUtil.containsEntity(stack)) {
-            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_DNA_UNIT_MOB) + stack.getTag().getString("entity")).withStyle(ChatFormatting.BLUE));
-            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_DNA_UNIT_HEALTH) + stack.getTag().getDouble("Health")).withStyle(ChatFormatting.RED));
+            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_DNA_UNIT_MOB) + stack.getTag().getString("entity")).withStyle(ChatFormatting.BLUE));
+            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_DNA_UNIT_HEALTH) + stack.getTag().getDouble("Health")).withStyle(ChatFormatting.RED));
         } else {
             super.appendHoverText(stack, levelIn, tooltip, flagIn);
         }

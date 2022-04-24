@@ -1,29 +1,17 @@
 package andronomos.androtech.event;
 
-import andronomos.androtech.item.MobDnaUnitItem;
-import andronomos.androtech.network.MobToolsPacketHandler;
-import andronomos.androtech.network.packet.SyncSpawnerMagicLeadDrop;
 import andronomos.androtech.util.EnchantmentUtil;
-import andronomos.androtech.util.ItemStackUtil;
-import andronomos.androtech.util.SpawnerUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolActions;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -48,16 +36,7 @@ public class SpawnerEventHandler {
 			if(!EnchantmentUtil.hasEnchantment(Enchantments.SILK_TOUCH, heldStack))
 				return;
 
-			//BlockEntity entity = event.getWorld().getBlockEntity(event.getPos());
-
-			//if(!(entity instanceof SpawnerBlockEntity))
-			//	return;
-
 			event.setExpToDrop(0);
-
-			// Return Spawner Block
-			//ItemStack itemStack = new ItemStack(Blocks.SPAWNER.asItem());
-			//entity.saveToItem(itemStack);
 
 			ItemEntity spawnerdrop = new ItemEntity(
 					(Level)event.getWorld(),
@@ -68,7 +47,7 @@ public class SpawnerEventHandler {
 			);
 
 			event.getWorld().addFreshEntity(spawnerdrop);
-			dropMagicLead(event.getPos(), (Level)event.getWorld());
+			//dropDnaUnit(event.getPos(), (Level)event.getWorld());
 		}
 	}
 
@@ -96,42 +75,42 @@ public class SpawnerEventHandler {
 	 * 	Event when player interacts with block.
 	 * 	Enables so that the player can right click a spawner to get its egg.
 	 */
-	@SubscribeEvent
-	public void onPlayerInteract(PlayerInteractEvent.RightClickBlock event) {
-		Item item = event.getItemStack().getItem();
+	//@SubscribeEvent
+	//public void onPlayerInteract(PlayerInteractEvent.RightClickBlock event) {
+	//	Item item = event.getItemStack().getItem();
+	//
+	//	if(item instanceof BlockItem || event.getHand() == InteractionHand.OFF_HAND)
+	//		return;
+	//
+	//	Level level = event.getWorld();
+	//	BlockPos blockpos = event.getPos();
+	//
+	//	if(level.getBlockState(blockpos).getBlock() != Blocks.SPAWNER)
+	//		return;
+	//
+	//	if(!level.isClientSide || event.getPlayer().isSpectator())
+	//		return;
+	//
+	//	MobToolsPacketHandler.INSTANCE.sendToServer(new SyncSpawnerMagicLeadDrop(blockpos));
+	//}
 
-		if(item instanceof BlockItem || event.getHand() == InteractionHand.OFF_HAND)
-			return;
-
-		Level level = event.getWorld();
-		BlockPos blockpos = event.getPos();
-
-		if(level.getBlockState(blockpos).getBlock() != Blocks.SPAWNER)
-			return;
-
-		if(!level.isClientSide || event.getPlayer().isSpectator())
-			return;
-
-		MobToolsPacketHandler.INSTANCE.sendToServer(new SyncSpawnerMagicLeadDrop(blockpos));
-	}
-
-	private void dropMagicLead(BlockPos pos, Level level) {
-		BlockState blockstate = level.getBlockState(pos);
-		SpawnerBlockEntity spawner = (SpawnerBlockEntity)level.getBlockEntity(pos);
-		BaseSpawner logic = spawner.getSpawner();
-
-		String entityString = SpawnerUtil.getEntityString(logic);
-
-		if(entityString == "")
-			return;
-
-		CompoundTag tag = new CompoundTag();
-		tag.putString("entity", entityString);
-		ItemStackUtil.drop(level, pos, MobDnaUnitItem.create(level, pos, tag, entityString));
-
-		// Replace the entity inside the spawner with default entity
-		logic.setEntityId(EntityType.AREA_EFFECT_CLOUD);
-		spawner.setChanged();
-		level.sendBlockUpdated(pos, blockstate, blockstate, 3);
-	}
+	//private void dropDnaUnit(BlockPos pos, Level level) {
+	//	BlockState blockstate = level.getBlockState(pos);
+	//	SpawnerBlockEntity spawner = (SpawnerBlockEntity)level.getBlockEntity(pos);
+	//	BaseSpawner logic = spawner.getSpawner();
+	//
+	//	String entityString = SpawnerUtil.getEntityString(logic);
+	//
+	//	if(entityString == "")
+	//		return;
+	//
+	//	CompoundTag tag = new CompoundTag();
+	//	tag.putString("entity", entityString);
+	//	ItemStackUtil.drop(level, pos, MobDnaUnitItem.create(level, pos, tag, entityString));
+	//
+	//	// Replace the entity inside the spawner with default entity
+	//	logic.setEntityId(EntityType.AREA_EFFECT_CLOUD);
+	//	spawner.setChanged();
+	//	level.sendBlockUpdated(pos, blockstate, blockstate, 3);
+	//}
 }

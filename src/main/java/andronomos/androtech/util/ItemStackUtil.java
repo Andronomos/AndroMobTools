@@ -1,6 +1,7 @@
 package andronomos.androtech.util;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -16,9 +17,21 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class ItemStackUtil {
     public static void damageItem(LivingEntity player, ItemStack stack, int amount) {
-        stack.hurtAndBreak(amount, player, (p) -> {
-            p.broadcastBreakEvent(InteractionHand.MAIN_HAND);
-        });
+        damageItem(player, stack, amount, false);
+    }
+
+    public static void damageItem(LivingEntity player, ItemStack stack, int amount, boolean preventBreaking) {
+        if(preventBreaking) {
+            if(stack.getDamageValue() == stack.getMaxDamage()) {
+                return;
+            }
+
+            stack.hurt(amount, player.getRandom(), player instanceof ServerPlayer ? (ServerPlayer)player : null);
+        } else {
+            stack.hurtAndBreak(amount, player, (p) -> {
+                p.broadcastBreakEvent(InteractionHand.MAIN_HAND);
+            });
+        }
     }
 
     public static void drop(Level level, BlockPos pos, ItemStack drop) {
@@ -27,14 +40,12 @@ public class ItemStackUtil {
         }
     }
 
-    public static boolean containsEntity(ItemStack stack)
-    {
+    public static boolean containsEntity(ItemStack stack) {
         return !stack.isEmpty() && stack.hasTag() && stack.getTag().contains("entity");
     }
 
     @Nullable
-    public static Entity getEntityFromStack(ItemStack stack, Level world, boolean withInfo)
-    {
+    public static Entity getEntityFromStack(ItemStack stack, Level world, boolean withInfo) {
         EntityType type = EntityType.byString(stack.getTag().getString("entity")).orElse(null);
         if (type != null) {
             Entity entity = type.create(world);
@@ -53,5 +64,14 @@ public class ItemStackUtil {
             }
         });
         return returnStack.get();
+    }
+
+    public static boolean isRepairable(ItemStack stack) {
+        if(stack.isEmpty()) return false; //if the item doesn't exist
+        if(!stack.isRepairable()) return false; //if the item can't be repaired
+        if(stack.getMaxDamage() == 0) return false; //if the item can't be damaged
+        if(stack.getDamageValue() == 0) return false; //if the item hasn't taken any damage
+        if(stack.getDamageValue() == stack.getMaxDamage()) return false; //if the item can't take anymore damage
+        return true;
     }
 }

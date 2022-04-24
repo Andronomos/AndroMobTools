@@ -31,6 +31,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         buildActivatableItem("regeneration_emitter");
         buildActivatableItem("poison_nullifier");
         buildActivatableItem("wither_nullifier");
+        buildActivatableItem("nanite_unit");
     }
 
     private ItemModelBuilder createSingleTexture(String name) {
