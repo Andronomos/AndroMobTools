@@ -23,7 +23,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         createSingleTexture("advanced_chip");
         createSingleTexture("withered_bone");
         createSingleTexture("debug_stick");
-        createSingleTexture("gps_unit");
 
         buildActivatableItem("attractor_unit");
         buildActivatableItem("speed_emitter");
@@ -32,6 +31,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         buildActivatableItem("poison_nullifier");
         buildActivatableItem("wither_nullifier");
         buildActivatableItem("nanite_unit");
+        buildActivatableItem("gps_unit");
     }
 
     private ItemModelBuilder createSingleTexture(String name) {
