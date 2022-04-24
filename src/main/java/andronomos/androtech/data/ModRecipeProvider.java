@@ -22,20 +22,102 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         super.buildCraftingRecipes(consumer);
 
-        /** Crafting components **/
-        registerChip(ModItems.BASIC_CHIP.get(), Tags.Items.INGOTS_GOLD, consumer);
-        registerChip(ModItems.ADVANCED_CHIP.get(), Tags.Items.GEMS_DIAMOND, consumer);
+        registerChip(ModItems.BASIC_CHIP.get(), Items.GOLD_INGOT, consumer);
+        registerChip(ModItems.ADVANCED_CHIP.get(), Items.DIAMOND, consumer);
 
-        /** Equipment **/
-        registerEquipment(ModItems.ATTRACTOR_UNIT.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, Items.HOPPER, consumer);
-        registerEquipment(ModItems.SPEED_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.SUGAR, Items.BEACON, consumer);
-        registerEquipment(ModItems.FIRE_RESISTANCE_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.FLINT_AND_STEEL, Items.BEACON, consumer);
-        registerEquipment(ModItems.REGENERATION_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.GOLDEN_APPLE, Items.BEACON, consumer);
-        registerEquipment(ModItems.POISON_NULLIFIER.get(), ModItems.ADVANCED_CHIP.get(), Items.POISONOUS_POTATO, Items.BEACON, consumer);
-        registerEquipment(ModItems.WITHER_NULLIFIER.get(), ModItems.ADVANCED_CHIP.get(), ModItems.WITHERED_BONE.get(), Items.BEACON, consumer);
+        ShapedRecipeBuilder.shaped(ModItems.DNA_UNIT.get())
+                .define('1', ModItems.BASIC_CHIP.get())
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.REDSTONE)
+                .define('4', Items.LEAD)
+                .pattern("212")
+                .pattern("434")
+                .pattern("242")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
+                .save(consumer);
 
-        /** Misc **/
-        registerEquipment(ModItems.DNA_UNIT.get(), ModItems.BASIC_CHIP.get(), Items.REDSTONE, Items.LEAD, consumer);
+        ShapedRecipeBuilder.shaped(ModItems.ATTRACTOR_UNIT.get())
+                .define('1', ModItems.BASIC_CHIP.get())
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.ENDER_PEARL)
+                .define('4', Items.HOPPER)
+                .pattern("212")
+                .pattern("343")
+                .pattern("232")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.NANITE_UNIT.get())
+                .define('1', ModItems.ADVANCED_CHIP.get())
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.AMETHYST_SHARD)
+                .define('4', Items.NETHER_STAR)
+                .pattern("212")
+                .pattern("343")
+                .pattern("232")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.SPEED_EMITTER.get())
+                .define('1', ModItems.BASIC_CHIP.get())
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.AMETHYST_SHARD)
+                .define('4', Items.SUGAR)
+                .define('5', Items.NETHER_STAR)
+                .pattern("212")
+                .pattern("353")
+                .pattern("242")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.FIRE_RESISTANCE_EMITTER.get())
+                .define('1', ModItems.BASIC_CHIP.get())
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.AMETHYST_SHARD)
+                .define('4', Items.BLAZE_POWDER)
+                .define('5', Items.NETHER_STAR)
+                .pattern("212")
+                .pattern("353")
+                .pattern("242")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.REGENERATION_EMITTER.get())
+                .define('1', ModItems.BASIC_CHIP.get())
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.AMETHYST_SHARD)
+                .define('4', Items.GOLDEN_APPLE)
+                .define('5', Items.NETHER_STAR)
+                .pattern("212")
+                .pattern("353")
+                .pattern("242")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.POISON_NULLIFIER.get())
+                .define('1', ModItems.BASIC_CHIP.get())
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.POISONOUS_POTATO)
+                .define('4', Items.MILK_BUCKET)
+                .define('5', Items.NETHER_STAR)
+                .pattern("212")
+                .pattern("353")
+                .pattern("242")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.WITHER_NULLIFIER.get())
+                .define('1', ModItems.BASIC_CHIP.get())
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.WITHER_SKELETON_SKULL)
+                .define('4', Items.MILK_BUCKET)
+                .define('5', Items.NETHER_STAR)
+                .pattern("212")
+                .pattern("353")
+                .pattern("242")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(ModItems.GPS_UNIT.get())
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
@@ -46,10 +128,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("242")
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
-
-        /** Machines **/
-        //registerBasicMachine(ModBlocks.REDSTONE_RECEIVER.get(), Items.ENDER_PEARL, Items.REDSTONE_BLOCK, consumer);
-        //registerBasicMachine(ModBlocks.REDSTONE_TRANSMITTER.get(), Items.ENDER_PEARL, Items.REDSTONE_BLOCK, consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.REDSTONE_RECEIVER.get())
                 .define('1', ModItems.BASIC_CHIP.get())
@@ -118,7 +196,7 @@ public class ModRecipeProvider extends RecipeProvider {
         registerPad(ModBlocks.STRONG_ACCELERATION_PAD.get(), ModItems.ADVANCED_CHIP.get(), Items.RABBIT_FOOT, consumer);
     }
 
-    private void registerChip(Item chip, Tags.IOptionalNamedTag<Item> material, Consumer<FinishedRecipe> consumer) {
+    private void registerChip(Item chip, Item material, Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(chip, 4)
                 .define('1', material)
                 .define('2', Items.QUARTZ)
@@ -128,20 +206,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("212")
                 .pattern("343")
                 .unlockedBy("has_item", has(material))
-                .save(consumer);
-    }
-
-    private void registerEquipment(Item output, Item chip, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(output, 1)
-                .define('1', chip)
-                .define('2', Items.IRON_INGOT)
-                .define('3', Items.REDSTONE)
-                .define('4', item)
-                .define('5', item2)
-                .pattern("212")
-                .pattern("454")
-                .pattern("232")
-                .unlockedBy("has_item", has(chip))
                 .save(consumer);
     }
 
@@ -155,10 +219,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("232")
                 .unlockedBy("has_item", has(chip))
                 .save(consumer);
-    }
-
-    private void registerBasicMachine(Block outputBlock, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
-        registerMachine(outputBlock, ModItems.BASIC_CHIP.get(), item, item2, consumer);
     }
 
     private void registerAdvancedMachine(Block outputBlock, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
