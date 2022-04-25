@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "androtech:item/nanite_enhanced_axe"
+  }
+}
