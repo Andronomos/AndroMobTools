@@ -195,14 +195,34 @@ public class ModRecipeProvider extends RecipeProvider {
         registerPad(ModBlocks.WEAK_ACCELERATION_PAD.get(), ModItems.BASIC_CHIP.get(), Items.SUGAR, consumer);
         registerPad(ModBlocks.STRONG_ACCELERATION_PAD.get(), ModItems.ADVANCED_CHIP.get(), Items.RABBIT_FOOT, consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.NANITE_ENHANCED_SHOVEL.get())
+        ShapedRecipeBuilder.shaped(ModItems.NANITE_ENHANCED_PICKAXE.get())
                 .define('1', ModItems.ADVANCED_CHIP.get())
                 .define('2', ModItems.NANITE_UNIT.get())
                 .define('3', Items.NETHERITE_PICKAXE)
                 .pattern("121")
                 .pattern("232")
                 .pattern("121")
-                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
+                .unlockedBy("has_item", has(Items.NETHERITE_PICKAXE))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.NANITE_ENHANCED_AXE.get())
+                .define('1', ModItems.ADVANCED_CHIP.get())
+                .define('2', ModItems.NANITE_UNIT.get())
+                .define('3', Items.NETHERITE_AXE)
+                .pattern("121")
+                .pattern("232")
+                .pattern("121")
+                .unlockedBy("has_item", has(Items.NETHERITE_AXE))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.NANITE_ENHANCED_SHOVEL.get())
+                .define('1', ModItems.ADVANCED_CHIP.get())
+                .define('2', ModItems.NANITE_UNIT.get())
+                .define('3', Items.NETHERITE_SHOVEL)
+                .pattern("121")
+                .pattern("232")
+                .pattern("121")
+                .unlockedBy("has_item", has(Items.NETHERITE_SHOVEL))
                 .save(consumer);
     }
 
