@@ -19,7 +19,7 @@ public class NaniteUnitItem extends AbstractActivatableItem {
     }
 
     public NaniteUnitItem(Properties properties) {
-        super(properties.setNoRepair(), true, true);
+        super(properties, true, true);
     }
 
     @Override
