@@ -23,6 +23,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         createSingleTexture("advanced_chip");
         createSingleTexture("withered_bone");
         createSingleTexture("debug_stick");
+        createSingleTexture("nanite_enhanced_pickaxe");
+        createSingleTexture("nanite_enhanced_axe");
+        createSingleTexture("nanite_enhanced_shovel");
 
         buildActivatableItem("attractor_unit");
         buildActivatableItem("speed_emitter");

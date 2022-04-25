@@ -48,6 +48,9 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.POISON_NULLIFIER.get(), "Poison NUllifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither NUllifier");
 		add(ModItems.NANITE_UNIT.get(), "Nanite Unit");
+		add(ModItems.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Pickaxe");
+		add(ModItems.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
+		add(ModItems.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Shovel");
 
 
 		/** Blocks **/
