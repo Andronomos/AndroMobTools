@@ -40,6 +40,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(TOOLTIP_BLOCK_GPS_MODULE_Z, "Z: ");
 
 		add(ModItems.ATTRACTOR_MODULE.get(), "Attractor Module");
+		add(ModItems.NIGHT_VISION_MODULE.get(), "Night Vision Module");
 		add(ModItems.SWIFTNESS_MODULE.get(), "Swiftness Module");
 		add(ModItems.FIRE_RESISTANCE_MODULE.get(), "Fire Resistance Module");
 		add(ModItems.REGENERATION_MODULE.get(), "Regeneration Module");

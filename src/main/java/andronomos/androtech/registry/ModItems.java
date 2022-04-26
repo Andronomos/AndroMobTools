@@ -27,6 +27,7 @@ public class ModItems {
     public static final RegistryObject<Item> SWIFTNESS_MODULE = ITEMS.register("swiftness_module", () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.MOVEMENT_SPEED, Const.EffectAmplifier.V));
     public static final RegistryObject<Item> FIRE_RESISTANCE_MODULE = ITEMS.register("fire_resistance_module", () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.FIRE_RESISTANCE, Const.EffectAmplifier.I));
     public static final RegistryObject<Item> REGENERATION_MODULE = ITEMS.register("regeneration_module", () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.REGENERATION, Const.EffectAmplifier.V));
+    public static final RegistryObject<Item> NIGHT_VISION_MODULE = ITEMS.register("night_vision_module", () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.NIGHT_VISION, Const.EffectAmplifier.V));
     public static final RegistryObject<Item> MOB_DNA_MODULE = ITEMS.register("mob_dna_module", () -> new MobDnaModuleItem(GetBaseProperties()));
     public static final RegistryObject<Item> BLOCK_GPS_MODULE = ITEMS.register("block_gps_module", () -> new GpsUnitItem(GetBaseProperties()));
     public static final RegistryObject<Item> NANITE_REPAIR_MODULE = ITEMS.register("nanite_repair_module", () -> new NaniteRepairModuleItem(GetBaseProperties().durability(ATTRACTOR_UNIT_DURABILITY)));
