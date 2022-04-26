@@ -10,15 +10,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class NaniteUnitItem extends AbstractActivatableItem {
+public class NaniteRepairModuleItem extends AbstractActivatableItem {
     public static final int ATTRACTOR_UNIT_DURABILITY = 1000;
     private int repairAmount = 5;
 
-    public NaniteUnitItem(Properties properties, boolean takeDamage, boolean isRepairable) {
+    public NaniteRepairModuleItem(Properties properties, boolean takeDamage, boolean isRepairable) {
         super(properties, takeDamage, isRepairable);
     }
 
-    public NaniteUnitItem(Properties properties) {
+    public NaniteRepairModuleItem(Properties properties) {
         super(properties, true, true);
     }
 

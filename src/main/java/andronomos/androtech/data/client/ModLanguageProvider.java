@@ -14,7 +14,7 @@ import static andronomos.androtech.block.RedstoneTransmitterBlock.SCREEN_REDSTON
 import static andronomos.androtech.block.pad.MobKillingPadBlock.SCREEN_MOB_KILLING_PAD;
 //import static andronomos.androtech.item.BackpackItem.SCREEN_BACKPACK;
 import static andronomos.androtech.item.GpsUnitItem.*;
-import static andronomos.androtech.item.DnaUnitItem.*;
+import static andronomos.androtech.item.MobDnaModuleItem.*;
 
 public class ModLanguageProvider extends LanguageProvider {
 
@@ -26,28 +26,27 @@ public class ModLanguageProvider extends LanguageProvider {
 	protected void addTranslations() {
 		add("itemGroup." + TAB_NAME, "AndroTech");
 
-		/** Items **/
 		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
 		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
 		add(ModItems.WITHERED_BONE.get(), "Withered Bone");
 
-		add(ModItems.DNA_UNIT.get(), "Mob DNA Unit");
-		add(TOOLTIP_DNA_UNIT_MOB, "Mob: ");
-		add(TOOLTIP_DNA_UNIT_HEALTH, "Health: ");
+		add(ModItems.MOB_DNA_MODULE.get(), "Mob DNA Module");
+		add(TOOLTIP_MOB_DNA_MODULE_MOB, "Mob: ");
+		add(TOOLTIP_MOB_DNA_MODULE_HEALTH, "Health: ");
 
-		add(ModItems.GPS_UNIT.get(), "Block GPS Unit");
-		add(TOOLTIP_GPS_UNIT, "Location");
-		add(TOOLTIP_GPS_UNIT_X, "X: ");
-		add(TOOLTIP_GPS_UNIT_Y, "Y: ");
-		add(TOOLTIP_GPS_UNIT_Z, "Z: ");
+		add(ModItems.BLOCK_GPS_MODULE.get(), "Block GPS Unit");
+		add(TOOLTIP_BLOCK_GPS_MODULE, "Location");
+		add(TOOLTIP_BLOCK_GPS_MODULE_X, "X: ");
+		add(TOOLTIP_BLOCK_GPS_MODULE_Y, "Y: ");
+		add(TOOLTIP_BLOCK_GPS_MODULE_Z, "Z: ");
 
-		add(ModItems.ATTRACTOR_UNIT.get(), "Attractor Unit");
-		add(ModItems.SPEED_EMITTER.get(), "Speed Emitter");
-		add(ModItems.FIRE_RESISTANCE_EMITTER.get(), "Fire Resistance Emitter");
-		add(ModItems.REGENERATION_EMITTER.get(), "Regeneration Emitter");
+		add(ModItems.ATTRACTOR_MODULE.get(), "Attractor Module");
+		add(ModItems.SWIFTNESS_MODULE.get(), "Swiftness Module");
+		add(ModItems.FIRE_RESISTANCE_MODULE.get(), "Fire Resistance Module");
+		add(ModItems.REGENERATION_MODULE.get(), "Regeneration Module");
 		add(ModItems.POISON_NULLIFIER.get(), "Poison NUllifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither NUllifier");
-		add(ModItems.NANITE_UNIT.get(), "Nanite Unit");
+		add(ModItems.NANITE_REPAIR_MODULE.get(), "Nanite Repair Module");
 		add(ModItems.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
 		add(ModItems.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
 		add(ModItems.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Shovel");

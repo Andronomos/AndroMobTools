@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/speed_emitter_activated"
+    "layer0": "androtech:item/attractor_module_activated"
   }
 }

@@ -16,13 +16,13 @@
       "item": "minecraft:amethyst_shard"
     },
     "4": {
-      "item": "minecraft:blaze_powder"
+      "item": "minecraft:rabbit_foot"
     },
     "5": {
       "item": "minecraft:nether_star"
     }
   },
   "result": {
-    "item": "androtech:fire_resistance_emitter"
+    "item": "androtech:swiftness_module"
   }
 }

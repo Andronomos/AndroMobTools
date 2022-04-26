@@ -1,20 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/attractor_unit"
+    "layer0": "androtech:item/fire_resistance_module"
   },
   "overrides": [
     {
       "predicate": {
         "androtech:activated": 0.0
       },
-      "model": "androtech:item/attractor_unit"
+      "model": "androtech:item/fire_resistance_module"
     },
     {
       "predicate": {
         "androtech:activated": 1.0
       },
-      "model": "androtech:item/attractor_unit_activated"
+      "model": "androtech:item/fire_resistance_module_activated"
     }
   ]
 }

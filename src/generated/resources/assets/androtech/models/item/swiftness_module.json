@@ -1,20 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/speed_emitter"
+    "layer0": "androtech:item/swiftness_module"
   },
   "overrides": [
     {
       "predicate": {
         "androtech:activated": 0.0
       },
-      "model": "androtech:item/speed_emitter"
+      "model": "androtech:item/swiftness_module"
     },
     {
       "predicate": {
         "androtech:activated": 1.0
       },
-      "model": "androtech:item/speed_emitter_activated"
+      "model": "androtech:item/swiftness_module_activated"
     }
   ]
 }

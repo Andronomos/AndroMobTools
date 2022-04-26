@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "androtech:regeneration_emitter"
+      "androtech:nanite_repair_model"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "androtech:regeneration_emitter"
+        "recipe": "androtech:nanite_repair_model"
       }
     }
   },

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "androtech:nanite_unit"
+      "androtech:attractor_module"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "androtech:nanite_unit"
+        "recipe": "androtech:attractor_module"
       }
     }
   },

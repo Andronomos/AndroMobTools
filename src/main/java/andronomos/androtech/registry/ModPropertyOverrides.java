@@ -13,24 +13,24 @@ public class ModPropertyOverrides {
 	public static final ResourceLocation IS_ACTIVATED = new ResourceLocation(AndroTech.MOD_ID, "activated");
 
 	public static void register() {
-		ItemProperties.register(ModItems.DNA_UNIT.get(),
+		ItemProperties.register(ModItems.MOB_DNA_MODULE.get(),
 				IS_ACTIVATED, (stack, level, living, id) -> {
 					return ItemStackUtil.containsEntity(stack) ? 1 : 0;
 				});
 
-		ItemProperties.register(ModItems.GPS_UNIT.get(),
+		ItemProperties.register(ModItems.BLOCK_GPS_MODULE.get(),
 				IS_ACTIVATED, (stack, level, living, id) -> {
 					return NBTUtil.getItemStackBlockPos(stack) != null ? 1 : 0;
 				});
 
-		registerActivatableItem(ModItems.ATTRACTOR_UNIT.get());
-		registerActivatableItem(ModItems.SPEED_EMITTER.get());
-		registerActivatableItem(ModItems.SPEED_EMITTER.get());
-		registerActivatableItem(ModItems.REGENERATION_EMITTER.get());
-		registerActivatableItem(ModItems.FIRE_RESISTANCE_EMITTER.get());
+		registerActivatableItem(ModItems.ATTRACTOR_MODULE.get());
+		registerActivatableItem(ModItems.SWIFTNESS_MODULE.get());
+		registerActivatableItem(ModItems.SWIFTNESS_MODULE.get());
+		registerActivatableItem(ModItems.REGENERATION_MODULE.get());
+		registerActivatableItem(ModItems.FIRE_RESISTANCE_MODULE.get());
 		registerActivatableItem(ModItems.POISON_NULLIFIER.get());
 		registerActivatableItem(ModItems.WITHER_NULLIFIER.get());
-		registerActivatableItem(ModItems.NANITE_UNIT.get());
+		registerActivatableItem(ModItems.NANITE_REPAIR_MODULE.get());
 	}
 
 	private static void registerActivatableItem(Item item) {

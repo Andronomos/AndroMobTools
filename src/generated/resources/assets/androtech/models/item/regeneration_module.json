@@ -1,20 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/dna_unit"
+    "layer0": "androtech:item/regeneration_module"
   },
   "overrides": [
     {
       "predicate": {
         "androtech:activated": 0.0
       },
-      "model": "androtech:item/dna_unit"
+      "model": "androtech:item/regeneration_module"
     },
     {
       "predicate": {
         "androtech:activated": 1.0
       },
-      "model": "androtech:item/dna_unit_activated"
+      "model": "androtech:item/regeneration_module_activated"
     }
   ]
 }

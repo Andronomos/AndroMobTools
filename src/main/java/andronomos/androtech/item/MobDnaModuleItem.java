@@ -3,7 +3,6 @@ package andronomos.androtech.item;
 import andronomos.androtech.registry.ModItems;
 import andronomos.androtech.util.ChatUtil;
 import andronomos.androtech.util.ItemStackUtil;
-import andronomos.androtech.util.SpawnerUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -23,17 +22,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DnaUnitItem extends Item {
-    public static final String TOOLTIP_DNA_UNIT_MOB = "tooltip.androtech.dna_unit.mob";
-    public static final String TOOLTIP_DNA_UNIT_HEALTH = "tooltip.androtech.dna_unit.health";
+public class MobDnaModuleItem extends Item {
+    public static final String TOOLTIP_MOB_DNA_MODULE_MOB = "tooltip.androtech.mob_dna_unit.mob";
+    public static final String TOOLTIP_MOB_DNA_MODULE_HEALTH = "tooltip.androtech.mob_dna_unit.health";
 
-    public DnaUnitItem(Properties properties) {
+    public MobDnaModuleItem(Properties properties) {
         super(properties);
     }
 
@@ -92,7 +89,7 @@ public class DnaUnitItem extends Item {
 
     public static ItemStack create(Level level, BlockPos pos, CompoundTag tag, String entityName) {
         tag.putString("entity", entityName);
-        ItemStack drop = new ItemStack(ModItems.DNA_UNIT.get());
+        ItemStack drop = new ItemStack(ModItems.MOB_DNA_MODULE.get());
         drop.setTag(tag);
         return drop;
     }
@@ -100,8 +97,8 @@ public class DnaUnitItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level levelIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(ItemStackUtil.containsEntity(stack)) {
-            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_DNA_UNIT_MOB) + stack.getTag().getString("entity")).withStyle(ChatFormatting.BLUE));
-            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_DNA_UNIT_HEALTH) + stack.getTag().getDouble("Health")).withStyle(ChatFormatting.RED));
+            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_DNA_MODULE_MOB) + stack.getTag().getString("entity")).withStyle(ChatFormatting.BLUE));
+            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_DNA_MODULE_HEALTH) + stack.getTag().getDouble("Health")).withStyle(ChatFormatting.RED));
         } else {
             super.appendHoverText(stack, levelIn, tooltip, flagIn);
         }

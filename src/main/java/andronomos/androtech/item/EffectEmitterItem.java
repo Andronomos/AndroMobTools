@@ -23,7 +23,7 @@ public class EffectEmitterItem extends AbstractActivatableItem {
     }
 
     public EffectEmitterItem(Properties properties, MobEffect effect, int amplifier) {
-        super(properties.setNoRepair(), true, true);
+        super(properties.setNoRepair(), false, false);
         this.effect = effect;
         this.amplifier = amplifier;
     }

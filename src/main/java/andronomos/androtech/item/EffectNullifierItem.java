@@ -21,7 +21,7 @@ public class EffectNullifierItem extends AbstractActivatableItem {
     }
 
     public EffectNullifierItem(Properties properties, MobEffect effect) {
-        super(properties.setNoRepair(), true, true);
+        super(properties.setNoRepair(), false, false);
         this.effect = effect;
     }
 

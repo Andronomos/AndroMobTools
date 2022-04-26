@@ -18,7 +18,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
-        buildActivatableItem("dna_unit");
+        buildActivatableItem("mob_dna_module");
         createSingleTexture("basic_chip");
         createSingleTexture("advanced_chip");
         createSingleTexture("withered_bone");
@@ -27,14 +27,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         createSingleTexture("nanite_enhanced_axe");
         createSingleTexture("nanite_enhanced_shovel");
 
-        buildActivatableItem("attractor_unit");
-        buildActivatableItem("speed_emitter");
-        buildActivatableItem("fire_resistance_emitter");
-        buildActivatableItem("regeneration_emitter");
+        buildActivatableItem("attractor_module");
+        buildActivatableItem("nanite_repair_module");
+        buildActivatableItem("block_gps_module");
+        buildActivatableItem("swiftness_module");
+        buildActivatableItem("fire_resistance_module");
+        buildActivatableItem("regeneration_module");
         buildActivatableItem("poison_nullifier");
         buildActivatableItem("wither_nullifier");
-        buildActivatableItem("nanite_unit");
-        buildActivatableItem("gps_unit");
     }
 
     private ItemModelBuilder createSingleTexture(String name) {

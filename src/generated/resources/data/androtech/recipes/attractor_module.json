@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "353",
-    "242"
+    "343",
+    "232"
   ],
   "key": {
     "1": {
@@ -16,13 +16,10 @@
       "item": "minecraft:amethyst_shard"
     },
     "4": {
-      "item": "minecraft:rabbit_foot"
-    },
-    "5": {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:ender_pearl"
     }
   },
   "result": {
-    "item": "androtech:speed_emitter"
+    "item": "androtech:attractor_module"
   }
 }

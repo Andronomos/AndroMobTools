@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "343",
-    "232"
+    "353",
+    "242"
   ],
   "key": {
     "1": {
-      "item": "androtech:advanced_chip"
+      "item": "androtech:basic_chip"
     },
     "2": {
       "item": "minecraft:iron_ingot"
@@ -16,10 +16,13 @@
       "item": "minecraft:amethyst_shard"
     },
     "4": {
+      "item": "minecraft:blaze_powder"
+    },
+    "5": {
       "item": "minecraft:nether_star"
     }
   },
   "result": {
-    "item": "androtech:nanite_unit"
+    "item": "androtech:fire_resistance_module"
   }
 }

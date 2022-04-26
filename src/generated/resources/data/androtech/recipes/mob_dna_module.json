@@ -16,10 +16,10 @@
       "item": "minecraft:amethyst_shard"
     },
     "4": {
-      "item": "minecraft:ender_pearl"
+      "item": "minecraft:lead"
     }
   },
   "result": {
-    "item": "androtech:attractor_unit"
+    "item": "androtech:mob_dna_module"
   }
 }

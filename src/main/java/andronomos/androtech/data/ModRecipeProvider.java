@@ -25,7 +25,7 @@ public class ModRecipeProvider extends RecipeProvider {
         registerChip(ModItems.BASIC_CHIP.get(), Items.GOLD_INGOT, consumer);
         registerChip(ModItems.ADVANCED_CHIP.get(), Items.DIAMOND, consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.DNA_UNIT.get())
+        ShapedRecipeBuilder.shaped(ModItems.MOB_DNA_MODULE.get())
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.AMETHYST_SHARD)
@@ -36,7 +36,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.ATTRACTOR_UNIT.get())
+        ShapedRecipeBuilder.shaped(ModItems.ATTRACTOR_MODULE.get())
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.AMETHYST_SHARD)
@@ -47,7 +47,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.NANITE_UNIT.get())
+        ShapedRecipeBuilder.shaped(ModItems.NANITE_REPAIR_MODULE.get())
                 .define('1', ModItems.ADVANCED_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.AMETHYST_SHARD)
@@ -58,7 +58,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.SPEED_EMITTER.get())
+        ShapedRecipeBuilder.shaped(ModItems.SWIFTNESS_MODULE.get())
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.AMETHYST_SHARD)
@@ -70,7 +70,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.FIRE_RESISTANCE_EMITTER.get())
+        ShapedRecipeBuilder.shaped(ModItems.FIRE_RESISTANCE_MODULE.get())
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.AMETHYST_SHARD)
@@ -82,7 +82,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.REGENERATION_EMITTER.get())
+        ShapedRecipeBuilder.shaped(ModItems.REGENERATION_MODULE.get())
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.AMETHYST_SHARD)
@@ -118,7 +118,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.GPS_UNIT.get())
+        ShapedRecipeBuilder.shaped(ModItems.BLOCK_GPS_MODULE.get())
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.AMETHYST_SHARD)
@@ -153,7 +153,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
-        registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.DNA_UNIT.get(), Items.SPAWNER, consumer);
+        registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.MOB_DNA_MODULE.get(), Items.SPAWNER, consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.ITEM_INCINERATOR.get())
                 .define('1', Items.IRON_INGOT)
@@ -170,7 +170,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.REDSTONE)
                 .define('4', Items.CHEST)
-                .define('5', ModItems.ATTRACTOR_UNIT.get())
+                .define('5', ModItems.ATTRACTOR_MODULE.get())
                 .pattern("212")
                 .pattern("353")
                 .pattern("242")
@@ -197,7 +197,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapedRecipeBuilder.shaped(ModItems.NANITE_ENHANCED_PICKAXE.get())
                 .define('1', ModItems.ADVANCED_CHIP.get())
-                .define('2', ModItems.NANITE_UNIT.get())
+                .define('2', ModItems.NANITE_REPAIR_MODULE.get())
                 .define('3', Items.NETHERITE_PICKAXE)
                 .pattern("121")
                 .pattern("232")
@@ -207,7 +207,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapedRecipeBuilder.shaped(ModItems.NANITE_ENHANCED_AXE.get())
                 .define('1', ModItems.ADVANCED_CHIP.get())
-                .define('2', ModItems.NANITE_UNIT.get())
+                .define('2', ModItems.NANITE_REPAIR_MODULE.get())
                 .define('3', Items.NETHERITE_AXE)
                 .pattern("121")
                 .pattern("232")
@@ -217,7 +217,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapedRecipeBuilder.shaped(ModItems.NANITE_ENHANCED_SHOVEL.get())
                 .define('1', ModItems.ADVANCED_CHIP.get())
-                .define('2', ModItems.NANITE_UNIT.get())
+                .define('2', ModItems.NANITE_REPAIR_MODULE.get())
                 .define('3', Items.NETHERITE_SHOVEL)
                 .pattern("121")
                 .pattern("232")
