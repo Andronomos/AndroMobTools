@@ -51,11 +51,11 @@ Repairs items in the player's inventories (inventory, equipped gear, etc.) until
 ### Attractor Unit
 Items and experience in a 10x10 area around the player are sucked into the player's inventory. Takes damage for every stack placed in the player's inventory.
 
-### Speed Emitter
+### Swiftness Module
 
-### Regeneration Emitter
+### Regeneration Module
 
-### Fire Resistance Emitter
+### Fire Resistance Module
 
 ### Poison Nullifier
 
