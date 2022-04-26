@@ -30,9 +30,10 @@ public class ModRecipeProvider extends RecipeProvider {
         registerModule(ModItems.BLOCK_GPS_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MAP, consumer);
         registerModule(ModItems.NIGHT_VISION_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.GOLDEN_CARROT, consumer);
         registerModule(ModItems.NANITE_REPAIR_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, consumer);
-        registerModule(ModItems.SWIFTNESS_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.RABBIT_FOOT, Items.NETHER_STAR, consumer);
-        registerModule(ModItems.FIRE_RESISTANCE_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.BLAZE_POWDER, Items.NETHER_STAR, consumer);
-        registerModule(ModItems.REGENERATION_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.GOLDEN_APPLE, Items.NETHER_STAR, consumer);
+        registerModule(ModItems.WATER_BREATHING_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.HEART_OF_THE_SEA, Items.TURTLE_HELMET, consumer);
+        registerModule(ModItems.SWIFTNESS_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.RABBIT_FOOT, consumer);
+        registerModule(ModItems.FIRE_RESISTANCE_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.BLAZE_POWDER, consumer);
+        registerModule(ModItems.REGENERATION_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.GOLDEN_APPLE, consumer);
 
 
         registerNullifier(ModItems.POISON_NULLIFIER.get(), Items.POISONOUS_POTATO, Items.MILK_BUCKET, consumer);
@@ -146,8 +147,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('4', item)
                 .define('5', item2)
                 .pattern("212")
-                .pattern("353")
-                .pattern("242")
+                .pattern("343")
+                .pattern("252")
                 .unlockedBy("has_item", has(Items.LAVA_BUCKET))
                 .save(consumer);
     }

@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 
 public abstract class AbstractActivatableItem extends Item implements IActivatableItem {
 	public final static String TAG_ACTIVATED = "activated";
-	public final int tickDelay = Const.TicksInSeconds.FIVESECONDS;
+	public int tickDelay = Const.TicksInSeconds.FIVESECONDS;
 	public boolean takeDamage;
 	public boolean isRepairable;
 	public int tickCounter = 0;

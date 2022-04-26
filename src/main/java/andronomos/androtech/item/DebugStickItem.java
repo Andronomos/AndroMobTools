@@ -34,7 +34,6 @@ public class DebugStickItem extends Item {
 		AndroTech.LOGGER.info("DebugStickItem#use | getMaxDamage={}", stack.getMaxDamage());
 		AndroTech.LOGGER.info("DebugStickItem#use | getDamageValue={}", stack.getDamageValue());
 
-		//ItemStackUtil.damageItem(player, stack, 1);
 		ItemStackUtil.damageItem(player, stack, 1, true);
 
 		AndroTech.LOGGER.info("DebugStickItem#use | getDamageValue after damaging={}", stack.getDamageValue());

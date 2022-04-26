@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "353",
-    "242"
+    "343",
+    "252"
   ],
   "key": {
     "1": {
@@ -16,10 +16,10 @@
       "item": "minecraft:amethyst_shard"
     },
     "4": {
-      "item": "minecraft:rabbit_foot"
+      "item": "minecraft:nether_star"
     },
     "5": {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:rabbit_foot"
     }
   },
   "result": {

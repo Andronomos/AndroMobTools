@@ -1,5 +1,6 @@
 package andronomos.androtech.block.entity;
 
+import andronomos.androtech.Const;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
@@ -29,7 +30,7 @@ public class LootAttractorBE extends BaseContainerBlockEntity {
 
 	@Nonnull
 	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(54) {
+		return new ItemStackHandler(Const.CONTAINER_SIZE) {
 			@Override
 			public int getSlotLimit(int slot) {
 				return 64;
