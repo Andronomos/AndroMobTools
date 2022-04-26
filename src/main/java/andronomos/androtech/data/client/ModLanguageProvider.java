@@ -28,7 +28,6 @@ public class ModLanguageProvider extends LanguageProvider {
 
 		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
 		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
-		add(ModItems.WITHERED_BONE.get(), "Withered Bone");
 
 		add(ModItems.MOB_DNA_MODULE.get(), "Mob DNA Module");
 		add(TOOLTIP_MOB_DNA_MODULE_MOB, "Mob: ");

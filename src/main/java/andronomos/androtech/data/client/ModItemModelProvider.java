@@ -21,7 +21,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         buildActivatableItem("mob_dna_module");
         createSingleTexture("basic_chip");
         createSingleTexture("advanced_chip");
-        createSingleTexture("withered_bone");
         createSingleTexture("debug_stick");
         createSingleTexture("nanite_enhanced_pickaxe");
         createSingleTexture("nanite_enhanced_axe");

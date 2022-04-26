@@ -23,7 +23,6 @@ public class ModItems {
     public static final RegistryObject<Item> DEBUG_STICK = ITEMS.register("debug_stick", () -> new DebugStickItem(DEBUG_PROPERTIES.durability(1)));
     public static final RegistryObject<Item> BASIC_CHIP = register("basic_chip");
     public static final RegistryObject<Item> ADVANCED_CHIP = register("advanced_chip");
-    public static final RegistryObject<Item> WITHERED_BONE = ITEMS.register("withered_bone", () -> new Item(GetBaseProperties()));
     public static final RegistryObject<Item> ATTRACTOR_MODULE = ITEMS.register("attractor_module", () -> new ItemAttractorModuleItem(GetBaseProperties().durability(ATTRACTOR_UNIT_DURABILITY)));
     public static final RegistryObject<Item> SWIFTNESS_MODULE = ITEMS.register("swiftness_module", () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.MOVEMENT_SPEED, Const.EffectAmplifier.V));
     public static final RegistryObject<Item> FIRE_RESISTANCE_MODULE = ITEMS.register("fire_resistance_module", () -> new EffectEmitterItem(EMITTER_PROPERTIES, MobEffects.FIRE_RESISTANCE, Const.EffectAmplifier.I));
