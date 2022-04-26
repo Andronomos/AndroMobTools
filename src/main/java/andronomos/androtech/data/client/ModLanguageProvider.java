@@ -34,7 +34,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(TOOLTIP_MOB_DNA_MODULE_MOB, "Mob: ");
 		add(TOOLTIP_MOB_DNA_MODULE_HEALTH, "Health: ");
 
-		add(ModItems.BLOCK_GPS_MODULE.get(), "Block GPS Unit");
+		add(ModItems.BLOCK_GPS_MODULE.get(), "Block GPS Module");
 		add(TOOLTIP_BLOCK_GPS_MODULE, "Location");
 		add(TOOLTIP_BLOCK_GPS_MODULE_X, "X: ");
 		add(TOOLTIP_BLOCK_GPS_MODULE_Y, "Y: ");
@@ -44,8 +44,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.SWIFTNESS_MODULE.get(), "Swiftness Module");
 		add(ModItems.FIRE_RESISTANCE_MODULE.get(), "Fire Resistance Module");
 		add(ModItems.REGENERATION_MODULE.get(), "Regeneration Module");
-		add(ModItems.POISON_NULLIFIER.get(), "Poison NUllifier");
-		add(ModItems.WITHER_NULLIFIER.get(), "Wither NUllifier");
+		add(ModItems.POISON_NULLIFIER.get(), "Poison Nullifier");
+		add(ModItems.WITHER_NULLIFIER.get(), "Wither Nullifier");
 		add(ModItems.NANITE_REPAIR_MODULE.get(), "Nanite Repair Module");
 		add(ModItems.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
 		add(ModItems.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");

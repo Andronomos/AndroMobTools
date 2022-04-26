@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "androtech:nanite_repair_model"
+      "androtech:nanite_repair_module"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "androtech:nanite_repair_model"
+        "recipe": "androtech:nanite_repair_module"
       }
     }
   },
