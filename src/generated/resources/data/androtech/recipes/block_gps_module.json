@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "343",
-    "232"
+    "353",
+    "242"
   ],
   "key": {
     "1": {
@@ -17,6 +17,9 @@
     },
     "4": {
       "item": "minecraft:map"
+    },
+    "5": {
+      "item": "minecraft:amethyst_shard"
     }
   },
   "result": {

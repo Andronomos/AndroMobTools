@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "343",
-    "232"
+    "353",
+    "242"
   ],
   "key": {
     "1": {
@@ -16,7 +16,10 @@
       "item": "minecraft:amethyst_shard"
     },
     "4": {
-      "item": "minecraft:lead"
+      "item": "minecraft:minecart"
+    },
+    "5": {
+      "item": "minecraft:amethyst_shard"
     }
   },
   "result": {

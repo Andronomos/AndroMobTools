@@ -25,7 +25,6 @@ public class ModRecipeProvider extends RecipeProvider {
         registerChip(ModItems.BASIC_CHIP.get(), Items.GOLD_INGOT, consumer);
         registerChip(ModItems.ADVANCED_CHIP.get(), Items.DIAMOND, consumer);
 
-
         registerModule(ModItems.MOB_DNA_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MINECART, consumer);
         registerModule(ModItems.ATTRACTOR_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, consumer);
         registerModule(ModItems.BLOCK_GPS_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MAP, consumer);
@@ -36,7 +35,6 @@ public class ModRecipeProvider extends RecipeProvider {
 
         registerNullifier(ModItems.POISON_NULLIFIER.get(), Items.POISONOUS_POTATO, Items.MILK_BUCKET, consumer);
         registerNullifier(ModItems.WITHER_NULLIFIER.get(), Items.WITHER_SKELETON_SKULL, Items.MILK_BUCKET, consumer);
-
 
         ShapedRecipeBuilder.shaped(ModBlocks.REDSTONE_RECEIVER.get())
                 .define('1', ModItems.BASIC_CHIP.get())
@@ -143,18 +141,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('1', chip)
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.AMETHYST_SHARD)
-                .define('4', Items.LAVA_BUCKET)
-                .define('5', item)
-                .define('6', item2)
+                .define('4', item)
+                .define('5', item2)
                 .pattern("212")
                 .pattern("353")
-                .pattern("262")
+                .pattern("242")
                 .unlockedBy("has_item", has(Items.LAVA_BUCKET))
                 .save(consumer);
     }
 
     private void registerNullifier(Item outputItem, Item item, Item item2, Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(ModItems.POISON_NULLIFIER.get())
+        ShapedRecipeBuilder.shaped(outputItem)
                 .define('1', ModItems.ADVANCED_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', item)
