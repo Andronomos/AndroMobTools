@@ -32,7 +32,7 @@ public class AndroTech
         ModItems.ITEMS.register(modEventBus);
         ModContainers.CONTAINERS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
-        ModLoot.LOOT_MODIFIERS.register(modEventBus);
+        //ModLoot.LOOT_MODIFIERS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new SpawnerEventHandler());
 
