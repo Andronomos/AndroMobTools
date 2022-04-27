@@ -19,10 +19,10 @@
       "item": "minecraft:nether_star"
     },
     "5": {
-      "item": "minecraft:blaze_powder"
+      "item": "minecraft:rabbit_foot"
     }
   },
   "result": {
-    "item": "androtech:fire_resistance_module"
+    "item": "androtech:swiftness_emitter"
   }
 }

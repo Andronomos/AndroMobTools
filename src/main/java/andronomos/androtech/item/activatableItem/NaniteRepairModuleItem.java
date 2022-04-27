@@ -1,10 +1,9 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.activatableItem;
 
+import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
 import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.PlayerUtil;
 import net.minecraft.core.NonNullList;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -20,21 +19,6 @@ public class NaniteRepairModuleItem extends AbstractActivatableItem {
 
     public NaniteRepairModuleItem(Properties properties) {
         super(properties, true, true);
-    }
-
-    @Override
-    public InteractionResultHolder use(Level level, Player player, InteractionHand hand) {
-        ItemStack stack = player.getItemInHand(hand);
-
-        if(!level.isClientSide) {
-            if(!isActivated(stack) && !isBroken(stack)) {
-                activate(stack, player);
-            } else {
-                deactivate(stack, player);
-            }
-        }
-
-        return InteractionResultHolder.success(stack);
     }
 
     @Override

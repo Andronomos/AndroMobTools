@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "androtech:swiftness_module"
+      "androtech:swiftness_emitter"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "androtech:swiftness_module"
+        "recipe": "androtech:swiftness_emitter"
       }
     }
   },

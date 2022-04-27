@@ -16,13 +16,13 @@
       "item": "minecraft:amethyst_shard"
     },
     "4": {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:golden_carrot"
     },
     "5": {
-      "item": "minecraft:rabbit_foot"
+      "item": "minecraft:amethyst_shard"
     }
   },
   "result": {
-    "item": "androtech:swiftness_module"
+    "item": "androtech:night_vision_emitter"
   }
 }

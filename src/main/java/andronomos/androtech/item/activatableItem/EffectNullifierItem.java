@@ -1,8 +1,7 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.activatableItem;
 
-import andronomos.androtech.util.ItemStackUtil;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import andronomos.androtech.Const;
+import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,25 +17,12 @@ public class EffectNullifierItem extends AbstractActivatableItem {
     public EffectNullifierItem(Properties properties, MobEffect effect, boolean takeDamage, boolean isRepairable) {
         super(properties, takeDamage, isRepairable);
         this.effect = effect;
+        this.tickDelay = Const.TicksInSeconds.TWOSECONDS;
     }
 
     public EffectNullifierItem(Properties properties, MobEffect effect) {
         super(properties.setNoRepair(), false, false);
         this.effect = effect;
-    }
-
-    public InteractionResultHolder use(Level level, Player player, InteractionHand hand) {
-        ItemStack stack = player.getItemInHand(hand);
-
-        if(!level.isClientSide) {
-            if(!isActivated(stack) && !isBroken(stack)) {
-                activate(stack, player);
-            } else {
-                deactivate(stack, player);
-            }
-        }
-
-        return InteractionResultHolder.success(stack);
     }
 
     @Override

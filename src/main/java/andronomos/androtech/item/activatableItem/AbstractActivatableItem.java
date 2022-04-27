@@ -1,13 +1,16 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.activatableItem;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.NBTUtil;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 public abstract class AbstractActivatableItem extends Item implements IActivatableItem {
 	public final static String TAG_ACTIVATED = "activated";
@@ -30,6 +33,21 @@ public abstract class AbstractActivatableItem extends Item implements IActivatab
 		if(!this.isRepairable) {
 			properties.setNoRepair();
 		}
+	}
+
+	@Override
+	public InteractionResultHolder use(Level level, Player player, InteractionHand hand) {
+		ItemStack stack = player.getItemInHand(hand);
+
+		if(!level.isClientSide) {
+			if(!isActivated(stack) && !isBroken(stack)) {
+				activate(stack, player);
+			} else {
+				deactivate(stack, player);
+			}
+		}
+
+		return InteractionResultHolder.success(stack);
 	}
 
 	public boolean isBroken(ItemStack stack) {

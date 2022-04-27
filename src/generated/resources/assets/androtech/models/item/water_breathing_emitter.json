@@ -1,20 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/fire_resistance_module"
+    "layer0": "androtech:item/water_breathing_emitter"
   },
   "overrides": [
     {
       "predicate": {
         "androtech:activated": 0.0
       },
-      "model": "androtech:item/fire_resistance_module"
+      "model": "androtech:item/water_breathing_emitter"
     },
     {
       "predicate": {
         "androtech:activated": 1.0
       },
-      "model": "androtech:item/fire_resistance_module_activated"
+      "model": "androtech:item/water_breathing_emitter_activated"
     }
   ]
 }

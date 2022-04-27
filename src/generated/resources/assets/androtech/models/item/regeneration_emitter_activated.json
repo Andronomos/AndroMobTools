@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/swiftness_module_activated"
+    "layer0": "androtech:item/regeneration_emitter_activated"
   }
 }

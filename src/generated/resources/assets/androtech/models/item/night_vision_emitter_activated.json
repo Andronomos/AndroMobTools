@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/night_vision_module_activated"
+    "layer0": "androtech:item/night_vision_emitter_activated"
   }
 }

@@ -2,6 +2,10 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.item.*;
+import andronomos.androtech.item.activatableItem.EffectEmitterItem;
+import andronomos.androtech.item.activatableItem.EffectNullifierItem;
+import andronomos.androtech.item.activatableItem.ItemAttractorModuleItem;
+import andronomos.androtech.item.activatableItem.NaniteRepairModuleItem;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
@@ -9,9 +13,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import static andronomos.androtech.item.EffectEmitterItem.EMITTER_DURABILITY;
-import static andronomos.androtech.item.EffectNullifierItem.NULLIFIER_DURABILITY;
-import static andronomos.androtech.item.ItemAttractorModuleItem.ATTRACTOR_UNIT_DURABILITY;
+import static andronomos.androtech.item.activatableItem.EffectEmitterItem.EMITTER_DURABILITY;
+import static andronomos.androtech.item.activatableItem.EffectNullifierItem.NULLIFIER_DURABILITY;
+import static andronomos.androtech.item.activatableItem.ItemAttractorModuleItem.ATTRACTOR_UNIT_DURABILITY;
 
 public class ModItems {
     public static final Item.Properties DEBUG_PROPERTIES = new Item.Properties();

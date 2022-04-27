@@ -1,20 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/water_breathing_module"
+    "layer0": "androtech:item/regeneration_emitter"
   },
   "overrides": [
     {
       "predicate": {
         "androtech:activated": 0.0
       },
-      "model": "androtech:item/water_breathing_module"
+      "model": "androtech:item/regeneration_emitter"
     },
     {
       "predicate": {
         "androtech:activated": 1.0
       },
-      "model": "androtech:item/water_breathing_module_activated"
+      "model": "androtech:item/regeneration_emitter_activated"
     }
   ]
 }

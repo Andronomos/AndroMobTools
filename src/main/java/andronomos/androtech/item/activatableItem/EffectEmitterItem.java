@@ -1,8 +1,6 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.activatableItem;
 
-import andronomos.androtech.util.ItemStackUtil;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -26,20 +24,6 @@ public class EffectEmitterItem extends AbstractActivatableItem {
         super(properties.setNoRepair(), false, false);
         this.effect = effect;
         this.amplifier = amplifier;
-    }
-
-    public InteractionResultHolder use(Level level, Player player, InteractionHand hand) {
-        ItemStack stack = player.getItemInHand(hand);
-
-        if(!level.isClientSide) {
-            if(!isActivated(stack) && !isBroken(stack)) {
-                activate(stack, player);
-            } else {
-                deactivate(stack, player);
-            }
-        }
-
-        return InteractionResultHolder.success(stack);
     }
 
     @Override

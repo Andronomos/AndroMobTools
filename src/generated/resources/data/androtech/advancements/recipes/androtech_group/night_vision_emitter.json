@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "androtech:night_vision_module"
+      "androtech:night_vision_emitter"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "androtech:night_vision_module"
+        "recipe": "androtech:night_vision_emitter"
       }
     }
   },

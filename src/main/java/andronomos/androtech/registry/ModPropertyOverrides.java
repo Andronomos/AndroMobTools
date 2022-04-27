@@ -1,7 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.item.AbstractActivatableItem;
+import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
 import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.NBTUtil;
 import net.minecraft.client.renderer.item.ItemProperties;

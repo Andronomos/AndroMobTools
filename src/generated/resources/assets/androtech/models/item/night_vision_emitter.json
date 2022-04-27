@@ -1,20 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/night_vision_module"
+    "layer0": "androtech:item/night_vision_emitter"
   },
   "overrides": [
     {
       "predicate": {
         "androtech:activated": 0.0
       },
-      "model": "androtech:item/night_vision_module"
+      "model": "androtech:item/night_vision_emitter"
     },
     {
       "predicate": {
         "androtech:activated": 1.0
       },
-      "model": "androtech:item/night_vision_module_activated"
+      "model": "androtech:item/night_vision_emitter_activated"
     }
   ]
 }

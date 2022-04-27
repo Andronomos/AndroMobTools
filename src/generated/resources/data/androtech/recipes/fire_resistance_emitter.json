@@ -19,10 +19,10 @@
       "item": "minecraft:nether_star"
     },
     "5": {
-      "item": "minecraft:golden_apple"
+      "item": "minecraft:blaze_powder"
     }
   },
   "result": {
-    "item": "androtech:regeneration_module"
+    "item": "androtech:fire_resistance_emitter"
   }
 }

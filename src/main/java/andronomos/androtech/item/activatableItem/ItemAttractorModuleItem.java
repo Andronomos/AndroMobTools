@@ -1,8 +1,6 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.activatableItem;
 
-import andronomos.androtech.util.ItemStackUtil;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -23,21 +21,6 @@ public class ItemAttractorModuleItem extends AbstractActivatableItem {
 
 	public ItemAttractorModuleItem(Properties properties) {
 		super(properties, false, false);
-	}
-
-	@Override
-	public InteractionResultHolder use(Level level, Player player, InteractionHand hand) {
-		ItemStack stack = player.getItemInHand(hand);
-
-		if(!level.isClientSide) {
-			if(!isActivated(stack) && !isBroken(stack)) {
-				activate(stack, player);
-			} else {
-				deactivate(stack, player);
-			}
-		}
-
-		return InteractionResultHolder.success(stack);
 	}
 
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
