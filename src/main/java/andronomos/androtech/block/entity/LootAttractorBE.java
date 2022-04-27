@@ -30,7 +30,7 @@ public class LootAttractorBE extends BaseContainerBlockEntity {
 
 	@Nonnull
 	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(Const.CONTAINER_SIZE) {
+		return new ItemStackHandler(Const.CONTAINER_GENERIC_SIZE) {
 			@Override
 			public int getSlotLimit(int slot) {
 				return 64;

@@ -34,7 +34,7 @@ public class CropHarvesterBE extends BaseContainerBlockEntity implements Ticking
 
 	@Override
 	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(Const.CONTAINER_SIZE) {
+		return new ItemStackHandler(Const.CONTAINER_GENERIC_SIZE) {
 			@Override
 			public int getSlotLimit(int slot) {
 				return 64;

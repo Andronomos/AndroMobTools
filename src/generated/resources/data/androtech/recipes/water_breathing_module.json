@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "212",
+    "343",
+    "252"
+  ],
+  "key": {
+    "1": {
+      "item": "androtech:advanced_chip"
+    },
+    "2": {
+      "item": "minecraft:iron_ingot"
+    },
+    "3": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "4": {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    "5": {
+      "item": "minecraft:turtle_helmet"
+    }
+  },
+  "result": {
+    "item": "androtech:water_breathing_module"
+  }
+}

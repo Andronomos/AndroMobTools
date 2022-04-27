@@ -41,65 +41,65 @@ public class CropHarvesterContainer extends BaseContainerMenu {
 		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.CROP_HARVESTER.get());
 	}
 
-	@Override
-	public ItemStack quickMoveStack(Player player, int slotIndex) {
-		ItemStack returnStack = ItemStack.EMPTY;
-		Slot slot = this.slots.get(slotIndex);
-
-		if (slot != null && slot.hasItem()) {
-			ItemStack stack = slot.getItem();
-			returnStack = stack.copy();
-
-			//if we're pulling an item from the container
-			if(slotIndex < 54) {
-				//attempt to the move the stack to the player's inventory or hotbar
-				if (!moveItemStackTo(stack, 54, 90, false)) {
-					return ItemStack.EMPTY;
-				}
-			} else if (slotIndex < 90 && !moveItemStackTo(stack, 0, 54, false)) {
-				return ItemStack.EMPTY;
-			}
-
-			if (stack.isEmpty()) {
-				slot.set(ItemStack.EMPTY);
-			} else {
-				slot.setChanged();
-			}
-
-			if (stack.getCount() == returnStack.getCount()) {
-				return ItemStack.EMPTY;
-			}
-
-			slot.onTake(playerEntity, stack);
-		}
-
-		return returnStack;
-	}
-
 	//@Override
-	//public ItemStack quickMoveStack(Player player, int index) {
-	//	ItemStack itemstack = ItemStack.EMPTY;
-	//	Slot slot = this.slots.get(index);
+	//public ItemStack quickMoveStack(Player player, int slotIndex) {
+	//	ItemStack returnStack = ItemStack.EMPTY;
+	//	Slot slot = this.slots.get(slotIndex);
 	//
 	//	if (slot != null && slot.hasItem()) {
-	//		ItemStack itemstack1 = slot.getItem();
-	//		itemstack = itemstack1.copy();
+	//		ItemStack stack = slot.getItem();
+	//		returnStack = stack.copy();
 	//
-	//		if (index < this.chestType.size) {
-	//			if (!this.moveItemStackTo(itemstack1, this.chestType.size, this.slots.size(), true)) {
+	//		//if we're pulling an item from the container
+	//		if(slotIndex < 54) {
+	//			//attempt to the move the stack to the player's inventory or hotbar
+	//			if (!moveItemStackTo(stack, 54, this.slots.size(), true)) {
 	//				return ItemStack.EMPTY;
 	//			}
-	//		} else if (!this.moveItemStackTo(itemstack1, 0, this.chestType.size, false)) {
+	//		} else if (!moveItemStackTo(stack, 0, 54, false)) {
 	//			return ItemStack.EMPTY;
 	//		}
 	//
-	//		if (itemstack1.isEmpty()) {
+	//		if (stack.isEmpty()) {
 	//			slot.set(ItemStack.EMPTY);
 	//		} else {
 	//			slot.setChanged();
 	//		}
+	//
+	//		//if (stack.getCount() == returnStack.getCount()) {
+	//		//	return ItemStack.EMPTY;
+	//		//}
+	//		//
+	//		//slot.onTake(playerEntity, stack);
 	//	}
 	//
-	//	return itemstack;
+	//	return returnStack;
 	//}
+
+	@Override
+	public ItemStack quickMoveStack(Player player, int index) {
+		ItemStack itemstack = ItemStack.EMPTY;
+		Slot slot = this.slots.get(index);
+
+		if (slot != null && slot.hasItem()) {
+			ItemStack itemstack1 = slot.getItem();
+			itemstack = itemstack1.copy();
+
+			if (index < 54) {
+				if (!this.moveItemStackTo(itemstack1, 54, this.slots.size(), true)) {
+					return ItemStack.EMPTY;
+				}
+			} else if (!this.moveItemStackTo(itemstack1, 0, 54, false)) {
+				return ItemStack.EMPTY;
+			}
+
+			if (itemstack1.isEmpty()) {
+				slot.set(ItemStack.EMPTY);
+			} else {
+				slot.setChanged();
+			}
+		}
+
+		return itemstack;
+	}
 }
