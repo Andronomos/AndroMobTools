@@ -12,16 +12,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class MobClonerContainer extends BaseContainerMenu {
 	private BlockEntity blockEntity;
 
-	public MobClonerContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player) {
-		super(ModContainers.MOB_CLONER.get(), windowId);
-		blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
-		playerEntity = player;
-		this.playerInventory = new InvWrapper(playerInventory);
+	public MobClonerContainer(int windowId, BlockPos pos, Inventory inventory) {
+		super(ModContainers.MOB_CLONER.get(), windowId, inventory);
+
+		blockEntity = this.player.getCommandSenderWorld().getBlockEntity(pos);
 
 		if (blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
@@ -34,7 +32,7 @@ public class MobClonerContainer extends BaseContainerMenu {
 
 	@Override
 	public boolean stillValid(Player player) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.MOB_CLONER.get());
+		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), this.player, ModBlocks.MOB_CLONER.get());
 	}
 
 	@Override
@@ -78,7 +76,7 @@ public class MobClonerContainer extends BaseContainerMenu {
 				return ItemStack.EMPTY;
 			}
 
-			slot.onTake(playerEntity, stack);
+			slot.onTake(this.player, stack);
 		}
 
 		return returnStack;

@@ -36,11 +36,6 @@ import net.minecraftforge.network.NetworkHooks;
 //				}
 //			};
 //			NetworkHooks.openGui((ServerPlayer) player, containerProvider, entity.getBlockPos());
-//		}
-//
-//
-//
-//
 //
 //		return super.use(level, player, hand);
 //	}

@@ -1,5 +1,6 @@
 package andronomos.androtech.inventory;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
@@ -12,17 +13,17 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class CropHarvesterContainer extends BaseContainerMenu {
 	public final BlockEntity blockEntity;
 
-	public CropHarvesterContainer(int windowId, BlockPos pos, Inventory inventory, Player player) {
-		super(ModContainers.CROP_HARVESTER.get(), windowId);
+	public CropHarvesterContainer(int windowId, BlockPos pos, Inventory inventory) {
+		super(ModContainers.CROP_HARVESTER.get(), windowId, inventory);
 
-		blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
-		this.playerEntity = player;
-		this.playerInventory = new InvWrapper(inventory);
+		this.inventory = inventory;
+		this.player = inventory.player;
+		blockEntity = this.player.getCommandSenderWorld().getBlockEntity(pos);
+
 		if(blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
 				for (int i = 0; i < 6; i++) {
@@ -38,43 +39,8 @@ public class CropHarvesterContainer extends BaseContainerMenu {
 
 	@Override
 	public boolean stillValid(Player p_38874_) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.CROP_HARVESTER.get());
+		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, ModBlocks.CROP_HARVESTER.get());
 	}
-
-	//@Override
-	//public ItemStack quickMoveStack(Player player, int slotIndex) {
-	//	ItemStack returnStack = ItemStack.EMPTY;
-	//	Slot slot = this.slots.get(slotIndex);
-	//
-	//	if (slot != null && slot.hasItem()) {
-	//		ItemStack stack = slot.getItem();
-	//		returnStack = stack.copy();
-	//
-	//		//if we're pulling an item from the container
-	//		if(slotIndex < 54) {
-	//			//attempt to the move the stack to the player's inventory or hotbar
-	//			if (!moveItemStackTo(stack, 54, this.slots.size(), true)) {
-	//				return ItemStack.EMPTY;
-	//			}
-	//		} else if (!moveItemStackTo(stack, 0, 54, false)) {
-	//			return ItemStack.EMPTY;
-	//		}
-	//
-	//		if (stack.isEmpty()) {
-	//			slot.set(ItemStack.EMPTY);
-	//		} else {
-	//			slot.setChanged();
-	//		}
-	//
-	//		//if (stack.getCount() == returnStack.getCount()) {
-	//		//	return ItemStack.EMPTY;
-	//		//}
-	//		//
-	//		//slot.onTake(playerEntity, stack);
-	//	}
-	//
-	//	return returnStack;
-	//}
 
 	@Override
 	public ItemStack quickMoveStack(Player player, int index) {

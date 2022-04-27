@@ -13,7 +13,7 @@ import static andronomos.androtech.block.ItemIncineratorBlock.SCREEN_ITEM_INCINE
 import static andronomos.androtech.block.RedstoneTransmitterBlock.SCREEN_REDSTONE_TRANSMITTER;
 import static andronomos.androtech.block.pad.MobKillingPadBlock.SCREEN_MOB_KILLING_PAD;
 //import static andronomos.androtech.item.BackpackItem.SCREEN_BACKPACK;
-import static andronomos.androtech.item.GpsUnitItem.*;
+import static andronomos.androtech.item.BlockGpsModuleItem.*;
 import static andronomos.androtech.item.MobDnaModuleItem.*;
 
 public class ModLanguageProvider extends LanguageProvider {
@@ -38,12 +38,13 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(TOOLTIP_BLOCK_GPS_MODULE_X, "X: ");
 		add(TOOLTIP_BLOCK_GPS_MODULE_Y, "Y: ");
 		add(TOOLTIP_BLOCK_GPS_MODULE_Z, "Z: ");
+		add(BLOCK_GPS_MODULE_SAVED, "Saved Block Position ");
 
 		add(ModItems.ATTRACTOR_MODULE.get(), "Attractor Module");
-		add(ModItems.NIGHT_VISION_MODULE.get(), "Night Vision Module");
-		add(ModItems.SWIFTNESS_MODULE.get(), "Swiftness Module");
-		add(ModItems.FIRE_RESISTANCE_MODULE.get(), "Fire Resistance Module");
-		add(ModItems.REGENERATION_MODULE.get(), "Regeneration Module");
+		add(ModItems.NIGHT_VISION_EMITTER.get(), "Night Vision Emitter");
+		add(ModItems.SWIFTNESS_EMITTER.get(), "Swiftness Emitter");
+		add(ModItems.FIRE_RESISTANCE_EMITTER.get(), "Fire Resistance Emitter");
+		add(ModItems.REGENERATION_EMITTER.get(), "Regeneration Emitter");
 		add(ModItems.POISON_NULLIFIER.get(), "Poison Nullifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither Nullifier");
 		add(ModItems.NANITE_REPAIR_MODULE.get(), "Nanite Repair Module");

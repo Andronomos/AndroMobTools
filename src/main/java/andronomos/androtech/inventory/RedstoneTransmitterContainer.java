@@ -14,16 +14,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class RedstoneTransmitterContainer extends BaseContainerMenu {
 	public BlockEntity blockEntity;
 
-	public RedstoneTransmitterContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player) {
-		super(ModContainers.REDSTONE_TRANSMITTER.get(), windowId);
-		blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
-		playerEntity = player;
-		this.playerInventory = new InvWrapper(playerInventory);
+	public RedstoneTransmitterContainer(int windowId, BlockPos pos, Inventory inventory) {
+		super(ModContainers.REDSTONE_TRANSMITTER.get(), windowId, inventory);
+
+		blockEntity = this.player.getCommandSenderWorld().getBlockEntity(pos);
 
 		if (blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
@@ -38,7 +36,7 @@ public class RedstoneTransmitterContainer extends BaseContainerMenu {
 
 	@Override
 	public boolean stillValid(Player p_38874_) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.REDSTONE_TRANSMITTER.get());
+		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, ModBlocks.REDSTONE_TRANSMITTER.get());
 	}
 
 	@Override

@@ -66,7 +66,7 @@ public class MobClonerBlock extends Block implements EntityBlock {
 
 					@Override
 					public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-						return new MobClonerContainer(windowId, pos, playerInventory, playerEntity);
+						return new MobClonerContainer(windowId, pos, playerInventory);
 					}
 				};
 				NetworkHooks.openGui((ServerPlayer) player, containerProvider, be.getBlockPos());

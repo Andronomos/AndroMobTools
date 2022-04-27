@@ -67,7 +67,7 @@ public class CropHarvesterBlock extends Block implements EntityBlock, LiquidBloc
 
 					@Override
 					public AbstractContainerMenu createMenu(int windowId, Inventory inventory, Player player) {
-						return new CropHarvesterContainer(windowId, pos, inventory, player);
+						return new CropHarvesterContainer(windowId, pos, inventory);
 					}
 				};
 				NetworkHooks.openGui((ServerPlayer) player, containerProvider, entity.getBlockPos());

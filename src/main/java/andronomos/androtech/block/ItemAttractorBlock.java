@@ -72,7 +72,7 @@ public class ItemAttractorBlock extends Block implements EntityBlock {
 
 						@Override
 						public AbstractContainerMenu createMenu(int windowId, Inventory inventory, Player player) {
-							return new LootAttractorContainer(windowId, pos, inventory, player);
+							return new LootAttractorContainer(windowId, pos, inventory);
 						}
 					};
 					NetworkHooks.openGui((ServerPlayer) player, containerProvider, entity.getBlockPos());

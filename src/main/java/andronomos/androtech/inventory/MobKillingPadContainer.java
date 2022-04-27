@@ -17,17 +17,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class MobKillingPadContainer extends BaseContainerMenu {
     private BlockEntity blockEntity;
 
-    public MobKillingPadContainer(int windowId, BlockPos pos, Inventory playerInventory, Player player) {
-        super(ModContainers.MOB_KILLING_PAD.get(), windowId);
-        Level level = player.getCommandSenderWorld();
-        blockEntity = level.getBlockEntity(pos);
-        this.playerEntity = player;
-        this.playerInventory = new InvWrapper(playerInventory);
+    public MobKillingPadContainer(int windowId, BlockPos pos, Inventory inventory) {
+        super(ModContainers.MOB_KILLING_PAD.get(), windowId, inventory);
+
+        blockEntity =  player.getCommandSenderWorld().getBlockEntity(pos);
+
         if(blockEntity != null && blockEntity instanceof MobKillingPadBE) {
             final MobKillingPadBE entity = (MobKillingPadBE) blockEntity;
             entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
@@ -41,7 +39,7 @@ public class MobKillingPadContainer extends BaseContainerMenu {
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.MOB_KILLING_PAD.get());
+        return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, ModBlocks.MOB_KILLING_PAD.get());
     }
 
     @Override

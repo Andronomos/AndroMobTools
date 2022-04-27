@@ -28,12 +28,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         buildActivatableItem("attractor_module");
         buildActivatableItem("nanite_repair_module");
-        buildActivatableItem("night_vision_module");
-        buildActivatableItem("water_breathing_module");
+        buildActivatableItem("night_vision_emitter");
+        buildActivatableItem("water_breathing_emitter");
         buildActivatableItem("block_gps_module");
-        buildActivatableItem("swiftness_module");
-        buildActivatableItem("fire_resistance_module");
-        buildActivatableItem("regeneration_module");
+        buildActivatableItem("swiftness_emitter");
+        buildActivatableItem("fire_resistance_emitter");
+        buildActivatableItem("regeneration_emitter");
         buildActivatableItem("poison_nullifier");
         buildActivatableItem("wither_nullifier");
     }

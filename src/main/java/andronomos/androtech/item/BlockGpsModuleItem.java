@@ -24,13 +24,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class GpsUnitItem extends Item {
+public class BlockGpsModuleItem extends Item {
     public static final String TOOLTIP_BLOCK_GPS_MODULE = "tooltip.androtech.block_gps_module_location";
     public static final String TOOLTIP_BLOCK_GPS_MODULE_X = "tooltip.androtech.block_gps_module_x";
     public static final String TOOLTIP_BLOCK_GPS_MODULE_Y = "tooltip.androtech.block_gps_module_y";
     public static final String TOOLTIP_BLOCK_GPS_MODULE_Z = "tooltip.androtech.block_gps_module_z";
+    public static final String BLOCK_GPS_MODULE_SAVED = "item.androtech.block_gps_module.saved";
 
-    public GpsUnitItem(Properties properties) {
+    public BlockGpsModuleItem(Properties properties) {
         super(properties);
     }
 
@@ -43,7 +44,7 @@ public class GpsUnitItem extends Item {
         player.swing(hand);
         ItemStack held = player.getItemInHand(hand);
         held.shrink(1);
-        ChatUtil.sendStatusMessage(player, ChatUtil.createTranslation("item.androtech.redstone_receiver_card.saved") + ChatUtil.blockPosToString(pos));
+        ChatUtil.sendStatusMessage(player, ChatUtil.createTranslation(BLOCK_GPS_MODULE_SAVED) + ChatUtil.blockPosToString(pos));
         return InteractionResult.SUCCESS;
     }
 

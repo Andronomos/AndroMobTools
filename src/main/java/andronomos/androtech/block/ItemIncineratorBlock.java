@@ -49,7 +49,7 @@ public class ItemIncineratorBlock extends Block implements EntityBlock {
                     @Nullable
                     @Override
                     public AbstractContainerMenu createMenu(int windowId, Inventory inventory, Player player1) {
-                        return new LootIncineratorContainer(windowId, pos, inventory, player1);
+                        return new LootIncineratorContainer(windowId, pos, inventory);
                     }
                 };
                 NetworkHooks.openGui((ServerPlayer) player, containerProvider, entity.getBlockPos());

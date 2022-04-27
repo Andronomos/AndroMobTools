@@ -28,12 +28,12 @@ public class ModRecipeProvider extends RecipeProvider {
         registerModule(ModItems.MOB_DNA_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MINECART, consumer);
         registerModule(ModItems.ATTRACTOR_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, consumer);
         registerModule(ModItems.BLOCK_GPS_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MAP, consumer);
-        registerModule(ModItems.NIGHT_VISION_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.GOLDEN_CARROT, consumer);
+        registerModule(ModItems.NIGHT_VISION_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.GOLDEN_CARROT, consumer);
         registerModule(ModItems.NANITE_REPAIR_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, consumer);
-        registerModule(ModItems.WATER_BREATHING_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.HEART_OF_THE_SEA, Items.TURTLE_HELMET, consumer);
-        registerModule(ModItems.SWIFTNESS_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.RABBIT_FOOT, consumer);
-        registerModule(ModItems.FIRE_RESISTANCE_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.BLAZE_POWDER, consumer);
-        registerModule(ModItems.REGENERATION_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.GOLDEN_APPLE, consumer);
+        registerModule(ModItems.WATER_BREATHING_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.HEART_OF_THE_SEA, Items.TURTLE_HELMET, consumer);
+        registerModule(ModItems.SWIFTNESS_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.RABBIT_FOOT, consumer);
+        registerModule(ModItems.FIRE_RESISTANCE_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.BLAZE_POWDER, consumer);
+        registerModule(ModItems.REGENERATION_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.GOLDEN_APPLE, consumer);
 
 
         registerNullifier(ModItems.POISON_NULLIFIER.get(), Items.POISONOUS_POTATO, Items.MILK_BUCKET, consumer);

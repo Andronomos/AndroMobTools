@@ -24,10 +24,10 @@ public class ModPropertyOverrides {
 				});
 
 		registerActivatableItem(ModItems.ATTRACTOR_MODULE.get());
-		registerActivatableItem(ModItems.SWIFTNESS_MODULE.get());
-		registerActivatableItem(ModItems.SWIFTNESS_MODULE.get());
-		registerActivatableItem(ModItems.REGENERATION_MODULE.get());
-		registerActivatableItem(ModItems.FIRE_RESISTANCE_MODULE.get());
+		registerActivatableItem(ModItems.SWIFTNESS_EMITTER.get());
+		registerActivatableItem(ModItems.SWIFTNESS_EMITTER.get());
+		registerActivatableItem(ModItems.REGENERATION_EMITTER.get());
+		registerActivatableItem(ModItems.FIRE_RESISTANCE_EMITTER.get());
 		registerActivatableItem(ModItems.POISON_NULLIFIER.get());
 		registerActivatableItem(ModItems.WITHER_NULLIFIER.get());
 		registerActivatableItem(ModItems.NANITE_REPAIR_MODULE.get());

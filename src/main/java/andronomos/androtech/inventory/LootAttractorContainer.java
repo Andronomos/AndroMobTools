@@ -12,17 +12,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class LootAttractorContainer extends BaseContainerMenu {
 	public final BlockEntity blockEntity;
 
-	public LootAttractorContainer(int windowId, BlockPos pos, Inventory inventory, Player player) {
-		super(ModContainers.ITEM_ATTRACTOR.get(), windowId);
+	public LootAttractorContainer(int windowId, BlockPos pos, Inventory inventory) {
+		super(ModContainers.ITEM_ATTRACTOR.get(), windowId, inventory);
 
 		blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
-		this.playerEntity = player;
-		this.playerInventory = new InvWrapper(inventory);
+
 		if(blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
 				for (int i = 0; i < 6; i++) {
@@ -38,7 +36,7 @@ public class LootAttractorContainer extends BaseContainerMenu {
 
 	@Override
 	public boolean stillValid(Player playerIn) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, ModBlocks.ITEM_ATTRACTOR.get());
+		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, ModBlocks.ITEM_ATTRACTOR.get());
 	}
 
 	@Override
@@ -70,7 +68,7 @@ public class LootAttractorContainer extends BaseContainerMenu {
 				return ItemStack.EMPTY;
 			}
 
-			slot.onTake(playerEntity, stack);
+			slot.onTake(this.player, stack);
 		}
 
 		return returnStack;

@@ -7,16 +7,15 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 
 //public class BackpackContainer extends BaseContainerMenu{
 //	public final ItemEntity itemEntity;
 //
-//	public BackpackContainer(int windowId, Inventory inventory, Player player) {
-//		super(ModContainers.BACKPACK.get(), windowId);
+//	public BackpackContainer(int windowId, Inventory inventory) {
+//		super(ModContainers.BACKPACK.get(), windowId, inventory);
+//
 //		itemEntity = player.getCommandSenderWorld().(pos);
-//		this.playerEntity = player;
-//		this.playerInventory = new InvWrapper(inventory);
+//
 //		if(itemEntity != null) {
 //			itemEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
 //				for (int i = 0; i < 6; i++) {
