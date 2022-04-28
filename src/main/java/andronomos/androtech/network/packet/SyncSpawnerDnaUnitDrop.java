@@ -1,6 +1,6 @@
 package andronomos.androtech.network.packet;
 
-import andronomos.androtech.item.MobDnaModuleItem;
+import andronomos.androtech.item.MobTransporterModuleItem;
 import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.SpawnerUtil;
 import net.minecraft.core.BlockPos;
@@ -48,7 +48,7 @@ public class SyncSpawnerDnaUnitDrop {
 
 			CompoundTag tag = new CompoundTag();
 			tag.putString("entity", entityString);
-			ItemStackUtil.drop(level, msg.pos, MobDnaModuleItem.create(level, msg.pos, tag, entityString));
+			ItemStackUtil.drop(level, msg.pos, MobTransporterModuleItem.create(level, msg.pos, tag, entityString));
 
 			// Replace the entity inside the spawner with default entity
 			logic.setEntityId(EntityType.AREA_EFFECT_CLOUD);

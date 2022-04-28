@@ -51,7 +51,7 @@ public class MobClonerContainer extends BaseContainerMenu {
 					return ItemStack.EMPTY;
 				}
 			} else {
-				if (stack.getItem() == ModItems.MOB_DNA_MODULE.get()) {
+				if (stack.getItem() == ModItems.MOB_TRANSPORTER_MODULE.get()) {
 					//attempt to move the stack to slot 0.
 					if (!this.moveItemStackTo(stack, 0, 1, false)) {
 						return ItemStack.EMPTY;

@@ -13,7 +13,7 @@ public class ModPropertyOverrides {
 	public static final ResourceLocation IS_ACTIVATED = new ResourceLocation(AndroTech.MOD_ID, "activated");
 
 	public static void register() {
-		ItemProperties.register(ModItems.MOB_DNA_MODULE.get(),
+		ItemProperties.register(ModItems.MOB_TRANSPORTER_MODULE.get(),
 				IS_ACTIVATED, (stack, level, living, id) -> {
 					return ItemStackUtil.containsEntity(stack) ? 1 : 0;
 				});
@@ -30,7 +30,7 @@ public class ModPropertyOverrides {
 		registerActivatableItem(ModItems.FIRE_RESISTANCE_EMITTER.get());
 		registerActivatableItem(ModItems.POISON_NULLIFIER.get());
 		registerActivatableItem(ModItems.WITHER_NULLIFIER.get());
-		registerActivatableItem(ModItems.NANITE_REPAIR_MODULE.get());
+		registerActivatableItem(ModItems.NANITE_MODULE.get());
 	}
 
 	private static void registerActivatableItem(Item item) {

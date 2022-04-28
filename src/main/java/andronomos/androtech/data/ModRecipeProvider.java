@@ -25,11 +25,11 @@ public class ModRecipeProvider extends RecipeProvider {
         registerChip(ModItems.BASIC_CHIP.get(), Items.GOLD_INGOT, consumer);
         registerChip(ModItems.ADVANCED_CHIP.get(), Items.DIAMOND, consumer);
 
-        registerModule(ModItems.MOB_DNA_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MINECART, consumer);
+        registerModule(ModItems.MOB_TRANSPORTER_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MINECART, consumer);
         registerModule(ModItems.ATTRACTOR_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, consumer);
         registerModule(ModItems.BLOCK_GPS_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MAP, consumer);
         registerModule(ModItems.NIGHT_VISION_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.GOLDEN_CARROT, consumer);
-        registerModule(ModItems.NANITE_REPAIR_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, consumer);
+        registerModule(ModItems.NANITE_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, consumer);
         registerModule(ModItems.WATER_BREATHING_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.HEART_OF_THE_SEA, Items.TURTLE_HELMET, consumer);
         registerModule(ModItems.SWIFTNESS_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.RABBIT_FOOT, consumer);
         registerModule(ModItems.FIRE_RESISTANCE_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.BLAZE_POWDER, consumer);
@@ -63,7 +63,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
-        registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.MOB_DNA_MODULE.get(), Items.SPAWNER, consumer);
+        registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.MOB_TRANSPORTER_MODULE.get(), Items.SPAWNER, consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.ITEM_INCINERATOR.get())
                 .define('1', Items.IRON_INGOT)
@@ -188,7 +188,7 @@ public class ModRecipeProvider extends RecipeProvider {
     private void registerNaniteTool(Item outputItem, Item item, Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(outputItem)
                 .define('1', ModItems.ADVANCED_CHIP.get())
-                .define('2', ModItems.NANITE_REPAIR_MODULE.get())
+                .define('2', ModItems.NANITE_MODULE.get())
                 .define('3', item)
                 .pattern("121")
                 .pattern("232")

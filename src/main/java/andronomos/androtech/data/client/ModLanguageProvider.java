@@ -14,7 +14,7 @@ import static andronomos.androtech.block.RedstoneTransmitterBlock.SCREEN_REDSTON
 import static andronomos.androtech.block.pad.MobKillingPadBlock.SCREEN_MOB_KILLING_PAD;
 //import static andronomos.androtech.item.BackpackItem.SCREEN_BACKPACK;
 import static andronomos.androtech.item.BlockGpsModuleItem.*;
-import static andronomos.androtech.item.MobDnaModuleItem.*;
+import static andronomos.androtech.item.MobTransporterModuleItem.*;
 
 public class ModLanguageProvider extends LanguageProvider {
 
@@ -29,7 +29,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
 		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
 
-		add(ModItems.MOB_DNA_MODULE.get(), "Mob DNA Module");
+		add(ModItems.MOB_TRANSPORTER_MODULE.get(), "Mob DNA Module");
 		add(TOOLTIP_MOB_DNA_MODULE_MOB, "Mob: ");
 		add(TOOLTIP_MOB_DNA_MODULE_HEALTH, "Health: ");
 
@@ -48,7 +48,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.REGENERATION_EMITTER.get(), "Regeneration Emitter");
 		add(ModItems.POISON_NULLIFIER.get(), "Poison Nullifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither Nullifier");
-		add(ModItems.NANITE_REPAIR_MODULE.get(), "Nanite Repair Module");
+		add(ModItems.NANITE_MODULE.get(), "Nanite Module");
 		add(ModItems.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
 		add(ModItems.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
 		add(ModItems.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Shovel");
