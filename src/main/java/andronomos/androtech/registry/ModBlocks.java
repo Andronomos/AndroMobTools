@@ -29,6 +29,8 @@ public class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, andronomos.androtech.AndroTech.MOD_ID);
 
+    public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block", () -> new TestBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+
     public static final RegistryObject<Block> MOB_CLONER = registerBlock("mob_cloner", () -> new MobClonerBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncineratorBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());

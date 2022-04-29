@@ -11,6 +11,7 @@ import static andronomos.androtech.block.MobClonerBlock.SCREEN_MOB_CLONER;
 import static andronomos.androtech.block.ItemAttractorBlock.SCREEN_ITEM_ATTRACTOR;
 import static andronomos.androtech.block.ItemIncineratorBlock.SCREEN_ITEM_INCINERATOR;
 import static andronomos.androtech.block.RedstoneTransmitterBlock.SCREEN_REDSTONE_TRANSMITTER;
+import static andronomos.androtech.block.TestBlock.SCREEN_TEST_BLOCK;
 import static andronomos.androtech.block.pad.MobKillingPadBlock.SCREEN_MOB_KILLING_PAD;
 //import static andronomos.androtech.item.BackpackItem.SCREEN_BACKPACK;
 import static andronomos.androtech.item.BlockGpsModule.*;
@@ -55,6 +56,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
 
 		/** Blocks **/
+		add(ModBlocks.TEST_BLOCK.get(), "Test Block");
+		add(SCREEN_TEST_BLOCK, "Test Block");
+
 		add(ModBlocks.MOB_CLONER.get(), "Mob Cloner");
 		add(SCREEN_MOB_CLONER, "Mob Cloner");
 

@@ -1,5 +1,6 @@
 package andronomos.androtech.gui;
 
+import andronomos.androtech.Const;
 import andronomos.androtech.inventory.CropHarvesterContainer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
@@ -25,6 +26,10 @@ public class CropHarvesterScreen extends BaseScreen<CropHarvesterContainer>{
 
 	@Override
 	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(stack, INVENTORY_LARGE);
+		drawBackground(stack, INVENTORY_SIDEBAR);
+
+
+
+
 	}
 }

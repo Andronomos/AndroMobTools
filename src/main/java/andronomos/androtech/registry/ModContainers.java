@@ -54,4 +54,10 @@ public class ModContainers {
         Level level = inv.player.getCommandSenderWorld();
         return new RedstoneTransmitterContainer(windowId, pos, inv);
     }));
+
+    public static final RegistryObject<MenuType<TestBlockContainer>> TEST_BLOCK = CONTAINERS.register("test_block", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        Level level = inv.player.getCommandSenderWorld();
+        return new TestBlockContainer(windowId, pos, inv);
+    }));
 }
