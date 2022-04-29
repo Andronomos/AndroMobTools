@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FarmerUnitBE extends BaseContainerBlockEntity implements TickingBlockEntity {
+	public static final int FARMER_CONTAINER_SIZE = 55;
 	private int tickDelay = Const.TicksInSeconds.FIVEMINUTES;
 	private int tickCounter = 0;
 	private final List<IHarvester> harvesters = new ArrayList<>();

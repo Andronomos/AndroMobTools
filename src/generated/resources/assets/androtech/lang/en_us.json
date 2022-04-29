@@ -1,5 +1,5 @@
 {
-  "block.androtech.crop_harvester": "Crop Harvester",
+  "block.androtech.farmer_unit": "Farmer Unit",
   "block.androtech.item_attractor": "Item Attractor",
   "block.androtech.item_incinerator": "Item Incinerator",
   "block.androtech.mob_cloner": "Mob Cloner",
@@ -28,7 +28,7 @@
   "item.androtech.water_breathing_emitter": "Water Breathing Emitter",
   "item.androtech.wither_nullifier": "Wither Nullifier",
   "itemGroup.androtech_group": "AndroTech",
-  "screen.androtech.crop_harvester": "Crop Harvester",
+  "screen.androtech.farmer_unit": "Farmer Unit",
   "screen.androtech.item_attractor": "Item Attractor",
   "screen.androtech.item_incinerator": "Item Incinerator",
   "screen.androtech.mob_killing_pad": "Mob Killing Pad",

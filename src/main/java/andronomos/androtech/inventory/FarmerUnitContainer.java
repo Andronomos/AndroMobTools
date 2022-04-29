@@ -30,11 +30,10 @@ public class FarmerUnitContainer extends BaseContainerMenu {
 						addSlot(new SlotItemHandler(h, j + i * 9, Const.CONTAINER_SLOT_X_OFFSET + j * Const.SCREEN_SLOT_SIZE, Const.SCREEN_SLOT_SIZE + i * Const.SCREEN_SLOT_SIZE));
 					}
 				}
+
+				addSlot(new SlotItemHandler(h, h.getSlots(), 186, 5));
 			});
 		}
-
-		//addSlot(new SlotItemHandler(h, j + i * 9, Const.CONTAINER_SLOT_X_OFFSET + j * Const.SCREEN_SLOT_SIZE, Const.SCREEN_SLOT_SIZE + i * Const.SCREEN_SLOT_SIZE));
-
 
 		layoutPlayerInventorySlots(8, 140);
 	}

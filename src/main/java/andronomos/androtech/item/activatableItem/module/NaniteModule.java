@@ -1,4 +1,4 @@
-package andronomos.androtech.item.activatableItem;
+package andronomos.androtech.item.activatableItem.module;
 
 import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
 import andronomos.androtech.util.ItemStackUtil;

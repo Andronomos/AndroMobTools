@@ -8,7 +8,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "androtech:crop_harvester"
+          "name": "androtech:farmer_unit"
         }
       ]
     }

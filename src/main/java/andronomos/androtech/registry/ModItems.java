@@ -4,8 +4,8 @@ import andronomos.androtech.Const;
 import andronomos.androtech.item.*;
 import andronomos.androtech.item.activatableItem.EffectEmitter;
 import andronomos.androtech.item.activatableItem.EffectNullifier;
-import andronomos.androtech.item.activatableItem.ItemAttractorModule;
-import andronomos.androtech.item.activatableItem.NaniteModule;
+import andronomos.androtech.item.activatableItem.module.ItemAttractorModule;
+import andronomos.androtech.item.activatableItem.module.NaniteModule;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
@@ -15,7 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static andronomos.androtech.item.activatableItem.EffectEmitter.EMITTER_DURABILITY;
 import static andronomos.androtech.item.activatableItem.EffectNullifier.NULLIFIER_DURABILITY;
-import static andronomos.androtech.item.activatableItem.ItemAttractorModule.ATTRACTOR_UNIT_DURABILITY;
+import static andronomos.androtech.item.activatableItem.module.ItemAttractorModule.ATTRACTOR_UNIT_DURABILITY;
 
 public class ModItems {
     public static final Item.Properties DEBUG_PROPERTIES = new Item.Properties();

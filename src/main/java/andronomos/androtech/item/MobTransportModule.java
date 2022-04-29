@@ -62,6 +62,8 @@ public class MobTransportModule extends Item {
         return InteractionResult.SUCCESS;
     }
 
+
+
     public boolean captureEntity(ItemStack stack, Player player, LivingEntity target) {
         Level level = target.level;
         if (level.isClientSide()) return false;
