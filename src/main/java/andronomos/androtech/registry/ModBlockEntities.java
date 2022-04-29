@@ -25,8 +25,8 @@ public class ModBlockEntities {
             .of(MobKillingPadBE::new, ModBlocks.MOB_KILLING_PAD.get())
             .build(null));
 
-    public static final RegistryObject<BlockEntityType<CropHarvesterBE>> CROP_HARVESTER = BLOCK_ENTITIES.register("crop_harvester_be", () -> BlockEntityType.Builder
-            .of(CropHarvesterBE::new, ModBlocks.CROP_HARVESTER.get())
+    public static final RegistryObject<BlockEntityType<FarmerUnitBE>> CROP_HARVESTER = BLOCK_ENTITIES.register("crop_harvester_be", () -> BlockEntityType.Builder
+            .of(FarmerUnitBE::new, ModBlocks.FARMER_UNIT.get())
             .build(null));
 
     public static final RegistryObject<BlockEntityType<RedstoneTransmitterBE>> REDSTONE_TRANSMITTER = BLOCK_ENTITIES.register("redstone_transmitter_be", () -> BlockEntityType.Builder

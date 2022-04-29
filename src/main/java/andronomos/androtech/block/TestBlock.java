@@ -1,8 +1,6 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.block.entity.CropHarvesterBE;
 import andronomos.androtech.block.entity.TestBlockBE;
-import andronomos.androtech.inventory.CropHarvesterContainer;
 import andronomos.androtech.inventory.TestBlockContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;

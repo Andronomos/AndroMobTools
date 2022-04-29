@@ -86,7 +86,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModBlocks.CROP_HARVESTER.get())
+        ShapedRecipeBuilder.shaped(ModBlocks.FARMER_UNIT.get())
                 .define('1', ModItems.ADVANCED_CHIP.get())
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.REDSTONE)

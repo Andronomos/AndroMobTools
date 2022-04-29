@@ -6,7 +6,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
 import static andronomos.androtech.AndroTech.TAB_NAME;
-import static andronomos.androtech.block.CropHarvesterBlock.SCREEN_CROP_HARVESTER;
+import static andronomos.androtech.block.FarmerUnit.SCREEN_FARMER_UNIT;
 import static andronomos.androtech.block.MobClonerBlock.SCREEN_MOB_CLONER;
 import static andronomos.androtech.block.ItemAttractorBlock.SCREEN_ITEM_ATTRACTOR;
 import static andronomos.androtech.block.ItemIncineratorBlock.SCREEN_ITEM_INCINERATOR;
@@ -74,8 +74,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModBlocks.WEAK_ACCELERATION_PAD.get(), "Weak Acceleration Pad");
 		add(ModBlocks.STRONG_ACCELERATION_PAD.get(), "Strong Acceleration Pad");
 
-		add(ModBlocks.CROP_HARVESTER.get(), "Crop Harvester");
-		add(SCREEN_CROP_HARVESTER, "Crop Harvester");
+		add(ModBlocks.FARMER_UNIT.get(), "Farmer Unit");
+		add(SCREEN_FARMER_UNIT, "Farmer Unit");
 
 		add(ModBlocks.WIRELESS_LIGHT.get(), "Wireless Light");
 

@@ -1,7 +1,7 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.block.entity.CropHarvesterBE;
-import andronomos.androtech.inventory.CropHarvesterContainer;
+import andronomos.androtech.block.entity.FarmerUnitBE;
+import andronomos.androtech.inventory.FarmerUnitContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
@@ -30,17 +30,17 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class CropHarvesterBlock extends Block implements EntityBlock, LiquidBlockContainer {
-	public static final String SCREEN_CROP_HARVESTER = "screen.androtech.crop_harvester";
+public class FarmerUnit extends Block implements EntityBlock, LiquidBlockContainer {
+	public static final String SCREEN_FARMER_UNIT = "screen.androtech.farmer_unit";
 
-	public CropHarvesterBlock(Properties properties) {
+	public FarmerUnit(Properties properties) {
 		super(properties);
 	}
 
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new CropHarvesterBE(pos, state);
+		return new FarmerUnitBE(pos, state);
 	}
 
 	@Nullable
@@ -48,7 +48,7 @@ public class CropHarvesterBlock extends Block implements EntityBlock, LiquidBloc
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
 		return (level2, pos, state2, blockEntity) -> {
 			if(!level.isClientSide()) {
-				if(blockEntity instanceof CropHarvesterBE cropHarvester) cropHarvester.serverTick((ServerLevel) level2, pos, state2, cropHarvester);
+				if(blockEntity instanceof FarmerUnitBE cropHarvester) cropHarvester.serverTick((ServerLevel) level2, pos, state2, cropHarvester);
 			}
 		};
 	}
@@ -58,16 +58,16 @@ public class CropHarvesterBlock extends Block implements EntityBlock, LiquidBloc
 		if(!level.isClientSide()) {
 			BlockEntity entity = level.getBlockEntity(pos);
 
-			if(entity instanceof CropHarvesterBE) {
+			if(entity instanceof FarmerUnitBE) {
 				MenuProvider containerProvider = new MenuProvider() {
 					@Override
 					public TextComponent getDisplayName() {
-						return new TextComponent(SCREEN_CROP_HARVESTER);
+						return new TextComponent(SCREEN_FARMER_UNIT);
 					}
 
 					@Override
 					public AbstractContainerMenu createMenu(int windowId, Inventory inventory, Player player) {
-						return new CropHarvesterContainer(windowId, pos, inventory);
+						return new FarmerUnitContainer(windowId, pos, inventory);
 					}
 				};
 				NetworkHooks.openGui((ServerPlayer) player, containerProvider, entity.getBlockPos());
@@ -96,7 +96,7 @@ public class CropHarvesterBlock extends Block implements EntityBlock, LiquidBloc
 	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
 		if(state.getBlock() != newState.getBlock()) {
 			BlockEntity entity = level.getBlockEntity(pos);
-			if(entity instanceof CropHarvesterBE) {
+			if(entity instanceof FarmerUnitBE) {
 				entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
 					for(int i = 0; i <= itemHandler.getSlots() - 1; i++) {
 						popResource(level, pos, itemHandler.getStackInSlot(i));

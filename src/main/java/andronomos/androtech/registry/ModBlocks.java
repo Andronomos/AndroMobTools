@@ -37,7 +37,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> MOB_KILLING_PAD = registerBlock("mob_killing_pad", () -> new MobKillingPadBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, false);
     public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, false);
-    public static final RegistryObject<Block> CROP_HARVESTER = registerBlock("crop_harvester", () -> new CropHarvesterBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> FARMER_UNIT = registerBlock("farmer_unit", () -> new FarmerUnit(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> WIRELESS_LIGHT = registerBlock("wireless_light", () -> new WirelessLightBlock(MACHINE_PROPERTIES), ModItems.DEBUG_PROPERTIES);
     public static final RegistryObject<Block> REDSTONE_TRANSMITTER = registerBlock("redstone_transmitter", () -> new RedstoneTransmitterBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> REDSTONE_RECEIVER = registerBlock("redstone_receiver", () -> new RedstoneReceiverBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());

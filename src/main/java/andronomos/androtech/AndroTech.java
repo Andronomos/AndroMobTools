@@ -2,7 +2,6 @@ package andronomos.androtech;
 
 import andronomos.androtech.gui.*;
 import andronomos.androtech.event.SpawnerEventHandler;
-import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.registry.*;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -45,7 +44,7 @@ public class AndroTech
             MenuScreens.register(ModContainers.ITEM_ATTRACTOR.get(), LootAttractorScreen::new);
             MenuScreens.register(ModContainers.ITEM_INCINERATOR.get(), LootIncineratorScreen::new);
             MenuScreens.register(ModContainers.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);
-            MenuScreens.register(ModContainers.CROP_HARVESTER.get(), CropHarvesterScreen::new);
+            MenuScreens.register(ModContainers.CROP_HARVESTER.get(), FarmerUnitScreen::new);
             MenuScreens.register(ModContainers.REDSTONE_TRANSMITTER.get(), RedstoneTransmitterScreen::new);
             MenuScreens.register(ModContainers.TEST_BLOCK.get(), TestBlockScreen::new);
 

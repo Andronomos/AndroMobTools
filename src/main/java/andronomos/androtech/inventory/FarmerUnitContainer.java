@@ -1,6 +1,5 @@
 package andronomos.androtech.inventory;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
@@ -14,10 +13,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class CropHarvesterContainer extends BaseContainerMenu {
+public class FarmerUnitContainer extends BaseContainerMenu {
 	public final BlockEntity blockEntity;
 
-	public CropHarvesterContainer(int windowId, BlockPos pos, Inventory inventory) {
+	public FarmerUnitContainer(int windowId, BlockPos pos, Inventory inventory) {
 		super(ModContainers.CROP_HARVESTER.get(), windowId, inventory);
 
 		this.inventory = inventory;
@@ -42,7 +41,7 @@ public class CropHarvesterContainer extends BaseContainerMenu {
 
 	@Override
 	public boolean stillValid(Player p_38874_) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, ModBlocks.CROP_HARVESTER.get());
+		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, ModBlocks.FARMER_UNIT.get());
 	}
 
 	@Override

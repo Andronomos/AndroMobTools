@@ -1,13 +1,12 @@
 package andronomos.androtech.gui;
 
-import andronomos.androtech.Const;
-import andronomos.androtech.inventory.CropHarvesterContainer;
+import andronomos.androtech.inventory.FarmerUnitContainer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
-public class CropHarvesterScreen extends BaseScreen<CropHarvesterContainer> {
-	public CropHarvesterScreen(CropHarvesterContainer container, Inventory inventory, Component component) {
+public class FarmerUnitScreen extends BaseScreen<FarmerUnitContainer> {
+	public FarmerUnitScreen(FarmerUnitContainer container, Inventory inventory, Component component) {
 		super(container, inventory, component);
 		this.imageHeight = 114 + 6 * 18;
 	}

@@ -18,12 +18,12 @@ import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CropHarvesterBE extends BaseContainerBlockEntity implements TickingBlockEntity {
+public class FarmerUnitBE extends BaseContainerBlockEntity implements TickingBlockEntity {
 	private int tickDelay = Const.TicksInSeconds.FIVEMINUTES;
 	private int tickCounter = 0;
 	private final List<IHarvester> harvesters = new ArrayList<>();
 
-	public CropHarvesterBE(BlockPos pos, BlockState state) {
+	public FarmerUnitBE(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.CROP_HARVESTER.get(), pos, state);
 
 		harvesters.add(new NetherWartHarvester());

@@ -1,6 +1,5 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.inventory.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.MenuType;
@@ -37,10 +36,10 @@ public class ModContainers {
         return new MobKillingPadContainer(windowId, pos, inv);
     }));
 
-    public static final RegistryObject<MenuType<CropHarvesterContainer>> CROP_HARVESTER = CONTAINERS.register("crop_harvester", () -> IForgeMenuType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<FarmerUnitContainer>> CROP_HARVESTER = CONTAINERS.register("crop_harvester", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level level = inv.player.getCommandSenderWorld();
-        return new CropHarvesterContainer(windowId, pos, inv);
+        return new FarmerUnitContainer(windowId, pos, inv);
     }));
 
     //public static final RegistryObject<MenuType<BackpackContainer>> BACKPACK = CONTAINERS.register("backpack", () -> IForgeMenuType.create((windowId, inv, data) -> {
