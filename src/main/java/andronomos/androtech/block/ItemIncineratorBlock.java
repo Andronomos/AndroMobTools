@@ -1,6 +1,6 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.block.entity.LootIncineratorBE;
+import andronomos.androtech.block.entity.ItemIncineratorBE;
 import andronomos.androtech.inventory.LootIncineratorContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
@@ -31,7 +31,7 @@ public class ItemIncineratorBlock extends Block implements EntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new LootIncineratorBE(pos, state);
+        return new ItemIncineratorBE(pos, state);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ItemIncineratorBlock extends Block implements EntityBlock {
         if(!level.isClientSide()) {
             BlockEntity entity = level.getBlockEntity(pos);
 
-            if(entity instanceof LootIncineratorBE) {
+            if(entity instanceof ItemIncineratorBE) {
                 MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public TextComponent getDisplayName() {

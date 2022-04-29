@@ -1,7 +1,9 @@
 package andronomos.androtech.block;
 
 import andronomos.androtech.block.entity.CropHarvesterBE;
+import andronomos.androtech.block.entity.TestBlockBE;
 import andronomos.androtech.inventory.CropHarvesterContainer;
+import andronomos.androtech.inventory.TestBlockContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,16 +15,24 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
+import org.jetbrains.annotations.Nullable;
 
-public class TestBlock extends Block {
+public class TestBlock extends Block implements EntityBlock {
 	public static final String SCREEN_TEST_BLOCK = "screen.androtech.test_block";
 
 	public TestBlock(Properties properties) {
 		super(properties);
+	}
+
+	@Nullable
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new TestBlockBE(pos, state);
 	}
 
 	@Override
@@ -30,7 +40,7 @@ public class TestBlock extends Block {
 		if(!level.isClientSide()) {
 			BlockEntity entity = level.getBlockEntity(pos);
 
-			if(entity instanceof CropHarvesterBE) {
+			if(entity instanceof TestBlockBE) {
 				MenuProvider containerProvider = new MenuProvider() {
 					@Override
 					public TextComponent getDisplayName() {
@@ -39,7 +49,7 @@ public class TestBlock extends Block {
 
 					@Override
 					public AbstractContainerMenu createMenu(int windowId, Inventory inventory, Player player) {
-						return new CropHarvesterContainer(windowId, pos, inventory);
+						return new TestBlockContainer(windowId, pos, inventory);
 					}
 				};
 				NetworkHooks.openGui((ServerPlayer) player, containerProvider, entity.getBlockPos());

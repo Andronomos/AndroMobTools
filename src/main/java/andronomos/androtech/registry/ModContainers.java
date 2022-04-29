@@ -34,7 +34,6 @@ public class ModContainers {
     public static final RegistryObject<MenuType<MobKillingPadContainer>> MOB_KILLING_PAD = CONTAINERS.register("mob_killing_pad", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         Level level = inv.player.getCommandSenderWorld();
-
         return new MobKillingPadContainer(windowId, pos, inv);
     }));
 

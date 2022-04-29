@@ -13,12 +13,12 @@ public class ModBlockEntities {
             .of(MobClonerBE::new, ModBlocks.MOB_CLONER.get())
             .build(null));
 
-    public static final RegistryObject<BlockEntityType<LootAttractorBE>> ITEM_ATTRACTOR = BLOCK_ENTITIES.register("item_attractor_be", () -> BlockEntityType.Builder
-            .of(LootAttractorBE::new, ModBlocks.ITEM_ATTRACTOR.get())
+    public static final RegistryObject<BlockEntityType<ItemAttractorBE>> ITEM_ATTRACTOR = BLOCK_ENTITIES.register("item_attractor_be", () -> BlockEntityType.Builder
+            .of(ItemAttractorBE::new, ModBlocks.ITEM_ATTRACTOR.get())
             .build(null));
 
-    public static final RegistryObject<BlockEntityType<LootIncineratorBE>> ITEM_INCINERATOR = BLOCK_ENTITIES.register("item_incinerator_be", () -> BlockEntityType.Builder
-            .of(LootIncineratorBE::new, ModBlocks.ITEM_INCINERATOR.get())
+    public static final RegistryObject<BlockEntityType<ItemIncineratorBE>> ITEM_INCINERATOR = BLOCK_ENTITIES.register("item_incinerator_be", () -> BlockEntityType.Builder
+            .of(ItemIncineratorBE::new, ModBlocks.ITEM_INCINERATOR.get())
             .build(null));
 
     public static final RegistryObject<BlockEntityType<MobKillingPadBE>> MOB_KILLING_PAD = BLOCK_ENTITIES.register("mob_killing_pad_be", () -> BlockEntityType.Builder
@@ -31,5 +31,9 @@ public class ModBlockEntities {
 
     public static final RegistryObject<BlockEntityType<RedstoneTransmitterBE>> REDSTONE_TRANSMITTER = BLOCK_ENTITIES.register("redstone_transmitter_be", () -> BlockEntityType.Builder
             .of(RedstoneTransmitterBE::new, ModBlocks.REDSTONE_TRANSMITTER.get())
+            .build(null));
+
+    public static final RegistryObject<BlockEntityType<RedstoneTransmitterBE>> TEST_BLOCK = BLOCK_ENTITIES.register("test_block_be", () -> BlockEntityType.Builder
+            .of(RedstoneTransmitterBE::new, ModBlocks.TEST_BLOCK.get())
             .build(null));
 }

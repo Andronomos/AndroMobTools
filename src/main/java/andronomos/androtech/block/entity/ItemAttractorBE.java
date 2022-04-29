@@ -21,10 +21,10 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class LootAttractorBE extends BaseContainerBlockEntity {
+public class ItemAttractorBE extends BaseContainerBlockEntity {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
-	public LootAttractorBE(BlockPos pos, BlockState state) {
+	public ItemAttractorBE(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.ITEM_ATTRACTOR.get(), pos, state);
 	}
 
@@ -50,7 +50,7 @@ public class LootAttractorBE extends BaseContainerBlockEntity {
 		};
 	}
 
-	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, LootAttractorBE itemAttractor) {
+	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, ItemAttractorBE itemAttractor) {
 		if(state.getValue(POWERED)) {
 			if(level.getGameTime() % 3 == 0) {
 				if(!isInventoryFull()) {

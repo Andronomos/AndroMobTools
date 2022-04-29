@@ -1,6 +1,6 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.block.entity.LootAttractorBE;
+import andronomos.androtech.block.entity.ItemAttractorBE;
 import andronomos.androtech.inventory.LootAttractorContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
@@ -44,7 +44,7 @@ public class ItemAttractorBlock extends Block implements EntityBlock {
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new LootAttractorBE(pos, state);
+		return new ItemAttractorBE(pos, state);
 	}
 
 	@Nullable
@@ -52,7 +52,7 @@ public class ItemAttractorBlock extends Block implements EntityBlock {
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
 		return (level2, pos, state2, blockEntity) -> {
 			if(!level.isClientSide()) {
-				if(blockEntity instanceof LootAttractorBE itemAttractor) itemAttractor.serverTick((ServerLevel) level2, pos, state2, itemAttractor);
+				if(blockEntity instanceof ItemAttractorBE itemAttractor) itemAttractor.serverTick((ServerLevel) level2, pos, state2, itemAttractor);
 			}
 		};
 	}
@@ -63,7 +63,7 @@ public class ItemAttractorBlock extends Block implements EntityBlock {
 			if(player.isCrouching()) {
 				BlockEntity entity = level.getBlockEntity(pos);
 
-				if(entity instanceof LootAttractorBE) {
+				if(entity instanceof ItemAttractorBE) {
 					MenuProvider containerProvider = new MenuProvider() {
 						@Override
 						public TextComponent getDisplayName() {
@@ -89,7 +89,7 @@ public class ItemAttractorBlock extends Block implements EntityBlock {
 	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
 		if(state.getBlock() != newState.getBlock()) {
 			BlockEntity entity = level.getBlockEntity(pos);
-			if(entity instanceof LootAttractorBE) {
+			if(entity instanceof ItemAttractorBE) {
 				entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
 					for(int i = 0; i <= itemHandler.getSlots() - 1; i++) {
 						popResource(level, pos, itemHandler.getStackInSlot(i));

@@ -1,13 +1,12 @@
 package andronomos.androtech.gui;
 
-import andronomos.androtech.Const;
+import andronomos.androtech.inventory.TestBlockContainer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 
-public class TestBlockScreen extends BaseScreen {
-	public TestBlockScreen(AbstractContainerMenu screenContainer, Inventory inventory, Component component) {
+public class TestBlockScreen extends BaseScreen<TestBlockContainer> {
+	public TestBlockScreen(TestBlockContainer screenContainer, Inventory inventory, Component component) {
 		super(screenContainer, inventory, component);
 	}
 

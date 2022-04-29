@@ -8,8 +8,8 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class LootIncineratorBE extends BaseContainerBlockEntity {
-    public LootIncineratorBE(BlockPos pos, BlockState state) {
+public class ItemIncineratorBE extends BaseContainerBlockEntity {
+    public ItemIncineratorBE(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ITEM_INCINERATOR.get(), pos, state);
     }
 

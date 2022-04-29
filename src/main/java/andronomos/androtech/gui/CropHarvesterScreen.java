@@ -6,7 +6,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
-public class CropHarvesterScreen extends BaseScreen<CropHarvesterContainer>{
+public class CropHarvesterScreen extends BaseScreen<CropHarvesterContainer> {
 	public CropHarvesterScreen(CropHarvesterContainer container, Inventory inventory, Component component) {
 		super(container, inventory, component);
 		this.imageHeight = 114 + 6 * 18;

@@ -18,6 +18,6 @@ public class TestBlockContainer extends BaseContainerMenu {
 
 	@Override
 	public boolean stillValid(Player p_38874_) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, ModBlocks.CROP_HARVESTER.get());
+		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, ModBlocks.TEST_BLOCK.get());
 	}
 }
