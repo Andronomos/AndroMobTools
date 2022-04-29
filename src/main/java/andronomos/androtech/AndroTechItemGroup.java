@@ -13,7 +13,7 @@ public class AndroTechItemGroup extends CreativeModeTab
     @Override
     public ItemStack makeIcon() {
         return new ItemStack(
-                ModItems.MOB_TRANSPORTER_MODULE.get()
+                ModItems.MOB_TRANSPORT_MODULE.get()
         );
     }
 }

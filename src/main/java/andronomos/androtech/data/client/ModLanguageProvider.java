@@ -13,8 +13,8 @@ import static andronomos.androtech.block.ItemIncineratorBlock.SCREEN_ITEM_INCINE
 import static andronomos.androtech.block.RedstoneTransmitterBlock.SCREEN_REDSTONE_TRANSMITTER;
 import static andronomos.androtech.block.pad.MobKillingPadBlock.SCREEN_MOB_KILLING_PAD;
 //import static andronomos.androtech.item.BackpackItem.SCREEN_BACKPACK;
-import static andronomos.androtech.item.BlockGpsModuleItem.*;
-import static andronomos.androtech.item.MobTransporterModuleItem.*;
+import static andronomos.androtech.item.BlockGpsModule.*;
+import static andronomos.androtech.item.MobTransportModule.*;
 
 public class ModLanguageProvider extends LanguageProvider {
 
@@ -29,7 +29,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
 		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
 
-		add(ModItems.MOB_TRANSPORTER_MODULE.get(), "Mob DNA Module");
+		add(ModItems.MOB_TRANSPORT_MODULE.get(), "Mob Transport Module");
 		add(TOOLTIP_MOB_DNA_MODULE_MOB, "Mob: ");
 		add(TOOLTIP_MOB_DNA_MODULE_HEALTH, "Health: ");
 
@@ -40,7 +40,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(TOOLTIP_BLOCK_GPS_MODULE_Z, "Z: ");
 		add(BLOCK_GPS_MODULE_SAVED, "Saved Block Position ");
 
-		add(ModItems.ATTRACTOR_MODULE.get(), "Attractor Module");
+		add(ModItems.ITEM_ATTRACTOR_MODULE.get(), "Item Attractor Module");
 		add(ModItems.NIGHT_VISION_EMITTER.get(), "Night Vision Emitter");
 		add(ModItems.SWIFTNESS_EMITTER.get(), "Swiftness Emitter");
 		add(ModItems.FIRE_RESISTANCE_EMITTER.get(), "Fire Resistance Emitter");

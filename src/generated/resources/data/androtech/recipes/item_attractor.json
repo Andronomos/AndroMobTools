@@ -19,7 +19,7 @@
       "item": "minecraft:chest"
     },
     "5": {
-      "item": "androtech:attractor_module"
+      "item": "androtech:item_attractor_module"
     }
   },
   "result": {

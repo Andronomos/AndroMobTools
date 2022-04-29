@@ -16,13 +16,13 @@
       "item": "minecraft:amethyst_shard"
     },
     "4": {
-      "item": "minecraft:ender_pearl"
+      "item": "minecraft:minecart"
     },
     "5": {
       "item": "minecraft:amethyst_shard"
     }
   },
   "result": {
-    "item": "androtech:attractor_module"
+    "item": "androtech:mob_transport_module"
   }
 }

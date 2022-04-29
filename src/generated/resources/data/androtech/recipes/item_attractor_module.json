@@ -7,7 +7,7 @@
   ],
   "key": {
     "1": {
-      "item": "androtech:advanced_chip"
+      "item": "androtech:basic_chip"
     },
     "2": {
       "item": "minecraft:iron_ingot"
@@ -16,13 +16,13 @@
       "item": "minecraft:amethyst_shard"
     },
     "4": {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:ender_pearl"
     },
     "5": {
       "item": "minecraft:amethyst_shard"
     }
   },
   "result": {
-    "item": "androtech:nanite_repair_module"
+    "item": "androtech:item_attractor_module"
   }
 }

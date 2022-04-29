@@ -27,7 +27,7 @@ public class CropHarvesterContainer extends BaseContainerMenu {
 		if(blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
 				for (int i = 0; i < 6; i++) {
-					for(int j = 0; j < 9; j++) {
+					for(int j = 0; j < 7; j++) {
 						addSlot(new SlotItemHandler(h, j + i * 9, Const.CONTAINER_SLOT_X_OFFSET + j * Const.SCREEN_SLOT_SIZE, Const.SCREEN_SLOT_SIZE + i * Const.SCREEN_SLOT_SIZE));
 					}
 				}

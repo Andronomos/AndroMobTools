@@ -26,11 +26,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MobTransporterModuleItem extends Item {
+public class MobTransportModule extends Item {
     public static final String TOOLTIP_MOB_DNA_MODULE_MOB = "tooltip.androtech.mob_dna_unit.mob";
     public static final String TOOLTIP_MOB_DNA_MODULE_HEALTH = "tooltip.androtech.mob_dna_unit.health";
 
-    public MobTransporterModuleItem(Properties properties) {
+    public MobTransportModule(Properties properties) {
         super(properties);
     }
 
@@ -89,7 +89,7 @@ public class MobTransporterModuleItem extends Item {
 
     public static ItemStack create(Level level, BlockPos pos, CompoundTag tag, String entityName) {
         tag.putString("entity", entityName);
-        ItemStack drop = new ItemStack(ModItems.MOB_TRANSPORTER_MODULE.get());
+        ItemStack drop = new ItemStack(ModItems.MOB_TRANSPORT_MODULE.get());
         drop.setTag(tag);
         return drop;
     }

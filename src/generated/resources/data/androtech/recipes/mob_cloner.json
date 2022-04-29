@@ -16,7 +16,7 @@
       "item": "minecraft:redstone"
     },
     "4": {
-      "item": "androtech:mob_dna_module"
+      "item": "androtech:mob_transport_module"
     },
     "5": {
       "item": "minecraft:spawner"

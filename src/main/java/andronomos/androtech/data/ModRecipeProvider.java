@@ -25,8 +25,8 @@ public class ModRecipeProvider extends RecipeProvider {
         registerChip(ModItems.BASIC_CHIP.get(), Items.GOLD_INGOT, consumer);
         registerChip(ModItems.ADVANCED_CHIP.get(), Items.DIAMOND, consumer);
 
-        registerModule(ModItems.MOB_TRANSPORTER_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MINECART, consumer);
-        registerModule(ModItems.ATTRACTOR_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, consumer);
+        registerModule(ModItems.MOB_TRANSPORT_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MINECART, consumer);
+        registerModule(ModItems.ITEM_ATTRACTOR_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, consumer);
         registerModule(ModItems.BLOCK_GPS_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.MAP, consumer);
         registerModule(ModItems.NIGHT_VISION_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.GOLDEN_CARROT, consumer);
         registerModule(ModItems.NANITE_MODULE.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, consumer);
@@ -34,7 +34,6 @@ public class ModRecipeProvider extends RecipeProvider {
         registerModule(ModItems.SWIFTNESS_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.RABBIT_FOOT, consumer);
         registerModule(ModItems.FIRE_RESISTANCE_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.BLAZE_POWDER, consumer);
         registerModule(ModItems.REGENERATION_EMITTER.get(), ModItems.ADVANCED_CHIP.get(), Items.NETHER_STAR, Items.GOLDEN_APPLE, consumer);
-
 
         registerNullifier(ModItems.POISON_NULLIFIER.get(), Items.POISONOUS_POTATO, Items.MILK_BUCKET, consumer);
         registerNullifier(ModItems.WITHER_NULLIFIER.get(), Items.WITHER_SKELETON_SKULL, Items.MILK_BUCKET, consumer);
@@ -63,7 +62,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
 
-        registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.MOB_TRANSPORTER_MODULE.get(), Items.SPAWNER, consumer);
+        registerAdvancedMachine(ModBlocks.MOB_CLONER.get(), ModItems.MOB_TRANSPORT_MODULE.get(), Items.SPAWNER, consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.ITEM_INCINERATOR.get())
                 .define('1', Items.IRON_INGOT)
@@ -80,7 +79,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('2', Items.IRON_INGOT)
                 .define('3', Items.REDSTONE)
                 .define('4', Items.CHEST)
-                .define('5', ModItems.ATTRACTOR_MODULE.get())
+                .define('5', ModItems.ITEM_ATTRACTOR_MODULE.get())
                 .pattern("212")
                 .pattern("353")
                 .pattern("242")

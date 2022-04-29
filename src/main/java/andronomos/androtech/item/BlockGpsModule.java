@@ -24,14 +24,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class BlockGpsModuleItem extends Item {
+public class BlockGpsModule extends Item {
     public static final String TOOLTIP_BLOCK_GPS_MODULE = "tooltip.androtech.block_gps_module_location";
     public static final String TOOLTIP_BLOCK_GPS_MODULE_X = "tooltip.androtech.block_gps_module_x";
     public static final String TOOLTIP_BLOCK_GPS_MODULE_Y = "tooltip.androtech.block_gps_module_y";
     public static final String TOOLTIP_BLOCK_GPS_MODULE_Z = "tooltip.androtech.block_gps_module_z";
     public static final String BLOCK_GPS_MODULE_SAVED = "item.androtech.block_gps_module.saved";
 
-    public BlockGpsModuleItem(Properties properties) {
+    public BlockGpsModule(Properties properties) {
         super(properties);
     }
 

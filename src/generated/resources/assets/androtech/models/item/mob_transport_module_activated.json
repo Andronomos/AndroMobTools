@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/nanite_repair_module_activated"
+    "layer0": "androtech:item/mob_transport_module_activated"
   }
 }

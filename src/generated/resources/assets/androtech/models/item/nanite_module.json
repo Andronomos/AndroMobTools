@@ -1,20 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/mob_dna_module"
+    "layer0": "androtech:item/nanite_module"
   },
   "overrides": [
     {
       "predicate": {
         "androtech:activated": 0.0
       },
-      "model": "androtech:item/mob_dna_module"
+      "model": "androtech:item/nanite_module"
     },
     {
       "predicate": {
         "androtech:activated": 1.0
       },
-      "model": "androtech:item/mob_dna_module_activated"
+      "model": "androtech:item/nanite_module_activated"
     }
   ]
 }

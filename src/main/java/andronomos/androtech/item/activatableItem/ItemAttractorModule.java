@@ -11,15 +11,15 @@ import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 
-public class AttractorModuleItem extends AbstractActivatableItem {
+public class ItemAttractorModule extends AbstractActivatableItem {
 	public static final int ATTRACTOR_UNIT_DURABILITY = 1000;
 	private final int pickupRange = 10;
 
-	public AttractorModuleItem(Properties properties, boolean takeDamage, boolean isRepairable) {
+	public ItemAttractorModule(Properties properties, boolean takeDamage, boolean isRepairable) {
 		super(properties, takeDamage, isRepairable);
 	}
 
-	public AttractorModuleItem(Properties properties) {
+	public ItemAttractorModule(Properties properties) {
 		super(properties, false, false);
 	}
 

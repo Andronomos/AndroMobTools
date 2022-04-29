@@ -8,19 +8,19 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class EffectEmitterItem extends AbstractActivatableItem {
+public class EffectEmitter extends AbstractActivatableItem {
     public static final int EMITTER_DURABILITY = 720;
 
     private final MobEffect effect;
     private final int amplifier;
 
-    public EffectEmitterItem(Properties properties, MobEffect effect, int amplifier, boolean takeDamage, boolean isRepairable) {
+    public EffectEmitter(Properties properties, MobEffect effect, int amplifier, boolean takeDamage, boolean isRepairable) {
         super(properties, takeDamage, isRepairable);
         this.effect = effect;
         this.amplifier = amplifier;
     }
 
-    public EffectEmitterItem(Properties properties, MobEffect effect, int amplifier) {
+    public EffectEmitter(Properties properties, MobEffect effect, int amplifier) {
         super(properties.setNoRepair(), false, false);
         this.effect = effect;
         this.amplifier = amplifier;

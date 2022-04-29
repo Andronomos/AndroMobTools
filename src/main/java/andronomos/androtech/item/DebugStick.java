@@ -22,8 +22,8 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
-public class DebugStickItem extends Item {
-	public DebugStickItem(Properties properties) {
+public class DebugStick extends Item {
+	public DebugStick(Properties properties) {
 		super(properties);
 	}
 

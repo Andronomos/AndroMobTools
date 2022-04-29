@@ -3,17 +3,17 @@ package andronomos.androtech.item;
 import andronomos.androtech.Const;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 
-public class UnbreakableAxe extends AxeItem {
+public class NaniteEnhancedPickAxe extends PickaxeItem {
 	public int tickDelay = Const.TicksInSeconds.FIVESECONDS;
 	public int tickCounter = 0;
 	private int repairAmount = 10;
 
-	public UnbreakableAxe(Tier tier, float attackDamage, float attackSpeed, Properties properties) {
+	public NaniteEnhancedPickAxe(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
 		super(tier, attackDamage, attackSpeed, properties);
 	}
 

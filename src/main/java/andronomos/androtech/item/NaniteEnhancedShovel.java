@@ -8,12 +8,12 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 
-public class UnbreakableShovel extends ShovelItem {
+public class NaniteEnhancedShovel extends ShovelItem {
 	public int tickDelay = Const.TicksInSeconds.FIVESECONDS;
 	public int tickCounter = 0;
 	private int repairAmount = 10;
 
-	public UnbreakableShovel(Tier tier, float attackDamage, float attackSpeed, Properties properties) {
+	public NaniteEnhancedShovel(Tier tier, float attackDamage, float attackSpeed, Properties properties) {
 		super(tier, attackDamage, attackSpeed, properties);
 	}
 

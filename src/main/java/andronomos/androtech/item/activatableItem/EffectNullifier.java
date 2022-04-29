@@ -9,18 +9,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class EffectNullifierItem extends AbstractActivatableItem {
+public class EffectNullifier extends AbstractActivatableItem {
     public static final int NULLIFIER_DURABILITY = 1000; //will last for 1000 effect removals
 
     private final MobEffect effect;
 
-    public EffectNullifierItem(Properties properties, MobEffect effect, boolean takeDamage, boolean isRepairable) {
+    public EffectNullifier(Properties properties, MobEffect effect, boolean takeDamage, boolean isRepairable) {
         super(properties, takeDamage, isRepairable);
         this.effect = effect;
         this.tickDelay = Const.TicksInSeconds.TWOSECONDS;
     }
 
-    public EffectNullifierItem(Properties properties, MobEffect effect) {
+    public EffectNullifier(Properties properties, MobEffect effect) {
         super(properties.setNoRepair(), false, false);
         this.effect = effect;
     }
