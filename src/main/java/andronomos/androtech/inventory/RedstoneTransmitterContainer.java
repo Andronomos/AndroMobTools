@@ -1,6 +1,7 @@
 package andronomos.androtech.inventory;
 
 import andronomos.androtech.Const;
+import andronomos.androtech.block.entity.RedstoneTransmitterBE;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
 import andronomos.androtech.registry.ModItems;
@@ -25,7 +26,7 @@ public class RedstoneTransmitterContainer extends BaseContainerMenu {
 
 		if (blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-				for(int s = 0; s < 9; s++) {
+				for(int s = 0; s < RedstoneTransmitterBE.TRANSMITTER_SLOTS; s++) {
 					addSlot(new SlotItemHandler(h, s, Const.CONTAINER_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * s, 27));
 				}
 			});
@@ -41,19 +42,17 @@ public class RedstoneTransmitterContainer extends BaseContainerMenu {
 
 	@Override
 	public ItemStack quickMoveStack(Player playerEntity, int index) {
-		ItemStack returnStack = ItemStack.EMPTY;
 		final Slot slot = this.slots.get(index);
 
 		if (slot != null && slot.hasItem()) {
 			ItemStack stack = slot.getItem();
-			returnStack = stack.copy();
 
-			//if we're pulling out from a receiver_card slot (slot 0 through 9)
-			if(index <= 9) {
-				if(!this.moveItemStackTo(stack, 1, 37, true)) {
+			int containerEnd = RedstoneTransmitterBE.TRANSMITTER_SLOTS;
+
+			if(index <= containerEnd) {
+				if (!this.moveItemStackTo(stack, containerEnd, this.slots.size(), true)) {
 					return ItemStack.EMPTY;
 				}
-				slot.onQuickCraft(stack, returnStack);
 			} else {
 				if(stack.getItem() == ModItems.BLOCK_GPS_MODULE.get()) {
 					if(NBTUtil.getItemStackBlockPos(stack) != null) {
@@ -61,12 +60,7 @@ public class RedstoneTransmitterContainer extends BaseContainerMenu {
 							return ItemStack.EMPTY;
 						}
 					}
-				} else if (index < 36) {
-					//we must be in the player's inventory, attempt to move the stack to the hotbar
-					if (!this.moveItemStackTo(stack, 36, 44, false)) {
-						return ItemStack.EMPTY;
-					}
-				} else if (index < 44 && !this.moveItemStackTo(stack, 1, 35, false)) {
+				} else if (!this.moveItemStackTo(stack, 0, containerEnd, false)) {
 					return ItemStack.EMPTY;
 				}
 			}
@@ -76,12 +70,6 @@ public class RedstoneTransmitterContainer extends BaseContainerMenu {
 			} else {
 				slot.setChanged();
 			}
-
-			if (stack.getCount() == returnStack.getCount()) {
-				return ItemStack.EMPTY;
-			}
-
-			slot.onTake(playerEntity, stack);
 		}
 
 		return ItemStack.EMPTY;

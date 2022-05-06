@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "androtech:item/mob_cloning_module"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "androtech:activated": 0.0
+      },
+      "model": "androtech:item/mob_cloning_module"
+    },
+    {
+      "predicate": {
+        "androtech:activated": 1.0
+      },
+      "model": "androtech:item/mob_cloning_module_activated"
+    }
+  ]
+}

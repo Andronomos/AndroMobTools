@@ -43,56 +43,33 @@ public class MobKillingPadContainer extends BaseContainerMenu {
     }
 
     @Override
-    public ItemStack quickMoveStack(Player playerEntity, int index) {
-        ItemStack returnStack = ItemStack.EMPTY;
-        final Slot slot = this.slots.get(index);
+    public ItemStack quickMoveStack(Player playerEntity, int slotId) {
+        ItemStack itemstack = ItemStack.EMPTY;
+        final Slot slot = this.slots.get(slotId);
 
-        if (slot != null && slot.hasItem()) {
-            ItemStack stack = slot.getItem();
-            returnStack = stack.copy();
+		int containerEnd = Const.CONTAINER_GENERIC_SIZE;
 
-            if (index == 0 || index == 1) {
-                //attempt to the move the stack to any slot between slot 2 (inventory begin) and slot 37 (hotbar end) (slot 0 and 1 are the mob grinder inventory)
-                if (!this.moveItemStackTo(stack, 2, 37, true)) {
-                    return ItemStack.EMPTY;
-                }
-                slot.onQuickCraft(stack, returnStack);
-            } else {
-                if(stack.getItem() == Items.ENCHANTED_BOOK) {
-                    if(EnchantmentUtil.hasEnchantment(Enchantments.MOB_LOOTING, stack)) {
-                        //attempt to move the stack to slot 0.
-                        if (!this.moveItemStackTo(stack, 0, 1, false)) {
-                            return ItemStack.EMPTY;
-                        }
-                    } else if (EnchantmentUtil.hasEnchantment(Enchantments.FIRE_ASPECT, stack)) {
-                        //attempt to move the stack to slot 1.
-                        if (!this.moveItemStackTo(stack, 1, 2, false)) {
-                            return ItemStack.EMPTY;
-                        }
-                    }
-                } else if (index < 28) {
-                    //attempt to move the stack to any slot between slot 28 and 37 (the hotbar)
-                    if (!this.moveItemStackTo(stack, 28, 37, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (index < 37 && !this.moveItemStackTo(stack, 2, 28, false)) {
-                    return ItemStack.EMPTY;
-                }
-            }
+		if (slot != null && slot.hasItem()) {
+			ItemStack itemstack1 = slot.getItem();
+			itemstack = itemstack1.copy();
 
-            if (stack.isEmpty()) {
-                slot.set(ItemStack.EMPTY);
-            } else {
-                slot.setChanged();
-            }
+			if (slotId == 0 || slotId == 1) {
+				if (!this.moveItemStackTo(itemstack1, 2, 37, true)) {
+					return ItemStack.EMPTY;
+				}
+			} else {
+				if(itemstack1.getItem() == Items.ENCHANTED_BOOK) {
+					if(EnchantmentUtil.hasEnchantment(Enchantments.MOB_LOOTING, itemstack1) || EnchantmentUtil.hasEnchantment(Enchantments.FIRE_ASPECT, itemstack1)) {
+						if (!this.moveItemStackTo(itemstack1, 0, 2, false)) {
+							return ItemStack.EMPTY;
+						}
+					}
+				} else if (!this.moveItemStackTo(itemstack1, 0, containerEnd, false)) {
+					return ItemStack.EMPTY;
+				}
+			}
+		}
 
-            if (stack.getCount() == stack.getCount()) {
-                return ItemStack.EMPTY;
-            }
-
-            slot.onTake(playerEntity, stack);
-        }
-
-        return returnStack;
+        return itemstack;
     }
 }

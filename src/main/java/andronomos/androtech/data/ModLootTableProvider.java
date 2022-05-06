@@ -35,16 +35,16 @@ public class ModLootTableProvider extends LootTableProvider {
     }
 
      private void addTables() {
+        lootTables.put(ModBlocks.CROP_FARMER.get(), createSimpleTable("crop_harvester", ModBlocks.CROP_FARMER.get()));
         lootTables.put(ModBlocks.MOB_CLONER.get(), createSimpleTable("mob_cloner", ModBlocks.MOB_CLONER.get()));
         lootTables.put(ModBlocks.ITEM_ATTRACTOR.get(), createSimpleTable("item_attractor", ModBlocks.ITEM_ATTRACTOR.get()));
         lootTables.put(ModBlocks.ITEM_INCINERATOR.get(), createSimpleTable("item_incinerator", ModBlocks.ITEM_INCINERATOR.get()));
+        lootTables.put(ModBlocks.REDSTONE_RECEIVER.get(), createSimpleTable("redstone_receiver", ModBlocks.REDSTONE_RECEIVER.get()));
+        lootTables.put(ModBlocks.REDSTONE_TRANSMITTER.get(), createSimpleTable("redstone_transmitter", ModBlocks.REDSTONE_TRANSMITTER.get()));
         lootTables.put(ModBlocks.MOB_KILLING_PAD.get(), createSimpleTable("mob_killing_pad", ModBlocks.MOB_KILLING_PAD.get()));
         lootTables.put(ModBlocks.WEAK_ACCELERATION_PAD.get(), createSimpleTable("weak_acceleration_pad", ModBlocks.WEAK_ACCELERATION_PAD.get()));
         lootTables.put(ModBlocks.STRONG_ACCELERATION_PAD.get(), createSimpleTable("strong_acceleration_pad", ModBlocks.STRONG_ACCELERATION_PAD.get()));
-        lootTables.put(ModBlocks.FARMER_UNIT.get(), createSimpleTable("crop_harvester", ModBlocks.FARMER_UNIT.get()));
-        lootTables.put(ModBlocks.WIRELESS_LIGHT.get(), createSimpleTable("wireless_light", ModBlocks.WIRELESS_LIGHT.get()));
-        lootTables.put(ModBlocks.REDSTONE_RECEIVER.get(), createSimpleTable("redstone_receiver", ModBlocks.REDSTONE_RECEIVER.get()));
-        lootTables.put(ModBlocks.REDSTONE_TRANSMITTER.get(), createSimpleTable("redstone_transmitter", ModBlocks.REDSTONE_TRANSMITTER.get()));
+        //lootTables.put(ModBlocks.WIRELESS_LIGHT.get(), createSimpleTable("wireless_light", ModBlocks.WIRELESS_LIGHT.get()));
     }
 
     protected LootTable.Builder createSimpleTable(String name, Block block) {

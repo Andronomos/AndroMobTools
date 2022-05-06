@@ -1,6 +1,7 @@
 package andronomos.androtech.block.entity;
 
 import andronomos.androtech.Const;
+import andronomos.androtech.block.entity.base.AbstractTickingMachineEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
@@ -21,7 +22,7 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class ItemAttractorBE extends BaseContainerBlockEntity {
+public class ItemAttractorBE extends AbstractTickingMachineEntity {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public ItemAttractorBE(BlockPos pos, BlockState state) {
@@ -52,12 +53,13 @@ public class ItemAttractorBE extends BaseContainerBlockEntity {
 
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, ItemAttractorBE itemAttractor) {
 		if(state.getValue(POWERED)) {
-			if(level.getGameTime() % 3 == 0) {
-				if(!isInventoryFull()) {
-					captureDroppedItems();
-				}
-				deleteCapturedXp();
+			if(!shouldTick()) return;
+
+			if(!isInventoryFull()) {
+				captureDroppedItems();
 			}
+
+			deleteCapturedXp();
 		}
 	}
 
@@ -109,9 +111,9 @@ public class ItemAttractorBE extends BaseContainerBlockEntity {
 	}
 
 	private AABB getAABBWithModifiers() {
-		double x = getBlockPos().getX() + 0.5D;
-		double y = getBlockPos().getY() + 0.5D;
-		double z = getBlockPos().getZ() + 0.5D;
-		return new AABB(x - 9.5D, y - 9.5D, z - 9.5D, x + 9.5D, y + 9.5D, z + 9.5D);
+		double x = getBlockPos().getX();
+		double y = getBlockPos().getY();
+		double z = getBlockPos().getZ();
+		return new AABB(x - 9D, y - 9D, z - 9D, x + 9D, y + 9D, z + 9D);
 	}
 }

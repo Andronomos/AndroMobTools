@@ -1,5 +1,6 @@
 package andronomos.androtech;
 
+import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -13,7 +14,7 @@ public class AndroTechItemGroup extends CreativeModeTab
     @Override
     public ItemStack makeIcon() {
         return new ItemStack(
-                ModItems.MOB_TRANSPORT_MODULE.get()
+                ModBlocks.CROP_FARMER.get()
         );
     }
 }

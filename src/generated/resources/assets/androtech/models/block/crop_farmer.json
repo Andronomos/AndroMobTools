@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "androtech:block/machine_bottom",
+    "up": "androtech:block/crop_farmer_top",
+    "north": "androtech:block/crop_farmer_side",
+    "south": "androtech:block/crop_farmer_side",
+    "east": "androtech:block/crop_farmer_side",
+    "west": "androtech:block/crop_farmer_side"
+  }
+}

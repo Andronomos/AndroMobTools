@@ -1,5 +1,6 @@
 package andronomos.androtech.block.entity;
 
+import andronomos.androtech.block.entity.base.BaseContainerBlockEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;

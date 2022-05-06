@@ -1,12 +1,11 @@
 package andronomos.androtech.block.entity;
 
-import andronomos.androtech.Const;
-import andronomos.androtech.item.MobTransportModule;
+import andronomos.androtech.block.entity.base.AbstractTickingMachineEntity;
+import andronomos.androtech.item.MobCloningModule;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -20,15 +19,15 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class MobClonerBE extends BaseContainerBlockEntity implements TickingBlockEntity {
+public class MobClonerBE extends AbstractTickingMachineEntity {
+	public static final int CLONER_SLOTS = 9;
+
 	private double spin;
 	private double oSpin;
-	private int maxNearbyEntities = 6;
+	private int maxNearbyEntities = 10;
 	private int requiredPlayerRange = 64;
-	private int spawnCount = 4;
+	private int spawnCount = 10;
 	private int spawnRange = 4;
-	private int tickDelay = Const.TicksInSeconds.FIVESECONDS;
-	private int tickCounter = 0;
 
 	public MobClonerBE(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.MOB_CLONER_BE.get(), pos, state);
@@ -37,7 +36,6 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 	public boolean shouldActivate(Level level, BlockPos pos) {
 		if (!this.isNearPlayer(this.level, pos)) return false;
 		if(level.hasNeighborSignal(pos)) return false;
-
 		return true;
 	}
 
@@ -59,7 +57,7 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 
 		if(stack == null
 				|| stack.isEmpty()
-				|| !(stack.getItem() instanceof MobTransportModule)
+				|| !(stack.getItem() instanceof MobCloningModule)
 				|| !ItemStackUtil.containsEntity(stack)) return;
 
 		if(shouldTick()) {
@@ -67,7 +65,7 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 				Entity entity = ItemStackUtil.getEntityFromStack(stack, this.level, true);
 				entity.setUUID(Mth.createInsecureUUID());
 				double d0 = (double)pos.getX() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange + 0.5D;
-				double d1 = pos.getY() + this.level.random.nextInt(3) - 1;
+				double d1 = pos.getY() - 1;
 				double d2 = (double)pos.getZ() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange + 0.5D;
 
 				if(this.level.noCollision(entity.getType().getAABB(d0, d1, d2))) {
@@ -81,18 +79,12 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 		}
 	}
 
-	public boolean shouldTick() {
-		if (tickCounter < tickDelay) {
-			tickCounter++;
-			return false;
-		} else {
-			tickCounter = 0;
-		}
-		return true;
-	}
+	private boolean isNearPlayer(Level level, BlockPos pos) {
+		double x = pos.getX();
+		double y = pos.getY();
+		double z = pos.getZ();
 
-	private boolean isNearPlayer(Level level, BlockPos blockPos) {
-		return level.hasNearbyAlivePlayer((double)blockPos.getX() + 0.5D, (double)blockPos.getY() + 0.5D, (double)blockPos.getZ() + 0.5D, (double)this.requiredPlayerRange);
+		return level.hasNearbyAlivePlayer(x, y, z, (double)this.requiredPlayerRange);
 	}
 
 	@Override
@@ -102,10 +94,10 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 
 	@Nonnull
 	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(1) {
+		return new ItemStackHandler(9) {
 			@Override
 			public int getSlotLimit(int slot) {
-				return 64;
+				return 1;
 			}
 
 			@Override
@@ -117,23 +109,8 @@ public class MobClonerBE extends BaseContainerBlockEntity implements TickingBloc
 
 			@Override
 			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-				return stack.getItem() instanceof MobTransportModule;
+				return stack.getItem() instanceof MobCloningModule;
 			}
 		};
 	}
-
-	@Override
-	protected void saveAdditional(CompoundTag tag) {
-		tag.put("Inventory", inputItems.serializeNBT());
-	}
-
-	@Override
-	public void load(CompoundTag tag) {
-		super.load(tag);
-		if (tag.contains("Inventory")) {
-			inputItems.deserializeNBT(tag.getCompound("Inventory"));
-		}
-	}
-
-
 }

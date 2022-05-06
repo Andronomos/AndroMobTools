@@ -18,19 +18,18 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
-        buildActivatableItem("mob_transport_module");
+        buildActivatableItem("mob_cloning_module");
+        buildActivatableItem("item_attractor_module");
+        buildActivatableItem("block_gps_module");
+        buildActivatableItem("item_repair_module");
         createSingleTexture("basic_chip");
         createSingleTexture("advanced_chip");
         createSingleTexture("debug_stick");
         createSingleTexture("nanite_enhanced_pickaxe");
         createSingleTexture("nanite_enhanced_axe");
         createSingleTexture("nanite_enhanced_shovel");
-
-        buildActivatableItem("item_attractor_module");
-        buildActivatableItem("nanite_module");
         buildActivatableItem("night_vision_emitter");
         buildActivatableItem("water_breathing_emitter");
-        buildActivatableItem("block_gps_module");
         buildActivatableItem("swiftness_emitter");
         buildActivatableItem("fire_resistance_emitter");
         buildActivatableItem("regeneration_emitter");

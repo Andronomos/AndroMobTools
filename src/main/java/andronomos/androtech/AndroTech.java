@@ -1,11 +1,10 @@
 package andronomos.androtech;
 
+import andronomos.androtech.event.TeleportInhibitorEvent;
 import andronomos.androtech.gui.*;
 import andronomos.androtech.event.SpawnerEventHandler;
 import andronomos.androtech.registry.*;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -34,28 +33,26 @@ public class AndroTech
         //ModLoot.LOOT_MODIFIERS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new SpawnerEventHandler());
+        MinecraftForge.EVENT_BUS.register(new TeleportInhibitorEvent());
 
         modEventBus.addListener(this::clientSetup);
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            MenuScreens.register(ModContainers.CROP_FARMER.get(), CropFarmerScreen::new);
+            MenuScreens.register(ModContainers.ITEM_INCINERATOR.get(), ItemIncineratorScreen::new);
+            MenuScreens.register(ModContainers.ITEM_ATTRACTOR.get(), ItemAttractorScreen::new);
             MenuScreens.register(ModContainers.MOB_CLONER.get(), MobClonerScreen::new);
-            MenuScreens.register(ModContainers.ITEM_ATTRACTOR.get(), LootAttractorScreen::new);
-            MenuScreens.register(ModContainers.ITEM_INCINERATOR.get(), LootIncineratorScreen::new);
-            MenuScreens.register(ModContainers.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);
-            MenuScreens.register(ModContainers.CROP_HARVESTER.get(), FarmerUnitScreen::new);
             MenuScreens.register(ModContainers.REDSTONE_TRANSMITTER.get(), RedstoneTransmitterScreen::new);
-            MenuScreens.register(ModContainers.TEST_BLOCK.get(), TestBlockScreen::new);
+            MenuScreens.register(ModContainers.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);
+            //MenuScreens.register(ModContainers.TEST_BLOCK.get(), TestBlockScreen::new);
 
             ModPropertyOverrides.register();
         });
 
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.MOB_CLONER.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ITEM_ATTRACTOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WIRELESS_LIGHT.get(), RenderType.cutout());
+        //ItemBlockRenderTypes.setRenderLayer(ModBlocks.MOB_CLONER.get(), RenderType.cutout());
+        //ItemBlockRenderTypes.setRenderLayer(ModBlocks.ITEM_ATTRACTOR.get(), RenderType.cutout());
+        //ItemBlockRenderTypes.setRenderLayer(ModBlocks.WIRELESS_LIGHT.get(), RenderType.cutout());
     }
-
-
-
 }

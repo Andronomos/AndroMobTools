@@ -21,15 +21,17 @@ public class CropHarvester implements IHarvester {
 			return false;
 		}
 
-		if(!isReadyForHarvest((CropBlock) crop, cropState)) {
+		CropBlock cropBlock = (CropBlock) crop;
+
+		if(!isReadyForHarvest(cropBlock, cropState)) {
 			return false;
 		}
 
-		final List<ItemStack> drops = crop.getDrops(cropState, level, pos, null);
+		final List<ItemStack> drops = cropBlock.getDrops(cropState, level, pos, null);
 		level.destroyBlock(pos, false);
-		level.setBlock(pos, ((CropBlock)crop).getStateForAge(0), 7);
+		level.setBlock(pos, cropBlock.getStateForAge(0), 7);
 
-		ItemStack defaultSeedDrop = crop.getCloneItemStack(level, pos, cropState);
+		ItemStack defaultSeedDrop = cropBlock.getCloneItemStack(level, pos, cropState);
 		Item seed = defaultSeedDrop.isEmpty() ? Items.WHEAT_SEEDS : defaultSeedDrop.getItem();
 
 		for (ItemStack drop : drops) {

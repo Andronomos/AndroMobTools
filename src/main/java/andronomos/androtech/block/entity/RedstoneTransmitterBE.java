@@ -1,5 +1,6 @@
 package andronomos.androtech.block.entity;
 
+import andronomos.androtech.block.entity.base.AbstractTickingMachineEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;
@@ -7,7 +8,6 @@ import andronomos.androtech.util.NBTUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -15,7 +15,8 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class RedstoneTransmitterBE extends BaseContainerBlockEntity implements TickingBlockEntity {
+public class RedstoneTransmitterBE extends AbstractTickingMachineEntity {
+	public static final int TRANSMITTER_SLOTS = 9;
 
     public RedstoneTransmitterBE(BlockPos pos, BlockState state) {
         super(ModBlockEntities.REDSTONE_TRANSMITTER.get(), pos, state);
@@ -76,21 +77,11 @@ public class RedstoneTransmitterBE extends BaseContainerBlockEntity implements T
     }
 
     @Override
-    public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
-
-    }
-
-    @Override
     public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
         for(int slotIndex = 0; slotIndex < inputItems.getSlots(); slotIndex++) {
             ItemStack receiverCard = inputItems.getStackInSlot(slotIndex);
             if(receiverCard.isEmpty()) continue;
             updateReceiver(NBTUtil.getItemStackBlockPos(receiverCard));
         }
-    }
-
-    @Override
-    public boolean shouldTick() {
-        return false;
     }
 }

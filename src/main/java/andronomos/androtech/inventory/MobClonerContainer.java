@@ -1,8 +1,12 @@
 package andronomos.androtech.inventory;
 
+import andronomos.androtech.Const;
+import andronomos.androtech.block.entity.MobClonerBE;
+import andronomos.androtech.block.entity.RedstoneTransmitterBE;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
 import andronomos.androtech.registry.ModItems;
+import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -14,7 +18,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class MobClonerContainer extends BaseContainerMenu {
-	private BlockEntity blockEntity;
+	public BlockEntity blockEntity;
 
 	public MobClonerContainer(int windowId, BlockPos pos, Inventory inventory) {
 		super(ModContainers.MOB_CLONER.get(), windowId, inventory);
@@ -24,6 +28,9 @@ public class MobClonerContainer extends BaseContainerMenu {
 		if (blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
 				addSlot(new SlotItemHandler(h, 0, 80, 30));
+				for(int s = 0; s < MobClonerBE.CLONER_SLOTS; s++) {
+					addSlot(new SlotItemHandler(h, s, Const.CONTAINER_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * s, 27));
+				}
 			});
 		}
 
@@ -44,24 +51,20 @@ public class MobClonerContainer extends BaseContainerMenu {
 			ItemStack stack = slot.getItem();
 			returnStack = stack.copy();
 
-			//if we're pulling out from the ECD slot (slot 0)
-			if (index == 0) {
-				//attempt to the move the stack to any slot between slot 1 and slot 36
-				if (!this.moveItemStackTo(stack, 1, 37, true)) {
+			int containerEnd = 1;
+
+			if(index <= containerEnd) {
+				if (!this.moveItemStackTo(stack, containerEnd, this.slots.size(), true)) {
 					return ItemStack.EMPTY;
 				}
 			} else {
-				if (stack.getItem() == ModItems.MOB_TRANSPORT_MODULE.get()) {
-					//attempt to move the stack to slot 0.
-					if (!this.moveItemStackTo(stack, 0, 1, false)) {
-						return ItemStack.EMPTY;
+				if (stack.getItem() == ModItems.MOB_CLONING_MODULE.get()) {
+					if(ItemStackUtil.containsEntity(stack)) {
+						if (!this.moveItemStackTo(stack, 0, MobClonerBE.CLONER_SLOTS, false)) {
+							return ItemStack.EMPTY;
+						}
 					}
-				} else if (index < 28) {
-					//attempt to move the stack to any slot between slot 28 and 36
-					if (!this.moveItemStackTo(stack, 28, 37, false)) {
-						return ItemStack.EMPTY;
-					}
-				} else if (index < 37 && !this.moveItemStackTo(stack, 1, 28, false)) {
+				} else if (!this.moveItemStackTo(stack, 0, containerEnd, false)) {
 					return ItemStack.EMPTY;
 				}
 			}
@@ -71,12 +74,6 @@ public class MobClonerContainer extends BaseContainerMenu {
 			} else {
 				slot.setChanged();
 			}
-
-			if (stack.getCount() == returnStack.getCount()) {
-				return ItemStack.EMPTY;
-			}
-
-			slot.onTake(this.player, stack);
 		}
 
 		return returnStack;

@@ -1,6 +1,6 @@
 package andronomos.androtech.network;
 
-import andronomos.androtech.network.packet.SyncSpawnerDnaUnitDrop;
+//import andronomos.androtech.network.packet.SyncSpawnerDnaUnitDrop;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -18,11 +18,11 @@ public class AndroTechPacketHandler {
 	public static void register() {
 		int messageId = 0;
 
-		INSTANCE.registerMessage(messageId++,
-				SyncSpawnerDnaUnitDrop.class,
-				SyncSpawnerDnaUnitDrop::encode,
-				SyncSpawnerDnaUnitDrop::decode,
-				SyncSpawnerDnaUnitDrop::handle);
+		//INSTANCE.registerMessage(messageId++,
+		//		SyncSpawnerDnaUnitDrop.class,
+		//		SyncSpawnerDnaUnitDrop::encode,
+		//		SyncSpawnerDnaUnitDrop::decode,
+		//		SyncSpawnerDnaUnitDrop::handle);
 	}
 
 }

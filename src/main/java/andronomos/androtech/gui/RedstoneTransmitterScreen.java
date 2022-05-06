@@ -1,6 +1,7 @@
 package andronomos.androtech.gui;
 
 import andronomos.androtech.Const;
+import andronomos.androtech.block.entity.RedstoneTransmitterBE;
 import andronomos.androtech.inventory.RedstoneTransmitterContainer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
@@ -32,10 +33,9 @@ public class RedstoneTransmitterScreen extends BaseScreen<RedstoneTransmitterCon
         this.drawBackground(poseStack, INVENTORY_PLAIN);
 
         container.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-            for(int slotCounter = 0; slotCounter < 9; slotCounter++) {
+            for(int slotCounter = 0; slotCounter < RedstoneTransmitterBE.TRANSMITTER_SLOTS; slotCounter++) {
                 this.drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * slotCounter, 26, SLOT_UNIT, Const.SCREEN_SLOT_SIZE);
             }
         });
     }
-
 }

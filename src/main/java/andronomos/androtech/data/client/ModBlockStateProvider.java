@@ -15,13 +15,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        registerSimpleStateAndModel(ModBlocks.TEST_BLOCK.get(), "test_block");
-        registerMachineStateAndModel(ModBlocks.MOB_CLONER.get(), "mob_cloner_top", "machine_bottom", "mob_cloner_side");
+        registerMachineStateAndModel(ModBlocks.CROP_FARMER.get(), "crop_farmer_top", "machine_bottom", "crop_farmer_side");
         registerMachineStateAndModel(ModBlocks.ITEM_INCINERATOR.get(), "item_incinerator_top", "item_incinerator_bottom", "item_incinerator_side");
-        registerMachineStateAndModel(ModBlocks.FARMER_UNIT.get(), "farmer_unit_top", "machine_bottom", "farmer_unit_side");
+        registerMachineStateAndModel(ModBlocks.MOB_CLONER.get(), "mob_cloner_top", "machine_bottom", "mob_cloner_side");
         registerPadStateAndModel(ModBlocks.MOB_KILLING_PAD.get(), "mob_killing_pad_top");
         registerPadStateAndModel(ModBlocks.WEAK_ACCELERATION_PAD.get(), "acceleration_pad_weak_top", true);
         registerPadStateAndModel(ModBlocks.STRONG_ACCELERATION_PAD.get(), "acceleration_pad_strong_top", true);
+        //registerSimpleStateAndModel(ModBlocks.TEST_BLOCK.get(), "test_block");
     }
 
     private void registerSimpleStateAndModel(Block block, String name) {

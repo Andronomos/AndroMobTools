@@ -1,6 +1,8 @@
 package andronomos.androtech.block.entity;
 
 import andronomos.androtech.Const;
+import andronomos.androtech.block.entity.base.AbstractTickingMachineEntity;
+import andronomos.androtech.block.entity.base.BaseContainerBlockEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.registry.ModItems;
 import andronomos.androtech.util.EnchantmentUtil;
@@ -26,8 +28,8 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.UUID;
 
-public class MobKillingPadBE extends BaseContainerBlockEntity {
-    private final GameProfile PROFILE = new GameProfile(UUID.randomUUID(), "[MoBTools]");
+public class MobKillingPadBE extends AbstractTickingMachineEntity {
+    private final GameProfile PROFILE = new GameProfile(UUID.randomUUID(), "[AndroTech]");
 
     public MobKillingPadBE(BlockPos pos, BlockState state) {
         super(ModBlockEntities.MOB_KILLING_PAD.get(), pos, state);
@@ -72,10 +74,10 @@ public class MobKillingPadBE extends BaseContainerBlockEntity {
             if(mob.getHealth() > 1.0f) mob.setHealth(1.0f);
             FakePlayer fp = FakePlayerFactory.get((ServerLevel) level, PROFILE);
             ItemStack sword = new ItemStack(ModItems.FAKE_SWORD.get(), 1);
-            if(hasUpgrade(0, Enchantments.MOB_LOOTING)) {
+            if(hasUpgrade(Enchantments.MOB_LOOTING)) {
                 sword.enchant(Enchantments.MOB_LOOTING, Const.EnchantmentLevel.III);
             }
-            if(hasUpgrade(1, Enchantments.FIRE_ASPECT)) {
+            if(hasUpgrade(Enchantments.FIRE_ASPECT)) {
                 sword.enchant(Enchantments.FIRE_ASPECT, Const.EnchantmentLevel.II);
             }
             fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
@@ -84,29 +86,17 @@ public class MobKillingPadBE extends BaseContainerBlockEntity {
         }
     }
 
-    private boolean hasUpgrade(int slotIndex, Enchantment enchantment) {
-        ItemStack stack = inputItems.getStackInSlot(slotIndex);
+    private boolean hasUpgrade( Enchantment enchantment) {
+        for (int i = 0; i < this.inputItems.getSlots(); ++i) {
+            ItemStack stack = inputItems.getStackInSlot(i);
 
-        if(!stack.isEmpty()) {
-            if(stack.getItem() == Items.ENCHANTED_BOOK) {
-                return EnchantmentUtil.hasEnchantment(enchantment, stack);
+            if(!stack.isEmpty()) {
+                if(stack.getItem() == Items.ENCHANTED_BOOK) {
+                    return EnchantmentUtil.hasEnchantment(enchantment, stack);
+                }
             }
         }
 
         return false;
     }
-
-    @Override
-    protected void saveAdditional(CompoundTag tag) {
-        tag.put("Inventory", inputItems.serializeNBT());
-    }
-
-    @Override
-    public void load(CompoundTag tag) {
-        super.load(tag);
-        if (tag.contains("Inventory")) {
-            inputItems.deserializeNBT(tag.getCompound("Inventory"));
-        }
-    }
-
 }

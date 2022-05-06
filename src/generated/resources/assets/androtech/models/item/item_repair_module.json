@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "androtech:item/item_repair_module"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "androtech:activated": 0.0
+      },
+      "model": "androtech:item/item_repair_module"
+    },
+    {
+      "predicate": {
+        "androtech:activated": 1.0
+      },
+      "model": "androtech:item/item_repair_module_activated"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "212",
+    "343",
+    "252"
+  ],
+  "key": {
+    "1": {
+      "item": "androtech:basic_chip"
+    },
+    "2": {
+      "item": "minecraft:iron_ingot"
+    },
+    "3": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "4": {
+      "item": "minecraft:glass_bottle"
+    },
+    "5": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "result": {
+    "item": "androtech:mob_cloning_module"
+  }
+}

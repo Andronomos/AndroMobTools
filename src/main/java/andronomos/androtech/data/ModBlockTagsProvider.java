@@ -14,6 +14,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags() {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.CROP_FARMER.get())
                 .add(ModBlocks.MOB_CLONER.get())
                 .add(ModBlocks.ITEM_ATTRACTOR.get())
                 .add(ModBlocks.ITEM_INCINERATOR.get())
@@ -21,8 +22,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.WEAK_ACCELERATION_PAD.get())
                 .add(ModBlocks.STRONG_ACCELERATION_PAD.get())
                 .add(ModBlocks.ITEM_ATTRACTOR.get())
-                .add(ModBlocks.FARMER_UNIT.get())
-                .add(ModBlocks.WIRELESS_LIGHT.get())
                 .add(ModBlocks.REDSTONE_RECEIVER.get())
                 .add(ModBlocks.REDSTONE_TRANSMITTER.get());
 
@@ -32,6 +31,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     public String getName() {
-        return "Mob Tools Tags";
+        return "AndroTech Tags";
     }
 }
