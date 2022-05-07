@@ -68,9 +68,9 @@ public class MobClonerBE extends BaseTickingMachineEntity {
 				for(int i = 0; i < spawnCount; ++i) {
 					Entity entity = ItemStackUtil.getEntityFromStack(clonerModule, this.level, true);
 					entity.setUUID(Mth.createInsecureUUID());
-					double d0 = (double)pos.getX() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange + 0.5D;
+					double d0 = (double)pos.getX() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange;
 					double d1 = pos.getY() - 1;
-					double d2 = (double)pos.getZ() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange + 0.5D;
+					double d2 = (double)pos.getZ() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange;
 
 					if(this.level.noCollision(entity.getType().getAABB(d0, d1, d2))) {
 						int k = this.level.getEntitiesOfClass(entity.getClass(), (new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1)).inflate(this.spawnRange)).size();
@@ -98,6 +98,7 @@ public class MobClonerBE extends BaseTickingMachineEntity {
 	}
 
 	@Nonnull
+	@Override
 	protected ItemStackHandler createItemHandler() {
 		return new ItemStackHandler(MobClonerBE.CLONER_SLOTS) {
 			@Override
