@@ -41,15 +41,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         itemModels().withExistingParent(block.getRegistryName().getPath(), modLoc("block/" + block.getRegistryName().getPath()));
     }
 
-    //private void registerPadStateAndModel(Block block, String top) {
-    //    ModelFile model = models().withExistingParent(block.getRegistryName().getPath(), modLoc("pad_base"))
-    //            .texture("particle", modLoc("block/" + top))
-    //            .texture("design", modLoc("block/" + top))
-    //            .texture("pad", modLoc("block/machine_bottom"));
-    //    simpleBlock(block, model);
-    //    itemModels().withExistingParent(block.getRegistryName().getPath(), modLoc("block/" + block.getRegistryName().getPath()));
-    //}
-
     private void registerPadStateAndModel(Block block, String top) {
         registerPadStateAndModel(block, top, false);
     }

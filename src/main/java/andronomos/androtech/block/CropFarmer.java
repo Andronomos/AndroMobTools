@@ -1,4 +1,4 @@
-package andronomos.androtech.block.machine;
+package andronomos.androtech.block;
 
 import andronomos.androtech.block.entity.CropFarmerBE;
 import andronomos.androtech.inventory.CropFarmerContainer;

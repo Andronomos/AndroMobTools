@@ -1,4 +1,4 @@
-package andronomos.androtech.block.machine;
+package andronomos.androtech.block;
 
 import andronomos.androtech.block.entity.ItemAttractorBE;
 import andronomos.androtech.inventory.ItemAttractorContainer;

@@ -1,4 +1,4 @@
-package andronomos.androtech.block.machine;
+package andronomos.androtech.block;
 
 
 import net.minecraft.core.BlockPos;

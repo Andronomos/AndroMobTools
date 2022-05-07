@@ -1,9 +1,8 @@
-package andronomos.androtech.block.machine;
+package andronomos.androtech.block;
 
 import andronomos.androtech.block.entity.MobClonerBE;
 import andronomos.androtech.block.entity.RedstoneTransmitterBE;
 import andronomos.androtech.inventory.MobClonerContainer;
-import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -15,7 +14,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;

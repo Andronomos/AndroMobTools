@@ -1,4 +1,4 @@
-package andronomos.androtech.block.machine;
+package andronomos.androtech.block;
 
 import andronomos.androtech.block.entity.MobClonerBE;
 import andronomos.androtech.block.entity.RedstoneTransmitterBE;
