@@ -84,8 +84,6 @@ public class MobClonerBE extends BaseTickingMachineEntity {
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
 		if(!shouldActivate(level, pos)) return;
 
-		AndroTech.LOGGER.info("MobClonerBE#serverTick | inputItems.getSlots()={}", inputItems.getSlots());
-
 		if(shouldTick()) {
 			for(int slotIndex = 0; slotIndex < inputItems.getSlots(); slotIndex++) {
 				ItemStack clonerModule = inputItems.getStackInSlot(slotIndex);
