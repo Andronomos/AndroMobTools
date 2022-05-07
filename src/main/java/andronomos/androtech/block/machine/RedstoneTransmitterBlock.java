@@ -1,5 +1,6 @@
 package andronomos.androtech.block.machine;
 
+import andronomos.androtech.block.entity.MobClonerBE;
 import andronomos.androtech.block.entity.RedstoneTransmitterBE;
 import andronomos.androtech.inventory.RedstoneTransmitterContainer;
 import andronomos.androtech.registry.ModBlocks;
@@ -123,12 +124,16 @@ public class RedstoneTransmitterBlock extends Block implements EntityBlock {
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if(state.getBlock() != newState.getBlock()) {
-            final RedstoneTransmitterBE tileEntity = (RedstoneTransmitterBE)level.getBlockEntity(pos);
+            BlockEntity entity = level.getBlockEntity(pos);
 
-            tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
-                ItemStack dnaUnit = itemHandler.getStackInSlot(0);
-                ItemStackUtil.drop(level, pos, dnaUnit);
-            });
+            if(entity instanceof RedstoneTransmitterBE) {
+                entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
+                    for(int i = 0; i <= itemHandler.getSlots() - 1; i++) {
+                        popResource(level, pos, itemHandler.getStackInSlot(i));
+                    }
+                });
+            }
+
             level.updateNeighbourForOutputSignal(pos, this);
         }
 

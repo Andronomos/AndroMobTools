@@ -93,14 +93,8 @@ public class MobClonerBE extends BaseTickingMachineEntity {
 	}
 
 	@Override
-	public boolean isRemoved() {
-		return false;
-	}
-
-	@Nonnull
-	@Override
 	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(MobClonerBE.CLONER_SLOTS) {
+		return new ItemStackHandler(CLONER_SLOTS) {
 			@Override
 			public int getSlotLimit(int slot) {
 				return 1;
@@ -115,7 +109,13 @@ public class MobClonerBE extends BaseTickingMachineEntity {
 
 			@Override
 			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-				return stack.getItem() instanceof MobCloningModule;
+				if(stack.getItem() instanceof MobCloningModule) {
+					if(ItemStackUtil.containsEntity(stack)) {
+						return true;
+					}
+				}
+
+				return false;
 			}
 		};
 	}

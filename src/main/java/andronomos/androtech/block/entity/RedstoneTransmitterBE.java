@@ -40,7 +40,7 @@ public class RedstoneTransmitterBE extends BaseTickingMachineEntity {
 
     @Override
     protected ItemStackHandler createItemHandler() {
-        return new ItemStackHandler(9) {
+        return new ItemStackHandler(RedstoneTransmitterBE.TRANSMITTER_SLOTS) {
 
             @Override
             public int getSlotLimit(int slot) {

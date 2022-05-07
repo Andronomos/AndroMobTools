@@ -8,19 +8,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.items.ItemStackHandler;
 
-public class BaseTickingMachineEntity extends BaseContainerBlockEntity implements TickingBlockEntity {
+public abstract class BaseTickingMachineEntity extends BaseContainerBlockEntity implements TickingBlockEntity {
 	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
 	public int tickCounter = 0;
 
 	public BaseTickingMachineEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
-	}
-
-	@Override
-	protected ItemStackHandler createItemHandler() {
-		return null;
 	}
 
 	@Override
@@ -31,6 +25,11 @@ public class BaseTickingMachineEntity extends BaseContainerBlockEntity implement
 	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
 
+	}
+
+	@Override
+	public boolean isRemoved() {
+		return false;
 	}
 
 	@Override

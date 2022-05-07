@@ -59,11 +59,11 @@ public class MobClonerContainer extends BaseContainerMenu {
 				}
 			} else {
 				if (stack.getItem() == ModItems.MOB_CLONING_MODULE.get()) {
-					if(ItemStackUtil.containsEntity(stack)) {
+					//if(ItemStackUtil.containsEntity(stack)) {
 						if (!this.moveItemStackTo(stack, 0, MobClonerBE.CLONER_SLOTS, false)) {
 							return ItemStack.EMPTY;
 						}
-					}
+					//}
 				} else if (!this.moveItemStackTo(stack, 0, containerEnd, false)) {
 					return ItemStack.EMPTY;
 				}
