@@ -43,6 +43,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
 		add(ModItems.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
 		add(ModItems.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Shovel");
+		add(ModItems.NANITE_ENHANCED_SWORD.get(), "Nanite Enhanced Sword");
 		add(ModItems.NIGHT_VISION_EMITTER.get(), "Night Vision Emitter");
 		add(ModItems.SWIFTNESS_EMITTER.get(), "Swiftness Emitter");
 		add(ModItems.FIRE_RESISTANCE_EMITTER.get(), "Fire Resistance Emitter");
