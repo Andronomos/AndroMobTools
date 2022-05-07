@@ -10,11 +10,11 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class AbstractTickingMachineEntity extends BaseContainerBlockEntity implements TickingBlockEntity {
+public class BaseTickingMachineEntity extends BaseContainerBlockEntity implements TickingBlockEntity {
 	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
 	public int tickCounter = 0;
 
-	public AbstractTickingMachineEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+	public BaseTickingMachineEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
 	}
 

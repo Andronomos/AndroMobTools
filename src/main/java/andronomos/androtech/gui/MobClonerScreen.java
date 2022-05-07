@@ -2,9 +2,7 @@ package andronomos.androtech.gui;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.block.entity.MobClonerBE;
-import andronomos.androtech.block.entity.RedstoneTransmitterBE;
 import andronomos.androtech.inventory.MobClonerContainer;
-import andronomos.androtech.inventory.RedstoneTransmitterContainer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -33,7 +31,7 @@ public class MobClonerScreen extends BaseScreen<MobClonerContainer> {
 	@Override
 	protected void renderBg(PoseStack poseStack, float partialTicks, int mouseX, int mouseY) {
 		drawBackground(poseStack, INVENTORY_PLAIN);
-		drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 4, 29);
+		//drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 4, 29);
 
 		container.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
 			for(int slotCounter = 0; slotCounter < MobClonerBE.CLONER_SLOTS; slotCounter++) {

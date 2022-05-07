@@ -1,6 +1,7 @@
 package andronomos.androtech.block.entity;
 
-import andronomos.androtech.block.entity.base.AbstractTickingMachineEntity;
+import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.entity.base.BaseTickingMachineEntity;
 import andronomos.androtech.item.MobCloningModule;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
@@ -19,7 +20,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class MobClonerBE extends AbstractTickingMachineEntity {
+public class MobClonerBE extends BaseTickingMachineEntity {
 	public static final int CLONER_SLOTS = 9;
 
 	private double spin;
@@ -53,27 +54,31 @@ public class MobClonerBE extends AbstractTickingMachineEntity {
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
 		if(!shouldActivate(level, pos)) return;
 
-		ItemStack stack = inputItems.getStackInSlot(0);
-
-		if(stack == null
-				|| stack.isEmpty()
-				|| !(stack.getItem() instanceof MobCloningModule)
-				|| !ItemStackUtil.containsEntity(stack)) return;
+		AndroTech.LOGGER.info("MobClonerBE#serverTick | inputItems.getSlots()={}", inputItems.getSlots());
 
 		if(shouldTick()) {
-			for(int i = 0; i < spawnCount; ++i) {
-				Entity entity = ItemStackUtil.getEntityFromStack(stack, this.level, true);
-				entity.setUUID(Mth.createInsecureUUID());
-				double d0 = (double)pos.getX() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange + 0.5D;
-				double d1 = pos.getY() - 1;
-				double d2 = (double)pos.getZ() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange + 0.5D;
+			for(int slotIndex = 0; slotIndex < inputItems.getSlots(); slotIndex++) {
+				ItemStack clonerModule = inputItems.getStackInSlot(slotIndex);
 
-				if(this.level.noCollision(entity.getType().getAABB(d0, d1, d2))) {
-					int k = this.level.getEntitiesOfClass(entity.getClass(), (new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1)).inflate(this.spawnRange)).size();
-					if (k >= this.maxNearbyEntities) return;
-					entity.absMoveTo(d0, d1, d2, 0, 0);
-					this.level.addFreshEntity(entity);
-					if (entity instanceof Mob) ((Mob)entity).spawnAnim();
+				if(clonerModule == null
+						|| clonerModule.isEmpty()
+						|| !(clonerModule.getItem() instanceof MobCloningModule)
+						|| !ItemStackUtil.containsEntity(clonerModule)) return;
+
+				for(int i = 0; i < spawnCount; ++i) {
+					Entity entity = ItemStackUtil.getEntityFromStack(clonerModule, this.level, true);
+					entity.setUUID(Mth.createInsecureUUID());
+					double d0 = (double)pos.getX() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange + 0.5D;
+					double d1 = pos.getY() - 1;
+					double d2 = (double)pos.getZ() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange + 0.5D;
+
+					if(this.level.noCollision(entity.getType().getAABB(d0, d1, d2))) {
+						int k = this.level.getEntitiesOfClass(entity.getClass(), (new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1)).inflate(this.spawnRange)).size();
+						if (k >= this.maxNearbyEntities) return;
+						entity.absMoveTo(d0, d1, d2, 0, 0);
+						this.level.addFreshEntity(entity);
+						if (entity instanceof Mob) ((Mob)entity).spawnAnim();
+					}
 				}
 			}
 		}
@@ -94,7 +99,7 @@ public class MobClonerBE extends AbstractTickingMachineEntity {
 
 	@Nonnull
 	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(9) {
+		return new ItemStackHandler(MobClonerBE.CLONER_SLOTS) {
 			@Override
 			public int getSlotLimit(int slot) {
 				return 1;

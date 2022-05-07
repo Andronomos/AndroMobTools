@@ -1,14 +1,12 @@
 package andronomos.androtech.block.entity;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.block.entity.base.AbstractTickingMachineEntity;
-import andronomos.androtech.block.entity.base.BaseContainerBlockEntity;
+import andronomos.androtech.block.entity.base.BaseTickingMachineEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.registry.ModItems;
 import andronomos.androtech.util.EnchantmentUtil;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
@@ -28,7 +26,7 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.UUID;
 
-public class MobKillingPadBE extends AbstractTickingMachineEntity {
+public class MobKillingPadBE extends BaseTickingMachineEntity {
     private final GameProfile PROFILE = new GameProfile(UUID.randomUUID(), "[AndroTech]");
 
     public MobKillingPadBE(BlockPos pos, BlockState state) {

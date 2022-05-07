@@ -1,7 +1,7 @@
 package andronomos.androtech.block.entity;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.block.entity.base.AbstractTickingMachineEntity;
+import andronomos.androtech.block.entity.base.BaseTickingMachineEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class ItemAttractorBE extends AbstractTickingMachineEntity {
+public class ItemAttractorBE extends BaseTickingMachineEntity {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public ItemAttractorBE(BlockPos pos, BlockState state) {
