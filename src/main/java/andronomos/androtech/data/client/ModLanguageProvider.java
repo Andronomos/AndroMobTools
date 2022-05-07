@@ -1,6 +1,6 @@
 package andronomos.androtech.data.client;
 
-import andronomos.androtech.block.machine.ItemIncineratorBlock;
+import andronomos.androtech.block.machine.ItemIncinerator;
 import andronomos.androtech.block.machine.RedstoneTransmitterBlock;
 import andronomos.androtech.block.machine.CropFarmer;
 import andronomos.androtech.block.machine.ItemAttractor;
@@ -57,7 +57,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(CropFarmer.SCREEN_CROP_FARMER, "Crop Farmer");
 
 		add(ModBlocks.ITEM_INCINERATOR.get(), "Item Incinerator");
-		add(ItemIncineratorBlock.SCREEN_ITEM_INCINERATOR, "Item Incinerator");
+		add(ItemIncinerator.SCREEN_ITEM_INCINERATOR, "Item Incinerator");
 
 		add(ModBlocks.ITEM_ATTRACTOR.get(), "Item Attractor");
 		add(ItemAttractor.SCREEN_ITEM_ATTRACTOR, "Item Attractor");

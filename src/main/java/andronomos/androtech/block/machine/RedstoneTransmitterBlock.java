@@ -69,10 +69,12 @@ public class RedstoneTransmitterBlock extends Block implements EntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return (level2, pos, state2, blockEntity) -> {
-            if(level.isClientSide()) {
-                if(blockEntity instanceof RedstoneTransmitterBE redstoneTransmitter) redstoneTransmitter.clientTick(level2, pos, state2, redstoneTransmitter);
-            } else {
-                if(blockEntity instanceof RedstoneTransmitterBE redstoneTransmitter) redstoneTransmitter.serverTick((ServerLevel) level2, pos, state2, redstoneTransmitter);
+            if(blockEntity instanceof RedstoneTransmitterBE redstoneTransmitter) {
+                if(level.isClientSide()) {
+                    redstoneTransmitter.clientTick(level2, pos, state2, redstoneTransmitter);
+                } else {
+                    redstoneTransmitter.serverTick((ServerLevel) level2, pos, state2, redstoneTransmitter);
+                }
             }
         };
     }
@@ -81,22 +83,7 @@ public class RedstoneTransmitterBlock extends Block implements EntityBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         if(!level.isClientSide()) {
             if(player.isCrouching()) {
-                BlockEntity be = level.getBlockEntity(pos);
-
-                if(be instanceof RedstoneTransmitterBE) {
-                    MenuProvider containerProvider = new MenuProvider() {
-                        @Override
-                        public Component getDisplayName() {
-                            return new TranslatableComponent(SCREEN_REDSTONE_TRANSMITTER);
-                        }
-
-                        @Override
-                        public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                            return new RedstoneTransmitterContainer(windowId, pos, playerInventory);
-                        }
-                    };
-                    NetworkHooks.openGui((ServerPlayer) player, containerProvider, be.getBlockPos());
-                }
+                displayGui(level, pos, player);
             } else {
                 level.setBlock(pos, state.cycle(POWERED), 3);
                 final RedstoneTransmitterBE blockEntity = (RedstoneTransmitterBE)level.getBlockEntity(pos);
@@ -121,18 +108,33 @@ public class RedstoneTransmitterBlock extends Block implements EntityBlock {
         return InteractionResult.SUCCESS;
     }
 
+    private void displayGui(Level level, BlockPos pos, Player player) {
+        BlockEntity be = level.getBlockEntity(pos);
+
+        if(be instanceof RedstoneTransmitterBE) {
+            MenuProvider containerProvider = new MenuProvider() {
+                @Override
+                public Component getDisplayName() {
+                    return new TranslatableComponent(SCREEN_REDSTONE_TRANSMITTER);
+                }
+
+                @Override
+                public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
+                    return new RedstoneTransmitterContainer(windowId, pos, playerInventory);
+                }
+            };
+            NetworkHooks.openGui((ServerPlayer) player, containerProvider, be.getBlockPos());
+        }
+    }
+
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if(state.getBlock() != newState.getBlock()) {
-            BlockEntity entity = level.getBlockEntity(pos);
-
-            if(entity instanceof RedstoneTransmitterBE) {
-                entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
-                    for(int i = 0; i <= itemHandler.getSlots() - 1; i++) {
-                        popResource(level, pos, itemHandler.getStackInSlot(i));
-                    }
-                });
-            }
+            level.getBlockEntity(pos).getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
+                for(int i = 0; i < itemHandler.getSlots(); i++) {
+                    popResource(level, pos, itemHandler.getStackInSlot(i));
+                }
+            });
 
             level.updateNeighbourForOutputSignal(pos, this);
         }

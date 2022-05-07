@@ -1,10 +1,9 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.block.ColoredLamp;
 import andronomos.androtech.block.machine.RedstoneReceiverBlock;
 import andronomos.androtech.block.machine.RedstoneTransmitterBlock;
 import andronomos.androtech.block.machine.ItemAttractor;
-import andronomos.androtech.block.machine.ItemIncineratorBlock;
+import andronomos.androtech.block.machine.ItemIncinerator;
 import andronomos.androtech.block.machine.MobCloner;
 import andronomos.androtech.block.machine.CropFarmer;
 import andronomos.androtech.block.pad.MobKillingPadBlock;
@@ -36,7 +35,7 @@ public class ModBlocks {
 
 
     public static final RegistryObject<Block> CROP_FARMER = registerBlock("crop_farmer", () -> new CropFarmer(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
-    public static final RegistryObject<Block> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncineratorBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncinerator(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractor(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> MOB_CLONER = registerBlock("mob_cloner", () -> new MobCloner(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> REDSTONE_TRANSMITTER = registerBlock("redstone_transmitter", () -> new RedstoneTransmitterBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());

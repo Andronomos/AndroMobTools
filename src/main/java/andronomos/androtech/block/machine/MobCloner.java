@@ -45,10 +45,12 @@ public class MobCloner extends Block implements EntityBlock {
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
 		return (level2, pos, state2, blockEntity) -> {
-			if(level.isClientSide()) {
-				if(blockEntity instanceof MobClonerBE mobCloner) mobCloner.clientTick(level2, pos, state2, mobCloner);
-			} else {
-				if(blockEntity instanceof MobClonerBE mobCloner) mobCloner.serverTick((ServerLevel) level2, pos, state2, mobCloner);
+			if(blockEntity instanceof MobClonerBE mobCloner) {
+				if(level.isClientSide()) {
+					mobCloner.clientTick(level2, pos, state2, mobCloner);
+				} else {
+					mobCloner.serverTick((ServerLevel) level2, pos, state2, mobCloner);
+				}
 			}
 		};
 	}
