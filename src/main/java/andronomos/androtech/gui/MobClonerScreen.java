@@ -31,11 +31,10 @@ public class MobClonerScreen extends BaseScreen<MobClonerContainer> {
 	@Override
 	protected void renderBg(PoseStack poseStack, float partialTicks, int mouseX, int mouseY) {
 		drawBackground(poseStack, INVENTORY_PLAIN);
-		//drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 4, 29);
 
 		container.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
 			for(int slotCounter = 0; slotCounter < MobClonerBE.CLONER_SLOTS; slotCounter++) {
-				this.drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * slotCounter, 26, SLOT_UNIT, Const.SCREEN_SLOT_SIZE);
+				this.drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * slotCounter, 29, SLOT_UNIT, Const.SCREEN_SLOT_SIZE);
 			}
 		});
 	}

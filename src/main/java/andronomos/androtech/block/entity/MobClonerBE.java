@@ -95,6 +95,7 @@ public class MobClonerBE extends BaseTickingMachineEntity {
 	@Override
 	protected ItemStackHandler createItemHandler() {
 		return new ItemStackHandler(CLONER_SLOTS) {
+
 			@Override
 			public int getSlotLimit(int slot) {
 				return 1;

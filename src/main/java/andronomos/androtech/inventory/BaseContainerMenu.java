@@ -42,5 +42,4 @@ public abstract class BaseContainerMenu extends AbstractContainerMenu {
 		topRow += 58;
 		addSlotRange(inventory, 0, leftCol, topRow, 9, 18);
 	}
-
 }
