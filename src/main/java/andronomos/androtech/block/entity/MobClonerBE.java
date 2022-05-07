@@ -1,7 +1,6 @@
 package andronomos.androtech.block.entity;
 
-import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.entity.base.BaseTickingMachineEntity;
+import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
 import andronomos.androtech.item.MobCloningModule;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
@@ -20,7 +19,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class MobClonerBE extends BaseTickingMachineEntity {
+public class MobClonerBE extends AbstractTickingMachineBE {
 	public static final int CLONER_SLOTS = 9;
 
 	private double spin;

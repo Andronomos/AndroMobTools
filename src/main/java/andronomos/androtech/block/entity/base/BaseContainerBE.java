@@ -15,18 +15,12 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public abstract class BaseContainerBlockEntity extends BlockEntity {
+public abstract class BaseContainerBE extends BlockEntity {
 	public final ItemStackHandler inputItems = createItemHandler();
 	public final LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> inputItems);
 
-	public BaseContainerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+	public BaseContainerBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
-	}
-
-	@Override
-	public void setRemoved() {
-		super.setRemoved();
-		itemHandler.invalidate();
 	}
 
 	protected abstract ItemStackHandler createItemHandler();
@@ -58,5 +52,11 @@ public abstract class BaseContainerBlockEntity extends BlockEntity {
 		if (tag.contains("Inventory")) {
 			inputItems.deserializeNBT(tag.getCompound("Inventory"));
 		}
+	}
+
+	@Override
+	public void setRemoved() {
+		super.setRemoved();
+		itemHandler.invalidate();
 	}
 }

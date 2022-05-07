@@ -95,15 +95,12 @@ public class CropFarmer extends Block implements EntityBlock, LiquidBlockContain
 	@Override
 	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
 		if(state.getBlock() != newState.getBlock()) {
-			BlockEntity entity = level.getBlockEntity(pos);
-			if(entity instanceof CropFarmerBE) {
-				entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
-					for(int i = 0; i <= itemHandler.getSlots() - 1; i++) {
-						popResource(level, pos, itemHandler.getStackInSlot(i));
-					}
-				});
-				level.updateNeighbourForOutputSignal(pos, this);
-			}
+			level.getBlockEntity(pos).getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
+				for(int i = 0; i < itemHandler.getSlots(); i++) {
+					popResource(level, pos, itemHandler.getStackInSlot(i));
+				}
+			});
+			level.updateNeighbourForOutputSignal(pos, this);
 			super.onRemove(state, level, pos, newState, isMoving);
 		}
 	}

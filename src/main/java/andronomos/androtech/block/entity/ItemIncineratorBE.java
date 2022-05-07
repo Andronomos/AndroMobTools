@@ -1,6 +1,6 @@
 package andronomos.androtech.block.entity;
 
-import andronomos.androtech.block.entity.base.BaseContainerBlockEntity;
+import andronomos.androtech.block.entity.base.BaseContainerBE;
 import andronomos.androtech.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
@@ -9,7 +9,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class ItemIncineratorBE extends BaseContainerBlockEntity {
+public class ItemIncineratorBE extends BaseContainerBE {
     public ItemIncineratorBE(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ITEM_INCINERATOR.get(), pos, state);
     }

@@ -1,8 +1,7 @@
 package andronomos.androtech.block.entity;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
-import andronomos.androtech.block.entity.base.BaseTickingMachineEntity;
+import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
 import andronomos.androtech.block.harvester.*;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.BlockUtil;
@@ -19,7 +18,7 @@ import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CropFarmerBE extends BaseTickingMachineEntity {
+public class CropFarmerBE extends AbstractTickingMachineBE {
 	private final List<IHarvester> harvesters = new ArrayList<>();
 
 	public CropFarmerBE(BlockPos pos, BlockState state) {

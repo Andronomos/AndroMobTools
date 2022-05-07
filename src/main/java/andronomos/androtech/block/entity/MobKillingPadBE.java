@@ -1,7 +1,7 @@
 package andronomos.androtech.block.entity;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.block.entity.base.BaseTickingMachineEntity;
+import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.registry.ModItems;
 import andronomos.androtech.util.EnchantmentUtil;
@@ -26,7 +26,7 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.UUID;
 
-public class MobKillingPadBE extends BaseTickingMachineEntity {
+public class MobKillingPadBE extends AbstractTickingMachineBE {
     private final GameProfile PROFILE = new GameProfile(UUID.randomUUID(), "[AndroTech]");
 
     public MobKillingPadBE(BlockPos pos, BlockState state) {

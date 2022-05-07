@@ -9,11 +9,11 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public abstract class BaseTickingMachineEntity extends BaseContainerBlockEntity implements TickingBlockEntity {
+public abstract class AbstractTickingMachineBE extends BaseContainerBE implements TickingBlockEntity {
 	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
 	public int tickCounter = 0;
 
-	public BaseTickingMachineEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+	public AbstractTickingMachineBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
 	}
 
