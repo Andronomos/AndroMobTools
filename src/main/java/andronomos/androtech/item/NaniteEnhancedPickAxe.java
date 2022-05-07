@@ -9,7 +9,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 
 public class NaniteEnhancedPickAxe extends PickaxeItem {
-	public int tickDelay = Const.TicksInSeconds.FIVESECONDS;
+	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
 	public int tickCounter = 0;
 	private int repairAmount = 10;
 

@@ -28,6 +28,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         createSingleTexture("nanite_enhanced_pickaxe");
         createSingleTexture("nanite_enhanced_axe");
         createSingleTexture("nanite_enhanced_shovel");
+        createSingleTexture("nanite_enhanced_sword");
         buildActivatableItem("night_vision_emitter");
         buildActivatableItem("water_breathing_emitter");
         buildActivatableItem("swiftness_emitter");
