@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "androtech:block/machine_bottom",
+    "up": "androtech:block/mending_station_top",
+    "north": "androtech:block/mending_station_side",
+    "south": "androtech:block/mending_station_side",
+    "east": "androtech:block/mending_station_side",
+    "west": "androtech:block/mending_station_side"
+  }
+}

@@ -29,6 +29,10 @@ public class ModBlockEntities {
             .of(RedstoneTransmitterBE::new, ModBlocks.REDSTONE_TRANSMITTER.get())
             .build(null));
 
+    public static final RegistryObject<BlockEntityType<MendingStationBE>> MENDING_STATION = BLOCK_ENTITIES.register("mending_station_be", () -> BlockEntityType.Builder
+            .of(MendingStationBE::new, ModBlocks.MENDING_STATION.get())
+            .build(null));
+
 
     public static final RegistryObject<BlockEntityType<MobKillingPadBE>> MOB_KILLING_PAD = BLOCK_ENTITIES.register("mob_killing_pad_be", () -> BlockEntityType.Builder
             .of(MobKillingPadBE::new, ModBlocks.MOB_KILLING_PAD.get())

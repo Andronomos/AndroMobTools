@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 
 public class ItemRepairModule extends AbstractActivatableItem {
     public static final int REPAIR_MODULE_DURABILITY = 1000;
-    private int repairAmount = 5;
+    public static final int REPAIR_MODULE_RATE = 10;
 
     public ItemRepairModule(Properties properties, boolean takeDamage, boolean isRepairable) {
         super(properties, takeDamage, isRepairable);
@@ -46,9 +46,9 @@ public class ItemRepairModule extends AbstractActivatableItem {
             for(int i = 0; i < nonnulllist.size(); ++i) {
                 ItemStack currItem = nonnulllist.get(i);
                 if(!ItemStackUtil.isRepairable(currItem)) continue;
-                currItem.setDamageValue(currItem.getDamageValue() - this.repairAmount);
+                currItem.setDamageValue(currItem.getDamageValue() - this.REPAIR_MODULE_RATE);
                 if(this.takeDamage) {
-                    doDamage(stack, player, repairAmount, true);
+                    doDamage(stack, player, REPAIR_MODULE_RATE, true);
                 }
             }
         }

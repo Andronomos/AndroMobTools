@@ -1,11 +1,6 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.block.RedstoneReceiverBlock;
-import andronomos.androtech.block.RedstoneTransmitterBlock;
-import andronomos.androtech.block.ItemAttractor;
-import andronomos.androtech.block.ItemIncinerator;
-import andronomos.androtech.block.MobCloner;
-import andronomos.androtech.block.CropFarmer;
+import andronomos.androtech.block.*;
 import andronomos.androtech.block.pad.MobKillingPadBlock;
 import andronomos.androtech.block.pad.emiiter.EmitterPadBlock;
 import andronomos.androtech.block.pad.emiiter.effect.PadEffect;
@@ -40,6 +35,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> MOB_CLONER = registerBlock("mob_cloner", () -> new MobCloner(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> REDSTONE_TRANSMITTER = registerBlock("redstone_transmitter", () -> new RedstoneTransmitterBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> REDSTONE_RECEIVER = registerBlock("redstone_receiver", () -> new RedstoneReceiverBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> MENDING_STATION = registerBlock("mending_station", () -> new MendingStation(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> MOB_KILLING_PAD = registerBlock("mob_killing_pad", () -> new MobKillingPadBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, false);
     public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, false);

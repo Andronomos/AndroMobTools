@@ -46,6 +46,7 @@ public class AndroTech
             MenuScreens.register(ModContainers.MOB_CLONER.get(), MobClonerScreen::new);
             MenuScreens.register(ModContainers.REDSTONE_TRANSMITTER.get(), RedstoneTransmitterScreen::new);
             MenuScreens.register(ModContainers.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);
+            MenuScreens.register(ModContainers.MENDING_STATION.get(), MendingStationScreen::new);
             //MenuScreens.register(ModContainers.TEST_BLOCK.get(), TestBlockScreen::new);
 
             ModPropertyOverrides.register();

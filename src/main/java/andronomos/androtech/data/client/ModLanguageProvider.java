@@ -1,10 +1,6 @@
 package andronomos.androtech.data.client;
 
-import andronomos.androtech.block.ItemIncinerator;
-import andronomos.androtech.block.RedstoneTransmitterBlock;
-import andronomos.androtech.block.CropFarmer;
-import andronomos.androtech.block.ItemAttractor;
-import andronomos.androtech.block.MobCloner;
+import andronomos.androtech.block.*;
 import andronomos.androtech.block.pad.MobKillingPadBlock;
 import andronomos.androtech.item.module.BlockGpsModule;
 import andronomos.androtech.registry.ModBlocks;
@@ -77,5 +73,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
 		add(ModBlocks.WEAK_ACCELERATION_PAD.get(), "Weak Acceleration Pad");
 		add(ModBlocks.STRONG_ACCELERATION_PAD.get(), "Strong Acceleration Pad");
+
+		add(ModBlocks.MENDING_STATION.get(), "Mending Stations");
+		add(MendingStation.SCREEN_MENDING_STATION, "Mending Stations");
 	}
 }

@@ -37,6 +37,11 @@ public class ModContainers {
         return new RedstoneTransmitterContainer(windowId, pos, inv);
     }));
 
+    public static final RegistryObject<MenuType<MendingStationContainer>> MENDING_STATION = CONTAINERS.register("mending_station", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        return new MendingStationContainer(windowId, pos, inv);
+    }));
+
     public static final RegistryObject<MenuType<MobKillingPadContainer>> MOB_KILLING_PAD = CONTAINERS.register("mob_killing_pad", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         return new MobKillingPadContainer(windowId, pos, inv);
