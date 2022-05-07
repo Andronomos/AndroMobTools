@@ -1,7 +1,7 @@
 package andronomos.androtech.block.entity;
 
 import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
-import andronomos.androtech.item.MobCloningModule;
+import andronomos.androtech.item.module.MobCloningModule;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;

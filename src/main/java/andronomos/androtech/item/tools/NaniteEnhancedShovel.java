@@ -1,19 +1,19 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.tools;
 
 import andronomos.androtech.Const;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 
-public class NaniteEnhancedPickAxe extends PickaxeItem {
+public class NaniteEnhancedShovel extends ShovelItem {
 	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
 	public int tickCounter = 0;
 	private int repairAmount = 10;
 
-	public NaniteEnhancedPickAxe(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
+	public NaniteEnhancedShovel(Tier tier, float attackDamage, float attackSpeed, Properties properties) {
 		super(tier, attackDamage, attackSpeed, properties);
 	}
 

@@ -6,15 +6,15 @@ import andronomos.androtech.block.CropFarmer;
 import andronomos.androtech.block.ItemAttractor;
 import andronomos.androtech.block.MobCloner;
 import andronomos.androtech.block.pad.MobKillingPadBlock;
-import andronomos.androtech.item.BlockGpsModule;
+import andronomos.androtech.item.module.BlockGpsModule;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
 import static andronomos.androtech.AndroTech.TAB_NAME;
-import static andronomos.androtech.item.MobCloningModule.TOOLTIP_MOB_CLONING_MODULE_HEALTH;
-import static andronomos.androtech.item.MobCloningModule.TOOLTIP_MOB_CLONING_MODULE_MOB;
+import static andronomos.androtech.item.module.MobCloningModule.TOOLTIP_MOB_CLONING_MODULE_HEALTH;
+import static andronomos.androtech.item.module.MobCloningModule.TOOLTIP_MOB_CLONING_MODULE_MOB;
 
 public class ModLanguageProvider extends LanguageProvider {
 
@@ -51,6 +51,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.REGENERATION_EMITTER.get(), "Regeneration Emitter");
 		add(ModItems.POISON_NULLIFIER.get(), "Poison Nullifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither Nullifier");
+		add(ModItems.ORE_MINER.get(), "Ore Miner");
 
 
 		/** Blocks **/

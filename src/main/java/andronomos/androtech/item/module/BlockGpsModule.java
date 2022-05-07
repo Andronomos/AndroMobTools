@@ -1,4 +1,4 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.module;
 
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;

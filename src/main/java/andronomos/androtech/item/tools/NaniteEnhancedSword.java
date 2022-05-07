@@ -1,19 +1,19 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.tools;
 
 import andronomos.androtech.Const;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 
-public class NaniteEnhancedAxe extends AxeItem {
+public class NaniteEnhancedSword extends SwordItem {
 	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
 	public int tickCounter = 0;
 	private int repairAmount = 10;
 
-	public NaniteEnhancedAxe(Tier tier, float attackDamage, float attackSpeed, Properties properties) {
+	public NaniteEnhancedSword(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
 		super(tier, attackDamage, attackSpeed, properties);
 	}
 

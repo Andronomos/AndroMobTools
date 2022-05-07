@@ -74,4 +74,15 @@ public class ItemStackUtil {
         if(stack.getDamageValue() == stack.getMaxDamage()) return false; //if the item can't take anymore damage
         return true;
     }
+
+    public static boolean isBroken(ItemStack stack) {
+        int maxDamage = stack.getMaxDamage();
+
+        if(maxDamage > 0) {
+            //An item's damage value actually increments when taking damage
+            return stack.getDamageValue() >= maxDamage;
+        }
+
+        return false;
+    }
 }

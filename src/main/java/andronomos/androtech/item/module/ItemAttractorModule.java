@@ -1,4 +1,4 @@
-package andronomos.androtech.item.activatableItem.module;
+package andronomos.androtech.item.module;
 
 import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
 import net.minecraft.world.entity.Entity;
@@ -37,16 +37,15 @@ public class ItemAttractorModule extends AbstractActivatableItem {
 
 		itemsInRange.forEach(item -> {
 			if(!isBroken(stack)) {
-				if(player.getInventory().add(item.getItem())) {
-					if(takeDamage) {
-						doDamage(stack, player, 1,true);
-					}
+				boolean inserted = player.getInventory().add(item.getItem());
+
+				if(!inserted) {
+					item.setPos(player.getX(), player.getY(), player.getZ());
 				}
 
-				//item.setPos(player.getX(), player.getY(), player.getZ());
-				//if(this.takeDamage) {
-				//	doDamage(stack, player);
-				//}
+				if(takeDamage) {
+					doDamage(stack, player, 1,true);
+				}
 			}
 		});
 

@@ -4,8 +4,14 @@ import andronomos.androtech.Const;
 import andronomos.androtech.item.*;
 import andronomos.androtech.item.activatableItem.EffectEmitter;
 import andronomos.androtech.item.activatableItem.EffectNullifier;
-import andronomos.androtech.item.activatableItem.module.ItemAttractorModule;
-import andronomos.androtech.item.activatableItem.module.ItemRepairModule;
+import andronomos.androtech.item.module.BlockGpsModule;
+import andronomos.androtech.item.module.ItemAttractorModule;
+import andronomos.androtech.item.module.ItemRepairModule;
+import andronomos.androtech.item.module.MobCloningModule;
+import andronomos.androtech.item.tools.NaniteEnhancedAxe;
+import andronomos.androtech.item.tools.NaniteEnhancedPickAxe;
+import andronomos.androtech.item.tools.NaniteEnhancedShovel;
+import andronomos.androtech.item.tools.NaniteEnhancedSword;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
@@ -27,6 +33,7 @@ public class ModItems {
     public static final RegistryObject<Item> ITEM_ATTRACTOR_MODULE = ITEMS.register("item_attractor_module", () -> new ItemAttractorModule(GetBaseProperties().durability(ItemAttractorModule.ATTRACTOR_UNIT_DURABILITY)));
     public static final RegistryObject<Item> ITEM_REPAIR_MODULE = ITEMS.register("item_repair_module", () -> new ItemRepairModule(GetBaseProperties().durability(ItemRepairModule.REPAIR_MODULE_DURABILITY)));
     public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword", () -> new FakeSword());
+    public static final RegistryObject<Item> ORE_MINER = ITEMS.register("ore_miner", () -> new OreMiner(GetBaseProperties()));
 
     //public static final RegistryObject<Item> DEBUG_STICK = ITEMS.register("debug_stick", () -> new DebugStick(DEBUG_PROPERTIES.durability(1)));
 

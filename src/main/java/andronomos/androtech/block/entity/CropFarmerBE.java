@@ -66,7 +66,7 @@ public class CropFarmerBE extends AbstractTickingMachineBE {
 
 		AABB workArea = getWorkArea(pos);
 
-		List<BlockPos> nearbyCrops = BlockUtil.getNearbyCrops(workArea, level);
+		List<BlockPos> nearbyCrops = BlockUtil.getCropsInArea(workArea, level);
 
 		for (BlockPos nearbyCropPos : nearbyCrops) {
 			BlockState cropState = level.getBlockState(nearbyCropPos);

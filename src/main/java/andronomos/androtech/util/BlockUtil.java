@@ -26,7 +26,7 @@ public class BlockUtil {
 		return blocks;
 	}
 
-	public static List<BlockPos> getNearbyCrops(AABB scanArea, Level level) {
+	public static List<BlockPos> getCropsInArea(AABB scanArea, Level level) {
 		List<BlockPos> crops = new ArrayList<>();
 		List<BlockPos> blocksInArea = getBlockPosInAABB(scanArea);
 
@@ -42,10 +42,10 @@ public class BlockUtil {
 
 				if(type == PlantType.CROP || type == PlantType.NETHER) {
 					crops.add(nearbyPos);
-				} else {
-					if(nearbyBlock instanceof SweetBerryBushBlock) {
-						crops.add(nearbyPos);
-					}
+				}
+
+				if(nearbyBlock instanceof SweetBerryBushBlock) {
+					crops.add(nearbyPos);
 				}
 			}
 
@@ -54,5 +54,20 @@ public class BlockUtil {
 			}
 		}
 		return crops;
+	}
+
+	public static List<BlockPos> getOreInArea(AABB scanArea, Level level) {
+		List<BlockPos> ore = new ArrayList<>();
+		List<BlockPos> blocksInArea = getBlockPosInAABB(scanArea);
+
+		for (BlockPos blockPos : blocksInArea) {
+			Block block = level.getBlockState(blockPos).getBlock();
+
+			if(block instanceof OreBlock || block instanceof RedStoneOreBlock) {
+				ore.add(blockPos);
+			}
+		}
+
+		return ore;
 	}
 }

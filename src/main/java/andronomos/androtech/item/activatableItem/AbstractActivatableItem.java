@@ -52,14 +52,7 @@ public abstract class AbstractActivatableItem extends Item implements IActivatab
 
 	public boolean isBroken(ItemStack stack) {
 		if(takeDamage) {
-			if(!stack.isDamaged()) return false;
-
-			int maxDamage = stack.getMaxDamage();
-
- 			if(maxDamage > 0) {
-				//An item's damage value actually increments when taking damage
-				return stack.getDamageValue() >= maxDamage;
-			}
+			return ItemStackUtil.isBroken(stack);
 		}
 
 		return false;
