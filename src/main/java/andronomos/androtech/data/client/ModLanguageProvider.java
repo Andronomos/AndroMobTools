@@ -74,7 +74,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModBlocks.WEAK_ACCELERATION_PAD.get(), "Weak Acceleration Pad");
 		add(ModBlocks.STRONG_ACCELERATION_PAD.get(), "Strong Acceleration Pad");
 
-		add(ModBlocks.MENDING_STATION.get(), "Mending Stations");
-		add(MendingStation.SCREEN_MENDING_STATION, "Mending Stations");
+		add(ModBlocks.MENDING_STATION.get(), "Mending Station");
+		add(MendingStation.SCREEN_MENDING_STATION, "Mending Station");
 	}
 }

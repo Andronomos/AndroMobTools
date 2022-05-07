@@ -45,12 +45,14 @@ public class MendingStationBE extends AbstractTickingMachineBE {
 
 	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
-		getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
-			for(int i = 0; i < itemHandler.getSlots(); i++) {
-				ItemStack itemstack = itemHandler.getStackInSlot(i);
-				if(!ItemStackUtil.isRepairable(itemstack)) continue;
-				itemstack.setDamageValue(itemstack.getDamageValue() - ItemRepairModule.REPAIR_MODULE_RATE);
-			}
-		});
+		if(shouldTick()) {
+			getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
+				for (int i = 0; i < itemHandler.getSlots(); i++) {
+					ItemStack itemstack = itemHandler.getStackInSlot(i);
+					if (!ItemStackUtil.isRepairable(itemstack)) continue;
+					itemstack.setDamageValue(itemstack.getDamageValue() - ItemRepairModule.REPAIR_MODULE_RATE);
+				}
+			});
+		}
 	}
 }
