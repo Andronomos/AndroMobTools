@@ -17,12 +17,10 @@ public abstract class BaseTickingMachineEntity extends BaseContainerBlockEntity 
 		super(type, pos, state);
 	}
 
-	@Override
 	public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
 
 	}
 
-	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
 
 	}

@@ -40,6 +40,35 @@ public class MobClonerBE extends BaseTickingMachineEntity {
 		return true;
 	}
 
+	@Override
+	protected ItemStackHandler createItemHandler() {
+		return new ItemStackHandler(CLONER_SLOTS) {
+			@Override
+			public int getSlotLimit(int slot) {
+				return 1;
+			}
+
+			@Override
+			protected void onContentsChanged(int slot) {
+				// To make sure the TE persists when the chunk is saved later we need to
+				// mark it dirty every time the item handler changes
+				setChanged();
+			}
+
+			@Override
+			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+				if(stack.getItem() instanceof MobCloningModule) {
+					if(ItemStackUtil.containsEntity(stack)) {
+						return true;
+					}
+				}
+
+				return false;
+			}
+		};
+	}
+
+	@Override
 	public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
 		if(!shouldActivate(level, pos)) return;
 
@@ -51,6 +80,7 @@ public class MobClonerBE extends BaseTickingMachineEntity {
 		this.spin = (this.spin + (double)(1000.0F / (20 + 200.0F))) % 360.0D;
 	}
 
+	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
 		if(!shouldActivate(level, pos)) return;
 
@@ -90,34 +120,5 @@ public class MobClonerBE extends BaseTickingMachineEntity {
 		double z = pos.getZ();
 
 		return level.hasNearbyAlivePlayer(x, y, z, (double)this.requiredPlayerRange);
-	}
-
-	@Override
-	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(CLONER_SLOTS) {
-
-			@Override
-			public int getSlotLimit(int slot) {
-				return 1;
-			}
-
-			@Override
-			protected void onContentsChanged(int slot) {
-				// To make sure the TE persists when the chunk is saved later we need to
-				// mark it dirty every time the item handler changes
-				setChanged();
-			}
-
-			@Override
-			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-				if(stack.getItem() instanceof MobCloningModule) {
-					if(ItemStackUtil.containsEntity(stack)) {
-						return true;
-					}
-				}
-
-				return false;
-			}
-		};
 	}
 }
