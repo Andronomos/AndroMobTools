@@ -27,7 +27,6 @@ public class MobClonerContainer extends BaseContainerMenu {
 
 		if (blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-				addSlot(new SlotItemHandler(h, 0, 80, 30));
 				for(int s = 0; s < MobClonerBE.CLONER_SLOTS; s++) {
 					addSlot(new SlotItemHandler(h, s, Const.CONTAINER_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * s, 27));
 				}
@@ -51,7 +50,7 @@ public class MobClonerContainer extends BaseContainerMenu {
 			ItemStack stack = slot.getItem();
 			returnStack = stack.copy();
 
-			int containerEnd = 1;
+			int containerEnd = MobClonerBE.CLONER_SLOTS;
 
 			if(index <= containerEnd) {
 				if (!this.moveItemStackTo(stack, containerEnd, this.slots.size(), true)) {
