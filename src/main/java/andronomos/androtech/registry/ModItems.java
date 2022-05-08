@@ -33,7 +33,7 @@ public class ModItems {
     public static final RegistryObject<Item> ITEM_ATTRACTOR_MODULE = ITEMS.register("item_attractor_module", () -> new ItemAttractorModule(GetBaseProperties().durability(ItemAttractorModule.ATTRACTOR_UNIT_DURABILITY)));
     public static final RegistryObject<Item> ITEM_REPAIR_MODULE = ITEMS.register("item_repair_module", () -> new ItemRepairModule(GetBaseProperties().durability(ItemRepairModule.REPAIR_MODULE_DURABILITY)));
     public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword", () -> new FakeSword());
-    public static final RegistryObject<Item> ORE_MINER = ITEMS.register("ore_miner", () -> new OreMiner(GetBaseProperties()));
+    public static final RegistryObject<Item> ORE_TRANSLOCATOR = ITEMS.register("ore_translocator", () -> new OreTranslocator(GetBaseProperties()));
 
     //public static final RegistryObject<Item> DEBUG_STICK = ITEMS.register("debug_stick", () -> new DebugStick(DEBUG_PROPERTIES.durability(1)));
 

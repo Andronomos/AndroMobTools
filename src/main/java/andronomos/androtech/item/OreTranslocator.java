@@ -17,10 +17,10 @@ import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 
-public class OreMiner extends Item {
+public class OreTranslocator extends Item {
 	private int range = 10;
 
-	public OreMiner(Properties properties) {
+	public OreTranslocator(Properties properties) {
 		super(properties);
 	}
 

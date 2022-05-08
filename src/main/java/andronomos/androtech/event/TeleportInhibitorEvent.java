@@ -1,6 +1,6 @@
 package andronomos.androtech.event;
 
-import andronomos.androtech.block.MobCloner;
+import andronomos.androtech.block.machine.MobCloner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;

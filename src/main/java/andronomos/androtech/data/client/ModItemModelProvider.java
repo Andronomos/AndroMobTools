@@ -25,7 +25,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         createSingleTexture("basic_chip");
         createSingleTexture("advanced_chip");
         createSingleTexture("debug_stick");
-        createSingleTexture("ore_miner");
+        createSingleTexture("ore_translocator");
         createSingleTexture("nanite_enhanced_pickaxe");
         createSingleTexture("nanite_enhanced_axe");
         createSingleTexture("nanite_enhanced_shovel");

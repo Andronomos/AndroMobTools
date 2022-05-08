@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.block.*;
+import andronomos.androtech.block.machine.*;
 import andronomos.androtech.block.pad.MobKillingPadBlock;
 import andronomos.androtech.block.pad.emiiter.EmitterPadBlock;
 import andronomos.androtech.block.pad.emiiter.effect.PadEffect;

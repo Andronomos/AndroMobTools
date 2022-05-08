@@ -1,6 +1,6 @@
 package andronomos.androtech.data.client;
 
-import andronomos.androtech.block.*;
+import andronomos.androtech.block.machine.*;
 import andronomos.androtech.block.pad.MobKillingPadBlock;
 import andronomos.androtech.item.module.BlockGpsModule;
 import andronomos.androtech.registry.ModBlocks;
@@ -47,7 +47,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.REGENERATION_EMITTER.get(), "Regeneration Emitter");
 		add(ModItems.POISON_NULLIFIER.get(), "Poison Nullifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither Nullifier");
-		add(ModItems.ORE_MINER.get(), "Ore Miner");
+		add(ModItems.ORE_TRANSLOCATOR.get(), "Ore Miner");
 
 
 		/** Blocks **/
