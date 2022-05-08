@@ -18,7 +18,7 @@ import net.minecraft.world.phys.AABB;
 import java.util.List;
 
 public class OreTranslocator extends Item {
-	private int range = 10;
+	private int range = 20;
 
 	public OreTranslocator(Properties properties) {
 		super(properties);

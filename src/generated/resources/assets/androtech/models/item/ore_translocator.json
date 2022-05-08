@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/ore_miner"
+    "layer0": "androtech:item/ore_translocator"
   }
 }

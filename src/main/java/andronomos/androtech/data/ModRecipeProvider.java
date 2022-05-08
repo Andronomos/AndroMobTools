@@ -39,6 +39,18 @@ public class ModRecipeProvider extends RecipeProvider {
         registerNullifier(ModItems.POISON_NULLIFIER.get(), Items.POISONOUS_POTATO, Items.MILK_BUCKET, consumer);
         registerNullifier(ModItems.WITHER_NULLIFIER.get(), Items.WITHER_SKELETON_SKULL, Items.MILK_BUCKET, consumer);
 
+        ShapedRecipeBuilder.shaped(ModItems.ORE_TRANSLOCATOR.get())
+                .define('1', ModItems.ADVANCED_CHIP.get())
+                .define('2', Items.IRON_INGOT)
+                .define('3', Items.GOLD_INGOT)
+                .define('4', Items.DIAMOND_PICKAXE)
+                .define('5', ModItems.ITEM_ATTRACTOR_MODULE.get())
+                .pattern("212")
+                .pattern("343")
+                .pattern("252")
+                .unlockedBy("has_item", has(ModItems.ITEM_ATTRACTOR_MODULE.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(ModBlocks.REDSTONE_RECEIVER.get())
                 .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Items.IRON_INGOT)
@@ -121,17 +133,6 @@ public class ModRecipeProvider extends RecipeProvider {
         registerNaniteTool(ModItems.NANITE_ENHANCED_AXE.get(), Items.NETHERITE_AXE, consumer);
         registerNaniteTool(ModItems.NANITE_ENHANCED_SHOVEL.get(), Items.NETHERITE_SHOVEL, consumer);
         registerNaniteTool(ModItems.NANITE_ENHANCED_SWORD.get(), Items.NETHERITE_SWORD, consumer);
-    }
-
-    private void registerLamp(Block outputBlock, Item glassColor, Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(outputBlock, 8)
-                .define('1', glassColor)
-                .define('2', Tags.Items.DUSTS_GLOWSTONE)
-                .pattern("111")
-                .pattern("121")
-                .pattern("111")
-                .unlockedBy("has_item", has(Tags.Items.DUSTS_GLOWSTONE))
-                .save(consumer);
     }
 
     private void registerChip(Item chip, Item material, Consumer<FinishedRecipe> consumer) {
