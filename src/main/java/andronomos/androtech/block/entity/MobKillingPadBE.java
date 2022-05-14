@@ -86,6 +86,7 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
                 fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
                 fp.attack(entity);
                 mob.setLastHurtByMob(null);
+                sword.setDamageValue(0); //temporary method for keeping the sword from breaking
             }
         }
     }

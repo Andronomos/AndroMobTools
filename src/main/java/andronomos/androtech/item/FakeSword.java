@@ -23,6 +23,4 @@ public class FakeSword extends SwordItem {
     public int getMaxDamage(ItemStack stack) {
         return 0;
     }
-
-
 }
