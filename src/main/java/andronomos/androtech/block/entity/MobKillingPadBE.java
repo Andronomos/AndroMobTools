@@ -28,6 +28,7 @@ import java.util.UUID;
 
 public class MobKillingPadBE extends AbstractTickingMachineBE {
     private final GameProfile PROFILE = new GameProfile(UUID.randomUUID(), "[AndroTech]");
+    public static final int PAD_SLOTS = 3;
 
     public MobKillingPadBE(BlockPos pos, BlockState state) {
         super(ModBlockEntities.MOB_KILLING_PAD.get(), pos, state);
@@ -35,7 +36,7 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
 
     @Override
     protected ItemStackHandler createItemHandler() {
-        return new ItemStackHandler(3) {
+        return new ItemStackHandler(PAD_SLOTS) {
 
             @Override
             public int getSlotLimit(int slot) {

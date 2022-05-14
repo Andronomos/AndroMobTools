@@ -48,27 +48,21 @@ public class MobKillingPadContainer extends BaseContainerMenu {
         ItemStack itemstack = ItemStack.EMPTY;
         final Slot slot = this.slots.get(slotId);
 
-		AndroTech.LOGGER.info("MobKillingPadContainer#quickMoveStack | slotId={}", slotId);
-		AndroTech.LOGGER.info("MobKillingPadContainer#quickMoveStack | player.getInventory().getContainerSize()={}", player.getInventory().getContainerSize());
-
-		int containerEnd = 2;
-		int playerInventoryEnd = player.getInventory().getContainerSize() - containerEnd;
+		int containerEnd = MobKillingPadBE.PAD_SLOTS;
 
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
 			itemstack = itemstack1.copy();
 
 			if (slotId <= containerEnd) {
-				if (!this.moveItemStackTo(itemstack1, 2, 37, true)) {
+				if (!this.moveItemStackTo(itemstack1, containerEnd, this.slots.size(), true)) {
 					return ItemStack.EMPTY;
 				}
 			} else {
 				if(isCorrectBook(itemstack1)) {
-					if (!this.moveItemStackTo(itemstack1, 0, containerEnd, true)) {
+					if (!this.moveItemStackTo(itemstack1, 0, containerEnd, false)) {
 						return ItemStack.EMPTY;
 					}
-				} else if (!this.moveItemStackTo(itemstack1, containerEnd + 1, playerInventoryEnd, false)) {
-					return ItemStack.EMPTY;
 				}
 			}
 		}

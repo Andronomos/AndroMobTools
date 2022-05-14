@@ -41,27 +41,25 @@ public class RedstoneTransmitterContainer extends BaseContainerMenu {
 	}
 
 	@Override
-	public ItemStack quickMoveStack(Player playerEntity, int index) {
-		final Slot slot = this.slots.get(index);
+	public ItemStack quickMoveStack(Player playerEntity, int slotId) {
+		final Slot slot = this.slots.get(slotId);
 
 		if (slot != null && slot.hasItem()) {
 			ItemStack stack = slot.getItem();
 
 			int containerEnd = RedstoneTransmitterBE.TRANSMITTER_SLOTS;
 
-			if(index <= containerEnd) {
+			if(slotId <= containerEnd) {
 				if (!this.moveItemStackTo(stack, containerEnd, this.slots.size(), true)) {
 					return ItemStack.EMPTY;
 				}
 			} else {
 				if(stack.getItem() == ModItems.BLOCK_GPS_MODULE.get()) {
 					if(NBTUtil.getItemStackBlockPos(stack) != null) {
-						if(!this.moveItemStackTo(stack, 0, 9, false)) {
+						if(!this.moveItemStackTo(stack, 0, containerEnd, false)) {
 							return ItemStack.EMPTY;
 						}
 					}
-				} else if (!this.moveItemStackTo(stack, 0, containerEnd, false)) {
-					return ItemStack.EMPTY;
 				}
 			}
 
