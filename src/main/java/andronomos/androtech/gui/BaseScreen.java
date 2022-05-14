@@ -17,6 +17,7 @@ public abstract class BaseScreen<T extends AbstractContainerMenu> extends Abstra
 	public static final ResourceLocation SLOT = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot.png");
 	public static final ResourceLocation SLOT_UNIT = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_unit.png");
 	public static final ResourceLocation SLOT_ENCHANTED_BOOK = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_enchanted_book.png");
+	public static final ResourceLocation SLOT_SWORD = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_sword.png");
 
 	public BaseScreen(T screenContainer, Inventory inventory, Component component) {
 		super(screenContainer, inventory, component);

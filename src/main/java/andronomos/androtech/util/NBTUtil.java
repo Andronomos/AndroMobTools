@@ -20,7 +20,7 @@ public class NBTUtil {
     }
 
     /* */
-    public static CompoundTag getItemStackTag(ItemStack itemStackIn) {
+    public static CompoundTag getStackTag(ItemStack itemStackIn) {
         if(itemStackIn.getTag() == null) {
             return new CompoundTag();
         }

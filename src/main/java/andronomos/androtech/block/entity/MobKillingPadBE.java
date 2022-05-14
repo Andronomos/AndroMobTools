@@ -14,6 +14,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,7 +30,7 @@ import java.util.UUID;
 
 public class MobKillingPadBE extends AbstractTickingMachineBE {
     private final GameProfile PROFILE = new GameProfile(UUID.randomUUID(), "[AndroTech]");
-    public static final int PAD_SLOTS = 3;
+    public static final int PAD_SLOTS = 1;
     private final List<Enchantment> enchantments = new ArrayList<>();
 
     public MobKillingPadBE(BlockPos pos, BlockState state) {
@@ -58,7 +59,8 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return stack.getItem() == Items.ENCHANTED_BOOK;
+                //return stack.getItem() == Items.ENCHANTED_BOOK;
+                return stack.getItem() instanceof SwordItem;
             }
 
             @Nonnull
@@ -72,72 +74,19 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
     public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MobKillingPadBE mobKillingPadBE) {
         List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, new AABB(getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), getBlockPos().getX() + 1D, getBlockPos().getY() + 1D, getBlockPos().getZ() + 1D).inflate(0.0625D, 0.0625D, 0.0625D));
 
-        for (int i = 0; i < list.size(); i++) {
-            Entity entity = list.get(i);
-            if (entity == null || !(entity instanceof LivingEntity) || entity instanceof Player) continue;
-            LivingEntity mob = (LivingEntity)entity;
-            if(mob.getHealth() > 1.0f) mob.setHealth(1.0f);
-            FakePlayer fp = FakePlayerFactory.get((ServerLevel) level, PROFILE);
-            ItemStack sword = new ItemStack(Items.NETHERITE_SWORD, 1);
-            //if(hasEnchantment(Enchantments.MOB_LOOTING)) {
-            //    sword.enchant(Enchantments.MOB_LOOTING, Const.EnchantmentLevel.III);
-            //}
-            //if(hasEnchantment(Enchantments.FIRE_ASPECT)) {
-            //    sword.enchant(Enchantments.FIRE_ASPECT, Const.EnchantmentLevel.II);
-            //}
-            //if(hasEnchantment(Enchantments.SHARPNESS)) {
-            //    sword.enchant(Enchantments.SHARPNESS, Const.EnchantmentLevel.V);
-            //}
+        ItemStack sword = this.inputItems.getStackInSlot(0);
 
-            applyEnchantments(sword);
-
-            fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
-            fp.attack(entity);
-            mob.setLastHurtByMob(null);
-        }
-    }
-
-    private ItemStack applyEnchantments(ItemStack sword) {
-        //ItemStack lootingBook = getEnchantedBook(Enchantments.MOB_LOOTING);
-
-        for (Enchantment enchant : enchantments) {
-            ItemStack book = getEnchantedBook(enchant);
-
-            if(!book.isEmpty()) {
-
+        if(!sword.isEmpty()) {
+            for (int i = 0; i < list.size(); i++) {
+                Entity entity = list.get(i);
+                if (entity == null || !(entity instanceof LivingEntity) || entity instanceof Player) continue;
+                LivingEntity mob = (LivingEntity)entity;
+                if(mob.getHealth() > 1.0f) mob.setHealth(1.0f);
+                FakePlayer fp = FakePlayerFactory.get(level, PROFILE);
+                fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
+                fp.attack(entity);
+                mob.setLastHurtByMob(null);
             }
         }
-
-        return sword;
-    }
-
-    private ItemStack getEnchantedBook(Enchantment enchantment) {
-        for (int i = 0; i < this.inputItems.getSlots(); ++i) {
-            ItemStack stack = inputItems.getStackInSlot(i);
-
-            if(!stack.isEmpty()) {
-                if(stack.getItem() == Items.ENCHANTED_BOOK) {
-                    if(EnchantmentUtil.hasEnchantment(enchantment, stack)) {
-                        return stack;
-                    }
-                }
-            }
-        }
-
-        return ItemStack.EMPTY;
-    }
-
-    private boolean hasEnchantment(Enchantment enchantment) {
-        for (int i = 0; i < this.inputItems.getSlots(); ++i) {
-            ItemStack stack = inputItems.getStackInSlot(i);
-
-            if(!stack.isEmpty()) {
-                if(stack.getItem() == Items.ENCHANTED_BOOK) {
-                    return EnchantmentUtil.hasEnchantment(enchantment, stack);
-                }
-            }
-        }
-
-        return false;
     }
 }

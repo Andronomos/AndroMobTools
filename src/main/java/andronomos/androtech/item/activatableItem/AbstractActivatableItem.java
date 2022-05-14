@@ -59,13 +59,13 @@ public abstract class AbstractActivatableItem extends Item implements IActivatab
 	}
 
 	public boolean isActivated(ItemStack stack) {
-		CompoundTag nbtTag = NBTUtil.getItemStackTag(stack);
+		CompoundTag nbtTag = NBTUtil.getStackTag(stack);
 		if(!nbtTag.contains(TAG_ACTIVATED)) return false;
 		return nbtTag.getInt(TAG_ACTIVATED) == 1;
 	}
 
 	private void setActivatedState(ItemStack stack, int activated) {
-		CompoundTag nbtTag = NBTUtil.getItemStackTag(stack);
+		CompoundTag nbtTag = NBTUtil.getStackTag(stack);
 		NBTUtil.setIntVal(stack, TAG_ACTIVATED, activated);
 	}
 
