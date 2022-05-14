@@ -3,7 +3,6 @@ package andronomos.androtech.block.entity;
 import andronomos.androtech.Const;
 import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
 import andronomos.androtech.registry.ModBlockEntities;
-import andronomos.androtech.registry.ModItems;
 import andronomos.androtech.util.EnchantmentUtil;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.core.BlockPos;
@@ -43,6 +42,8 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
                 return 1;
             }
 
+
+
             @Override
             protected void onContentsChanged(int slot) {
                 // To make sure the TE persists when the chunk is saved later we need to
@@ -72,15 +73,14 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
             LivingEntity mob = (LivingEntity)entity;
             if(mob.getHealth() > 1.0f) mob.setHealth(1.0f);
             FakePlayer fp = FakePlayerFactory.get((ServerLevel) level, PROFILE);
-            //ItemStack sword = new ItemStack(ModItems.FAKE_SWORD.get(), 1);
             ItemStack sword = new ItemStack(Items.NETHERITE_SWORD, 1);
-            if(hasUpgrade(Enchantments.MOB_LOOTING)) {
+            if(hasEnchantment(Enchantments.MOB_LOOTING)) {
                 sword.enchant(Enchantments.MOB_LOOTING, Const.EnchantmentLevel.III);
             }
-            if(hasUpgrade(Enchantments.FIRE_ASPECT)) {
+            if(hasEnchantment(Enchantments.FIRE_ASPECT)) {
                 sword.enchant(Enchantments.FIRE_ASPECT, Const.EnchantmentLevel.II);
             }
-            if(hasUpgrade(Enchantments.SHARPNESS)) {
+            if(hasEnchantment(Enchantments.SHARPNESS)) {
                 sword.enchant(Enchantments.SHARPNESS, Const.EnchantmentLevel.V);
             }
             fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
@@ -89,7 +89,31 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
         }
     }
 
-    private boolean hasUpgrade( Enchantment enchantment) {
+    private ItemStack applyEnchantments(ItemStack sword) {
+        ItemStack lootingBook = getEnchantedBook(Enchantments.MOB_LOOTING);
+
+        
+
+        return sword;
+    }
+
+    private ItemStack getEnchantedBook(Enchantment enchantment) {
+        for (int i = 0; i < this.inputItems.getSlots(); ++i) {
+            ItemStack stack = inputItems.getStackInSlot(i);
+
+            if(!stack.isEmpty()) {
+                if(stack.getItem() == Items.ENCHANTED_BOOK) {
+                    if(EnchantmentUtil.hasEnchantment(enchantment, stack)) {
+                        return stack;
+                    }
+                }
+            }
+        }
+
+        return ItemStack.EMPTY;
+    }
+
+    private boolean hasEnchantment(Enchantment enchantment) {
         for (int i = 0; i < this.inputItems.getSlots(); ++i) {
             ItemStack stack = inputItems.getStackInSlot(i);
 
