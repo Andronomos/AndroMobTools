@@ -1,19 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "232",
-    "313",
-    "232"
+    "434",
+    "212"
   ],
   "key": {
     "1": {
-      "item": "androtech:advanced_chip"
+      "item": "androtech:basic_chip"
     },
     "2": {
       "tag": "forge:ingots/iron"
     },
     "3": {
       "item": "minecraft:rabbit_foot"
+    },
+    "4": {
+      "item": "minecraft:leather"
     }
   },
   "result": {

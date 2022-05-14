@@ -6,6 +6,7 @@ import net.minecraft.data.*;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -125,9 +126,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         /** Pads **/
-        registerPad(ModBlocks.MOB_KILLING_PAD.get(), ModItems.ADVANCED_CHIP.get(), Items.IRON_SWORD, consumer);
-        registerPad(ModBlocks.WEAK_ACCELERATION_PAD.get(), ModItems.BASIC_CHIP.get(), Items.SUGAR, consumer);
-        registerPad(ModBlocks.STRONG_ACCELERATION_PAD.get(), ModItems.ADVANCED_CHIP.get(), Items.RABBIT_FOOT, consumer);
+        registerAdvancedPad(ModBlocks.MOB_KILLING_PAD.get(), Items.IRON_SWORD, consumer);
+        registerPad(ModBlocks.WEAK_ACCELERATION_PAD.get(), Items.SUGAR, consumer);
+        registerPad(ModBlocks.STRONG_ACCELERATION_PAD.get(), Items.RABBIT_FOOT, consumer);
 
         registerNaniteTool(ModItems.NANITE_ENHANCED_PICKAXE.get(), Items.NETHERITE_PICKAXE,  consumer);
         registerNaniteTool(ModItems.NANITE_ENHANCED_AXE.get(), Items.NETHERITE_AXE, consumer);
@@ -148,15 +149,27 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
     }
 
-    private void registerPad(Block outputBlock, Item chip, Item item, Consumer<FinishedRecipe> consumer) {
+    private void registerPad(Block outputBlock, Item item, Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(outputBlock, 4)
-                .define('1', chip)
+                .define('1', ModItems.BASIC_CHIP.get())
                 .define('2', Tags.Items.INGOTS_IRON)
                 .define('3', item)
-                .pattern("232")
-                .pattern("313")
-                .pattern("232")
-                .unlockedBy("has_item", has(chip))
+                .define('4', Items.LEATHER)
+                .pattern("434")
+                .pattern("212")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
+                .save(consumer);
+    }
+
+    private void registerAdvancedPad(Block outputBlock, Item item, Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(outputBlock, 4)
+                .define('1', ModItems.ADVANCED_CHIP.get())
+                .define('2', Tags.Items.INGOTS_IRON)
+                .define('3', item)
+                .define('4', Items.LEATHER)
+                .pattern("434")
+                .pattern("212")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
     }
 

@@ -1,9 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "232",
-    "313",
-    "232"
+    "434",
+    "212"
   ],
   "key": {
     "1": {
@@ -14,6 +13,9 @@
     },
     "3": {
       "item": "minecraft:iron_sword"
+    },
+    "4": {
+      "item": "minecraft:leather"
     }
   },
   "result": {
