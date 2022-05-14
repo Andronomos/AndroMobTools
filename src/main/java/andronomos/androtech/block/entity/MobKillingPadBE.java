@@ -35,7 +35,7 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
 
     @Override
     protected ItemStackHandler createItemHandler() {
-        return new ItemStackHandler(2) {
+        return new ItemStackHandler(3) {
 
             @Override
             public int getSlotLimit(int slot) {
@@ -71,12 +71,16 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
             LivingEntity mob = (LivingEntity)entity;
             if(mob.getHealth() > 1.0f) mob.setHealth(1.0f);
             FakePlayer fp = FakePlayerFactory.get((ServerLevel) level, PROFILE);
-            ItemStack sword = new ItemStack(ModItems.FAKE_SWORD.get(), 1);
+            //ItemStack sword = new ItemStack(ModItems.FAKE_SWORD.get(), 1);
+            ItemStack sword = new ItemStack(Items.NETHERITE_SWORD, 1);
             if(hasUpgrade(Enchantments.MOB_LOOTING)) {
                 sword.enchant(Enchantments.MOB_LOOTING, Const.EnchantmentLevel.III);
             }
             if(hasUpgrade(Enchantments.FIRE_ASPECT)) {
                 sword.enchant(Enchantments.FIRE_ASPECT, Const.EnchantmentLevel.II);
+            }
+            if(hasUpgrade(Enchantments.SHARPNESS)) {
+                sword.enchant(Enchantments.SHARPNESS, Const.EnchantmentLevel.V);
             }
             fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
             fp.attack(entity);

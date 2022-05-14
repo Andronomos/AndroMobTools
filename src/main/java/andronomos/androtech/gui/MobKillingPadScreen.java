@@ -29,6 +29,7 @@ public class MobKillingPadScreen extends BaseScreen<MobKillingPadContainer> {
     protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
         this.drawBackground(stack, INVENTORY_PLAIN);
         this.drawSlot(stack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 3, 29, SLOT_ENCHANTED_BOOK, 18);
+        this.drawSlot(stack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 4, 29, SLOT_ENCHANTED_BOOK, 18);
         this.drawSlot(stack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 5, 29, SLOT_ENCHANTED_BOOK, 18);
     }
 }

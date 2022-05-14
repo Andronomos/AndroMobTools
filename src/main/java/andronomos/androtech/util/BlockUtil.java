@@ -63,11 +63,22 @@ public class BlockUtil {
 		for (BlockPos blockPos : blocksInArea) {
 			Block block = level.getBlockState(blockPos).getBlock();
 
-			if(block instanceof OreBlock || block instanceof RedStoneOreBlock) {
+			if(isOre(block)) {
 				ore.add(blockPos);
 			}
 		}
 
 		return ore;
+	}
+
+	public static boolean isOre(Block block) {
+		if(block instanceof OreBlock ||
+				block instanceof RedStoneOreBlock ||
+				block == Blocks.RAW_COPPER_BLOCK ||
+				block == Blocks.RAW_GOLD_BLOCK ||
+				block == Blocks.RAW_IRON_BLOCK)
+			return true;
+
+		return false;
 	}
 }

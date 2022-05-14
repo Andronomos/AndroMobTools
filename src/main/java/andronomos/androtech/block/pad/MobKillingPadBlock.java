@@ -61,7 +61,6 @@ public class MobKillingPadBlock extends PadBlock implements EntityBlock {
                         return new TranslatableComponent(SCREEN_MOB_KILLING_PAD);
                     }
 
-
                     @Override
                     public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
                         return new MobKillingPadContainer(windowId, pos, playerInventory);

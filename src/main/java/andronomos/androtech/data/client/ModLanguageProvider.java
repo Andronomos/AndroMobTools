@@ -47,7 +47,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.REGENERATION_EMITTER.get(), "Regeneration Emitter");
 		add(ModItems.POISON_NULLIFIER.get(), "Poison Nullifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither Nullifier");
-		add(ModItems.ORE_TRANSLOCATOR.get(), "Ore Miner");
+		add(ModItems.ORE_TRANSLOCATOR.get(), "Ore Translocator");
 
 
 		/** Blocks **/

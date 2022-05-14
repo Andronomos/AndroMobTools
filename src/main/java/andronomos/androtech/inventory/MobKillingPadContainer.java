@@ -1,5 +1,6 @@
 package andronomos.androtech.inventory;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.block.entity.MobKillingPadBE;
 import andronomos.androtech.registry.ModBlocks;
@@ -13,7 +14,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -30,7 +30,8 @@ public class MobKillingPadContainer extends BaseContainerMenu {
             final MobKillingPadBE entity = (MobKillingPadBE) blockEntity;
             entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
                 addSlot(new SlotItemHandler(itemHandler, 0, Const.CONTAINER_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 3, 30));
-                addSlot(new SlotItemHandler(itemHandler, 1, Const.CONTAINER_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 5, 30));
+				addSlot(new SlotItemHandler(itemHandler, 1, Const.CONTAINER_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 4, 30));
+				addSlot(new SlotItemHandler(itemHandler, 2, Const.CONTAINER_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 5, 30));
             });
         }
 
@@ -43,28 +44,30 @@ public class MobKillingPadContainer extends BaseContainerMenu {
     }
 
     @Override
-    public ItemStack quickMoveStack(Player playerEntity, int slotId) {
+    public ItemStack quickMoveStack(Player player, int slotId) {
         ItemStack itemstack = ItemStack.EMPTY;
         final Slot slot = this.slots.get(slotId);
 
-		int containerEnd = Const.CONTAINER_GENERIC_SIZE;
+		AndroTech.LOGGER.info("MobKillingPadContainer#quickMoveStack | slotId={}", slotId);
+		AndroTech.LOGGER.info("MobKillingPadContainer#quickMoveStack | player.getInventory().getContainerSize()={}", player.getInventory().getContainerSize());
+
+		int containerEnd = 2;
+		int playerInventoryEnd = player.getInventory().getContainerSize() - containerEnd;
 
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
 			itemstack = itemstack1.copy();
 
-			if (slotId == 0 || slotId == 1) {
+			if (slotId <= containerEnd) {
 				if (!this.moveItemStackTo(itemstack1, 2, 37, true)) {
 					return ItemStack.EMPTY;
 				}
 			} else {
-				if(itemstack1.getItem() == Items.ENCHANTED_BOOK) {
-					if(EnchantmentUtil.hasEnchantment(Enchantments.MOB_LOOTING, itemstack1) || EnchantmentUtil.hasEnchantment(Enchantments.FIRE_ASPECT, itemstack1)) {
-						if (!this.moveItemStackTo(itemstack1, 0, 2, false)) {
-							return ItemStack.EMPTY;
-						}
+				if(isCorrectBook(itemstack1)) {
+					if (!this.moveItemStackTo(itemstack1, 0, containerEnd, true)) {
+						return ItemStack.EMPTY;
 					}
-				} else if (!this.moveItemStackTo(itemstack1, 0, containerEnd, false)) {
+				} else if (!this.moveItemStackTo(itemstack1, containerEnd + 1, playerInventoryEnd, false)) {
 					return ItemStack.EMPTY;
 				}
 			}
@@ -72,4 +75,16 @@ public class MobKillingPadContainer extends BaseContainerMenu {
 
         return itemstack;
     }
+
+	private boolean isCorrectBook(ItemStack stack) {
+		if(stack.getItem() == Items.ENCHANTED_BOOK) {
+			if(EnchantmentUtil.hasEnchantment(Enchantments.MOB_LOOTING, stack) ||
+					EnchantmentUtil.hasEnchantment(Enchantments.FIRE_ASPECT, stack) ||
+					EnchantmentUtil.hasEnchantment(Enchantments.SHARPNESS, stack)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 }

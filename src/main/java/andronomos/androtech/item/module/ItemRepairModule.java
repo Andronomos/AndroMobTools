@@ -25,11 +25,9 @@ public class ItemRepairModule extends AbstractActivatableItem {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         if (level.isClientSide || !isActivated(stack) || !(entity instanceof Player)) return;
 
-        if(this.takeDamage) {
-            if(isBroken(stack)) {
-                deactivate(stack, (Player)entity);
-                return;
-            }
+        if(isBroken(stack)) {
+            deactivate(stack, (Player)entity);
+            return;
         }
 
         if(this.tickCounter == this.tickDelay) {

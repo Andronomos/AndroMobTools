@@ -1,5 +1,6 @@
 package andronomos.androtech.block.entity;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
 import andronomos.androtech.item.module.MobCloningModule;
 import andronomos.androtech.registry.ModBlockEntities;
@@ -24,9 +25,8 @@ public class MobClonerBE extends AbstractTickingMachineBE {
 
 	private double spin;
 	private double oSpin;
-	private int maxNearbyEntities = 10;
 	private int requiredPlayerRange = 64;
-	private int spawnCount = 10;
+	private int spawnCount = 3;
 	private int spawnRange = 4;
 
 	public MobClonerBE(BlockPos pos, BlockState state) {
@@ -90,10 +90,12 @@ public class MobClonerBE extends AbstractTickingMachineBE {
 				if(clonerModule == null
 						|| clonerModule.isEmpty()
 						|| !(clonerModule.getItem() instanceof MobCloningModule)
-						|| !ItemStackUtil.containsEntity(clonerModule)) return;
+						|| !ItemStackUtil.containsEntity(clonerModule)) continue;
 
 				for(int i = 0; i < spawnCount; ++i) {
 					Entity entity = ItemStackUtil.getEntityFromStack(clonerModule, this.level, true);
+					entity.setSilent(true);
+					entity.setDeltaMovement(0, entity.getDeltaMovement().y(), 0);
 					entity.setUUID(Mth.createInsecureUUID());
 					double d0 = (double)pos.getX() + (this.level.random.nextDouble() - this.level.random.nextDouble()) * (double)this.spawnRange;
 					double d1 = pos.getY() - 1;
@@ -101,7 +103,7 @@ public class MobClonerBE extends AbstractTickingMachineBE {
 
 					if(this.level.noCollision(entity.getType().getAABB(d0, d1, d2))) {
 						int k = this.level.getEntitiesOfClass(entity.getClass(), (new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1)).inflate(this.spawnRange)).size();
-						if (k >= this.maxNearbyEntities) return;
+						if (k >= getMaxNearbyEntities()) return;
 						entity.absMoveTo(d0, d1, d2, 0, 0);
 						this.level.addFreshEntity(entity);
 						if (entity instanceof Mob) ((Mob)entity).spawnAnim();
@@ -109,6 +111,10 @@ public class MobClonerBE extends AbstractTickingMachineBE {
 				}
 			}
 		}
+	}
+
+	private int getMaxNearbyEntities() {
+		return spawnCount * CLONER_SLOTS;
 	}
 
 	private boolean isNearPlayer(Level level, BlockPos pos) {

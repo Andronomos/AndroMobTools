@@ -1,6 +1,6 @@
 package andronomos.androtech.item;
 
-import andronomos.androtech.block.harvester.IHarvester;
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.util.BlockUtil;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
@@ -18,15 +18,16 @@ import net.minecraft.world.phys.AABB;
 import java.util.List;
 
 public class OreTranslocator extends Item {
+	private static final int DURABILITY = 2304;
 	private int range = 20;
 
 	public OreTranslocator(Properties properties) {
-		super(properties);
+		super(properties.durability(DURABILITY));
 	}
 
 	@Override
 	public int getMaxDamage(ItemStack stack) {
-		return 2304;
+		return DURABILITY;
 	}
 
 	@Override

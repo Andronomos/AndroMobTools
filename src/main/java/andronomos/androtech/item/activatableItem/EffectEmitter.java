@@ -1,6 +1,5 @@
 package andronomos.androtech.item.activatableItem;
 
-import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -30,11 +29,9 @@ public class EffectEmitter extends AbstractActivatableItem {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
         if(level.isClientSide || !(entity instanceof Player) || !isActivated(stack)) return;
 
-        if(takeDamage) {
-            if(isBroken(stack)) {
-                deactivate(stack, (Player)entity);
-                return;
-            }
+        if(isBroken(stack)) {
+            deactivate(stack, (Player)entity);
+            return;
         }
 
         if(tickCounter == tickDelay) {

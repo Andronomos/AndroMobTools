@@ -16,8 +16,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
-
         buildActivatableItem("mob_cloning_module");
         buildActivatableItem("item_attractor_module");
         buildActivatableItem("block_gps_module");
