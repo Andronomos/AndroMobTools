@@ -53,20 +53,20 @@ public class BlockGpsModule extends Item {
         Block block = world.getBlockState(pos).getBlock();
         if(block != ModBlocks.REDSTONE_RECEIVER.get()) return false;
         ItemStack drop = new ItemStack(ModItems.BLOCK_GPS_MODULE.get());
-        NBTUtil.setItemStackBlockPos(drop, pos);
+        NBTUtil.setBlockPos(drop, pos);
         if(!player.addItem(drop)) ItemStackUtil.drop(player.level, player.blockPosition(), drop);
         return true;
     }
 
     @Override
     public int getItemStackLimit(ItemStack stack) {
-        return NBTUtil.getItemStackBlockPos(stack) == null ? 64 : 1;
+        return ItemStackUtil.getBlockPos(stack) == null ? 64 : 1;
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level levelIn, List<Component> tooltip, TooltipFlag flagIn) {
-        BlockPos pos = NBTUtil.getItemStackBlockPos(stack);
+        BlockPos pos = ItemStackUtil.getBlockPos(stack);
 
         if(pos != null) {
             tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_MODULE)).withStyle(ChatFormatting.GRAY));

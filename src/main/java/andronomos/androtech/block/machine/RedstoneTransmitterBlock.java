@@ -4,6 +4,7 @@ import andronomos.androtech.block.entity.RedstoneTransmitterBE;
 import andronomos.androtech.block.machine.base.AbstractToggleableMachine;
 import andronomos.androtech.inventory.RedstoneTransmitterContainer;
 import andronomos.androtech.registry.ModBlocks;
+import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.NBTUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -64,7 +65,7 @@ public class RedstoneTransmitterBlock extends AbstractToggleableMachine {
                         for(int slotIndex = 0; slotIndex < 9; slotIndex++) {
                             ItemStack blockGPSModule = itemHandler.getStackInSlot(slotIndex);
                             if(!blockGPSModule.isEmpty()) {
-                                BlockPos receiverPos = NBTUtil.getItemStackBlockPos(blockGPSModule);
+                                BlockPos receiverPos = ItemStackUtil.getBlockPos(blockGPSModule);
                                 BlockState receiverState = level.getBlockState(receiverPos);
                                 if(receiverState.getBlock() != ModBlocks.REDSTONE_RECEIVER.get()) return;
                                 if(transmitterState.getValue(POWERED))

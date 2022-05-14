@@ -5,6 +5,7 @@ import andronomos.androtech.block.entity.RedstoneTransmitterBE;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
 import andronomos.androtech.registry.ModItems;
+import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.NBTUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
@@ -55,7 +56,7 @@ public class RedstoneTransmitterContainer extends BaseContainerMenu {
 				}
 			} else {
 				if(stack.getItem() == ModItems.BLOCK_GPS_MODULE.get()) {
-					if(NBTUtil.getItemStackBlockPos(stack) != null) {
+					if(ItemStackUtil.getBlockPos(stack) != null) {
 						if(!this.moveItemStackTo(stack, 0, containerEnd, false)) {
 							return ItemStack.EMPTY;
 						}

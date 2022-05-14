@@ -6,7 +6,7 @@ import net.minecraft.world.level.BaseSpawner;
 
 public class SpawnerUtil {
 	public static String getEntityString(BaseSpawner spawner) {
-		// Get entity ResourceLocation string from spawner by creating a empty compound which we make our
+		// Get entity ResourceLocation string from spawner by creating an empty compound which we make our
 		// spawner logic write to. We can then access what type of entity id the spawner has inside
 		CompoundTag tempTag = new CompoundTag();
 		tempTag = spawner.save(tempTag);

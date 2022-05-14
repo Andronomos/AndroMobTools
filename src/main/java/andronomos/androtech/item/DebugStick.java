@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.NetherWartBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
 
@@ -34,7 +33,7 @@ public class DebugStick extends Item {
 		AndroTech.LOGGER.info("DebugStickItem#use | getMaxDamage={}", stack.getMaxDamage());
 		AndroTech.LOGGER.info("DebugStickItem#use | getDamageValue={}", stack.getDamageValue());
 
-		ItemStackUtil.damageItem(player, stack, 1, true);
+		ItemStackUtil.applyDamage(player, stack, 1, true);
 
 		AndroTech.LOGGER.info("DebugStickItem#use | getDamageValue after damaging={}", stack.getDamageValue());
 

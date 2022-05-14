@@ -36,7 +36,7 @@ public class MobCloningModule extends Item {
 
     @Override
     public int getItemStackLimit(ItemStack stack) {
-        return ItemStackUtil.containsEntity(stack) ? 1 : 64;
+        return ItemStackUtil.hasEntityTag(stack) ? 1 : 64;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class MobCloningModule extends Item {
         if (level.isClientSide()) return false;
         if (target instanceof Player || !target.isAlive()) return false;
         if (target instanceof WitherBoss) return false;
-        if (ItemStackUtil.containsEntity(stack)) return false;
+        if (ItemStackUtil.hasEntityTag(stack)) return false;
         if (target instanceof Wolf && ((Wolf) target).getRemainingPersistentAngerTime() > 0) return false;
         CompoundTag tag = new CompoundTag();
         target.save(tag);
@@ -79,9 +79,9 @@ public class MobCloningModule extends Item {
 
     public boolean releaseEntity(ItemStack stack, Player player, Direction facing, Level world, BlockPos pos) {
         if (player.getCommandSenderWorld().isClientSide()) return false;
-        if (!ItemStackUtil.containsEntity(stack)) return false;
+        if (!ItemStackUtil.hasEntityTag(stack)) return false;
         if (facing != null) pos = pos.offset(facing.getNormal());
-        Entity entity = ItemStackUtil.getEntityFromStack(stack, world, true);
+        Entity entity = ItemStackUtil.getEntity(stack, world, true);
         entity.absMoveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0, 0);
         if(!world.addFreshEntity(entity)) return false;
         return true;
@@ -96,7 +96,7 @@ public class MobCloningModule extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level levelIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(ItemStackUtil.containsEntity(stack)) {
+        if(ItemStackUtil.hasEntityTag(stack)) {
             tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_CLONING_MODULE_MOB) + stack.getTag().getString("entity")).withStyle(ChatFormatting.BLUE));
             tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_MOB_CLONING_MODULE_HEALTH) + stack.getTag().getDouble("Health")).withStyle(ChatFormatting.RED));
         } else {

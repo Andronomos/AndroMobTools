@@ -66,12 +66,12 @@ public abstract class AbstractActivatableItem extends Item implements IActivatab
 
 	private void setActivatedState(ItemStack stack, int activated) {
 		CompoundTag nbtTag = NBTUtil.getItemStackTag(stack);
-		NBTUtil.setItemStackNBTVal(stack, TAG_ACTIVATED, activated);
+		NBTUtil.setIntVal(stack, TAG_ACTIVATED, activated);
 	}
 
 	public void doDamage(ItemStack stack, Entity entity, int amount, boolean preventBreaking) {
 		if(stack.getDamageValue() < stack.getMaxDamage()) {
-			ItemStackUtil.damageItem((Player)entity, stack, amount, preventBreaking);
+			ItemStackUtil.applyDamage((Player)entity, stack, amount, preventBreaking);
 		}
 	}
 

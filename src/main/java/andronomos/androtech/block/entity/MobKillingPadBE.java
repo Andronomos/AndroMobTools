@@ -2,6 +2,7 @@ package andronomos.androtech.block.entity;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
+import andronomos.androtech.block.harvester.IHarvester;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.EnchantmentUtil;
 import com.mojang.authlib.GameProfile;
@@ -22,27 +23,31 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class MobKillingPadBE extends AbstractTickingMachineBE {
     private final GameProfile PROFILE = new GameProfile(UUID.randomUUID(), "[AndroTech]");
     public static final int PAD_SLOTS = 3;
+    private final List<Enchantment> enchantments = new ArrayList<>();
 
     public MobKillingPadBE(BlockPos pos, BlockState state) {
         super(ModBlockEntities.MOB_KILLING_PAD.get(), pos, state);
+
+        enchantments.add(Enchantments.MOB_LOOTING);
+        enchantments.add(Enchantments.FIRE_ASPECT);
+        enchantments.add(Enchantments.SHARPNESS);
+        enchantments.add(Enchantments.SWEEPING_EDGE);
     }
 
     @Override
     protected ItemStackHandler createItemHandler() {
         return new ItemStackHandler(PAD_SLOTS) {
-
             @Override
             public int getSlotLimit(int slot) {
                 return 1;
             }
-
-
 
             @Override
             protected void onContentsChanged(int slot) {
@@ -74,15 +79,18 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
             if(mob.getHealth() > 1.0f) mob.setHealth(1.0f);
             FakePlayer fp = FakePlayerFactory.get((ServerLevel) level, PROFILE);
             ItemStack sword = new ItemStack(Items.NETHERITE_SWORD, 1);
-            if(hasEnchantment(Enchantments.MOB_LOOTING)) {
-                sword.enchant(Enchantments.MOB_LOOTING, Const.EnchantmentLevel.III);
-            }
-            if(hasEnchantment(Enchantments.FIRE_ASPECT)) {
-                sword.enchant(Enchantments.FIRE_ASPECT, Const.EnchantmentLevel.II);
-            }
-            if(hasEnchantment(Enchantments.SHARPNESS)) {
-                sword.enchant(Enchantments.SHARPNESS, Const.EnchantmentLevel.V);
-            }
+            //if(hasEnchantment(Enchantments.MOB_LOOTING)) {
+            //    sword.enchant(Enchantments.MOB_LOOTING, Const.EnchantmentLevel.III);
+            //}
+            //if(hasEnchantment(Enchantments.FIRE_ASPECT)) {
+            //    sword.enchant(Enchantments.FIRE_ASPECT, Const.EnchantmentLevel.II);
+            //}
+            //if(hasEnchantment(Enchantments.SHARPNESS)) {
+            //    sword.enchant(Enchantments.SHARPNESS, Const.EnchantmentLevel.V);
+            //}
+
+            applyEnchantments(sword);
+
             fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
             fp.attack(entity);
             mob.setLastHurtByMob(null);
@@ -90,9 +98,15 @@ public class MobKillingPadBE extends AbstractTickingMachineBE {
     }
 
     private ItemStack applyEnchantments(ItemStack sword) {
-        ItemStack lootingBook = getEnchantedBook(Enchantments.MOB_LOOTING);
+        //ItemStack lootingBook = getEnchantedBook(Enchantments.MOB_LOOTING);
 
-        
+        for (Enchantment enchant : enchantments) {
+            ItemStack book = getEnchantedBook(enchant);
+
+            if(!book.isEmpty()) {
+
+            }
+        }
 
         return sword;
     }

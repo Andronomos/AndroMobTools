@@ -1,6 +1,5 @@
 package andronomos.androtech.block.entity;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
 import andronomos.androtech.item.module.MobCloningModule;
 import andronomos.androtech.registry.ModBlockEntities;
@@ -57,7 +56,7 @@ public class MobClonerBE extends AbstractTickingMachineBE {
 			@Override
 			public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
 				if(stack.getItem() instanceof MobCloningModule) {
-					if(ItemStackUtil.containsEntity(stack)) {
+					if(ItemStackUtil.hasEntityTag(stack)) {
 						return true;
 					}
 				}
@@ -90,10 +89,10 @@ public class MobClonerBE extends AbstractTickingMachineBE {
 				if(clonerModule == null
 						|| clonerModule.isEmpty()
 						|| !(clonerModule.getItem() instanceof MobCloningModule)
-						|| !ItemStackUtil.containsEntity(clonerModule)) continue;
+						|| !ItemStackUtil.hasEntityTag(clonerModule)) continue;
 
 				for(int i = 0; i < spawnCount; ++i) {
-					Entity entity = ItemStackUtil.getEntityFromStack(clonerModule, this.level, true);
+					Entity entity = ItemStackUtil.getEntity(clonerModule, this.level, true);
 					entity.setSilent(true);
 					entity.setDeltaMovement(0, entity.getDeltaMovement().y(), 0);
 					entity.setUUID(Mth.createInsecureUUID());

@@ -15,12 +15,12 @@ public class ModPropertyOverrides {
 	public static void register() {
 		ItemProperties.register(ModItems.MOB_CLONING_MODULE.get(),
 				IS_ACTIVATED, (stack, level, living, id) -> {
-					return ItemStackUtil.containsEntity(stack) ? 1 : 0;
+					return ItemStackUtil.hasEntityTag(stack) ? 1 : 0;
 				});
 
 		ItemProperties.register(ModItems.BLOCK_GPS_MODULE.get(),
 				IS_ACTIVATED, (stack, level, living, id) -> {
-					return NBTUtil.getItemStackBlockPos(stack) != null ? 1 : 0;
+					return ItemStackUtil.getBlockPos(stack) != null ? 1 : 0;
 				});
 
 		registerActivatableItem(ModItems.ITEM_ATTRACTOR_MODULE.get());

@@ -25,5 +25,4 @@ public class ChatUtil {
         TranslatableComponent t = new TranslatableComponent(key);
         return t.getString();
     }
-
 }

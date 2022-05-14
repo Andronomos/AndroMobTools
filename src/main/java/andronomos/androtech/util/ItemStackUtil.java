@@ -1,6 +1,7 @@
 package andronomos.androtech.util;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
@@ -16,11 +17,11 @@ import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ItemStackUtil {
-    public static void damageItem(LivingEntity player, ItemStack stack, int amount) {
-        damageItem(player, stack, amount, false);
+    public static void applyDamage(LivingEntity player, ItemStack stack, int amount) {
+        applyDamage(player, stack, amount, false);
     }
 
-    public static void damageItem(LivingEntity player, ItemStack stack, int amount, boolean preventBreaking) {
+    public static void applyDamage(LivingEntity player, ItemStack stack, int amount, boolean preventBreaking) {
         if(preventBreaking) {
             if(stack.getDamageValue() == stack.getMaxDamage()) {
                 return;
@@ -38,22 +39,6 @@ public class ItemStackUtil {
         if (!level.isClientSide()) {
             level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), drop));
         }
-    }
-
-    public static boolean containsEntity(ItemStack stack) {
-        return !stack.isEmpty() && stack.hasTag() && stack.getTag().contains("entity");
-    }
-
-    @Nullable
-    public static Entity getEntityFromStack(ItemStack stack, Level world, boolean withInfo) {
-        EntityType type = EntityType.byString(stack.getTag().getString("entity")).orElse(null);
-        if (type != null) {
-            Entity entity = type.create(world);
-            if (withInfo)
-                entity.load(stack.getTag());
-            return entity;
-        }
-        return null;
     }
 
     public static ItemStack insertIntoContainer(ItemStack stack, LazyOptional<IItemHandler> itemHandler) {
@@ -84,5 +69,33 @@ public class ItemStackUtil {
         }
 
         return false;
+    }
+
+    public static boolean hasEntityTag(ItemStack stack) {
+        return !stack.isEmpty() && stack.hasTag() && stack.getTag().contains("entity");
+    }
+
+    @Nullable
+    public static Entity getEntity(ItemStack stack, Level world, boolean withInfo) {
+        EntityType type = EntityType.byString(stack.getTag().getString("entity")).orElse(null);
+        if (type != null) {
+            Entity entity = type.create(world);
+            if (withInfo)
+                entity.load(stack.getTag());
+            return entity;
+        }
+        return null;
+    }
+
+    public static BlockPos getBlockPos(ItemStack stack) {
+        if(stack.isEmpty()) return null;
+
+        CompoundTag tag = stack.getOrCreateTag();
+
+        int xPos = tag.getInt("xpos");
+        int yPos = tag.getInt("ypos");
+        int zPos = tag.getInt("zpos");
+
+        return new BlockPos(xPos, yPos, zPos);
     }
 }

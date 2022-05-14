@@ -4,6 +4,7 @@ import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;
+import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.NBTUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -57,7 +58,7 @@ public class RedstoneTransmitterBE extends AbstractTickingMachineBE {
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
                 if(stack.getItem() == ModItems.BLOCK_GPS_MODULE.get()) {
-                    if(NBTUtil.getItemStackBlockPos(stack) != null) {
+                    if(ItemStackUtil.getBlockPos(stack) != null) {
                         return true;
                     }
                 }
@@ -81,7 +82,7 @@ public class RedstoneTransmitterBE extends AbstractTickingMachineBE {
         for(int slotIndex = 0; slotIndex < inputItems.getSlots(); slotIndex++) {
             ItemStack receiverCard = inputItems.getStackInSlot(slotIndex);
             if(receiverCard.isEmpty()) continue;
-            updateReceiver(NBTUtil.getItemStackBlockPos(receiverCard));
+            updateReceiver(ItemStackUtil.getBlockPos(receiverCard));
         }
     }
 }

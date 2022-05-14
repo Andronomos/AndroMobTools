@@ -1,6 +1,5 @@
 package andronomos.androtech.item;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.util.BlockUtil;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
@@ -57,7 +56,7 @@ public class OreTranslocator extends Item {
 					level.addFreshEntity(new ItemEntity(level, player.getX(), player.getY(), player.getZ(), drop));
 				}
 
-				ItemStackUtil.damageItem(player, heldItem, 1, true);
+				ItemStackUtil.applyDamage(player, heldItem, 1, true);
 			}
 		}
 
