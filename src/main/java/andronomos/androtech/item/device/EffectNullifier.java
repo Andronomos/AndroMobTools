@@ -1,7 +1,7 @@
-package andronomos.androtech.item.activatableItem;
+package andronomos.androtech.item.device;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
+import andronomos.androtech.item.device.base.AbstractTickingDevice;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -9,9 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class EffectNullifier extends AbstractActivatableItem {
-    public static final int NULLIFIER_DURABILITY = 1000; //will last for 1000 effect removals
-
+public class EffectNullifier extends AbstractTickingDevice {
     private final MobEffect effect;
 
     public EffectNullifier(Properties properties, MobEffect effect, boolean takeDamage, boolean isRepairable) {

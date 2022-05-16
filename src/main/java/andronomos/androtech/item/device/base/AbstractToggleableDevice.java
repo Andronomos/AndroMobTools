@@ -1,6 +1,5 @@
-package andronomos.androtech.item.activatableItem;
+package andronomos.androtech.item.device.base;
 
-import andronomos.androtech.Const;
 import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.NBTUtil;
 import net.minecraft.nbt.CompoundTag;
@@ -8,31 +7,18 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public abstract class AbstractActivatableItem extends Item implements IActivatableItem {
+public abstract class AbstractToggleableDevice extends AbstractDevice implements IToggleableDevice {
 	public final static String TAG_ACTIVATED = "activated";
-	public int tickDelay = Const.TicksInSeconds.FIVESECONDS;
-	public boolean takeDamage;
-	public boolean isRepairable;
-	public int tickCounter = 0;
 
-	public AbstractActivatableItem(Properties properties) {
-		super(properties);
-		this.takeDamage = false;
-		this.isRepairable = false;
+	public AbstractToggleableDevice(Properties properties) {
+		super(properties, false, false);
 	}
 
-	public AbstractActivatableItem(Properties properties, boolean takeDamage, boolean isRepairable) {
-		super(properties);
-		this.takeDamage = takeDamage;
-		this.isRepairable = isRepairable;
-
-		if(!this.isRepairable) {
-			properties.setNoRepair();
-		}
+	public AbstractToggleableDevice(Properties properties, boolean takeDamage, boolean isRepairable) {
+		super(properties, takeDamage, isRepairable);
 	}
 
 	@Override
@@ -48,14 +34,6 @@ public abstract class AbstractActivatableItem extends Item implements IActivatab
 		}
 
 		return InteractionResultHolder.success(stack);
-	}
-
-	public boolean isBroken(ItemStack stack) {
-		if(takeDamage) {
-			return ItemStackUtil.isBroken(stack);
-		}
-
-		return false;
 	}
 
 	public boolean isActivated(ItemStack stack) {

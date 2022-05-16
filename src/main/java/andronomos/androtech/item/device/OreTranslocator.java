@@ -1,5 +1,6 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.device;
 
+import andronomos.androtech.item.device.base.AbstractDevice;
 import andronomos.androtech.util.BlockUtil;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
@@ -7,7 +8,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -16,17 +16,13 @@ import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 
-public class OreTranslocator extends Item {
-	private static final int DURABILITY = 2304;
-	private int range = 20;
-
+public class OreTranslocator extends AbstractDevice {
 	public OreTranslocator(Properties properties) {
-		super(properties.durability(DURABILITY));
+		super(properties);
 	}
 
-	@Override
-	public int getMaxDamage(ItemStack stack) {
-		return DURABILITY;
+	public OreTranslocator(Properties properties, boolean takeDamage, boolean isRepairable) {
+		super(properties, takeDamage, isRepairable);
 	}
 
 	@Override
@@ -34,7 +30,7 @@ public class OreTranslocator extends Item {
 		ItemStack heldItem = player.getItemInHand(hand);
 
 		if(!level.isClientSide) {
-			if(ItemStackUtil.isBroken(heldItem)) {
+			if(isBroken(heldItem)) {
 				return InteractionResultHolder.pass(heldItem);
 			}
 
@@ -61,14 +57,5 @@ public class OreTranslocator extends Item {
 		}
 
 		return InteractionResultHolder.success(heldItem);
-	}
-
-	public AABB getWorkArea(BlockPos pos) {
-		double x = pos.getX();
-		double y = pos.getY();
-		double z = pos.getZ();
-
-		//minX minY minZ maxX maxY maxZ
-		return new AABB(x - range, y - range, z - range, x + range, y + range, z + range);
 	}
 }

@@ -19,6 +19,10 @@ public class NBTUtil {
         item.getOrCreateTag().putInt(prop, value);
     }
 
+    public static void setStringVal(ItemStack item, String prop, String value) {
+        item.getOrCreateTag().putString(prop, value);
+    }
+
     /* */
     public static CompoundTag getStackTag(ItemStack itemStackIn) {
         if(itemStackIn.getTag() == null) {

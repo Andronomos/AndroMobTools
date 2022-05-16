@@ -1,5 +1,6 @@
-package andronomos.androtech.item.activatableItem;
+package andronomos.androtech.item.device;
 
+import andronomos.androtech.item.device.base.AbstractTickingDevice;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -7,9 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class EffectEmitter extends AbstractActivatableItem {
-    public static final int EMITTER_DURABILITY = 720;
-
+public class EffectEmitter extends AbstractTickingDevice {
     private final MobEffect effect;
     private final int amplifier;
 
@@ -27,22 +26,26 @@ public class EffectEmitter extends AbstractActivatableItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
-        if(level.isClientSide || !(entity instanceof Player) || !isActivated(stack)) return;
+        if (level.isClientSide || !(entity instanceof Player) || !isActivated(stack)) return;
 
-        if(isBroken(stack)) {
-            deactivate(stack, (Player)entity);
-            return;
-        }
-
-        if(tickCounter == tickDelay) {
-            if(takeDamage) {
-                doDamage(stack, entity, 1,false);
+        if(takeDamage) {
+            if(isBroken(stack)) {
+                deactivate(stack, (Player)entity);
+                return;
             }
-
-            tickCounter = 0;
         }
 
-        tickCounter++;
+        giveEffectToPlayer(stack, (Player) entity);
+    }
+
+    private void giveEffectToPlayer(ItemStack stack, Player player) {
+        if (!player.hasEffect(this.effect)) {
+            //effect, duration, amplifier, ambient, showParticles
+            player.addEffect(new MobEffectInstance(this.effect, 6000, this.amplifier, false, false));
+            if(takeDamage) {
+                doDamage(stack, player, 1,false);
+            }
+        }
     }
 
     @Override

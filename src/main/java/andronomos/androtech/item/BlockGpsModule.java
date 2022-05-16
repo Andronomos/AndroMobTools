@@ -1,4 +1,4 @@
-package andronomos.androtech.item.module;
+package andronomos.androtech.item;
 
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;
@@ -68,13 +68,11 @@ public class BlockGpsModule extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level levelIn, List<Component> tooltip, TooltipFlag flagIn) {
         BlockPos pos = ItemStackUtil.getBlockPos(stack);
 
-        if(pos != null) {
-            tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_MODULE)).withStyle(ChatFormatting.GRAY));
-            String xCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_MODULE_X), pos.getX());
-            String yCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_MODULE_Y), pos.getY());
-            String zCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_MODULE_Z), pos.getZ());
-            String coords = String.format("%s %s %s", xCoord, yCoord, zCoord);
-            tooltip.add(new TextComponent(coords).withStyle(ChatFormatting.BLUE));
-        }
+        tooltip.add(new TextComponent(ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_MODULE)).withStyle(ChatFormatting.GRAY));
+        String xCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_MODULE_X), pos.getX());
+        String yCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_MODULE_Y), pos.getY());
+        String zCoord = String.format("%s%s", ChatUtil.createTranslation(TOOLTIP_BLOCK_GPS_MODULE_Z), pos.getZ());
+        String coords = String.format("%s %s %s", xCoord, yCoord, zCoord);
+        tooltip.add(new TextComponent(coords).withStyle(ChatFormatting.BLUE));
     }
 }

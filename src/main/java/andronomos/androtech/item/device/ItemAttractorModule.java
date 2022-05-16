@@ -1,6 +1,6 @@
-package andronomos.androtech.item.module;
+package andronomos.androtech.item.device;
 
-import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
+import andronomos.androtech.item.device.base.AbstractTickingDevice;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -11,8 +11,7 @@ import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 
-public class ItemAttractorModule extends AbstractActivatableItem {
-	public static final int ATTRACTOR_UNIT_DURABILITY = 1000;
+public class ItemAttractorModule extends AbstractTickingDevice {
 	private final int pickupRange = 10;
 
 	public ItemAttractorModule(Properties properties, boolean takeDamage, boolean isRepairable) {

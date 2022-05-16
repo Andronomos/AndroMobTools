@@ -1,9 +1,8 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
+import andronomos.androtech.item.device.base.AbstractToggleableDevice;
 import andronomos.androtech.util.ItemStackUtil;
-import andronomos.androtech.util.NBTUtil;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -40,8 +39,8 @@ public class ModPropertyOverrides {
 	private static boolean stackIsActivated(ItemStack stack) {
 		Item item = stack.getItem();
 
-		if(item instanceof AbstractActivatableItem) {
-			if(((AbstractActivatableItem)item).isActivated(stack)) {
+		if(item instanceof AbstractToggleableDevice) {
+			if(((AbstractToggleableDevice)item).isActivated(stack)) {
 				return true;
 			}
 		}

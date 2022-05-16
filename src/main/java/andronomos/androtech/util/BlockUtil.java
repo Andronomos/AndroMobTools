@@ -4,6 +4,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
@@ -53,6 +55,7 @@ public class BlockUtil {
 				crops.add(nearbyPos);
 			}
 		}
+
 		return crops;
 	}
 
@@ -80,5 +83,20 @@ public class BlockUtil {
 			return true;
 
 		return false;
+	}
+
+	public static List<BlockPos> getFluid(AABB scanArea, Level level, FlowingFluid fluid) {
+		List<BlockPos> fluidFound = new ArrayList<>();
+		List<BlockPos> nearbyFluid = getBlockPosInAABB(scanArea);
+
+		for (BlockPos pos : nearbyFluid) {
+			FluidState fluidState = level.getBlockState(pos).getFluidState();
+
+			if(fluidState != null && fluidState.getType() == fluid) {
+				fluidFound.add(pos);
+			}
+		}
+
+		return fluidFound;
 	}
 }

@@ -2,15 +2,16 @@ package andronomos.androtech.data.client;
 
 import andronomos.androtech.block.machine.*;
 import andronomos.androtech.block.pad.MobKillingPadBlock;
-import andronomos.androtech.item.module.BlockGpsModule;
+import andronomos.androtech.item.BlockGpsModule;
+import andronomos.androtech.item.device.FluidRemover;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
 import static andronomos.androtech.AndroTech.TAB_NAME;
-import static andronomos.androtech.item.module.MobCloningModule.TOOLTIP_MOB_CLONING_MODULE_HEALTH;
-import static andronomos.androtech.item.module.MobCloningModule.TOOLTIP_MOB_CLONING_MODULE_MOB;
+import static andronomos.androtech.item.MobCloningModule.TOOLTIP_MOB_CLONING_MODULE_HEALTH;
+import static andronomos.androtech.item.MobCloningModule.TOOLTIP_MOB_CLONING_MODULE_MOB;
 
 public class ModLanguageProvider extends LanguageProvider {
 
@@ -48,6 +49,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.POISON_NULLIFIER.get(), "Poison Nullifier");
 		add(ModItems.WITHER_NULLIFIER.get(), "Wither Nullifier");
 		add(ModItems.ORE_TRANSLOCATOR.get(), "Ore Translocator");
+		add(ModItems.FLUID_REMOVER.get(), "Fluid Remover");
+		add(FluidRemover.FLUID_REMOVER_MODE, "Mode: ");
 
 
 		/** Blocks **/

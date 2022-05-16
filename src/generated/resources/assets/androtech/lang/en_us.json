@@ -14,6 +14,8 @@
   "item.androtech.block_gps_module": "Block GPS Module",
   "item.androtech.block_gps_module.saved": "Saved Block Position ",
   "item.androtech.fire_resistance_emitter": "Fire Resistance Emitter",
+  "item.androtech.fluid_remover": "Fluid Remover",
+  "item.androtech.fluid_remover.mode": "Mode: ",
   "item.androtech.item_attractor_module": "Item Attractor Module",
   "item.androtech.item_repair_module": "Item Repair Module",
   "item.androtech.mob_cloning_module": "Mob Cloning Module",

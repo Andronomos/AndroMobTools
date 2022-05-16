@@ -2,14 +2,13 @@ package andronomos.androtech.block.entity;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.block.entity.base.AbstractTickingMachineBE;
-import andronomos.androtech.item.module.ItemRepairModule;
+import andronomos.androtech.item.device.ItemRepairModule;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;

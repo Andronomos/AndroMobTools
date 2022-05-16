@@ -1,6 +1,6 @@
-package andronomos.androtech.item.module;
+package andronomos.androtech.item.device;
 
-import andronomos.androtech.item.activatableItem.AbstractActivatableItem;
+import andronomos.androtech.item.device.base.AbstractTickingDevice;
 import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.PlayerUtil;
 import net.minecraft.core.NonNullList;
@@ -9,8 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class ItemRepairModule extends AbstractActivatableItem {
-    public static final int REPAIR_MODULE_DURABILITY = 1000;
+public class ItemRepairModule extends AbstractTickingDevice {
     public static final int REPAIR_MODULE_RATE = 10;
 
     public ItemRepairModule(Properties properties, boolean takeDamage, boolean isRepairable) {
