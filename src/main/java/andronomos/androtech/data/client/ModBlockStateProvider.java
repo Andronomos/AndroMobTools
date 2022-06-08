@@ -1,10 +1,10 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.machine.AndroTechMachine;
-import andronomos.androtech.block.machine.pad.PadBlock;
-import andronomos.androtech.block.machine.pad.PadEffectBlock;
-import andronomos.androtech.block.machine.pad.RotatablePadBlock;
+import andronomos.androtech.block.AndroTechMachine;
+import andronomos.androtech.block.pad.PadBlock;
+import andronomos.androtech.block.pad.PadEffectBlock;
+import andronomos.androtech.block.pad.RotatablePadBlock;
 import andronomos.androtech.registry.ModBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
