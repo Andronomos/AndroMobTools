@@ -1,12 +1,12 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.block.machine.ItemIncinerator.ItemIncineratorBE;
-import andronomos.androtech.block.machine.cropfarmer.CropFarmerBE;
-import andronomos.androtech.block.machine.itemattractor.ItemAttractorBE;
-import andronomos.androtech.block.machine.itemmender.ItemMenderBE;
-import andronomos.androtech.block.machine.mobcloner.MobClonerBE;
-import andronomos.androtech.block.machine.pad.mobkillingpad.MobKillingPadBE;
-import andronomos.androtech.block.machine.redstonetransmitter.RedstoneTransmitterBE;
+import andronomos.androtech.block.ItemIncinerator.ItemIncineratorBE;
+import andronomos.androtech.block.cropfarmer.CropFarmerBE;
+import andronomos.androtech.block.itemattractor.ItemAttractorBE;
+import andronomos.androtech.block.itemmender.ItemMenderBE;
+import andronomos.androtech.block.mobcloner.MobClonerBE;
+import andronomos.androtech.block.pad.mobkillingpad.MobKillingPadBE;
+import andronomos.androtech.block.redstonetransmitter.RedstoneTransmitterBE;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

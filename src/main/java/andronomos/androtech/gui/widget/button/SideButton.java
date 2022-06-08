@@ -1,7 +1,6 @@
 package andronomos.androtech.gui.widget.button;
 
 import andronomos.androtech.registry.TextureRegistry;
-import andronomos.androtech.block.machine.MachineScreen;
 import andronomos.androtech.gui.TextureEnum;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

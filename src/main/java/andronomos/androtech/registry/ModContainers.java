@@ -1,12 +1,12 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.block.machine.ItemIncinerator.ItemIncineratorContainer;
-import andronomos.androtech.block.machine.cropfarmer.CropFarmerContainer;
-import andronomos.androtech.block.machine.itemattractor.ItemAttractorContainer;
-import andronomos.androtech.block.machine.itemmender.ItemMenderContainer;
-import andronomos.androtech.block.machine.mobcloner.MobClonerContainer;
-import andronomos.androtech.block.machine.pad.mobkillingpad.MobKillingPadContainer;
-import andronomos.androtech.block.machine.redstonetransmitter.RedstoneTransmitterContainer;
+import andronomos.androtech.block.ItemIncinerator.ItemIncineratorContainer;
+import andronomos.androtech.block.cropfarmer.CropFarmerContainer;
+import andronomos.androtech.block.itemattractor.ItemAttractorContainer;
+import andronomos.androtech.block.itemmender.ItemMenderContainer;
+import andronomos.androtech.block.mobcloner.MobClonerContainer;
+import andronomos.androtech.block.pad.mobkillingpad.MobKillingPadContainer;
+import andronomos.androtech.block.redstonetransmitter.RedstoneTransmitterContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;

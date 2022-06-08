@@ -1,6 +1,6 @@
 package andronomos.androtech.network.packet;
 
-import andronomos.androtech.block.machine.redstonetransmitter.RedstoneTransmitterBE;
+import andronomos.androtech.block.redstonetransmitter.RedstoneTransmitterBE;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;

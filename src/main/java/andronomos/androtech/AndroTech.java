@@ -1,12 +1,12 @@
 package andronomos.androtech;
 
-import andronomos.androtech.block.machine.ItemIncinerator.ItemIncineratorScreen;
-import andronomos.androtech.block.machine.cropfarmer.CropFarmerScreen;
-import andronomos.androtech.block.machine.itemattractor.ItemAttractorScreen;
-import andronomos.androtech.block.machine.itemmender.ItemMenderScreen;
-import andronomos.androtech.block.machine.mobcloner.MobClonerScreen;
-import andronomos.androtech.block.machine.pad.mobkillingpad.MobKillingPadScreen;
-import andronomos.androtech.block.machine.redstonetransmitter.RedstoneTransmitterScreen;
+import andronomos.androtech.block.ItemIncinerator.ItemIncineratorScreen;
+import andronomos.androtech.block.cropfarmer.CropFarmerScreen;
+import andronomos.androtech.block.itemattractor.ItemAttractorScreen;
+import andronomos.androtech.block.itemmender.ItemMenderScreen;
+import andronomos.androtech.block.mobcloner.MobClonerScreen;
+import andronomos.androtech.block.pad.mobkillingpad.MobKillingPadScreen;
+import andronomos.androtech.block.redstonetransmitter.RedstoneTransmitterScreen;
 import andronomos.androtech.event.SpawnerEventHandler;
 import andronomos.androtech.event.TeleportInhibitorEvent;
 import andronomos.androtech.network.AndroTechPacketHandler;

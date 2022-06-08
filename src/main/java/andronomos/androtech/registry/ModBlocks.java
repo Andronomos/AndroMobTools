@@ -1,16 +1,16 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.block.machine.ItemIncinerator.ItemIncinerator;
-import andronomos.androtech.block.machine.cropfarmer.CropFarmer;
-import andronomos.androtech.block.machine.itemattractor.ItemAttractor;
-import andronomos.androtech.block.machine.itemmender.ItemMender;
-import andronomos.androtech.block.machine.mobcloner.MobCloner;
-import andronomos.androtech.block.machine.pad.PadEffectBlock;
-import andronomos.androtech.block.machine.pad.padeffect.PadEffect;
-import andronomos.androtech.block.machine.pad.padeffect.PadEffects;
-import andronomos.androtech.block.machine.pad.mobkillingpad.MobKillingPadBlock;
-import andronomos.androtech.block.machine.redstonereceiver.RedstoneReceiver;
-import andronomos.androtech.block.machine.redstonetransmitter.RedstoneTransmitter;
+import andronomos.androtech.block.ItemIncinerator.ItemIncinerator;
+import andronomos.androtech.block.cropfarmer.CropFarmer;
+import andronomos.androtech.block.itemattractor.ItemAttractor;
+import andronomos.androtech.block.itemmender.ItemMender;
+import andronomos.androtech.block.mobcloner.MobCloner;
+import andronomos.androtech.block.pad.PadEffectBlock;
+import andronomos.androtech.block.pad.padeffect.PadEffect;
+import andronomos.androtech.block.pad.padeffect.PadEffects;
+import andronomos.androtech.block.pad.mobkillingpad.MobKillingPadBlock;
+import andronomos.androtech.block.redstonereceiver.RedstoneReceiver;
+import andronomos.androtech.block.redstonetransmitter.RedstoneTransmitter;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

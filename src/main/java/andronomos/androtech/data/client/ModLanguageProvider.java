@@ -1,11 +1,11 @@
 package andronomos.androtech.data.client;
 
-import andronomos.androtech.block.machine.ItemIncinerator.ItemIncinerator;
-import andronomos.androtech.block.machine.cropfarmer.CropFarmer;
-import andronomos.androtech.block.machine.itemattractor.ItemAttractor;
-import andronomos.androtech.block.machine.itemmender.ItemMender;
-import andronomos.androtech.block.machine.pad.mobkillingpad.MobKillingPadBlock;
-import andronomos.androtech.block.machine.redstonetransmitter.RedstoneTransmitter;
+import andronomos.androtech.block.ItemIncinerator.ItemIncinerator;
+import andronomos.androtech.block.cropfarmer.CropFarmer;
+import andronomos.androtech.block.itemattractor.ItemAttractor;
+import andronomos.androtech.block.itemmender.ItemMender;
+import andronomos.androtech.block.pad.mobkillingpad.MobKillingPadBlock;
+import andronomos.androtech.block.redstonetransmitter.RedstoneTransmitter;
 import andronomos.androtech.item.BlockGpsRecorder;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;
