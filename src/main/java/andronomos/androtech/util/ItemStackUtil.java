@@ -96,6 +96,10 @@ public class ItemStackUtil {
         int yPos = tag.getInt("ypos");
         int zPos = tag.getInt("zpos");
 
+        if(xPos == 0 && yPos == 0 && zPos == 0) {
+            return null;
+        }
+
         return new BlockPos(xPos, yPos, zPos);
     }
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "androtech:block/machine_bottom",
-    "up": "androtech:block/mob_cloner_top",
+    "up": "androtech:block/machine_top",
     "north": "androtech:block/mob_cloner_side",
     "south": "androtech:block/mob_cloner_side",
     "east": "androtech:block/mob_cloner_side",

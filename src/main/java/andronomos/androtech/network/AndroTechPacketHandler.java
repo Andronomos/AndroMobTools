@@ -1,6 +1,7 @@
 package andronomos.androtech.network;
 
-//import andronomos.androtech.network.packet.SyncSpawnerDnaUnitDrop;
+import andronomos.androtech.network.packet.SyncMachinePoweredState;
+import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -18,11 +19,17 @@ public class AndroTechPacketHandler {
 	public static void register() {
 		int messageId = 0;
 
-		//INSTANCE.registerMessage(messageId++,
-		//		SyncSpawnerDnaUnitDrop.class,
-		//		SyncSpawnerDnaUnitDrop::encode,
-		//		SyncSpawnerDnaUnitDrop::decode,
-		//		SyncSpawnerDnaUnitDrop::handle);
+		INSTANCE.registerMessage(messageId++,
+				SyncMachinePoweredState.class,
+				SyncMachinePoweredState::encode,
+				SyncMachinePoweredState::decode,
+				SyncMachinePoweredState::handle);
+
+		INSTANCE.registerMessage(messageId++,
+				SyncRedstoneTransmitterState.class,
+				SyncRedstoneTransmitterState::encode,
+				SyncRedstoneTransmitterState::decode,
+				SyncRedstoneTransmitterState::handle);
 	}
 
 }

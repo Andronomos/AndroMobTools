@@ -13,13 +13,13 @@
       "item": "minecraft:iron_ingot"
     },
     "3": {
-      "item": "minecraft:observer"
+      "item": "minecraft:redstone_block"
     },
     "4": {
       "item": "minecraft:ender_pearl"
     },
     "5": {
-      "item": "minecraft:redstone_block"
+      "item": "minecraft:observer"
     }
   },
   "result": {

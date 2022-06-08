@@ -1,11 +1,16 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.block.*;
-import andronomos.androtech.block.machine.*;
-import andronomos.androtech.block.pad.MobKillingPadBlock;
-import andronomos.androtech.block.pad.emiiter.EmitterPadBlock;
-import andronomos.androtech.block.pad.emiiter.effect.PadEffect;
-import andronomos.androtech.block.pad.emiiter.effect.PadEffects;
+import andronomos.androtech.block.machine.ItemIncinerator.ItemIncinerator;
+import andronomos.androtech.block.machine.cropfarmer.CropFarmer;
+import andronomos.androtech.block.machine.itemattractor.ItemAttractor;
+import andronomos.androtech.block.machine.itemmender.ItemMender;
+import andronomos.androtech.block.machine.mobcloner.MobCloner;
+import andronomos.androtech.block.machine.pad.PadEffectBlock;
+import andronomos.androtech.block.machine.pad.padeffect.PadEffect;
+import andronomos.androtech.block.machine.pad.padeffect.PadEffects;
+import andronomos.androtech.block.machine.pad.mobkillingpad.MobKillingPadBlock;
+import andronomos.androtech.block.machine.redstonereceiver.RedstoneReceiver;
+import andronomos.androtech.block.machine.redstonetransmitter.RedstoneTransmitter;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -29,22 +34,20 @@ public class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, andronomos.androtech.AndroTech.MOD_ID);
 
-
-    public static final RegistryObject<Block> CROP_FARMER = registerBlock("crop_farmer", () -> new CropFarmer(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
-    public static final RegistryObject<Block> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncinerator(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
-    public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractor(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> MOB_CLONER = registerBlock("mob_cloner", () -> new MobCloner(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
-    public static final RegistryObject<Block> REDSTONE_TRANSMITTER = registerBlock("redstone_transmitter", () -> new RedstoneTransmitterBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
-    public static final RegistryObject<Block> REDSTONE_RECEIVER = registerBlock("redstone_receiver", () -> new RedstoneReceiverBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
-    public static final RegistryObject<Block> MENDING_STATION = registerBlock("mending_station", () -> new MendingStation(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractor(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncinerator(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> CROP_FARMER = registerBlock("crop_farmer", () -> new CropFarmer(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> ITEM_MENDER = registerBlock("item_mender", () -> new ItemMender(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> MOB_KILLING_PAD = registerBlock("mob_killing_pad", () -> new MobKillingPadBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, false);
     public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, false);
-    //public static final RegistryObject<Block> WIRELESS_LIGHT = registerBlock("wireless_light", () -> new WirelessLightBlock(MACHINE_PROPERTIES), ModItems.DEBUG_PROPERTIES);
-    //public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block", () -> new TestBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> REDSTONE_TRANSMITTER = registerBlock("redstone_transmitter", () -> new RedstoneTransmitter(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> REDSTONE_RECEIVER = registerBlock("redstone_receiver", () -> new RedstoneReceiver(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+
 
     private static <T extends Block> RegistryObject<Block> registerPad(String name, PadEffect effect, boolean shouledAffectPlayer) {
-        return registerBlock(name, () -> new EmitterPadBlock(MACHINE_PROPERTIES.noOcclusion(), effect, shouledAffectPlayer), ModItems.GetBaseProperties());
+        return registerBlock(name, () -> new PadEffectBlock(MACHINE_PROPERTIES.noOcclusion(), effect, shouledAffectPlayer), ModItems.GetBaseProperties());
     }
 
     private static <BLOCK extends Block> RegistryObject<BLOCK> registerBlock(final String name, final Supplier<BLOCK> blockFactory, Item.Properties properties) {

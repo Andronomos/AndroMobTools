@@ -15,6 +15,7 @@ import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraftforge.registries.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,17 +35,10 @@ public class ModLootTableProvider extends LootTableProvider {
         this.generator = generator;
     }
 
-     private void addTables() {
-        lootTables.put(ModBlocks.CROP_FARMER.get(), createSimpleTable("crop_harvester", ModBlocks.CROP_FARMER.get()));
-        lootTables.put(ModBlocks.MOB_CLONER.get(), createSimpleTable("mob_cloner", ModBlocks.MOB_CLONER.get()));
-        lootTables.put(ModBlocks.ITEM_ATTRACTOR.get(), createSimpleTable("item_attractor", ModBlocks.ITEM_ATTRACTOR.get()));
-        lootTables.put(ModBlocks.ITEM_INCINERATOR.get(), createSimpleTable("item_incinerator", ModBlocks.ITEM_INCINERATOR.get()));
-        lootTables.put(ModBlocks.REDSTONE_RECEIVER.get(), createSimpleTable("redstone_receiver", ModBlocks.REDSTONE_RECEIVER.get()));
-        lootTables.put(ModBlocks.REDSTONE_TRANSMITTER.get(), createSimpleTable("redstone_transmitter", ModBlocks.REDSTONE_TRANSMITTER.get()));
-        lootTables.put(ModBlocks.MOB_KILLING_PAD.get(), createSimpleTable("mob_killing_pad", ModBlocks.MOB_KILLING_PAD.get()));
-        lootTables.put(ModBlocks.WEAK_ACCELERATION_PAD.get(), createSimpleTable("weak_acceleration_pad", ModBlocks.WEAK_ACCELERATION_PAD.get()));
-        lootTables.put(ModBlocks.STRONG_ACCELERATION_PAD.get(), createSimpleTable("strong_acceleration_pad", ModBlocks.STRONG_ACCELERATION_PAD.get()));
-        //lootTables.put(ModBlocks.WIRELESS_LIGHT.get(), createSimpleTable("wireless_light", ModBlocks.WIRELESS_LIGHT.get()));
+    private void addTables() {
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
+            lootTables.put(b, createSimpleTable(b.getRegistryName().getPath(), b));
+        });
     }
 
     protected LootTable.Builder createSimpleTable(String name, Block block) {

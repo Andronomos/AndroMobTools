@@ -19,7 +19,7 @@
       "item": "minecraft:chest"
     },
     "5": {
-      "item": "androtech:item_attractor_module"
+      "item": "androtech:portable_item_attractor"
     },
     "6": {
       "item": "minecraft:water_bucket"

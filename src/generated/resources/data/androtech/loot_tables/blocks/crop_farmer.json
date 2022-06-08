@@ -2,7 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "crop_harvester",
+      "name": "crop_farmer",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [

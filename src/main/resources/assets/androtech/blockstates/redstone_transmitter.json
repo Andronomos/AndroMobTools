@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "powered=true":  { "model": "androtech:block/redstone_transmitter_on" },
-    "powered=false": { "model": "androtech:block/redstone_transmitter_off" }
-  }
-}

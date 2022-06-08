@@ -1,14 +1,14 @@
 package andronomos.androtech.event;
 
-import andronomos.androtech.block.machine.MobCloner;
+import andronomos.androtech.block.machine.mobcloner.MobCloner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.event.entity.EntityTeleportEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.event.entity.EntityTeleportEvent;
 
 @Mod.EventBusSubscriber
 public class TeleportInhibitorEvent {

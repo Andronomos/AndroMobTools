@@ -4,7 +4,10 @@ import andronomos.androtech.registry.ModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
     public ModBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
@@ -13,20 +16,18 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
-        tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.CROP_FARMER.get())
-                .add(ModBlocks.MOB_CLONER.get())
-                .add(ModBlocks.ITEM_ATTRACTOR.get())
-                .add(ModBlocks.ITEM_INCINERATOR.get())
-                .add(ModBlocks.MOB_KILLING_PAD.get())
-                .add(ModBlocks.WEAK_ACCELERATION_PAD.get())
-                .add(ModBlocks.STRONG_ACCELERATION_PAD.get())
-                .add(ModBlocks.ITEM_ATTRACTOR.get())
-                .add(ModBlocks.REDSTONE_RECEIVER.get())
-                .add(ModBlocks.REDSTONE_TRANSMITTER.get());
+        ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
+            tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                    .add(b);
 
-        //tag(BlockTags.NEEDS_DIAMOND_TOOL)
-        //        .add(ModBlocks.ADVANCED_SPAWNER.get());
+            if(b instanceof WallBlock wall) {
+                tag(BlockTags.WALLS).add(wall);
+            }
+
+            if(b instanceof FenceBlock fence) {
+                tag(BlockTags.FENCES).add(fence);
+            }
+        });
     }
 
     @Override
