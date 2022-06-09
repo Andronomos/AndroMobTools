@@ -6,6 +6,7 @@ public class Const {
     public static final int SCREEN_SLOT_X_OFFSET = 7;
     public static final int SCREEN_SLOT_SIZE = 18;
     public static final int SCREEN_SLOT_LARGE_SIZE = 26;
+    public static final int INVENTORY_LARGE_IMAGE_HEIGHT = 222;
 
     public static final int CONTAINER_AUGMENT_FIRST_SLOT_X = 187;
     public static final int CONTAINER_AUGMENT_FIRST_SLOT_Y = 6;
