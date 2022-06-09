@@ -21,9 +21,6 @@ public class CropFarmerContainer extends BaseContainerMenu {
 	public CropFarmerContainer(int windowId, BlockPos pos, Inventory inventory) {
 		super(ModContainers.CROP_FARMER.get(), windowId, inventory);
 
-		this.inventory = inventory;
-		this.player = inventory.player;
-
 		blockEntity = this.player.getCommandSenderWorld().getBlockEntity(pos);
 
 		if(blockEntity != null) {
@@ -40,7 +37,7 @@ public class CropFarmerContainer extends BaseContainerMenu {
 	}
 
 	@Override
-	public boolean stillValid(Player p_38874_) {
+	public boolean stillValid(Player player) {
 		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, ModBlocks.CROP_FARMER.get());
 	}
 
