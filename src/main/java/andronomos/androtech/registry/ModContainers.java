@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.block.ItemIncinerator.ItemIncineratorContainer;
+import andronomos.androtech.block.animalfarmer.AnimalFarmerContainer;
 import andronomos.androtech.block.cropfarmer.CropFarmerContainer;
 import andronomos.androtech.block.itemattractor.ItemAttractorContainer;
 import andronomos.androtech.block.itemmender.ItemMenderContainer;
@@ -52,4 +53,8 @@ public class ModContainers {
         return new RedstoneTransmitterContainer(windowId, pos, inv);
     }));
 
+    public static final RegistryObject<MenuType<AnimalFarmerContainer>> ANIMAL_FARMER = CONTAINERS.register("animal_farmer", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        return new AnimalFarmerContainer(windowId, pos, inv);
+    }));
 }

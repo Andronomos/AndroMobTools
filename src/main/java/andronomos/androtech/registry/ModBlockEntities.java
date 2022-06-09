@@ -42,4 +42,8 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<RedstoneTransmitterBE>> REDSTONE_TRANSMITTER = BLOCK_ENTITIES.register("redstone_transmitter_be", () -> BlockEntityType.Builder
             .of(RedstoneTransmitterBE::new, ModBlocks.REDSTONE_TRANSMITTER.get())
             .build(null));
+
+    public static final RegistryObject<BlockEntityType<RedstoneTransmitterBE>> ANIMAL_FARMER = BLOCK_ENTITIES.register("animal_farmer_be", () -> BlockEntityType.Builder
+            .of(RedstoneTransmitterBE::new, ModBlocks.ANIMAL_FARMER.get())
+            .build(null));
 }

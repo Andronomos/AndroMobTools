@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.block.ItemIncinerator.ItemIncinerator;
+import andronomos.androtech.block.animalfarmer.AnimalFarmer;
 import andronomos.androtech.block.cropfarmer.CropFarmer;
 import andronomos.androtech.block.itemattractor.ItemAttractor;
 import andronomos.androtech.block.itemmender.ItemMender;
@@ -37,6 +38,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> MOB_CLONER = registerBlock("mob_cloner", () -> new MobCloner(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractor(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncinerator(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> ANIMAL_FARMER = registerBlock("animal_farmer", () -> new AnimalFarmer(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> CROP_FARMER = registerBlock("crop_farmer", () -> new CropFarmer(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> ITEM_MENDER = registerBlock("item_mender", () -> new ItemMender(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> MOB_KILLING_PAD = registerBlock("mob_killing_pad", () -> new MobKillingPadBlock(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
