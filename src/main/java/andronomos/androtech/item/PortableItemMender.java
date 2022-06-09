@@ -13,12 +13,13 @@ import net.minecraft.world.level.Level;
 public class PortableItemMender extends TickingDevice {
     public static final int REPAIR_MODULE_RATE = 10;
 
-    public PortableItemMender(Item.Properties properties, boolean takeDamage, boolean isRepairable) {
+    public PortableItemMender(Item.Properties properties, boolean takeDamage) {
         super(properties, takeDamage);
+        durability = 10000;
     }
 
     public PortableItemMender(Item.Properties properties) {
-        super(properties, false);
+        super(properties, true);
     }
 
     @Override

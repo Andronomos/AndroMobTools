@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class TickingDevice extends ToggleableDevice {
-	public static final int DURABILITY = 1000;
+	public static int durability = 1000;
 	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
 	public int tickCounter = 0;
 
@@ -22,7 +22,7 @@ public class TickingDevice extends ToggleableDevice {
 
 	@Override
 	public int getMaxDamage(ItemStack stack) {
-		return DURABILITY;
+		return durability;
 	}
 
 	@Override
