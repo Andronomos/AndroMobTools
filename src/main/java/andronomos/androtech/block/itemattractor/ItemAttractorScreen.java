@@ -16,7 +16,6 @@ public class ItemAttractorScreen extends MachineScreen<ItemAttractorContainer> {
 	public ItemAttractorScreen(ItemAttractorContainer container, Inventory inventory, Component component) {
 		super(container, inventory, component);
 		this.imageHeight = 222;
-		//this.height = 114 + 6 * 18;
 		this.container = container;
 	}
 
