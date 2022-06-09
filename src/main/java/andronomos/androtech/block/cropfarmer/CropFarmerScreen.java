@@ -1,5 +1,6 @@
 package andronomos.androtech.block.cropfarmer;
 
+import andronomos.androtech.Const;
 import andronomos.androtech.block.MachineScreen;
 import andronomos.androtech.gui.widget.button.machinebutton.PowerButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
@@ -16,7 +17,7 @@ public class CropFarmerScreen extends MachineScreen<CropFarmerContainer> {
 	public CropFarmerScreen(CropFarmerContainer container, Inventory inventory, Component component) {
 		super(container, inventory, component);
 		this.container = container;
-		this.imageHeight = 222;
+		this.imageHeight = Const.INVENTORY_LARGE_IMAGE_HEIGHT;
 	}
 
 	@Override
