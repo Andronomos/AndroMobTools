@@ -6,7 +6,6 @@ import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
 import andronomos.androtech.registry.TextureRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
