@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public abstract class TickingBE extends BaseContainerBE implements TickingBlockEntity {
+public abstract class TickingBE extends BaseContainerBE {
 	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
 	public int tickCounter = 0;
 
@@ -25,7 +25,6 @@ public abstract class TickingBE extends BaseContainerBE implements TickingBlockE
 		return false;
 	}
 
-	@Override
 	public boolean shouldTick() {
 		if (tickCounter < tickDelay) {
 			tickCounter++;
