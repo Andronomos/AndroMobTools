@@ -2,7 +2,6 @@ package andronomos.androtech.block.animalfarmer;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.block.BaseContainerMenu;
-import andronomos.androtech.block.cropfarmer.CropFarmerBE;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
 import net.minecraft.core.BlockPos;
