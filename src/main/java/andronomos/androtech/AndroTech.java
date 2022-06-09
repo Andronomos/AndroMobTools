@@ -1,6 +1,7 @@
 package andronomos.androtech;
 
 import andronomos.androtech.block.ItemIncinerator.ItemIncineratorScreen;
+import andronomos.androtech.block.animalfarmer.AnimalFarmerScreen;
 import andronomos.androtech.block.cropfarmer.CropFarmerScreen;
 import andronomos.androtech.block.itemattractor.ItemAttractorScreen;
 import andronomos.androtech.block.itemmender.ItemMenderScreen;
@@ -51,6 +52,7 @@ public class AndroTech {
 			MenuScreens.register(ModContainers.ITEM_ATTRACTOR.get(), ItemAttractorScreen::new);
 			MenuScreens.register(ModContainers.ITEM_INCINERATOR.get(), ItemIncineratorScreen::new);
 			MenuScreens.register(ModContainers.CROP_FARMER.get(), CropFarmerScreen::new);
+			MenuScreens.register(ModContainers.ANIMAL_FARMER.get(), AnimalFarmerScreen::new);
 			MenuScreens.register(ModContainers.ITEM_MENDER.get(), ItemMenderScreen::new);
 			MenuScreens.register(ModContainers.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);
 			MenuScreens.register(ModContainers.REDSTONE_TRANSMITTER.get(), RedstoneTransmitterScreen::new);
