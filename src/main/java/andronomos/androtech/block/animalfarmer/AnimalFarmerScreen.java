@@ -1,7 +1,11 @@
 package andronomos.androtech.block.animalfarmer;
 
+import andronomos.androtech.Const;
 import andronomos.androtech.block.MachineScreen;
 import andronomos.androtech.gui.widget.button.machinebutton.PowerButton;
+import andronomos.androtech.network.AndroTechPacketHandler;
+import andronomos.androtech.network.packet.SyncMachinePoweredState;
+import andronomos.androtech.registry.TextureRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,11 +17,27 @@ public class AnimalFarmerScreen extends MachineScreen<AnimalFarmerContainer> {
 	public AnimalFarmerScreen(AnimalFarmerContainer container, Inventory inventory, Component component) {
 		super(container, inventory, component);
 		this.container = container;
-		this.imageHeight = 222;
+		this.imageHeight = Const.INVENTORY_LARGE_IMAGE_HEIGHT;
 	}
 
 	@Override
-	protected void renderBg(PoseStack p_97787_, float p_97788_, int p_97789_, int p_97790_) {
+	protected void init() {
+		super.init();
 
+		powerButton = (PowerButton) this.addButton(new PowerButton((button) -> {
+			AndroTechPacketHandler.INSTANCE.sendToServer(new SyncMachinePoweredState(container.blockEntity.getBlockPos()));
+		}, container.blockEntity));
+	}
+
+	@Override
+	public void render(PoseStack stack, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(stack);
+		super.render(stack, mouseX, mouseY, partialTicks);
+		this.renderTooltip(stack, mouseX, mouseY);
+	}
+
+	@Override
+	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
+		drawBackground(stack, TextureRegistry.INVENTORY_LARGE_PLAIN);
 	}
 }
