@@ -26,8 +26,7 @@ public class ItemAttractorScreen extends MachineScreen<ItemAttractorContainer> {
 		super.init();
 
 		powerButton = (PowerButton) this.addButton(new PowerButton((button) -> {
-			BlockPos pos = container.blockEntity.getBlockPos();
-			AndroTechPacketHandler.INSTANCE.sendToServer(new SyncMachinePoweredState(pos));
+			AndroTechPacketHandler.INSTANCE.sendToServer(new SyncMachinePoweredState(container.blockEntity.getBlockPos()));
 		}, container.blockEntity));
 	}
 
