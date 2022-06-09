@@ -1,6 +1,7 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.block.ItemIncinerator.ItemIncinerator;
+import andronomos.androtech.block.animalfarmer.AnimalFarmer;
 import andronomos.androtech.block.cropfarmer.CropFarmer;
 import andronomos.androtech.block.itemattractor.ItemAttractor;
 import andronomos.androtech.block.itemmender.ItemMender;
@@ -61,6 +62,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(MobKillingPadBlock.SCREEN_MOB_KILLING_PAD, "Mob Killing Pad");
 		add(ItemIncinerator.SCREEN_ITEM_INCINERATOR, "Item Incinerator");
 		add(ItemAttractor.SCREEN_ITEM_ATTRACTOR, "Item Attractor");
+		add(AnimalFarmer.SCREEN_ANIMAL_FARMER, "Animal Farmer");
 
 		add("gui.androtech.powered_on", "Powered On");
 		add("gui.androtech.powered_off", "Powered Off");
