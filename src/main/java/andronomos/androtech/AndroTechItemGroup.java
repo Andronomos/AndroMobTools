@@ -1,8 +1,8 @@
 package andronomos.androtech;
 
+import andronomos.androtech.registry.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Blocks;
 
 public class AndroTechItemGroup extends CreativeModeTab
 {
@@ -13,8 +13,7 @@ public class AndroTechItemGroup extends CreativeModeTab
     @Override
     public ItemStack makeIcon() {
         return new ItemStack(
-                //ModBlocks.CROP_FARMER.get()
-                Blocks.COMMAND_BLOCK
+                ModItems.NANITE_ENHANCED_PICKAXE.get()
         );
     }
 }
