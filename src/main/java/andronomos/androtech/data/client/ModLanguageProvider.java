@@ -36,12 +36,9 @@ public class ModLanguageProvider extends LanguageProvider {
 			add(b, name);
 		});
 
-		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
-		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
 		add(ModItems.MOB_CLONING_MODULE.get(), "Mob Cloning Module");
 		add(TOOLTIP_MOB_CLONING_MODULE_MOB, "Mob: ");
 		add(TOOLTIP_MOB_CLONING_MODULE_HEALTH, "Health: ");
-		add(ItemAttractor.SCREEN_ITEM_ATTRACTOR, "Item Attractor");
 		add(ModItems.BLOCK_GPS_RECORDER.get(), "Block GPS Recorder");
 		add(BlockGpsRecorder.TOOLTIP_BLOCK_GPS_MODULE, "Location");
 		add(BlockGpsRecorder.TOOLTIP_BLOCK_GPS_MODULE_X, "X: ");
@@ -52,14 +49,19 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
 		add(ModItems.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Shovel");
 		add(ModItems.NANITE_ENHANCED_SWORD.get(), "Nanite Enhanced Sword");
-		add(ItemIncinerator.SCREEN_ITEM_INCINERATOR, "Item Incinerator");
+		add(ModItems.PORTABLE_ITEM_ATTRACTOR.get(), "Portable Item Attractor");
+		add(ModItems.PORTABLE_ITEM_MENDER.get(), "Portable Item Mender");
+		add(ModItems.BASIC_CHIP.get(), "Basic Chip");
+		add(ModItems.ADVANCED_CHIP.get(), "Advanced Chip");
+
+		add(RedstoneTransmitter.SCREEN_REDSTONE_TRANSMITTER, "Redstone Transmitter");
+		add(MobCloner.SCREEN_MOB_CLONER, "Mob Cloner");
 		add(CropFarmer.SCREEN_CROP_FARMER, "Crop Farmer");
 		add(ItemMender.SCREEN_ITEM_MENDER, "Item Mender");
 		add(MobKillingPadBlock.SCREEN_MOB_KILLING_PAD, "Mob Killing Pad");
-		add(ModItems.PORTABLE_ITEM_ATTRACTOR.get(), "Portable Item Attractor");
-		add(ModItems.PORTABLE_ITEM_MENDER.get(), "Portable Item Mender");
-		add(RedstoneTransmitter.SCREEN_REDSTONE_TRANSMITTER, "Redstone Transmitter");
-		add(MobCloner.SCREEN_MOB_CLONER, "Mob Cloner");
+		add(ItemIncinerator.SCREEN_ITEM_INCINERATOR, "Item Incinerator");
+		add(ItemAttractor.SCREEN_ITEM_ATTRACTOR, "Item Attractor");
+
 		add("gui.androtech.powered_on", "Powered On");
 		add("gui.androtech.powered_off", "Powered Off");
 	}
