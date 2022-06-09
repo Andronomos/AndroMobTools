@@ -2,6 +2,7 @@ package andronomos.androtech.block.cropfarmer;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.block.BaseContainerMenu;
+import andronomos.androtech.block.animalfarmer.AnimalFarmerBE;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
 import net.minecraft.core.BlockPos;
@@ -15,7 +16,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class CropFarmerContainer extends BaseContainerMenu {
-	public final CropFarmerBE blockEntity;
+	public final BlockEntity blockEntity;
 
 	public CropFarmerContainer(int windowId, BlockPos pos, Inventory inventory) {
 		super(ModContainers.CROP_FARMER.get(), windowId, inventory);
@@ -23,14 +24,7 @@ public class CropFarmerContainer extends BaseContainerMenu {
 		this.inventory = inventory;
 		this.player = inventory.player;
 
-		BlockEntity be = this.player.getCommandSenderWorld().getBlockEntity(pos);
-
-		if(!(be instanceof CropFarmerBE)) {
-			blockEntity = null;
-			return;
-		}
-
-		blockEntity = (CropFarmerBE) be;
+		blockEntity = this.player.getCommandSenderWorld().getBlockEntity(pos);
 
 		if(blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
