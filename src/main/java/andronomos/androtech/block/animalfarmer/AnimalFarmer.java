@@ -9,6 +9,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 public class AnimalFarmer  extends AndroTechTickingMachine {
+	public static final String SCREEN_ANIMAL_FARMER = "screen.androtech.animal_farmer";
+
 	public AnimalFarmer(Properties properties) {
 		super(properties);
 	}
