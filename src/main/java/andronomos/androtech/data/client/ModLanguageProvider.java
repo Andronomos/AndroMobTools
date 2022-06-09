@@ -4,6 +4,7 @@ import andronomos.androtech.block.ItemIncinerator.ItemIncinerator;
 import andronomos.androtech.block.cropfarmer.CropFarmer;
 import andronomos.androtech.block.itemattractor.ItemAttractor;
 import andronomos.androtech.block.itemmender.ItemMender;
+import andronomos.androtech.block.mobcloner.MobCloner;
 import andronomos.androtech.block.pad.mobkillingpad.MobKillingPadBlock;
 import andronomos.androtech.block.redstonetransmitter.RedstoneTransmitter;
 import andronomos.androtech.item.BlockGpsRecorder;
@@ -58,6 +59,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ModItems.PORTABLE_ITEM_ATTRACTOR.get(), "Portable Item Attractor");
 		add(ModItems.PORTABLE_ITEM_MENDER.get(), "Portable Item Mender");
 		add(RedstoneTransmitter.SCREEN_REDSTONE_TRANSMITTER, "Redstone Transmitter");
+		add(MobCloner.SCREEN_MOB_CLONER, "Mob Cloner");
 		add("gui.androtech.powered_on", "Powered On");
 		add("gui.androtech.powered_off", "Powered Off");
 	}
