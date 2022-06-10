@@ -27,7 +27,7 @@ public class RedstoneTransmitterContainer extends BaseContainerMenu {
 		if (blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
 				for(int s = 0; s < RedstoneTransmitterBE.TRANSMITTER_SLOTS; s++) {
-					addSlot(new SlotItemHandler(h, s, Const.CONTAINER_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * s, 27));
+					addSlot(new SlotItemHandler(h, s, Const.CONTAINER_GENERIC_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * s, 27));
 				}
 			});
 		}

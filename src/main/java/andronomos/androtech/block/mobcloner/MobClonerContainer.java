@@ -26,7 +26,7 @@ public class MobClonerContainer extends BaseContainerMenu {
 		if (blockEntity != null) {
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
 				for(int s = 0; s < MobClonerBE.CLONER_SLOTS; s++) {
-					addSlot(new SlotItemHandler(h, s, Const.CONTAINER_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * s, 30));
+					addSlot(new SlotItemHandler(h, s, Const.CONTAINER_GENERIC_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * s, 30));
 				}
 			});
 		}
