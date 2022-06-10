@@ -1,8 +1,9 @@
 package andronomos.androtech;
 
 public class Const {
-    public static final int CONTAINER_GENERIC_SIZE = 54;
-    public static final int CONTAINER_SLOT_X_OFFSET = 8;
+    public static final int CONTAINER_GENERIC_SMALL_SIZE = 27;
+    public static final int CONTAINER_GENERIC_LARGE_SIZE = 54;
+    public static final int CONTAINER_GENERIC_SLOT_X_OFFSET = 8;
     public static final int SCREEN_SLOT_X_OFFSET = 7;
     public static final int SCREEN_SLOT_SIZE = 18;
     public static final int SCREEN_SLOT_LARGE_SIZE = 26;
