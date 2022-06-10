@@ -12,7 +12,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
 
 public class ItemMenderContainer extends BaseContainerMenu {
 	public final BlockEntity blockEntity;
@@ -41,7 +40,7 @@ public class ItemMenderContainer extends BaseContainerMenu {
 		ItemStack returnStack = ItemStack.EMPTY;
 		Slot slot = this.slots.get(slotId);
 
-		int containerEnd = Const.CONTAINER_GENERIC_SIZE;
+		int containerEnd = Const.CONTAINER_GENERIC_LARGE_SIZE;
 
 		if (slot != null && slot.hasItem()) {
 			ItemStack stack = slot.getItem();

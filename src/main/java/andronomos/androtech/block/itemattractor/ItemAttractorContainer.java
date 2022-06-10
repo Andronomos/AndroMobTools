@@ -40,7 +40,7 @@ public class ItemAttractorContainer extends BaseContainerMenu {
 		ItemStack returnStack = ItemStack.EMPTY;
 		Slot slot = this.slots.get(slotId);
 
-		int containerEnd = Const.CONTAINER_GENERIC_SIZE;
+		int containerEnd = Const.CONTAINER_GENERIC_LARGE_SIZE;
 
 		if (slot != null && slot.hasItem()) {
 			ItemStack stack = slot.getItem();

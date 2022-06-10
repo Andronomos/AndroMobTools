@@ -43,7 +43,7 @@ public class CropFarmerBE extends TickingBE {
 
 	@Override
 	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(Const.CONTAINER_GENERIC_SIZE) {
+		return new ItemStackHandler(Const.CONTAINER_GENERIC_LARGE_SIZE) {
 			@Override
 			public int getSlotLimit(int slotId) {
 				return 64;

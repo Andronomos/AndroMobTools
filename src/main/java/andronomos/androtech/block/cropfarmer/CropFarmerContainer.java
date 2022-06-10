@@ -2,7 +2,6 @@ package andronomos.androtech.block.cropfarmer;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.block.BaseContainerMenu;
-import andronomos.androtech.block.animalfarmer.AnimalFarmerBE;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
 import net.minecraft.core.BlockPos;
@@ -41,7 +40,7 @@ public class CropFarmerContainer extends BaseContainerMenu {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.slots.get(slotId);
 
-		int containerEnd = Const.CONTAINER_GENERIC_SIZE;
+		int containerEnd = Const.CONTAINER_GENERIC_LARGE_SIZE;
 
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
