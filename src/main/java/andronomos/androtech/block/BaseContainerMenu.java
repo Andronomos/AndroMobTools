@@ -1,10 +1,13 @@
 package andronomos.androtech.block;
 
+import andronomos.androtech.Const;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class BaseContainerMenu extends AbstractContainerMenu {
@@ -15,6 +18,23 @@ public abstract class BaseContainerMenu extends AbstractContainerMenu {
 		super(type, id);
 		this.inventory = inventoryIn;
 		this.player = this.inventory.player;
+	}
+
+	public void addLargeInventory(IItemHandler handler) {
+		for (int i = 0; i < 6; i++) {
+			for(int j = 0; j < 9; j++) {
+				addSlot(new SlotItemHandler(handler, j + i * 9, Const.CONTAINER_SLOT_X_OFFSET + j * Const.SCREEN_SLOT_SIZE, Const.SCREEN_SLOT_SIZE + i * Const.SCREEN_SLOT_SIZE));
+			}
+		}
+	}
+
+	public void layoutPlayerInventorySlots(int leftCol, int topRow) {
+		// Player inventory
+		addSlotBox(inventory, 9, leftCol, topRow, 9, 18, 3, 18);
+
+		// Hotbar
+		topRow += 58;
+		addSlotRange(inventory, 0, leftCol, topRow, 9, 18);
 	}
 
 	private int addSlotRange(Inventory inventory, int index, int x, int y, int amount, int dx) {
@@ -32,14 +52,5 @@ public abstract class BaseContainerMenu extends AbstractContainerMenu {
 			y += dy;
 		}
 		return index;
-	}
-
-	public void layoutPlayerInventorySlots(int leftCol, int topRow) {
-		// Player inventory
-		addSlotBox(inventory, 9, leftCol, topRow, 9, 18, 3, 18);
-
-		// Hotbar
-		topRow += 58;
-		addSlotRange(inventory, 0, leftCol, topRow, 9, 18);
 	}
 }
