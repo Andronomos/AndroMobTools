@@ -12,5 +12,8 @@ public class TextureRegistry {
 	public static final ResourceLocation SLOT_UNIT = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_unit.png");
 	public static final ResourceLocation SLOT_ENCHANTED_BOOK = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_enchanted_book.png");
 	public static final ResourceLocation SLOT_SWORD = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_sword.png");
+	public static final ResourceLocation SLOT_BUCKET = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_bucket.png");
+	public static final ResourceLocation SLOT_SHEARS = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_shears.png");
+	public static final ResourceLocation SLOT_PICKAXE = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_pickaxe.png");
 	public static final ResourceLocation ICONS = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/icons.png");
 }
