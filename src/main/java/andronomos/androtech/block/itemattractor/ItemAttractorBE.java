@@ -54,13 +54,9 @@ public class ItemAttractorBE extends TickingBE {
 		if(state.getValue(POWERED)) {
 			if(!shouldTick()) return;
 
-			getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
-				//if(!inventoryIsFull()) {
-				if(!InventoryUtil.inventoryIsFull(itemHandler)) {
-					captureDroppedItems();
-				}
-			});
-
+			if(!InventoryUtil.inventoryIsFull(this.inputItems)) {
+				captureDroppedItems();
+			}
 			deleteCapturedXp();
 		}
 	}
