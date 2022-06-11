@@ -1,5 +1,6 @@
 package andronomos.androtech.block.cropfarmer.harvesters;
 
+import andronomos.androtech.util.InventoryUtil;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -25,7 +26,7 @@ public class StemGrownBlockHarvester implements IHarvester {
 		level.setBlock(pos, Blocks.AIR.defaultBlockState(), 0);
 
 		for (ItemStack drop : drops) {
-			ItemStack stack = ItemStackUtil.insertIntoContainer(drop, itemHandler);
+			ItemStack stack = InventoryUtil.insertIntoInventory(drop, itemHandler);
 
 			if (!stack.isEmpty()) {
 				ItemStackUtil.drop(level, pos, stack);

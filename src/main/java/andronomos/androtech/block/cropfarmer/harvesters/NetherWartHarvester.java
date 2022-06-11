@@ -1,5 +1,6 @@
 package andronomos.androtech.block.cropfarmer.harvesters;
 
+import andronomos.androtech.util.InventoryUtil;
 import andronomos.androtech.util.ItemStackUtil;
 import com.google.common.collect.Iterables;
 import net.minecraft.core.BlockPos;
@@ -32,7 +33,7 @@ public class NetherWartHarvester implements IHarvester {
 		for (ItemStack drop : drops) {
 			drop.shrink(1);
 
-			ItemStack stack = ItemStackUtil.insertIntoContainer(drop, itemHandler);
+			ItemStack stack = InventoryUtil.insertIntoInventory(drop, itemHandler);
 
 			if (!stack.isEmpty()) {
 				ItemStackUtil.drop(level, pos, stack);

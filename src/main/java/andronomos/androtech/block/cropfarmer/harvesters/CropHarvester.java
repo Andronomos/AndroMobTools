@@ -1,5 +1,6 @@
 package andronomos.androtech.block.cropfarmer.harvesters;
 
+import andronomos.androtech.util.InventoryUtil;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -39,7 +40,7 @@ public class CropHarvester implements IHarvester {
 				drop.shrink(1);
 			}
 
-			ItemStack stack = ItemStackUtil.insertIntoContainer(drop, itemHandler);
+			ItemStack stack = InventoryUtil.insertIntoInventory(drop, itemHandler);
 
 			if (!stack.isEmpty()) {
 				ItemStackUtil.drop(level, pos, stack);

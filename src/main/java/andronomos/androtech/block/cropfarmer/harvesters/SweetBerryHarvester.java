@@ -1,5 +1,6 @@
 package andronomos.androtech.block.cropfarmer.harvesters;
 
+import andronomos.androtech.util.InventoryUtil;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -34,7 +35,7 @@ public class SweetBerryHarvester implements IHarvester {
 		//Block.popResource(level, pos, new ItemStack(Items.SWEET_BERRIES, dropAmount + (flag ? 1 : 0)));
 
 		ItemStack drop = new ItemStack(Items.SWEET_BERRIES.asItem(), dropAmount + (flag ? 1 : 0));
-		ItemStack stack = ItemStackUtil.insertIntoContainer(drop, itemHandler);
+		ItemStack stack = InventoryUtil.insertIntoInventory(drop, itemHandler);
 
 		if (!stack.isEmpty()) {
 			ItemStackUtil.drop(level, pos, stack);
