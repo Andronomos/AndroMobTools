@@ -3,7 +3,7 @@ package andronomos.androtech.block.itemattractor;
 import andronomos.androtech.Const;
 import andronomos.androtech.block.TickingBE;
 import andronomos.androtech.registry.ModBlockEntities;
-import andronomos.androtech.util.ItemStackUtil;
+import andronomos.androtech.util.InventoryUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -20,7 +20,6 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ItemAttractorBE extends TickingBE {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -55,30 +54,15 @@ public class ItemAttractorBE extends TickingBE {
 		if(state.getValue(POWERED)) {
 			if(!shouldTick()) return;
 
-			if(!isInventoryFull()) {
-				captureDroppedItems();
-			}
+			getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
+				//if(!inventoryIsFull()) {
+				if(!InventoryUtil.inventoryIsFull(itemHandler)) {
+					captureDroppedItems();
+				}
+			});
 
 			deleteCapturedXp();
 		}
-	}
-
-	private boolean isInventoryFull() {
-		AtomicBoolean isFull = new AtomicBoolean(true);
-
-		getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
-			for(int i = 0; i <= itemHandler.getSlots() - 1; i++) {
-				ItemStack itemstack = itemHandler.getStackInSlot(i);
-
-				if (itemstack.isEmpty() || itemstack.getCount() != itemstack.getMaxStackSize())
-				{
-					isFull.set(false);
-					break;
-				}
-			}
-		});
-
-		return isFull.get();
 	}
 
 	private void captureDroppedItems() {
@@ -86,7 +70,7 @@ public class ItemAttractorBE extends TickingBE {
 			if(item == null)
 				return;
 
-			ItemStack stack = ItemStackUtil.insertIntoContainer(item.getItem().copy(), itemHandler);
+			ItemStack stack = InventoryUtil.insertIntoInventory(item.getItem().copy(), itemHandler);
 
 			if (!stack.isEmpty()) {
 				item.setItem(stack);

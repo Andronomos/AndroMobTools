@@ -40,9 +40,9 @@ public class MobClonerContainer extends BaseContainerMenu {
 	}
 
 	@Override
-	public ItemStack quickMoveStack(Player player, int index) {
+	public ItemStack quickMoveStack(Player player, int slotId) {
 		ItemStack returnStack = ItemStack.EMPTY;
-		final Slot slot = this.slots.get(index);
+		final Slot slot = this.slots.get(slotId);
 
 		if (slot != null && slot.hasItem()) {
 			ItemStack stack = slot.getItem();
@@ -50,7 +50,7 @@ public class MobClonerContainer extends BaseContainerMenu {
 
 			int containerEnd = MobClonerBE.CLONER_SLOTS;
 
-			if(index <= containerEnd) {
+			if(slotId <= containerEnd) {
 				if (!this.moveItemStackTo(stack, containerEnd, this.slots.size(), true)) {
 					return ItemStack.EMPTY;
 				}

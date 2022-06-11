@@ -41,16 +41,6 @@ public class ItemStackUtil {
         }
     }
 
-    public static ItemStack insertIntoContainer(ItemStack stack, LazyOptional<IItemHandler> itemHandler) {
-        AtomicReference<ItemStack> returnStack = new AtomicReference<>(stack.copy());
-        itemHandler.ifPresent(h -> {
-            for(int i = 0; i < h.getSlots() && !returnStack.get().isEmpty(); ++i) {
-                returnStack.set(h.insertItem(i, returnStack.get(), false));
-            }
-        });
-        return returnStack.get();
-    }
-
     public static boolean isRepairable(ItemStack stack) {
         if(stack.isEmpty()) return false; //if the item doesn't exist
         if(!stack.isRepairable()) return false; //if the item can't be repaired
