@@ -19,7 +19,6 @@ public class AnimalFarmerScreen extends MachineScreen<AnimalFarmerContainer> {
 	public AnimalFarmerScreen(AnimalFarmerContainer container, Inventory inventory, Component component) {
 		super(container, inventory, component);
 		this.container = container;
-		this.imageHeight = Const.INVENTORY_LARGE_IMAGE_HEIGHT;
 	}
 
 	@Override
@@ -36,6 +35,13 @@ public class AnimalFarmerScreen extends MachineScreen<AnimalFarmerContainer> {
 		this.renderBackground(stack);
 		super.render(stack, mouseX, mouseY, partialTicks);
 		this.renderTooltip(stack, mouseX, mouseY);
+	}
+
+	@Override
+	protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
+		this.drawButtonTooltips(stack, mouseX, mouseY);
+		this.drawName(stack, title.getString());
+		powerButton.updateButton();
 	}
 
 	@Override
