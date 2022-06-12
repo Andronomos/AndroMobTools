@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.block.ItemIncinerator.ItemIncineratorBE;
+import andronomos.androtech.block.animalfarmer.AnimalFarmerBE;
 import andronomos.androtech.block.cropfarmer.CropFarmerBE;
 import andronomos.androtech.block.itemattractor.ItemAttractorBE;
 import andronomos.androtech.block.itemmender.ItemMenderBE;
@@ -43,7 +44,7 @@ public class ModBlockEntities {
             .of(RedstoneTransmitterBE::new, ModBlocks.REDSTONE_TRANSMITTER.get())
             .build(null));
 
-    public static final RegistryObject<BlockEntityType<RedstoneTransmitterBE>> ANIMAL_FARMER = BLOCK_ENTITIES.register("animal_farmer_be", () -> BlockEntityType.Builder
-            .of(RedstoneTransmitterBE::new, ModBlocks.ANIMAL_FARMER.get())
+    public static final RegistryObject<BlockEntityType<AnimalFarmerBE>> ANIMAL_FARMER = BLOCK_ENTITIES.register("animal_farmer_be", () -> BlockEntityType.Builder
+            .of(AnimalFarmerBE::new, ModBlocks.ANIMAL_FARMER.get())
             .build(null));
 }
