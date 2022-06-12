@@ -26,7 +26,7 @@ public class AnimalFarmerBE extends TickingBE {
 
 	@Override
 	protected ItemStackHandler createItemHandler() {
-		return new ItemStackHandler(Const.CONTAINER_GENERIC_LARGE_SIZE) {
+		return new ItemStackHandler(AnimalFarmer.SLOTS) {
 			@Override
 			public int getSlotLimit(int slotId) {
 				return 64;
