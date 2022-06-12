@@ -1,16 +1,18 @@
 package andronomos.androtech.block.animalfarmer;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.block.MachineScreen;
 import andronomos.androtech.gui.widget.button.machinebutton.PowerButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
-import andronomos.androtech.registry.TextureRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class AnimalFarmerScreen extends MachineScreen<AnimalFarmerContainer> {
+	public static final ResourceLocation TEXTURE = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/machine/animal_farmer.png");
 	private PowerButton powerButton;
 	private AnimalFarmerContainer container;
 
@@ -38,6 +40,6 @@ public class AnimalFarmerScreen extends MachineScreen<AnimalFarmerContainer> {
 
 	@Override
 	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(stack, TextureRegistry.INVENTORY_LARGE_PLAIN);
+		drawBackground(stack, TEXTURE);
 	}
 }
