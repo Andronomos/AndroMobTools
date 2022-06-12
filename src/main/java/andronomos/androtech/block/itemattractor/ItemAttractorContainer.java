@@ -1,5 +1,6 @@
 package andronomos.androtech.block.itemattractor;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.block.BaseContainerMenu;
 import andronomos.androtech.registry.ModBlocks;
@@ -18,6 +19,8 @@ public class ItemAttractorContainer extends BaseContainerMenu {
 
 	public ItemAttractorContainer(int windowId, BlockPos pos, Inventory inventory) {
 		super(ModContainers.ITEM_ATTRACTOR.get(), windowId, inventory);
+
+		AndroTech.LOGGER.info("ItemAttractorContainer | called");
 
 		blockEntity = player.getCommandSenderWorld().getBlockEntity(pos);
 
