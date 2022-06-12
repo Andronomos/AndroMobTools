@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -71,10 +72,10 @@ public class AnimalFarmerBE extends TickingBE {
 
 			AABB workArea = getWorkArea(pos);
 
-			List<LivingEntity> entities = getLevel().getEntitiesOfClass(LivingEntity.class, workArea, EntitySelector.ENTITY_STILL_ALIVE);
+			List<Animal> animals = getLevel().getEntitiesOfClass(Animal.class, workArea, EntitySelector.ENTITY_STILL_ALIVE);
 
-			for (LivingEntity entity : entities) {
-				AndroTech.LOGGER.info("AnimalFarmerBE#serverTick | entity = {}", entity);
+			for (Animal animal : animals) {
+				AndroTech.LOGGER.info("AnimalFarmerBE#serverTick | animal = {}", animal);
 			}
 		}
 	}
