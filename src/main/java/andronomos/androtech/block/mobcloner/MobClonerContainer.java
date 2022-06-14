@@ -1,7 +1,7 @@
 package andronomos.androtech.block.mobcloner;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.block.BaseContainerMenu;
+import andronomos.androtech.inventory.BaseContainerMenu;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
 import andronomos.androtech.registry.ModItems;

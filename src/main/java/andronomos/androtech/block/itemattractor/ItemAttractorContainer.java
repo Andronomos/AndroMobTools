@@ -2,7 +2,7 @@ package andronomos.androtech.block.itemattractor;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
-import andronomos.androtech.block.BaseContainerMenu;
+import andronomos.androtech.inventory.BaseContainerMenu;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
 import net.minecraft.core.BlockPos;
