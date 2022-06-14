@@ -77,8 +77,8 @@ public class RedstoneTransmitterBE extends TickingBE {
 
     @Override
     public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
-        for(int slotIndex = 0; slotIndex < inputItems.getSlots(); slotIndex++) {
-            ItemStack receiverCard = inputItems.getStackInSlot(slotIndex);
+        for(int slotIndex = 0; slotIndex < inventoryItems.getSlots(); slotIndex++) {
+            ItemStack receiverCard = inventoryItems.getStackInSlot(slotIndex);
             if(receiverCard.isEmpty()) continue;
             updateReceiver(ItemStackUtil.getBlockPos(receiverCard));
         }

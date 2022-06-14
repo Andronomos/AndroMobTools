@@ -1,7 +1,7 @@
 package andronomos.androtech.block.itemattractor;
 
 import andronomos.androtech.block.MachineScreen;
-import andronomos.androtech.gui.widget.button.machinebutton.PowerButton;
+import andronomos.androtech.gui.widget.button.sidebutton.PowerButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
 import andronomos.androtech.registry.TextureRegistry;

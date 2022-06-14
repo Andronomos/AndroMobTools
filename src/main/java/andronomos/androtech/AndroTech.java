@@ -12,6 +12,7 @@ import andronomos.androtech.event.SpawnerEventHandler;
 import andronomos.androtech.event.TeleportInhibitorEvent;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.registry.*;
+import com.mojang.authlib.GameProfile;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -24,12 +25,15 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.UUID;
+
 @Mod(AndroTech.MOD_ID)
 public class AndroTech {
 	public static final String MOD_ID = "androtech";
 	public static final String TAB_NAME = "androtech_group";
 	public static final CreativeModeTab ANDROTECH_TAB = new AndroTechItemGroup(TAB_NAME);
 	public static final Logger LOGGER = LogManager.getLogger(andronomos.androtech.AndroTech.MOD_ID);
+	public static final GameProfile PROFILE = new GameProfile(UUID.randomUUID(), "[AndroTech]");
 
 	public AndroTech() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

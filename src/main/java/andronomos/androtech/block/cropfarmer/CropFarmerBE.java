@@ -1,13 +1,11 @@
 package andronomos.androtech.block.cropfarmer;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.block.TickingBE;
 import andronomos.androtech.block.cropfarmer.harvesters.*;
 import andronomos.androtech.block.mobcloner.MobCloner;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.BlockUtil;
-import andronomos.androtech.util.InventoryUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -89,7 +87,7 @@ public class CropFarmerBE extends TickingBE {
 				Block block = cropState.getBlock();
 
 				for (IHarvester harvester : harvesters) {
-					boolean harvestSuccessful = harvester.tryHarvest(block, cropState, level, nearbyCropPos, this.itemHandler);
+					boolean harvestSuccessful = harvester.tryHarvest(block, cropState, level, nearbyCropPos, this.inventoryHandler);
 
 					if(harvestSuccessful) {
 						break;

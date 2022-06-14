@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
@@ -54,7 +53,7 @@ public class ItemAttractorBE extends TickingBE {
 		if(state.getValue(POWERED)) {
 			if(!shouldTick()) return;
 
-			if(!InventoryUtil.inventoryIsFull(this.inputItems)) {
+			if(!InventoryUtil.inventoryIsFull(this.inventoryItems)) {
 				captureDroppedItems();
 			}
 			deleteCapturedXp();
@@ -66,7 +65,7 @@ public class ItemAttractorBE extends TickingBE {
 			if(item == null)
 				return;
 
-			ItemStack stack = InventoryUtil.insertIntoInventory(item.getItem().copy(), itemHandler);
+			ItemStack stack = InventoryUtil.insertIntoInventory(item.getItem().copy(), inventoryHandler);
 
 			if (!stack.isEmpty()) {
 				item.setItem(stack);

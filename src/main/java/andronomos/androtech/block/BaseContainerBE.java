@@ -16,8 +16,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public abstract class BaseContainerBE extends BlockEntity {
-	public final ItemStackHandler inputItems = createItemHandler();
-	public final LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> inputItems);
+	public final ItemStackHandler inventoryItems = createItemHandler();
+	public final LazyOptional<IItemHandler> inventoryHandler = LazyOptional.of(() -> inventoryItems);
 
 	public BaseContainerBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
@@ -29,7 +29,7 @@ public abstract class BaseContainerBE extends BlockEntity {
 	@Override
 	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
 		if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-			return itemHandler.cast();
+			return inventoryHandler.cast();
 		}
 		return super.getCapability(cap, side);
 	}
@@ -37,26 +37,26 @@ public abstract class BaseContainerBE extends BlockEntity {
 	@Override
 	public void invalidateCaps() {
 		super.invalidateCaps();
-		if (itemHandler != null)
-			itemHandler.invalidate();
+		if (inventoryHandler != null)
+			inventoryHandler.invalidate();
 	}
 
 	@Override
 	protected void saveAdditional(CompoundTag tag) {
-		tag.put("Inventory", inputItems.serializeNBT());
+		tag.put("Inventory", inventoryItems.serializeNBT());
 	}
 
 	@Override
 	public void load(CompoundTag tag) {
 		super.load(tag);
 		if (tag.contains("Inventory")) {
-			inputItems.deserializeNBT(tag.getCompound("Inventory"));
+			inventoryItems.deserializeNBT(tag.getCompound("Inventory"));
 		}
 	}
 
 	@Override
 	public void setRemoved() {
 		super.setRemoved();
-		itemHandler.invalidate();
+		inventoryHandler.invalidate();
 	}
 }
