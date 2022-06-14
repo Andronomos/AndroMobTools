@@ -1,8 +1,8 @@
 package andronomos.androtech.block.pad.mobkillingpad;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.TickingBE;
 import andronomos.androtech.registry.ModBlockEntities;
-import com.mojang.authlib.GameProfile;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -22,10 +22,8 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class MobKillingPadBE extends TickingBE {
-    private final GameProfile PROFILE = new GameProfile(UUID.randomUUID(), "[AndroTech]");
     public static final int PAD_SLOTS = 1;
     private final List<Enchantment> enchantments = new ArrayList<>();
 
@@ -70,7 +68,7 @@ public class MobKillingPadBE extends TickingBE {
     public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MobKillingPadBE mobKillingPadBE) {
         List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, new AABB(getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), getBlockPos().getX() + 1D, getBlockPos().getY() + 1D, getBlockPos().getZ() + 1D).inflate(0.0625D, 0.0625D, 0.0625D));
 
-        ItemStack sword = this.inputItems.getStackInSlot(0);
+        ItemStack sword = this.inventoryItems.getStackInSlot(0);
 
         if(!sword.isEmpty()) {
             for (int i = 0; i < list.size(); i++) {
@@ -78,7 +76,7 @@ public class MobKillingPadBE extends TickingBE {
                 if (entity == null || !(entity instanceof LivingEntity) || entity instanceof Player) continue;
                 LivingEntity mob = (LivingEntity)entity;
                 if(mob.getHealth() > 1.0f) mob.setHealth(1.0f);
-                FakePlayer fp = FakePlayerFactory.get(level, PROFILE);
+                FakePlayer fp = FakePlayerFactory.get(level, AndroTech.PROFILE);
                 fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
                 fp.attack(entity);
                 mob.setLastHurtByMob(null);

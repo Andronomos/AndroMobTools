@@ -86,8 +86,8 @@ public class MobClonerBE extends TickingBE {
 		if(!shouldActivate(level, pos)) return;
 
 		if(shouldTick()) {
-			for(int slotIndex = 0; slotIndex < inputItems.getSlots(); slotIndex++) {
-				ItemStack clonerModule = inputItems.getStackInSlot(slotIndex);
+			for(int slotIndex = 0; slotIndex < inventoryItems.getSlots(); slotIndex++) {
+				ItemStack clonerModule = inventoryItems.getStackInSlot(slotIndex);
 
 				if(clonerModule == null
 						|| clonerModule.isEmpty()
