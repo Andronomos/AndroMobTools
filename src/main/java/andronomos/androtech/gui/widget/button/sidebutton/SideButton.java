@@ -1,4 +1,4 @@
-package andronomos.androtech.gui.widget.button;
+package andronomos.androtech.gui.widget.button.sidebutton;
 
 import andronomos.androtech.registry.TextureRegistry;
 import andronomos.androtech.gui.TextureEnum;

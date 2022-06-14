@@ -1,7 +1,6 @@
-package andronomos.androtech.gui.widget.button.machinebutton;
+package andronomos.androtech.gui.widget.button.sidebutton;
 
 import andronomos.androtech.gui.TextureEnum;
-import andronomos.androtech.gui.widget.button.SideButton;
 import andronomos.androtech.util.ChatUtil;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
