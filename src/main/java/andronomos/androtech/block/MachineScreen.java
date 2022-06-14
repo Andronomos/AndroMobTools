@@ -1,7 +1,7 @@
 package andronomos.androtech.block;
 
 import andronomos.androtech.registry.TextureRegistry;
-import andronomos.androtech.gui.widget.button.SideButton;
+import andronomos.androtech.gui.widget.button.sidebutton.SideButton;
 import andronomos.androtech.util.ChatUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

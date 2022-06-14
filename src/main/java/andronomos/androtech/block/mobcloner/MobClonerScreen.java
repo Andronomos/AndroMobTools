@@ -2,12 +2,11 @@ package andronomos.androtech.block.mobcloner;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.block.MachineScreen;
-import andronomos.androtech.gui.widget.button.machinebutton.PowerButton;
+import andronomos.androtech.gui.widget.button.sidebutton.PowerButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
 import andronomos.androtech.registry.TextureRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraftforge.items.CapabilityItemHandler;
