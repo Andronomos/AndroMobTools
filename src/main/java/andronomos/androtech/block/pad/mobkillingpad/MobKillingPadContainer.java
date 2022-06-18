@@ -23,9 +23,8 @@ public class MobKillingPadContainer extends BaseContainerMenu {
 
         blockEntity =  player.getCommandSenderWorld().getBlockEntity(pos);
 
-        if(blockEntity != null && blockEntity instanceof MobKillingPadBE) {
-            final MobKillingPadBE entity = (MobKillingPadBE) blockEntity;
-            entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
+        if(blockEntity != null && blockEntity instanceof MobKillingPadBE mobKillingPad) {
+			mobKillingPad.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(itemHandler -> {
                 addSlot(new SlotItemHandler(itemHandler, 0, Const.CONTAINER_GENERIC_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 4, 30));
             });
         }
