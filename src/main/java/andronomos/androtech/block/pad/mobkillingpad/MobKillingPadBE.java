@@ -53,7 +53,6 @@ public class MobKillingPadBE extends TickingBE {
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                //return stack.getItem() == Items.ENCHANTED_BOOK;
                 return stack.getItem() instanceof SwordItem;
             }
 
