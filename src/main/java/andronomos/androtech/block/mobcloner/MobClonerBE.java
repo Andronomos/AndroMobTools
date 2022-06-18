@@ -42,7 +42,7 @@ public class MobClonerBE extends TickingBE {
 	}
 
 	@Override
-	protected ItemStackHandler createItemHandler() {
+	protected ItemStackHandler createInventoryItemHandler() {
 		return new ItemStackHandler(CLONER_SLOTS) {
 			@Override
 			public int getSlotLimit(int slot) {

@@ -38,7 +38,7 @@ public class RedstoneTransmitterBE extends TickingBE {
     }
 
     @Override
-    protected ItemStackHandler createItemHandler() {
+    protected ItemStackHandler createInventoryItemHandler() {
         return new ItemStackHandler(RedstoneTransmitterBE.TRANSMITTER_SLOTS) {
 
             @Override

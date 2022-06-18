@@ -37,7 +37,7 @@ public class MobKillingPadBE extends TickingBE {
     }
 
     @Override
-    protected ItemStackHandler createItemHandler() {
+    protected ItemStackHandler createInventoryItemHandler() {
         return new ItemStackHandler(PAD_SLOTS) {
             @Override
             public int getSlotLimit(int slot) {

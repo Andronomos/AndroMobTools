@@ -28,7 +28,7 @@ public class ItemAttractorBE extends TickingBE {
 	}
 
 	@Nonnull
-	protected ItemStackHandler createItemHandler() {
+	protected ItemStackHandler createInventoryItemHandler() {
 		return new ItemStackHandler(Const.CONTAINER_GENERIC_LARGE_SIZE) {
 			@Override
 			public int getSlotLimit(int slot) {

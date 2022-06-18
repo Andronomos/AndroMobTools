@@ -29,7 +29,7 @@ public class AnimalFarmerBE extends TickingBE {
 	}
 
 	@Override
-	protected ItemStackHandler createItemHandler() {
+	protected ItemStackHandler createInventoryItemHandler() {
 		return new ItemStackHandler(AnimalFarmer.SLOTS) {
 			@Override
 			public int getSlotLimit(int slotId) {

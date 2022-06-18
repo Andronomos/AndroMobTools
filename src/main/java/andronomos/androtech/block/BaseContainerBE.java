@@ -16,14 +16,14 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public abstract class BaseContainerBE extends BlockEntity {
-	public final ItemStackHandler inventoryItems = createItemHandler();
+	public final ItemStackHandler inventoryItems = createInventoryItemHandler();
 	public final LazyOptional<IItemHandler> inventoryHandler = LazyOptional.of(() -> inventoryItems);
 
 	public BaseContainerBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
 	}
 
-	protected abstract ItemStackHandler createItemHandler();
+	protected abstract ItemStackHandler createInventoryItemHandler();
 
 	@Nonnull
 	@Override

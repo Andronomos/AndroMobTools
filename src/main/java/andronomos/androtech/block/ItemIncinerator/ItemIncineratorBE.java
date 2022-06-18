@@ -15,7 +15,7 @@ public class ItemIncineratorBE extends BaseContainerBE {
     }
 
     @Override
-    protected ItemStackHandler createItemHandler() {
+    protected ItemStackHandler createInventoryItemHandler() {
         return new ItemStackHandler(1) {
 
             @Override
