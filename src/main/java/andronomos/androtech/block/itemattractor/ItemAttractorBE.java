@@ -65,7 +65,7 @@ public class ItemAttractorBE extends TickingBE {
 			if(item == null)
 				return;
 
-			ItemStack stack = InventoryUtil.insertIntoInventory(item.getItem().copy(), inventoryHandler);
+			ItemStack stack = InventoryUtil.insertIntoInventory(item.getItem().copy(), inventoryItems);
 
 			if (!stack.isEmpty()) {
 				item.setItem(stack);
