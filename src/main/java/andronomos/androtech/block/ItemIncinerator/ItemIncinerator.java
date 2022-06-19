@@ -20,7 +20,7 @@ public class ItemIncinerator extends AndroTechTickingMachine {
     public static final String SCREEN_ITEM_INCINERATOR = "screen.androtech.item_incinerator";
 
     public ItemIncinerator(BlockBehaviour.Properties properties) {
-        super(properties, false, false, false);
+        super(properties, false, false, false, false);
     }
 
     @Nullable

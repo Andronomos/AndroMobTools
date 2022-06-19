@@ -22,7 +22,7 @@ public class ItemAttractor extends AndroTechTickingMachine {
 	public static final String SCREEN_ITEM_ATTRACTOR = "screen.androtech.item_attractor";
 
 	public ItemAttractor(BlockBehaviour.Properties properties) {
-		super(properties, false, true, true);
+		super(properties, false, true, true, false);
 	}
 
 	@Nullable

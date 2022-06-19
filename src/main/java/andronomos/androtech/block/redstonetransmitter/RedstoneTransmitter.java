@@ -23,7 +23,7 @@ public class RedstoneTransmitter extends AndroTechTickingMachine {
     public static final String SCREEN_REDSTONE_TRANSMITTER = "screen.androtech.redstone_transmitter";
 
     public RedstoneTransmitter(BlockBehaviour.Properties properties) {
-        super(properties, true, true, true);
+        super(properties, true, true, true, false);
     }
 
     @Nullable

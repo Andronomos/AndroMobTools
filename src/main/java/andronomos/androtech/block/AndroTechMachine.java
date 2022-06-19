@@ -11,19 +11,21 @@ import net.minecraftforge.items.CapabilityItemHandler;
 public abstract class AndroTechMachine extends Block {
 	public boolean useDefaultTopTexture;
 	public boolean useDefaultBottomTexture;
-	public boolean hasmultipleStates;
+	public boolean hasMultipleStates;
+	public boolean isDirectional;
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public AndroTechMachine(Properties properties) {
-		this(properties, true, true, false);
+		this(properties, true, true, false, false);
 	}
 
-	public AndroTechMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasmultipleStates) {
+	public AndroTechMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasMultipleStates, boolean isDirectional) {
 		super(properties);
+		this.isDirectional = isDirectional;
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)));
 		this.useDefaultTopTexture = useDefaultTopTexture;
 		this.useDefaultBottomTexture = useDefaultBottomTexture;
-		this.hasmultipleStates = hasmultipleStates;
+		this.hasMultipleStates = hasMultipleStates;
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public class RedstoneReceiver extends AndroTechMachine {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
     public RedstoneReceiver(BlockBehaviour.Properties properties) {
-        super(properties, false,false, true);
+        super(properties, false,false, true, false);
         this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)));
     }
 

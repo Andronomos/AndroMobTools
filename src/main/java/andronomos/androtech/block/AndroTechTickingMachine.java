@@ -17,11 +17,11 @@ public abstract class AndroTechTickingMachine extends AndroTechMachine implement
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public AndroTechTickingMachine(Properties properties) {
-		this(properties, true, true, false);
+		this(properties, true, true, false, false);
 	}
 
-	public AndroTechTickingMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasmultipleStates) {
-		super(properties, useDefaultTopTexture, useDefaultBottomTexture, hasmultipleStates);
+	public AndroTechTickingMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasMultipleStates, boolean isDirectional) {
+		super(properties, useDefaultTopTexture, useDefaultBottomTexture, hasMultipleStates, isDirectional);
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)));
 	}
 

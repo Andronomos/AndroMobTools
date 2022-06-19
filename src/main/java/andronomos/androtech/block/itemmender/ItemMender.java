@@ -22,7 +22,7 @@ public class ItemMender extends AndroTechTickingMachine {
 	public static final String SCREEN_ITEM_MENDER = "screen.androtech.item_mender";
 
 	public ItemMender(BlockBehaviour.Properties properties) {
-		super(properties, true, true, false);
+		super(properties, true, true, false, false);
 	}
 
 	@Nullable
