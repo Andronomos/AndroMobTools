@@ -1,5 +1,6 @@
 package andronomos.androtech.block.mobcloner;
 
+import andronomos.androtech.Const;
 import andronomos.androtech.block.TickingBE;
 import andronomos.androtech.item.MobCloningModule;
 import andronomos.androtech.registry.ModBlockEntities;
@@ -30,6 +31,7 @@ public class MobClonerBE extends TickingBE {
 
 	public MobClonerBE(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.MOB_CLONER_BE.get(), pos, state);
+		tickDelay = Const.TicksInSeconds.FIVE;
 	}
 
 	public boolean shouldActivate(Level level, BlockPos pos) {
