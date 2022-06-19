@@ -4,28 +4,46 @@ import andronomos.androtech.Const;
 import andronomos.androtech.block.TickingBE;
 import andronomos.androtech.block.cropfarmer.harvesters.*;
 import andronomos.androtech.block.mobcloner.MobCloner;
+import andronomos.androtech.inventory.MachineSlotItemStackHandler;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.BlockUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.wrapper.CombinedInvWrapper;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CropFarmerBE extends TickingBE {
+	public ItemStackHandler hoeSlot;
+
+	private final LazyOptional<IItemHandler> hoeSlotHandler = LazyOptional.of(() -> hoeSlot);
+	public final LazyOptional<IItemHandler> everything = LazyOptional.of(() -> new CombinedInvWrapper(hoeSlot, inventoryItems));
+
 	private final List<IHarvester> harvesters = new ArrayList<>();
 
 	public CropFarmerBE(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.CROP_FARMER.get(), pos, state);
+
+		hoeSlot = new MachineSlotItemStackHandler(Items.DIAMOND_HOE);
 
 		harvesters.add(new NetherWartHarvester());
 		harvesters.add(new CropHarvester());
@@ -43,7 +61,7 @@ public class CropFarmerBE extends TickingBE {
 
 	@Override
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(Const.CONTAINER_GENERIC_LARGE_SIZE) {
+		return new ItemStackHandler(Const.CONTAINER_MACHINE_MEDIUM_SIZE) {
 			@Override
 			public int getSlotLimit(int slotId) {
 				return 64;
@@ -78,6 +96,10 @@ public class CropFarmerBE extends TickingBE {
 		if(state.getValue(MobCloner.POWERED)) {
 			if(!shouldTick()) return;
 
+			ItemStack hoe = hoeSlot.getStackInSlot(0);
+
+			if(hoe.isEmpty()) return;
+
 			AABB workArea = getWorkArea(pos);
 
 			List<BlockPos> nearbyCrops = BlockUtil.getCropsInArea(workArea, level);
@@ -87,7 +109,7 @@ public class CropFarmerBE extends TickingBE {
 				Block block = cropState.getBlock();
 
 				for (IHarvester harvester : harvesters) {
-					boolean harvestSuccessful = harvester.tryHarvest(block, cropState, level, nearbyCropPos, this.inventoryHandler);
+					boolean harvestSuccessful = harvester.tryHarvest(block, cropState, level, nearbyCropPos, inventoryItems);
 
 					if(harvestSuccessful) {
 						break;
@@ -95,5 +117,50 @@ public class CropFarmerBE extends TickingBE {
 				}
 			}
 		}
+	}
+
+	@NotNull
+	@Override
+	public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+		if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+			this.setChanged();
+
+			//If block is broken
+			if(level != null && level.getBlockState(getBlockPos()).getBlock() != getBlockState().getBlock()) {
+				return everything.cast();
+			}
+
+			if(side == null) {
+				return inventoryHandler.cast();
+			}
+
+			if(side == Direction.DOWN) {
+				return inventoryHandler.cast();
+			} else {
+				return hoeSlotHandler.cast();
+			}
+		}
+
+		return super.getCapability(cap, side);
+	}
+
+	@Override
+	public void saveAdditional(CompoundTag tag) {
+		super.saveAdditional(tag);
+		tag.put("Hoe", hoeSlot.serializeNBT());
+	}
+
+	@Override
+	public void load(CompoundTag tag) {
+		super.load(tag);
+		if (tag.contains("Hoe")) {
+			hoeSlot.deserializeNBT(tag.getCompound("Hoe"));
+		}
+	}
+
+	@Override
+	public void setRemoved() {
+		super.setRemoved();
+		hoeSlotHandler.invalidate();
 	}
 }

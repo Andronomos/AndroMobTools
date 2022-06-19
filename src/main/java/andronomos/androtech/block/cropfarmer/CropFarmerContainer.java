@@ -1,6 +1,7 @@
 package andronomos.androtech.block.cropfarmer;
 
 import andronomos.androtech.Const;
+import andronomos.androtech.block.animalfarmer.AnimalFarmerBE;
 import andronomos.androtech.inventory.BaseContainerMenu;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
@@ -10,24 +11,30 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 public class CropFarmerContainer extends BaseContainerMenu {
-	public final BlockEntity blockEntity;
+	public CropFarmerBE blockEntity;
 
 	public CropFarmerContainer(int windowId, BlockPos pos, Inventory inventory) {
 		super(ModContainers.CROP_FARMER.get(), windowId, inventory);
 
-		blockEntity = this.player.getCommandSenderWorld().getBlockEntity(pos);
+		BlockEntity blockEntityAtPos = this.player.getCommandSenderWorld().getBlockEntity(pos);
 
-		if(blockEntity != null) {
+		if(blockEntityAtPos != null && blockEntityAtPos instanceof CropFarmerBE cropFarmerBE) {
+			blockEntity = cropFarmerBE;
+
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-				addLargeInventory(h);
+				addMachineInventory(h);
 			});
+
+			addSlot(new SlotItemHandler(blockEntity.hoeSlot, 0, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 16));
 		}
 
-		layoutPlayerInventorySlots(8, 140);
+		layoutPlayerInventorySlots(8, 84);
 	}
 
 	@Override
@@ -40,21 +47,31 @@ public class CropFarmerContainer extends BaseContainerMenu {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = this.slots.get(slotId);
 
-		int containerEnd = Const.CONTAINER_GENERIC_LARGE_SIZE;
-
 		if (slot != null && slot.hasItem()) {
-			ItemStack itemstack1 = slot.getItem();
-			itemstack = itemstack1.copy();
+			ItemStack stack = slot.getItem();
+			itemstack = stack.copy();
 
-			if(slotId < containerEnd) {
-				if (!this.moveItemStackTo(itemstack1, containerEnd, this.slots.size(), true)) {
+			int containerEnd = Const.CONTAINER_GENERIC_LARGE_SIZE;
+
+			if(slotId <= containerEnd) {
+				if (!this.moveItemStackTo(stack, containerEnd, this.slots.size(), true)) {
 					return ItemStack.EMPTY;
 				}
-			} else if (!this.moveItemStackTo(itemstack1, 0, containerEnd, false)) {
-				return ItemStack.EMPTY;
+			} else {
+				if (stack.getItem() == Items.DIAMOND_HOE) {
+					if (!this.moveItemStackTo(stack, 21, this.slots.size(), false)) {
+						return ItemStack.EMPTY;
+					}
+				} else if (stack.getItem() == Items.WATER_BUCKET) {
+					if (!this.moveItemStackTo(stack, 22, this.slots.size(), false)) {
+						return ItemStack.EMPTY;
+					}
+				} else if (!this.moveItemStackTo(stack, 3, containerEnd, false)) {
+					return ItemStack.EMPTY;
+				}
 			}
 
-			if (itemstack1.isEmpty()) {
+			if (stack.isEmpty()) {
 				slot.set(ItemStack.EMPTY);
 			} else {
 				slot.setChanged();

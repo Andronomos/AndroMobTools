@@ -1,16 +1,18 @@
 package andronomos.androtech.block.cropfarmer;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.block.MachineScreen;
 import andronomos.androtech.gui.widget.button.sidebutton.PowerButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
-import andronomos.androtech.registry.TextureRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class CropFarmerScreen extends MachineScreen<CropFarmerContainer> {
+	public static final ResourceLocation TEXTURE = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/machine/crop_farmer.png");
 	private PowerButton powerButton;
 	private CropFarmerContainer container;
 
@@ -45,6 +47,6 @@ public class CropFarmerScreen extends MachineScreen<CropFarmerContainer> {
 
 	@Override
 	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(stack, TextureRegistry.INVENTORY_LARGE);
+		drawBackground(stack, TEXTURE);
 	}
 }

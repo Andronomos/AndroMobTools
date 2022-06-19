@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "212",
-    "356",
+    "353",
     "242"
   ],
   "key": {
@@ -19,9 +19,6 @@
       "item": "minecraft:chest"
     },
     "5": {
-      "item": "androtech:portable_item_attractor"
-    },
-    "6": {
       "item": "minecraft:water_bucket"
     }
   },
