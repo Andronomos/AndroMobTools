@@ -3,6 +3,7 @@ package andronomos.androtech.util;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
@@ -24,13 +25,11 @@ public class InventoryUtil {
 		return isFull.get();
 	}
 
-	public static ItemStack insertIntoInventory(ItemStack stack, LazyOptional<IItemHandler> itemHandler) {
+	public static ItemStack insertIntoInventory(ItemStack stack, ItemStackHandler itemHandler) {
 		AtomicReference<ItemStack> returnStack = new AtomicReference<>(stack.copy());
-		itemHandler.ifPresent(h -> {
-			for(int i = 0; i < h.getSlots() && !returnStack.get().isEmpty(); ++i) {
-				returnStack.set(h.insertItem(i, returnStack.get(), false));
-			}
-		});
+		for(int i = 0; i < itemHandler.getSlots() && !returnStack.get().isEmpty(); ++i) {
+			returnStack.set(itemHandler.insertItem(i, returnStack.get(), false));
+		}
 		return returnStack.get();
 	}
 }
