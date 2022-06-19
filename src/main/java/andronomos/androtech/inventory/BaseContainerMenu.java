@@ -30,6 +30,16 @@ public abstract class BaseContainerMenu extends AbstractContainerMenu {
 		}
 	}
 
+	public void addMachineInventory(IItemHandler handler) {
+		for(int y = 0; y < 3; y++) {
+			for (int x = 0; x < 7; x++) {
+				addSlot(new SlotItemHandler(handler, x + y * 7,
+						Const.CONTAINER_MACHINE_SLOT_X_OFFSET + x * Const.SCREEN_SLOT_SIZE,
+						Const.CONTAINER_SLOT_SIZE + y * Const.SCREEN_SLOT_SIZE));
+			}
+		}
+	}
+
 	public void layoutPlayerInventorySlots(int leftCol, int topRow) {
 		// Player inventory
 		addSlotBox(inventory, 9, leftCol, topRow, 9, 18, 3, 18);
