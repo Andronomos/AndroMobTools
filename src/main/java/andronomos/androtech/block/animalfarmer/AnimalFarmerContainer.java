@@ -61,7 +61,7 @@ public class AnimalFarmerContainer extends BaseContainerMenu {
 					if (!this.moveItemStackTo(stack, 22, this.slots.size(), false)) {
 						return ItemStack.EMPTY;
 					}
-				} else if (!this.moveItemStackTo(stack, 3, containerEnd, false)) {
+				} else if (!this.moveItemStackTo(stack, 0, containerEnd, false)) {
 					return ItemStack.EMPTY;
 				}
 			}
