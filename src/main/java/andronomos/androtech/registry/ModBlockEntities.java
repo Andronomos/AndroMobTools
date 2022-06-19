@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.block.ItemIncinerator.ItemIncineratorBE;
+import andronomos.androtech.block.amethystharvester.AmethystHarvesterBE;
 import andronomos.androtech.block.animalfarmer.AnimalFarmerBE;
 import andronomos.androtech.block.cropfarmer.CropFarmerBE;
 import andronomos.androtech.block.itemattractor.ItemAttractorBE;
@@ -46,5 +47,9 @@ public class ModBlockEntities {
 
     public static final RegistryObject<BlockEntityType<AnimalFarmerBE>> ANIMAL_FARMER = BLOCK_ENTITIES.register("animal_farmer_be", () -> BlockEntityType.Builder
             .of(AnimalFarmerBE::new, ModBlocks.ANIMAL_FARMER.get())
+            .build(null));
+
+    public static final RegistryObject<BlockEntityType<AmethystHarvesterBE>> AMETHYST_HARVESTER = BLOCK_ENTITIES.register("amethyst_harvester_be", () -> BlockEntityType.Builder
+            .of(AmethystHarvesterBE::new, ModBlocks.AMETHYST_HARVESTER.get())
             .build(null));
 }

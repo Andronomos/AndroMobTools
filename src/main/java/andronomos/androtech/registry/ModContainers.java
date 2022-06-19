@@ -1,6 +1,8 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.block.ItemIncinerator.ItemIncineratorContainer;
+import andronomos.androtech.block.amethystharvester.AmethystHarvester;
+import andronomos.androtech.block.amethystharvester.AmethystHarvesterContainer;
 import andronomos.androtech.block.animalfarmer.AnimalFarmerContainer;
 import andronomos.androtech.block.cropfarmer.CropFarmerContainer;
 import andronomos.androtech.block.itemattractor.ItemAttractorContainer;
@@ -56,5 +58,10 @@ public class ModContainers {
     public static final RegistryObject<MenuType<AnimalFarmerContainer>> ANIMAL_FARMER = CONTAINERS.register("animal_farmer", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         return new AnimalFarmerContainer(windowId, pos, inv);
+    }));
+
+    public static final RegistryObject<MenuType<AnimalFarmerContainer>> AMETHYST_HARVESTER = CONTAINERS.register("amethyst_harvester", () -> IForgeMenuType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        return new AmethystHarvesterContainer(windowId, pos, inv);
     }));
 }
