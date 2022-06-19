@@ -42,7 +42,7 @@ public abstract class BaseContainerBE extends BlockEntity {
 	}
 
 	@Override
-	protected void saveAdditional(CompoundTag tag) {
+	public void saveAdditional(CompoundTag tag) {
 		tag.put("Inventory", inventoryItems.serializeNBT());
 	}
 
