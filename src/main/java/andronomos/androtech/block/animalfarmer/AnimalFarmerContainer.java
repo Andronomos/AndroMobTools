@@ -34,7 +34,7 @@ public class AnimalFarmerContainer extends BaseContainerMenu {
 			addSlot(new SlotItemHandler(blockEntity.bucketSlot, 0, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 34));
 		}
 
-		layoutPlayerInventorySlots(8, 84);
+		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, Const.VANILLA_INVENTORY_Y);
 	}
 
 	@Override

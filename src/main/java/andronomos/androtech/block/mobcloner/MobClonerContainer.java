@@ -31,7 +31,7 @@ public class MobClonerContainer extends BaseContainerMenu {
 			});
 		}
 
-		layoutPlayerInventorySlots(8, 84);
+		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, Const.VANILLA_INVENTORY_Y);
 	}
 
 	@Override

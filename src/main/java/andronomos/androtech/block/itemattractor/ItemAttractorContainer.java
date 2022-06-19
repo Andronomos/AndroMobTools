@@ -30,7 +30,7 @@ public class ItemAttractorContainer extends BaseContainerMenu {
 			});
 		}
 
-		layoutPlayerInventorySlots(8, 140);
+		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, 140);
 	}
 
 	@Override

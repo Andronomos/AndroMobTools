@@ -13,7 +13,6 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -36,7 +35,7 @@ public class CropFarmerContainer extends BaseContainerMenu {
 			addSlot(new SlotItemHandler(blockEntity.hoeSlot, 0, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 16));
 		}
 
-		layoutPlayerInventorySlots(8, 84);
+		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, Const.VANILLA_INVENTORY_Y);
 	}
 
 	@Override

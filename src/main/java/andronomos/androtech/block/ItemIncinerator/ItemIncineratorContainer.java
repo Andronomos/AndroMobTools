@@ -1,5 +1,6 @@
 package andronomos.androtech.block.ItemIncinerator;
 
+import andronomos.androtech.Const;
 import andronomos.androtech.inventory.BaseContainerMenu;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
@@ -27,7 +28,7 @@ public class ItemIncineratorContainer extends BaseContainerMenu {
             });
         }
 
-        layoutPlayerInventorySlots(8, 84);
+        layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, Const.VANILLA_INVENTORY_Y);
     }
 
     @Override
