@@ -33,19 +33,25 @@ public class Const {
     }
 
     public class TicksInSeconds {
-        public final static int ONESECOND = 20;
-        public final static int TWOSECONDS = 40;
-        public final static int THREESECONDS = 60;
-        public final static int FOURSECONDS = 80;
-        public final static int FIVESECONDS = 100;
-        public final static int TENSECONDS = 200;
-        public final static int ONEMINUTE = 1200;
-        public final static int TWOMINUTES = 2400;
-        public final static int THREEMINUTES = 3600;
-        public final static int FIVEMINUTES = 6000;
-        public final static int TENMINUTES = 1200;
-        public final static int TWENTYMINUTES = 2400;
-        public final static int THIRTYMINUTES = 3600;
-        public final static int ONEHOUR = 7200;
+        public final static int ONE = 20;
+        public final static int TWO = 40;
+        public final static int THREE = 60;
+        public final static int FOUR = 80;
+        public final static int FIVE = 100;
+        public final static int TEN = 200;
+    }
+
+    public class TicksInMinutes {
+        public final static int ONE = 1200;
+        public final static int TWO = 2400;
+        public final static int THREE = 3600;
+        public final static int FIVE = 6000;
+        public final static int TEN = 1200;
+        public final static int TWENTY = 2400;
+        public final static int THIRTY = 3600;
+    }
+
+    public class TicksInHours {
+        public final static int ONE = 7200;
     }
 }

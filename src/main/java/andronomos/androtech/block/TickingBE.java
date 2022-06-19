@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public abstract class TickingBE extends BaseContainerBE {
-	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
+	public int tickDelay = Const.TicksInSeconds.THREE;
 	public int tickCounter = 0;
 
 	public TickingBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {

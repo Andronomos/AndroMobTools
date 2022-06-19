@@ -9,7 +9,7 @@ import net.minecraft.world.level.Level;
 
 public class TickingDevice extends ToggleableDevice {
 	public static int durability = 1000;
-	public int tickDelay = Const.TicksInSeconds.THREESECONDS;
+	public int tickDelay = Const.TicksInSeconds.THREE;
 	public int tickCounter = 0;
 
 	public TickingDevice(Item.Properties properties) {
