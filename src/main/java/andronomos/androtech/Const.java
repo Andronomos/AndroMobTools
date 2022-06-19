@@ -15,6 +15,9 @@ public class Const {
     public static final int CONTAINER_AUGMENT_FIRST_SLOT_X = 187;
     public static final int CONTAINER_AUGMENT_FIRST_SLOT_Y = 6;
 
+    public static final int VANILLA_INVENTORY_X = 8;
+    public static final int VANILLA_INVENTORY_Y = 84;
+
 
     public class EnchantmentLevel {
         public final static int I = 1;
