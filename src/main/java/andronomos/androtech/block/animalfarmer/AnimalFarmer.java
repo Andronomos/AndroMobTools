@@ -21,9 +21,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class AnimalFarmer  extends AndroTechTickingMachine {
 	public static final String SCREEN_ANIMAL_FARMER = "screen.androtech.animal_farmer";
-	public static final int SLOTS = 23;
-	public static final int SHEARS_SLOT = 21;
-	public static final int BUCKET_SLOT = 22;
 
 	public AnimalFarmer(Properties properties) {
 		super(properties);

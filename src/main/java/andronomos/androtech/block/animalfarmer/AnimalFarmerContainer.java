@@ -14,40 +14,24 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import org.jetbrains.annotations.NotNull;
 
 public class AnimalFarmerContainer extends BaseContainerMenu {
-	public final BlockEntity blockEntity;
+	public AnimalFarmerBE blockEntity;
 
 	public AnimalFarmerContainer(int windowId, BlockPos pos, Inventory inventory) {
 		super(ModContainers.ANIMAL_FARMER.get(), windowId, inventory);
 
-		blockEntity = this.player.getCommandSenderWorld().getBlockEntity(pos);
+		BlockEntity blockEntityAtPos = this.player.getCommandSenderWorld().getBlockEntity(pos);
 
-		if(blockEntity != null && blockEntity instanceof AnimalFarmerBE) {
+		if(blockEntityAtPos != null && blockEntityAtPos instanceof AnimalFarmerBE animalFarmerBE) {
+			blockEntity = animalFarmerBE;
+
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-				for(int y = 0; y < 3; y++) {
-					for (int x = 0; x < 7; x++) {
-						addSlot(new SlotItemHandler(h, x + y * 7,
-								Const.CONTAINER_MACHINE_SLOT_X_OFFSET + x * Const.SCREEN_SLOT_SIZE,
-								Const.CONTAINER_SLOT_SIZE + y * Const.SCREEN_SLOT_SIZE));
-					}
-				}
-
-				addSlot(new SlotItemHandler(h, 21, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 16) {
-					@Override
-					public boolean mayPlace(@NotNull ItemStack stack) {
-						return stack.getItem() == Items.SHEARS;
-					}
-				});
-
-				addSlot(new SlotItemHandler(h, 22, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 34) {
-					@Override
-					public boolean mayPlace(@NotNull ItemStack stack) {
-						return stack.getItem() == Items.BUCKET;
-					}
-				});
+				addMachineInventory(h);
 			});
+
+			addSlot(new SlotItemHandler(blockEntity.shearsSlot, 0, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 16));
+			addSlot(new SlotItemHandler(blockEntity.bucketSlot, 0, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 34));
 		}
 
 		layoutPlayerInventorySlots(8, 84);
@@ -62,7 +46,7 @@ public class AnimalFarmerContainer extends BaseContainerMenu {
 			ItemStack stack = slot.getItem();
 			returnStack = stack.copy();
 
-			int containerEnd = AnimalFarmer.SLOTS;
+			int containerEnd = Const.CONTAINER_MACHINE_MEDIUM_SIZE;
 
 			if(slotId <= containerEnd) {
 				if (!this.moveItemStackTo(stack, containerEnd, this.slots.size(), true)) {
