@@ -1,15 +1,17 @@
 package andronomos.androtech.block.cropfarmer;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
-import andronomos.androtech.block.animalfarmer.AnimalFarmerBE;
 import andronomos.androtech.inventory.BaseContainerMenu;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModContainers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -51,22 +53,18 @@ public class CropFarmerContainer extends BaseContainerMenu {
 			ItemStack stack = slot.getItem();
 			itemstack = stack.copy();
 
-			int containerEnd = Const.CONTAINER_GENERIC_LARGE_SIZE;
+			int containerEnd = Const.CONTAINER_MACHINE_MEDIUM_SIZE;
 
 			if(slotId <= containerEnd) {
 				if (!this.moveItemStackTo(stack, containerEnd, this.slots.size(), true)) {
 					return ItemStack.EMPTY;
 				}
 			} else {
-				if (stack.getItem() == Items.DIAMOND_HOE) {
+				if (stack.getItem() instanceof HoeItem) {
 					if (!this.moveItemStackTo(stack, 21, this.slots.size(), false)) {
 						return ItemStack.EMPTY;
 					}
-				} else if (stack.getItem() == Items.WATER_BUCKET) {
-					if (!this.moveItemStackTo(stack, 22, this.slots.size(), false)) {
-						return ItemStack.EMPTY;
-					}
-				} else if (!this.moveItemStackTo(stack, 3, containerEnd, false)) {
+				} else if (!this.moveItemStackTo(stack, 0, containerEnd, false)) {
 					return ItemStack.EMPTY;
 				}
 			}
@@ -79,5 +77,11 @@ public class CropFarmerContainer extends BaseContainerMenu {
 		}
 
 		return itemstack;
+	}
+
+	@Override
+	public void clicked(int slotId, int mouseButton, ClickType clickType, Player player) {
+		AndroTech.LOGGER.info("CropFarmerContainer#clicked | slotId: {}", slotId);
+		super.clicked(slotId, mouseButton, clickType, player);
 	}
 }
