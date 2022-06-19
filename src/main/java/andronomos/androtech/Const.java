@@ -5,6 +5,7 @@ public class Const {
     public static final int CONTAINER_GENERIC_LARGE_SIZE = 54;
     public static final int CONTAINER_GENERIC_SLOT_X_OFFSET = 8;
     public static final int CONTAINER_MACHINE_SLOT_X_OFFSET = 44;
+    public static final int CONTAINER_MACHINE_MEDIUM_SIZE = 21;
     public static final int CONTAINER_SLOT_SIZE = 16;
     public static final int SCREEN_SLOT_X_OFFSET = 7;
     public static final int SCREEN_SLOT_SIZE = 18;
