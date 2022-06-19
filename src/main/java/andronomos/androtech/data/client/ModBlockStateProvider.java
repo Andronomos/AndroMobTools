@@ -27,10 +27,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
             String blockName = b.getRegistryName().getPath();
 
-            if(b instanceof AndroTechMachine) {
-                AndroTechMachine machine = (AndroTechMachine)b;
-
-                if(machine.hasmultipleStates) {
+            if(b instanceof AndroTechMachine machine) {
+                if(machine.hasMultipleStates) {
                     registerMultiStateMachine(machine);
                 } else {
                     registerSingleStateMachine(machine);
@@ -49,15 +47,43 @@ public class ModBlockStateProvider extends BlockStateProvider {
         String topTexture = machine.useDefaultTopTexture ? "block/machine_top" : String.format("block/%s_top", machineName);
         String bottomTexture = machine.useDefaultBottomTexture ? "block/machine_bottom" : String.format("block/%s_bottom", machineName);
         String sideTexture = String.format("block/%s_side", machineName);
+        String frontTexture = machine.isDirectional ? String.format("block/%s_front", machineName) : sideTexture;
 
         ModelFile model = models().cube(machine.getRegistryName().getPath(),
                 modLoc(bottomTexture),
                 modLoc(topTexture),
-                modLoc(sideTexture),
+                modLoc(frontTexture),
                 modLoc(sideTexture),
                 modLoc(sideTexture),
                 modLoc(sideTexture));
-        simpleBlock(machine, model);
+
+        if(machine.isDirectional) {
+            getVariantBuilder(machine).forAllStatesExcept(state -> {
+                Direction direction = state.getValue(PadEffectBlock.FACING);
+
+                int yRot = 0;
+
+                switch (direction) {
+                    case EAST:
+                        yRot = 90;
+                        break;
+                    case WEST:
+                        yRot = 270;
+                        break;
+                    case SOUTH:
+                        yRot = 180;
+                        break;
+                }
+
+                return ConfiguredModel.builder()
+                        .modelFile(model)
+                        .rotationY(yRot)
+                        .build();
+            });
+        } else {
+            simpleBlock(machine, model);
+        }
+
         itemModels().withExistingParent(machineName, modLoc("block/" + machineName));
     }
 
@@ -99,43 +125,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         itemModels().withExistingParent(machine.getRegistryName().getPath(), modLoc("block/" + machineName + "_off"));
     }
-
-
-    //private void registerBlockWithPoweredStates(Block block, boolean hasBottomTexture) {
-    //    String blockName = block.getRegistryName().getPath();
-    //
-    //    getVariantBuilder(block).forAllStates(state -> {
-    //        boolean powered = state.getValue(BlockStateProperties.POWERED);
-    //
-    //        String bottomTexture = "block/";
-    //
-    //        if(hasBottomTexture) {
-    //            bottomTexture = bottomTexture + blockName;
-    //
-    //            if(powered) {
-    //                bottomTexture = bottomTexture + "_on_bottom";
-    //            } else {
-    //                bottomTexture = bottomTexture + "_off_bottom";
-    //            }
-    //        } else {
-    //            bottomTexture = bottomTexture + "machine_bottom";
-    //        }
-    //
-    //        ResourceLocation side = modLoc("block/" + blockName + "_off_side");
-    //        ModelFile model = models().cube(blockName + "_off", modLoc(bottomTexture), modLoc("block/" + blockName + "_off_top"), side, side, side, side);
-    //
-    //        if(powered) {
-    //            side = modLoc("block/" + blockName + "_on_side");
-    //            model = models().cube(blockName + "_on", modLoc(bottomTexture), modLoc("block/" + blockName + "_on_top"), side, side, side, side);
-    //        }
-    //
-    //        return ConfiguredModel.builder()
-    //                .modelFile(model)
-    //                .build();
-    //    });
-    //
-    //    itemModels().withExistingParent(block.getRegistryName().getPath(), modLoc("block/" + blockName + "_off"));
-    //}
 
     private void registerPadStateAndModel(Block block, String top, boolean isDirectional) {
         ModelFile model = models().withExistingParent(block.getRegistryName().getPath(), modLoc("pad_base"))
