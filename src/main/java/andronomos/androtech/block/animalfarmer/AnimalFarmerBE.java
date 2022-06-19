@@ -78,7 +78,7 @@ public class AnimalFarmerBE extends TickingBE {
 		double z = pos.getZ();
 
 		//minX minY minZ maxX maxY maxZ
-		return new AABB(x - 4, y, z - 4, x + 4, y + 2, z + 4);
+		return new AABB(x + 4, y, z - 1, x - 4, y + 1, z - 9);
 	}
 
 	@Override
