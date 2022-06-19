@@ -3,7 +3,7 @@
   "textures": {
     "down": "androtech:block/machine_bottom",
     "up": "androtech:block/machine_top",
-    "north": "androtech:block/animal_farmer_side",
+    "north": "androtech:block/animal_farmer_front",
     "south": "androtech:block/animal_farmer_side",
     "east": "androtech:block/animal_farmer_side",
     "west": "androtech:block/animal_farmer_side"
