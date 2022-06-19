@@ -137,6 +137,8 @@ public class AnimalFarmerBE extends TickingBE {
 						if(!returnStack.isEmpty()) {
 							ItemStackUtil.drop(level, animal.blockPosition(), returnStack);
 						}
+
+						bucket.shrink(1);
 					}
 				}
 			}
