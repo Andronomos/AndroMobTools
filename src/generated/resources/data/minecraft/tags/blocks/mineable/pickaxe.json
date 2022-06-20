@@ -11,6 +11,7 @@
     "androtech:weak_acceleration_pad",
     "androtech:strong_acceleration_pad",
     "androtech:redstone_transmitter",
-    "androtech:redstone_receiver"
+    "androtech:redstone_receiver",
+    "androtech:amethyst_harvester"
   ]
 }
