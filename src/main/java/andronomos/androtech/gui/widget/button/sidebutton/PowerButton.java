@@ -14,7 +14,7 @@ public class PowerButton extends SideButton {
 	public PowerButton(OnPress onPress, BlockEntity blockEntity) {
 		super(textureOff, onPress);
 		this.blockEntity = blockEntity;
-		this.tooltipPrefix = "gui.testmod.powered";
+		this.tooltipPrefix = "gui.androtech.powered";
 	}
 
 	public void updateButton() {
