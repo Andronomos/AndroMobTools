@@ -16,7 +16,6 @@ public abstract class AndroTechTickingMachine extends AndroTechMachine implement
 
 	public AndroTechTickingMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasMultipleStates, boolean isDirectional) {
 		super(properties, useDefaultTopTexture, useDefaultBottomTexture, hasMultipleStates, isDirectional);
-		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)));
 	}
 
 	@Override
