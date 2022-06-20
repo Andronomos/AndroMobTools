@@ -1,30 +1,43 @@
 package andronomos.androtech.block.amethystharvester;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
-import andronomos.androtech.block.TickingBE;
-import andronomos.androtech.inventory.MachineSlotItemStackHandler;
+import andronomos.androtech.block.TickingMachineBlockEntity;
+import andronomos.androtech.block.mobcloner.MobCloner;
+import andronomos.androtech.item.tools.NaniteEnhancedPickAxe;
 import andronomos.androtech.registry.ModBlockEntities;
+import andronomos.androtech.util.BlockUtil;
+import andronomos.androtech.util.InventoryUtil;
+import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import javax.annotation.Nonnull;
+import java.util.List;
 
-public class AmethystHarvesterBE extends TickingBE {
+public class AmethystHarvesterBE extends TickingMachineBlockEntity {
 	public ItemStackHandler pickaxeSlot;
 
 	private final LazyOptional<IItemHandler> pickaxeSlotHandler = LazyOptional.of(() -> pickaxeSlot);
@@ -32,7 +45,13 @@ public class AmethystHarvesterBE extends TickingBE {
 
 	public AmethystHarvesterBE(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.AMETHYST_HARVESTER.get(), pos, state);
-		pickaxeSlot = new MachineSlotItemStackHandler(Items.DIAMOND_PICKAXE);
+		pickaxeSlot = new ItemStackHandler() {
+			@Override
+			public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+				return stack.getItem() instanceof PickaxeItem;
+			}
+		};
+		tickDelay = Const.TicksInMinutes.ONE;
 	}
 
 	@Override
@@ -59,9 +78,57 @@ public class AmethystHarvesterBE extends TickingBE {
 
 	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
-		if(!shouldTick()) return;
+		if(state.getValue(AmethystHarvester.POWERED)) {
 
-		//todo mine amethyst buds in a 9x9 area
+			if (!shouldTick()) return;
+
+			FakePlayer fakePlayer = FakePlayerFactory.get(level, AndroTech.PROFILE);
+
+			List<BlockPos> blocksInArea = BlockUtil.getBlockPosInAABB(getWorkArea(pos));
+
+			for (BlockPos nearbyPos : blocksInArea) {
+				BlockState clusterState = level.getBlockState(nearbyPos);
+				Block block = clusterState.getBlock();
+
+				if (block == Blocks.AMETHYST_CLUSTER) {
+					ItemStack pickaxe = pickaxeSlot.getStackInSlot(0);
+
+					if (!pickaxe.isEmpty()) {
+						fakePlayer.setItemInHand(InteractionHand.MAIN_HAND, pickaxe);
+
+						boolean canHarvest = clusterState.canHarvestBlock(level, nearbyPos, fakePlayer);
+
+						if (canHarvest) {
+							LootContext.Builder builder = new LootContext.Builder(level)
+									.withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(nearbyPos))
+									.withParameter(LootContextParams.TOOL, pickaxe);
+
+							List<ItemStack> drops = clusterState.getDrops(builder);
+
+							level.setBlock(nearbyPos, Blocks.AIR.defaultBlockState(), 0);
+
+							drops.forEach(stack -> {
+								ItemStack returnStack = InventoryUtil.insertIntoInventory(stack, inventoryItems);
+
+								if(!returnStack.isEmpty()) {
+									ItemStackUtil.drop(level, nearbyPos, returnStack);
+								}
+							});
+
+							ItemStackUtil.applyDamage(fakePlayer, pickaxe, 1);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public AABB getWorkArea(BlockPos pos) {
+		double x = pos.getX();
+		double y = pos.getY();
+		double z = pos.getZ();
+
+		return new AABB(x - 4, y - 4, z - 4, x + 4, y + 4, z + 4);
 	}
 
 	@NotNull
