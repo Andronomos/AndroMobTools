@@ -47,7 +47,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, false);
     public static final RegistryObject<Block> REDSTONE_TRANSMITTER = registerBlock("redstone_transmitter", () -> new RedstoneTransmitter(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> REDSTONE_RECEIVER = registerBlock("redstone_receiver", () -> new RedstoneReceiver(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
-    public static final RegistryObject<Block> AMETHYST_HARVESTER = registerBlock("redstone_receiver", () -> new AmethystHarvester(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> AMETHYST_HARVESTER = registerBlock("amethyst_harvester", () -> new AmethystHarvester(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
 
 
     private static <T extends Block> RegistryObject<Block> registerPad(String name, PadEffect effect, boolean shouledAffectPlayer) {
