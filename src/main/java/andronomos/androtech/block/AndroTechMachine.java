@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -26,6 +27,11 @@ public abstract class AndroTechMachine extends Block {
 		this.useDefaultTopTexture = useDefaultTopTexture;
 		this.useDefaultBottomTexture = useDefaultBottomTexture;
 		this.hasMultipleStates = hasMultipleStates;
+	}
+
+	@Override
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		builder.add(BlockStateProperties.POWERED);
 	}
 
 	@Override
