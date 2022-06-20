@@ -10,12 +10,9 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
 public abstract class AndroTechTickingMachine extends AndroTechMachine implements EntityBlock {
-	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
-
 	public AndroTechTickingMachine(Properties properties) {
 		this(properties, true, true, false, false);
 	}
