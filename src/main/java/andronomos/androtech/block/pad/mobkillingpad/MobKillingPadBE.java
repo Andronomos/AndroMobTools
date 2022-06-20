@@ -1,7 +1,7 @@
 package andronomos.androtech.block.pad.mobkillingpad;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.TickingBE;
+import andronomos.androtech.block.TickingMachineBlockEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MobKillingPadBE extends TickingBE {
+public class MobKillingPadBE extends TickingMachineBlockEntity {
     public static final int PAD_SLOTS = 1;
     private final List<Enchantment> enchantments = new ArrayList<>();
 

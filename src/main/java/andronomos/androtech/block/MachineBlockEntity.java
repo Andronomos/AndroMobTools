@@ -1,8 +1,10 @@
 package andronomos.androtech.block;
 
+import andronomos.androtech.Const;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,15 +17,36 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public abstract class BaseContainerBE extends BlockEntity {
+public abstract class MachineBlockEntity extends BlockEntity {
 	public final ItemStackHandler inventoryItems = createInventoryItemHandler();
 	public final LazyOptional<IItemHandler> inventoryHandler = LazyOptional.of(() -> inventoryItems);
 
-	public BaseContainerBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+	public MachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
 	}
 
 	protected abstract ItemStackHandler createInventoryItemHandler();
+
+	protected ItemStackHandler createInventoryItemHandler(int size) {
+		return new ItemStackHandler(size) {
+			@Override
+			public int getSlotLimit(int slotId) {
+				return 64;
+			}
+
+			@Override
+			protected void onContentsChanged(int slot) {
+				// To make sure the TE persists when the chunk is saved later we need to
+				// mark it dirty every time the item handler changes
+				setChanged();
+			}
+
+			@Override
+			public boolean isItemValid(int slotId, @Nonnull ItemStack stack) {
+				return true;
+			}
+		};
+	}
 
 	@Nonnull
 	@Override

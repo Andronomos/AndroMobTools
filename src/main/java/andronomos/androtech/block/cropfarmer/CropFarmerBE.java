@@ -1,7 +1,7 @@
 package andronomos.androtech.block.cropfarmer;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.block.TickingBE;
+import andronomos.androtech.block.TickingMachineBlockEntity;
 import andronomos.androtech.block.cropfarmer.harvesters.*;
 import andronomos.androtech.block.mobcloner.MobCloner;
 import andronomos.androtech.inventory.MachineSlotItemStackHandler;
@@ -32,7 +32,7 @@ import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CropFarmerBE extends TickingBE {
+public class CropFarmerBE extends TickingMachineBlockEntity {
 	public ItemStackHandler hoeSlot;
 
 	private final LazyOptional<IItemHandler> hoeSlotHandler = LazyOptional.of(() -> hoeSlot);

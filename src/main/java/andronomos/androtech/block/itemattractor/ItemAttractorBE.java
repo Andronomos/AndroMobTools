@@ -1,7 +1,7 @@
 package andronomos.androtech.block.itemattractor;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.block.TickingBE;
+import andronomos.androtech.block.TickingMachineBlockEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.InventoryUtil;
 import net.minecraft.core.BlockPos;
@@ -20,7 +20,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class ItemAttractorBE extends TickingBE {
+public class ItemAttractorBE extends TickingMachineBlockEntity {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public ItemAttractorBE(BlockPos pos, BlockState state) {

@@ -1,7 +1,7 @@
 package andronomos.androtech.block.itemmender;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.block.TickingBE;
+import andronomos.androtech.block.TickingMachineBlockEntity;
 import andronomos.androtech.item.PortableItemMender;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
@@ -15,7 +15,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class ItemMenderBE extends TickingBE {
+public class ItemMenderBE extends TickingMachineBlockEntity {
 	public ItemMenderBE(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.ITEM_MENDER.get(), pos, state);
 	}

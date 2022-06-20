@@ -2,7 +2,7 @@ package andronomos.androtech.block.animalfarmer;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
-import andronomos.androtech.block.TickingBE;
+import andronomos.androtech.block.TickingMachineBlockEntity;
 import andronomos.androtech.inventory.MachineSlotItemStackHandler;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.InventoryUtil;
@@ -36,7 +36,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class AnimalFarmerBE extends TickingBE {
+public class AnimalFarmerBE extends TickingMachineBlockEntity {
 	public ItemStackHandler shearsSlot;
 	public ItemStackHandler bucketSlot;
 
@@ -84,12 +84,6 @@ public class AnimalFarmerBE extends TickingBE {
 
 	@Override
 	public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
-		//if(!state.getValue(AnimalFarmer.POWERED)) return;
-		//
-		//double d0 = (double)pos.getX() + level.random.nextDouble();
-		//double d1 = (double)pos.getY() + level.random.nextDouble();
-		//double d2 = (double)pos.getZ() + level.random.nextDouble();
-		//level.addParticle(ParticleTypes., d0, d1, d2, 0.0D, 0.0D, 0.0D);
 	}
 
 	@Override

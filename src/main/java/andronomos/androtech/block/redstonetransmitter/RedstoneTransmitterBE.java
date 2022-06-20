@@ -1,6 +1,6 @@
 package andronomos.androtech.block.redstonetransmitter;
 
-import andronomos.androtech.block.TickingBE;
+import andronomos.androtech.block.TickingMachineBlockEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;
@@ -15,7 +15,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 
-public class RedstoneTransmitterBE extends TickingBE {
+public class RedstoneTransmitterBE extends TickingMachineBlockEntity {
 	public static final int TRANSMITTER_SLOTS = 9;
 
     public RedstoneTransmitterBE(BlockPos pos, BlockState state) {
