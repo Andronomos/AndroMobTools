@@ -1,6 +1,6 @@
 package andronomos.androtech.block.mobcloner;
 
-import andronomos.androtech.block.AndroTechTickingMachine;
+import andronomos.androtech.block.ATGuiMachine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class MobCloner extends AndroTechTickingMachine {
+public class MobCloner extends ATGuiMachine {
 	public static final String SCREEN_MOB_CLONER = "screen.mobtools.mob_cloner";
 
 	public MobCloner(BlockBehaviour.Properties properties) {

@@ -1,7 +1,7 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.AndroTechMachine;
+import andronomos.androtech.block.ATMachine;
 import andronomos.androtech.block.pad.PadBlock;
 import andronomos.androtech.block.pad.PadEffectBlock;
 import andronomos.androtech.block.pad.RotatablePadBlock;
@@ -27,7 +27,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
             String blockName = b.getRegistryName().getPath();
 
-            if(b instanceof AndroTechMachine machine) {
+            if(b instanceof ATMachine machine) {
                 if(machine.hasMultipleStates) {
                     registerMultiStateMachine(machine);
                 } else {
@@ -42,7 +42,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
 
-    private void registerSingleStateMachine(AndroTechMachine machine) {
+    private void registerSingleStateMachine(ATMachine machine) {
         String machineName = machine.getRegistryName().getPath();
         String topTexture = machine.useDefaultTopTexture ? "block/machine_top" : String.format("block/%s_top", machineName);
         String bottomTexture = machine.useDefaultBottomTexture ? "block/machine_bottom" : String.format("block/%s_bottom", machineName);
@@ -87,7 +87,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         itemModels().withExistingParent(machineName, modLoc("block/" + machineName));
     }
 
-    private void registerMultiStateMachine(AndroTechMachine machine) {
+    private void registerMultiStateMachine(ATMachine machine) {
         String machineName = machine.getRegistryName().getPath();
 
         getVariantBuilder(machine).forAllStates(state -> {

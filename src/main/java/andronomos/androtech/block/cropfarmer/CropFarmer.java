@@ -1,8 +1,7 @@
 package andronomos.androtech.block.cropfarmer;
 
-import andronomos.androtech.block.AndroTechTickingMachine;
+import andronomos.androtech.block.ATGuiMachine;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -25,7 +24,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class CropFarmer extends AndroTechTickingMachine implements LiquidBlockContainer {
+public class CropFarmer extends ATGuiMachine implements LiquidBlockContainer {
 	public static final String SCREEN_CROP_FARMER = "screen.androtech.crop_farmer";
 
 	public CropFarmer(BlockBehaviour.Properties properties) {

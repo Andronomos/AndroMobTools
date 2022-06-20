@@ -1,7 +1,6 @@
 package andronomos.androtech.block.amethystharvester;
 
-import andronomos.androtech.block.AndroTechTickingMachine;
-import andronomos.androtech.block.animalfarmer.AnimalFarmerBE;
+import andronomos.androtech.block.ATGuiMachine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
@@ -18,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class AmethystHarvester extends AndroTechTickingMachine {
+public class AmethystHarvester extends ATGuiMachine {
 	public static final String SCREEN_AMETHYST_HARVESTER = "screen.androtech.amethyst_harvester";
 
 	public AmethystHarvester(Properties properties) {

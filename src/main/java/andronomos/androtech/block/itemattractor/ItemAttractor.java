@@ -1,6 +1,6 @@
 package andronomos.androtech.block.itemattractor;
 
-import andronomos.androtech.block.AndroTechTickingMachine;
+import andronomos.androtech.block.ATGuiMachine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class ItemAttractor extends AndroTechTickingMachine {
+public class ItemAttractor extends ATGuiMachine {
 	public static final String SCREEN_ITEM_ATTRACTOR = "screen.androtech.item_attractor";
 
 	public ItemAttractor(BlockBehaviour.Properties properties) {

@@ -1,6 +1,6 @@
 package andronomos.androtech.block.ItemIncinerator;
 
-import andronomos.androtech.block.AndroTechTickingMachine;
+import andronomos.androtech.block.ATGuiMachine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerPlayer;
@@ -16,7 +16,7 @@ import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public class ItemIncinerator extends AndroTechTickingMachine {
+public class ItemIncinerator extends ATGuiMachine {
     public static final String SCREEN_ITEM_INCINERATOR = "screen.androtech.item_incinerator";
 
     public ItemIncinerator(BlockBehaviour.Properties properties) {

@@ -9,18 +9,18 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-public abstract class AndroTechMachine extends Block {
+public abstract class ATMachine extends Block {
 	public boolean useDefaultTopTexture;
 	public boolean useDefaultBottomTexture;
 	public boolean hasMultipleStates;
 	public boolean isDirectional;
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
-	public AndroTechMachine(Properties properties) {
+	public ATMachine(Properties properties) {
 		this(properties, true, true, false, false);
 	}
 
-	public AndroTechMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasMultipleStates, boolean isDirectional) {
+	public ATMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasMultipleStates, boolean isDirectional) {
 		super(properties);
 		this.isDirectional = isDirectional;
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)));

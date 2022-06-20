@@ -9,12 +9,12 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-public abstract class AndroTechTickingMachine extends AndroTechMachine implements EntityBlock {
-	public AndroTechTickingMachine(Properties properties) {
+public abstract class ATGuiMachine extends ATMachine implements EntityBlock {
+	public ATGuiMachine(Properties properties) {
 		this(properties, true, true, false, false);
 	}
 
-	public AndroTechTickingMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasMultipleStates, boolean isDirectional) {
+	public ATGuiMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasMultipleStates, boolean isDirectional) {
 		super(properties, useDefaultTopTexture, useDefaultBottomTexture, hasMultipleStates, isDirectional);
 	}
 

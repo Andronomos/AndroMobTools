@@ -1,8 +1,6 @@
 package andronomos.androtech.block.animalfarmer;
 
-import andronomos.androtech.block.AndroTechTickingMachine;
-import andronomos.androtech.block.cropfarmer.CropFarmerBE;
-import andronomos.androtech.block.cropfarmer.CropFarmerContainer;
+import andronomos.androtech.block.ATGuiMachine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.TextComponent;
@@ -27,7 +25,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class AnimalFarmer  extends AndroTechTickingMachine {
+public class AnimalFarmer  extends ATGuiMachine {
 	public static final String SCREEN_ANIMAL_FARMER = "screen.androtech.animal_farmer";
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
