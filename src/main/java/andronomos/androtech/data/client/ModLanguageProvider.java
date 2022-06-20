@@ -1,6 +1,7 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.block.ItemIncinerator.ItemIncinerator;
+import andronomos.androtech.block.amethystharvester.AmethystHarvester;
 import andronomos.androtech.block.animalfarmer.AnimalFarmer;
 import andronomos.androtech.block.cropfarmer.CropFarmer;
 import andronomos.androtech.block.itemattractor.ItemAttractor;
@@ -63,6 +64,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemIncinerator.SCREEN_ITEM_INCINERATOR, "Item Incinerator");
 		add(ItemAttractor.SCREEN_ITEM_ATTRACTOR, "Item Attractor");
 		add(AnimalFarmer.SCREEN_ANIMAL_FARMER, "Animal Farmer");
+		add(AmethystHarvester.SCREEN_AMETHYST_HARVESTER, "Amethyst Harvester");
 
 		add("gui.androtech.powered_on", "Powered On");
 		add("gui.androtech.powered_off", "Powered Off");
