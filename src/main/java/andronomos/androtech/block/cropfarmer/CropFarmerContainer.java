@@ -29,7 +29,7 @@ public class CropFarmerContainer extends BaseContainerMenu {
 			blockEntity = cropFarmerBE;
 
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-				addMachineInventory(h);
+				addMediumMachineInventory(h);
 			});
 
 			addSlot(new SlotItemHandler(blockEntity.hoeSlot, 0, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 16));

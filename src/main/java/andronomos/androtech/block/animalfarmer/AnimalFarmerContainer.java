@@ -27,7 +27,7 @@ public class AnimalFarmerContainer extends BaseContainerMenu {
 			blockEntity = animalFarmerBE;
 
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-				addMachineInventory(h);
+				addMediumMachineInventory(h);
 			});
 
 			addSlot(new SlotItemHandler(blockEntity.shearsSlot, 0, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 16));

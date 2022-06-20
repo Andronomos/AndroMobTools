@@ -1,6 +1,5 @@
 package andronomos.androtech.block.amethystharvester;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.inventory.BaseContainerMenu;
 import andronomos.androtech.registry.ModBlocks;
@@ -8,7 +7,6 @@ import andronomos.androtech.registry.ModContainers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -29,7 +27,7 @@ public class AmethystHarvesterContainer extends BaseContainerMenu {
 			blockEntity = amethystHarvester;
 
 			blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-				addMachineInventory(h);
+				addMediumMachineInventory(h);
 			});
 
 			addSlot(new SlotItemHandler(blockEntity.pickaxeSlot, 0, Const.CONTAINER_GENERIC_SLOT_X_OFFSET, 16));

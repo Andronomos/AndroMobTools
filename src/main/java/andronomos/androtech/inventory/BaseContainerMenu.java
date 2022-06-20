@@ -30,7 +30,7 @@ public abstract class BaseContainerMenu extends AbstractContainerMenu {
 		}
 	}
 
-	public void addMachineInventory(IItemHandler handler) {
+	public void addMediumMachineInventory(IItemHandler handler) {
 		for(int y = 0; y < 3; y++) {
 			for (int x = 0; x < 7; x++) {
 				addSlot(new SlotItemHandler(handler, x + y * 7,
