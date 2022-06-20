@@ -1,6 +1,5 @@
 package andronomos.androtech.block.redstonereceiver;
 
-
 import andronomos.androtech.block.AndroTechMachine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -10,11 +9,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 public class RedstoneReceiver extends AndroTechMachine {
-    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
-
     public RedstoneReceiver(BlockBehaviour.Properties properties) {
         super(properties, false,false, true, false);
         this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)));
@@ -36,7 +32,7 @@ public class RedstoneReceiver extends AndroTechMachine {
     }
 
     @Override
-    public boolean isSignalSource(BlockState p_149744_1_) {
+    public boolean isSignalSource(BlockState state) {
         return true;
     }
 }
