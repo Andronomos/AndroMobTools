@@ -60,7 +60,7 @@ public class ModContainers {
         return new AnimalFarmerContainer(windowId, pos, inv);
     }));
 
-    public static final RegistryObject<MenuType<AnimalFarmerContainer>> AMETHYST_HARVESTER = CONTAINERS.register("amethyst_harvester", () -> IForgeMenuType.create((windowId, inv, data) -> {
+    public static final RegistryObject<MenuType<AmethystHarvesterContainer>> AMETHYST_HARVESTER = CONTAINERS.register("amethyst_harvester", () -> IForgeMenuType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         return new AmethystHarvesterContainer(windowId, pos, inv);
     }));
