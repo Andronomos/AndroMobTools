@@ -6,6 +6,7 @@
     "north": "androtech:block/redstone_receiver_off_side",
     "south": "androtech:block/redstone_receiver_off_side",
     "east": "androtech:block/redstone_receiver_off_side",
-    "west": "androtech:block/redstone_receiver_off_side"
+    "west": "androtech:block/redstone_receiver_off_side",
+    "particle": "androtech:block/redstone_receiver_off_side"
   }
 }

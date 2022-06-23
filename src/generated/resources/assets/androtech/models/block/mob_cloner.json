@@ -6,6 +6,7 @@
     "north": "androtech:block/mob_cloner_side",
     "south": "androtech:block/mob_cloner_side",
     "east": "androtech:block/mob_cloner_side",
-    "west": "androtech:block/mob_cloner_side"
+    "west": "androtech:block/mob_cloner_side",
+    "particle": "androtech:block/mob_cloner_side"
   }
 }

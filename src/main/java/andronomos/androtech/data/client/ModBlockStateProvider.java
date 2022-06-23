@@ -59,7 +59,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc(frontTexture),
                 modLoc(sideTexture),
                 modLoc(sideTexture),
-                modLoc(sideTexture));
+                modLoc(sideTexture)).texture("particle", sideTexture);
 
         if(machine.isDirectional) {
             getVariantBuilder(machine).forAllStatesExcept(state -> {
@@ -115,11 +115,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
             }
 
             ResourceLocation side = modLoc("block/" + machineName + "_off_side");
-            ModelFile model = models().cube(machineName + "_off", modLoc(bottomTexture), modLoc(topTexture), side, side, side, side);
+            ModelFile model = models().cube(machineName + "_off", modLoc(bottomTexture), modLoc(topTexture), side, side, side, side).texture("particle", side);
 
             if(isPowered) {
                 side = modLoc("block/" + machineName + "_on_side");
-                model = models().cube(machineName + "_on", modLoc(bottomTexture), modLoc(topTexture), side, side, side, side);
+                model = models().cube(machineName + "_on", modLoc(bottomTexture), modLoc(topTexture), side, side, side, side).texture("particle", side);
             }
 
             return ConfiguredModel.builder()

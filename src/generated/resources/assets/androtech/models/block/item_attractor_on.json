@@ -6,6 +6,7 @@
     "north": "androtech:block/item_attractor_on_side",
     "south": "androtech:block/item_attractor_on_side",
     "east": "androtech:block/item_attractor_on_side",
-    "west": "androtech:block/item_attractor_on_side"
+    "west": "androtech:block/item_attractor_on_side",
+    "particle": "androtech:block/item_attractor_on_side"
   }
 }
