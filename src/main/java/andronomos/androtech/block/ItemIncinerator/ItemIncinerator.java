@@ -17,10 +17,10 @@ import net.minecraftforge.network.NetworkHooks;
 import javax.annotation.Nullable;
 
 public class ItemIncinerator extends ATGuiMachine {
-    public static final String SCREEN_ITEM_INCINERATOR = "screen.androtech.item_incinerator";
+    public static final String name = "screen.androtech.item_incinerator";
 
     public ItemIncinerator(BlockBehaviour.Properties properties) {
-        super(properties, false, false, false, false);
+        super(properties, true, true, true, false, false, false);
     }
 
     @Nullable
@@ -37,7 +37,7 @@ public class ItemIncinerator extends ATGuiMachine {
             MenuProvider containerProvider = new MenuProvider() {
                 @Override
                 public TextComponent getDisplayName() {
-                    return new TextComponent(SCREEN_ITEM_INCINERATOR);
+                    return new TextComponent(name);
                 }
 
                 @Nullable

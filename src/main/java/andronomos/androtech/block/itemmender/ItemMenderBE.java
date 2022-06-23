@@ -2,7 +2,7 @@ package andronomos.androtech.block.itemmender;
 
 import andronomos.androtech.Const;
 import andronomos.androtech.block.TickingMachineBlockEntity;
-import andronomos.androtech.item.PortableItemMender;
+import andronomos.androtech.item.device.PortableItemMender;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtil;
 import net.minecraft.core.BlockPos;

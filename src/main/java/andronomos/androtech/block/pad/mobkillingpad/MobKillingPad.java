@@ -24,10 +24,10 @@ import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public class MobKillingPadBlock extends PadBlock implements EntityBlock {
-    public static final String SCREEN_MOB_KILLING_PAD = "screen.androtech.mob_killing_pad";
+public class MobKillingPad extends PadBlock implements EntityBlock {
+    public static final String name = "screen.androtech.mob_killing_pad";
 
-    public MobKillingPadBlock(Properties properties) {
+    public MobKillingPad(Properties properties) {
         super(properties);
     }
 
@@ -56,7 +56,7 @@ public class MobKillingPadBlock extends PadBlock implements EntityBlock {
                 MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public Component getDisplayName() {
-                        return new TranslatableComponent(SCREEN_MOB_KILLING_PAD);
+                        return new TranslatableComponent(name);
                     }
 
                     @Override

@@ -77,10 +77,4 @@ public class CropFarmerContainer extends BaseContainerMenu {
 
 		return itemstack;
 	}
-
-	@Override
-	public void clicked(int slotId, int mouseButton, ClickType clickType, Player player) {
-		AndroTech.LOGGER.info("CropFarmerContainer#clicked | slotId: {}", slotId);
-		super.clicked(slotId, mouseButton, clickType, player);
-	}
 }

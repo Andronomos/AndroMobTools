@@ -48,7 +48,7 @@ public class AnimalFarmerBE extends TickingMachineBlockEntity {
 		super(ModBlockEntities.ANIMAL_FARMER.get(), pos, state);
 		shearsSlot = new MachineSlotItemStackHandler(Items.SHEARS);
 		bucketSlot = new MachineSlotItemStackHandler(Items.BUCKET);
-		tickDelay = Const.TicksInMinutes.ONE;
+		tickDelay = Const.TicksInMinutes.THREE;
 	}
 
 	@Override

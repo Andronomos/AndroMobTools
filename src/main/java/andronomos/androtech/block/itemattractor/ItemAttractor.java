@@ -19,10 +19,10 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemAttractor extends ATGuiMachine {
-	public static final String SCREEN_ITEM_ATTRACTOR = "screen.androtech.item_attractor";
+	public static final String name = "screen.androtech.item_attractor";
 
 	public ItemAttractor(BlockBehaviour.Properties properties) {
-		super(properties, false, true, true, false);
+		super(properties, true, false, true, false, true, false);
 	}
 
 	@Nullable
@@ -49,7 +49,7 @@ public class ItemAttractor extends ATGuiMachine {
 			MenuProvider containerProvider = new MenuProvider() {
 				@Override
 				public TextComponent getDisplayName() {
-					return new TextComponent(SCREEN_ITEM_ATTRACTOR);
+					return new TextComponent(name);
 				}
 
 				@Override

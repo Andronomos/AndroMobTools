@@ -11,11 +11,11 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public abstract class ATGuiMachine extends ATMachine implements EntityBlock {
 	public ATGuiMachine(Properties properties) {
-		this(properties, true, true, false, false);
+		super(properties);
 	}
 
-	public ATGuiMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasMultipleStates, boolean isDirectional) {
-		super(properties, useDefaultTopTexture, useDefaultBottomTexture, hasMultipleStates, isDirectional);
+	public ATGuiMachine(Properties properties, boolean hasTopTexture, boolean hasBottomTexture, boolean hasSideTexture, boolean hasFrontTexture, boolean hasMultiStates, boolean isDirectional) {
+		super(properties, hasTopTexture, hasBottomTexture, hasSideTexture, hasFrontTexture, hasMultiStates, isDirectional);
 	}
 
 	@Override

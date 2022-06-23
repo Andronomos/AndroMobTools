@@ -19,10 +19,10 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemMender extends ATGuiMachine {
-	public static final String SCREEN_ITEM_MENDER = "screen.androtech.item_mender";
+	public static final String name = "screen.androtech.item_mender";
 
 	public ItemMender(BlockBehaviour.Properties properties) {
-		super(properties, true, true, false, false);
+		super(properties, false, false, true, false, false, false);
 	}
 
 	@Nullable
@@ -49,7 +49,7 @@ public class ItemMender extends ATGuiMachine {
 			MenuProvider containerProvider = new MenuProvider() {
 				@Override
 				public TextComponent getDisplayName() {
-					return new TextComponent(SCREEN_ITEM_MENDER);
+					return new TextComponent(name);
 				}
 
 				@Override

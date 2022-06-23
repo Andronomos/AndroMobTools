@@ -1,6 +1,6 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.device;
 
-import andronomos.androtech.item.device.TickingDevice;
+import andronomos.androtech.item.device.base.TickingDevice;
 import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.PlayerUtil;
 import net.minecraft.core.NonNullList;
@@ -13,13 +13,9 @@ import net.minecraft.world.level.Level;
 public class PortableItemMender extends TickingDevice {
     public static final int REPAIR_MODULE_RATE = 10;
 
-    public PortableItemMender(Item.Properties properties, boolean takeDamage) {
-        super(properties, takeDamage);
-        durability = 10000;
-    }
-
     public PortableItemMender(Item.Properties properties) {
         super(properties, true);
+        durability = 10000;
     }
 
     @Override

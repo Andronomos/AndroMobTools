@@ -3,6 +3,7 @@ package andronomos.androtech;
 import andronomos.androtech.block.ItemIncinerator.ItemIncineratorScreen;
 import andronomos.androtech.block.amethystharvester.AmethystHarvesterScreen;
 import andronomos.androtech.block.animalfarmer.AnimalFarmerScreen;
+import andronomos.androtech.block.blockminer.BlockMinerScreen;
 import andronomos.androtech.block.cropfarmer.CropFarmerScreen;
 import andronomos.androtech.block.itemattractor.ItemAttractorScreen;
 import andronomos.androtech.block.itemmender.ItemMenderScreen;
@@ -62,6 +63,7 @@ public class AndroTech {
 			MenuScreens.register(ModContainers.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);
 			MenuScreens.register(ModContainers.REDSTONE_TRANSMITTER.get(), RedstoneTransmitterScreen::new);
 			MenuScreens.register(ModContainers.AMETHYST_HARVESTER.get(), AmethystHarvesterScreen::new);
+			MenuScreens.register(ModContainers.BLOCK_MINER.get(), BlockMinerScreen::new);
 
 			ModPropertyOverrides.register();
 		});

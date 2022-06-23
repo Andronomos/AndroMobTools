@@ -1,4 +1,4 @@
-package andronomos.androtech.item.device;
+package andronomos.androtech.item.device.base;
 
 import andronomos.androtech.util.ItemStackUtil;
 import andronomos.androtech.util.NBTUtil;

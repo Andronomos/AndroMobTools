@@ -1,6 +1,6 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.device;
 
-import andronomos.androtech.item.device.TickingDevice;
+import andronomos.androtech.item.device.base.TickingDevice;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -15,12 +15,8 @@ import java.util.List;
 public class PortableItemAttractor extends TickingDevice {
 	private final int pickupRange = 10;
 
-	public PortableItemAttractor(Item.Properties properties, boolean takeDamage) {
-		super(properties, takeDamage);
-	}
-
 	public PortableItemAttractor(Item.Properties properties) {
-		super(properties, false);
+		super(properties, true);
 	}
 
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {

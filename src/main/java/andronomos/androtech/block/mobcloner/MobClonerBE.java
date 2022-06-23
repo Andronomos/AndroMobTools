@@ -21,13 +21,13 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 
 public class MobClonerBE extends TickingMachineBlockEntity {
-	public static final int CLONER_SLOTS = 9;
-
 	private double spin;
 	private double oSpin;
 	private int requiredPlayerRange = 64;
 	private int spawnCount = 1;
 	private int spawnRange = 4;
+
+	public static final int CLONER_SLOTS = 9;
 
 	public MobClonerBE(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.MOB_CLONER_BE.get(), pos, state);

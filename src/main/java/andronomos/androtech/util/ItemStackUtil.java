@@ -46,7 +46,6 @@ public class ItemStackUtil {
         if(!stack.isRepairable()) return false; //if the item can't be repaired
         if(stack.getMaxDamage() == 0) return false; //if the item can't be damaged
         if(stack.getDamageValue() == 0) return false; //if the item hasn't taken any damage
-        //if(stack.getDamageValue() == stack.getMaxDamage()) return false; //if the item can't take anymore damage
         return true;
     }
 

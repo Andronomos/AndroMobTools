@@ -20,10 +20,10 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class RedstoneTransmitter extends ATGuiMachine {
-    public static final String SCREEN_REDSTONE_TRANSMITTER = "screen.androtech.redstone_transmitter";
+    public static final String name = "screen.androtech.redstone_transmitter";
 
     public RedstoneTransmitter(BlockBehaviour.Properties properties) {
-        super(properties, true, true, true, false);
+        super(properties, false, false, true, false, true, false);
     }
 
     @Nullable
@@ -50,7 +50,7 @@ public class RedstoneTransmitter extends ATGuiMachine {
             MenuProvider containerProvider = new MenuProvider() {
                 @Override
                 public Component getDisplayName() {
-                    return new TranslatableComponent(SCREEN_REDSTONE_TRANSMITTER);
+                    return new TranslatableComponent(name);
                 }
 
                 @Override

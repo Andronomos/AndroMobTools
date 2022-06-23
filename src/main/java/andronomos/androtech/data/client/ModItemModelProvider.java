@@ -21,10 +21,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         createSingleTexture("nanite_enhanced_axe");
         createSingleTexture("nanite_enhanced_shovel");
         createSingleTexture("nanite_enhanced_sword");
+        createSingleTexture("fluid_remover");
         buildActivatableItem("mob_cloning_module");
         buildActivatableItem("portable_item_attractor");
         buildActivatableItem("portable_item_mender");
         buildActivatableItem("block_gps_recorder");
+        buildActivatableItem("night_vision_emitter");
+        buildActivatableItem("water_breathing_emitter");
+        buildActivatableItem("swiftness_emitter");
+        buildActivatableItem("fire_resistance_emitter");
+        buildActivatableItem("regeneration_emitter");
+        buildActivatableItem("poison_nullifier");
+        buildActivatableItem("wither_nullifier");
     }
 
     private ItemModelBuilder createSingleTexture(String name) {

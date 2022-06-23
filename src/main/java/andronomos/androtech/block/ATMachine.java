@@ -10,23 +10,27 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.items.CapabilityItemHandler;
 
 public abstract class ATMachine extends Block {
-	public boolean useDefaultTopTexture;
-	public boolean useDefaultBottomTexture;
-	public boolean hasMultipleStates;
+	public boolean hasTopTexture;
+	public boolean hasBottomTexture;
+	public boolean hasSideTexture;
+	public boolean hasFrontTexture;
+	public boolean hasMultiStates;
 	public boolean isDirectional;
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public ATMachine(Properties properties) {
-		this(properties, true, true, false, false);
+		this(properties, false, false, false, false, false, false);
 	}
 
-	public ATMachine(Properties properties, boolean useDefaultTopTexture, boolean useDefaultBottomTexture, boolean hasMultipleStates, boolean isDirectional) {
+	public ATMachine(Properties properties, boolean hasTopTexture, boolean hasBottomTexture, boolean hasSideTexture, boolean hasFrontTexture, boolean hasMultiStates, boolean isDirectional) {
 		super(properties);
 		this.isDirectional = isDirectional;
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.valueOf(false)));
-		this.useDefaultTopTexture = useDefaultTopTexture;
-		this.useDefaultBottomTexture = useDefaultBottomTexture;
-		this.hasMultipleStates = hasMultipleStates;
+		this.hasTopTexture = hasTopTexture;
+		this.hasBottomTexture = hasBottomTexture;
+		this.hasSideTexture = hasSideTexture;
+		this.hasFrontTexture = hasFrontTexture;
+		this.hasMultiStates = hasMultiStates;
 	}
 
 	@Override

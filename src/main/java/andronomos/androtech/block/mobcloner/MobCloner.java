@@ -20,10 +20,10 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class MobCloner extends ATGuiMachine {
-	public static final String SCREEN_MOB_CLONER = "screen.mobtools.mob_cloner";
+	public static final String name = "screen.mobtools.mob_cloner";
 
 	public MobCloner(BlockBehaviour.Properties properties) {
-		super(properties);
+		super(properties, true, false, true, false, false, false);
 	}
 
 	@Nullable
@@ -54,7 +54,7 @@ public class MobCloner extends ATGuiMachine {
 			MenuProvider containerProvider = new MenuProvider() {
 				@Override
 				public Component getDisplayName() {
-					return new TranslatableComponent(SCREEN_MOB_CLONER);
+					return new TranslatableComponent(name);
 				}
 
 				@Override

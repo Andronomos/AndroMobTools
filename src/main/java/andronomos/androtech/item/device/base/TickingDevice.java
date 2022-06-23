@@ -1,4 +1,4 @@
-package andronomos.androtech.item.device;
+package andronomos.androtech.item.device.base;
 
 import andronomos.androtech.Const;
 import net.minecraft.world.entity.Entity;

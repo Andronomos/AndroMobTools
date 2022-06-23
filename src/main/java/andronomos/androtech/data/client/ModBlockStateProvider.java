@@ -28,7 +28,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
             String blockName = b.getRegistryName().getPath();
 
             if(b instanceof ATMachine machine) {
-                if(machine.hasMultipleStates) {
+                if(machine.hasMultiStates) {
                     registerMultiStateMachine(machine);
                 } else {
                     registerSingleStateMachine(machine);
@@ -44,10 +44,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void registerSingleStateMachine(ATMachine machine) {
         String machineName = machine.getRegistryName().getPath();
-        String topTexture = machine.useDefaultTopTexture ? "block/machine_top" : String.format("block/%s_top", machineName);
-        String bottomTexture = machine.useDefaultBottomTexture ? "block/machine_bottom" : String.format("block/%s_bottom", machineName);
-        String sideTexture = String.format("block/%s_side", machineName);
-        String frontTexture = machine.isDirectional ? String.format("block/%s_front", machineName) : sideTexture;
+        String topTexture = machine.hasTopTexture ? String.format("block/%s_top", machineName) : "block/machine_top";
+        String bottomTexture = machine.hasBottomTexture ? String.format("block/%s_bottom", machineName) : "block/machine_bottom";
+        String sideTexture = machine.hasSideTexture ? String.format("block/%s_side", machineName): "block/machine_side";
+        String frontTexture = sideTexture;
+
+        if(machine.isDirectional) {
+            frontTexture = machine.hasFrontTexture ? String.format("block/%s_front", machineName) : "block/machine_front";
+        }
 
         ModelFile model = models().cube(machine.getRegistryName().getPath(),
                 modLoc(bottomTexture),
@@ -96,14 +100,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
             String topTexture = "block/";
             String bottomTexture = "block/";
 
-            if(!machine.useDefaultBottomTexture) {
+            if(machine.hasTopTexture) {
                 topTexture += machineName;
                 topTexture += isPowered ? "_on_top" : "_off_top";
             } else {
                 topTexture += "machine_top";
             }
 
-            if(!machine.useDefaultBottomTexture) {
+            if(machine.hasBottomTexture) {
                 bottomTexture += machineName;
                 bottomTexture += isPowered ? "_on_bottom" : "_off_bottom";
             } else {

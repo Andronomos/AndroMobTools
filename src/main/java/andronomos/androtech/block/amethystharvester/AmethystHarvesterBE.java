@@ -51,7 +51,7 @@ public class AmethystHarvesterBE extends TickingMachineBlockEntity {
 				return stack.getItem() instanceof PickaxeItem;
 			}
 		};
-		tickDelay = Const.TicksInMinutes.ONE;
+		tickDelay = Const.TicksInMinutes.THREE;
 	}
 
 	@Override

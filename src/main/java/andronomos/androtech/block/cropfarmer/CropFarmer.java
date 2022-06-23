@@ -25,10 +25,10 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class CropFarmer extends ATGuiMachine implements LiquidBlockContainer {
-	public static final String SCREEN_CROP_FARMER = "screen.androtech.crop_farmer";
+	public static final String name = "screen.androtech.crop_farmer";
 
 	public CropFarmer(BlockBehaviour.Properties properties) {
-		super(properties, false, true, false, false);
+		super(properties, true, false, false, false, false, false);
 	}
 
 	@Nullable
@@ -45,7 +45,7 @@ public class CropFarmer extends ATGuiMachine implements LiquidBlockContainer {
 			MenuProvider containerProvider = new MenuProvider() {
 				@Override
 				public TextComponent getDisplayName() {
-					return new TextComponent(SCREEN_CROP_FARMER);
+					return new TextComponent(name);
 				}
 
 				@Override

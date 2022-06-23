@@ -49,6 +49,8 @@ public class CropFarmerBE extends TickingMachineBlockEntity {
 		harvesters.add(new CropHarvester());
 		harvesters.add(new StemGrownBlockHarvester());
 		harvesters.add(new SweetBerryHarvester());
+
+		tickDelay = Const.TicksInMinutes.THREE;
 	}
 
 	public AABB getWorkArea(BlockPos pos) {

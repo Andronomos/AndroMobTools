@@ -18,10 +18,10 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class AmethystHarvester extends ATGuiMachine {
-	public static final String SCREEN_AMETHYST_HARVESTER = "screen.androtech.amethyst_harvester";
+	public static final String name = "screen.androtech.amethyst_harvester";
 
 	public AmethystHarvester(Properties properties) {
-		super(properties, true, true, true, false);
+		super(properties, false, false, true, false, true, false);
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class AmethystHarvester extends ATGuiMachine {
 			MenuProvider containerProvider = new MenuProvider() {
 				@Override
 				public TextComponent getDisplayName() {
-					return new TextComponent(SCREEN_AMETHYST_HARVESTER);
+					return new TextComponent(name);
 				}
 
 				@Override

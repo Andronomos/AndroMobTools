@@ -26,11 +26,11 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class AnimalFarmer  extends ATGuiMachine {
-	public static final String SCREEN_ANIMAL_FARMER = "screen.androtech.animal_farmer";
+	public static final String name = "screen.androtech.animal_farmer";
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
 	public AnimalFarmer(Properties properties) {
-		super(properties, true, true, false, true);
+		super(properties, false, false, false, false, false, true);
 	}
 
 	@javax.annotation.Nullable
@@ -78,7 +78,7 @@ public class AnimalFarmer  extends ATGuiMachine {
 			MenuProvider containerProvider = new MenuProvider() {
 				@Override
 				public TextComponent getDisplayName() {
-					return new TextComponent(SCREEN_ANIMAL_FARMER);
+					return new TextComponent(name);
 				}
 
 				@Override

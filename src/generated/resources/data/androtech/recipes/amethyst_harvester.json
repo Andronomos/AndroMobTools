@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "212",
+    "353",
+    "242"
+  ],
+  "key": {
+    "1": {
+      "item": "androtech:advanced_chip"
+    },
+    "2": {
+      "item": "minecraft:iron_ingot"
+    },
+    "3": {
+      "item": "minecraft:redstone_block"
+    },
+    "4": {
+      "item": "minecraft:chest"
+    },
+    "5": {
+      "item": "minecraft:amethyst_block"
+    }
+  },
+  "result": {
+    "item": "androtech:amethyst_harvester"
+  }
+}
