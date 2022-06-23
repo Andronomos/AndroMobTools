@@ -30,7 +30,7 @@ public class BlockMiner extends ATGuiMachine {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
 	public BlockMiner(Properties properties) {
-		super(properties, false, false, false, false, false, true);
+		super(properties, true, false, true, false, false, true);
 	}
 
 	@javax.annotation.Nullable
