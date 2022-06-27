@@ -38,6 +38,10 @@ public class ModRecipeProvider extends RecipeProvider {
         createMachineRecipe(ModBlocks.ITEM_MENDER.get(), ModItems.ADVANCED_CHIP.get(), Items.CHEST, ModItems.PORTABLE_ITEM_MENDER.get(), consumer);
         createMachineRecipe(ModBlocks.REDSTONE_RECEIVER.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, Items.OBSERVER, consumer);
         createMachineRecipe(ModBlocks.REDSTONE_TRANSMITTER.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, Items.REPEATER, consumer);
+        createMachineRecipe(ModBlocks.CROP_FARMER.get(), ModItems.ADVANCED_CHIP.get(), Items.CHEST, Items.WATER_BUCKET, consumer);
+        createMachineRecipe(ModBlocks.ANIMAL_FARMER.get(), ModItems.ADVANCED_CHIP.get(), Items.CHEST, Items.SHEARS, consumer);
+        createMachineRecipe(ModBlocks.AMETHYST_HARVESTER.get(), ModItems.ADVANCED_CHIP.get(), Items.CHEST, Items.AMETHYST_BLOCK, consumer);
+        createMachineRecipe(ModBlocks.BLOCK_MINER.get(), ModItems.BASIC_CHIP.get(), Items.CHEST, Items.IRON_PICKAXE, consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.ITEM_INCINERATOR.get())
                 .define('1', Items.IRON_INGOT)
@@ -47,42 +51,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("232")
                 .pattern("121")
                 .unlockedBy("has_item", has(Items.LAVA_BUCKET))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModBlocks.CROP_FARMER.get())
-                .define('1', ModItems.ADVANCED_CHIP.get())
-                .define('2', Items.IRON_INGOT)
-                .define('3', Items.REDSTONE_BLOCK)
-                .define('4', Items.CHEST)
-                .define('5', Items.WATER_BUCKET)
-                .pattern("212")
-                .pattern("353")
-                .pattern("242")
-                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModBlocks.ANIMAL_FARMER.get())
-                .define('1', ModItems.ADVANCED_CHIP.get())
-                .define('2', Items.IRON_INGOT)
-                .define('3', Items.REDSTONE_BLOCK)
-                .define('4', Items.CHEST)
-                .define('5', Items.SHEARS)
-                .pattern("212")
-                .pattern("353")
-                .pattern("242")
-                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(ModBlocks.AMETHYST_HARVESTER.get())
-                .define('1', ModItems.ADVANCED_CHIP.get())
-                .define('2', Items.IRON_INGOT)
-                .define('3', Items.REDSTONE_BLOCK)
-                .define('4', Items.CHEST)
-                .define('5', Blocks.AMETHYST_BLOCK)
-                .pattern("212")
-                .pattern("353")
-                .pattern("242")
-                .unlockedBy("has_item", has(ModItems.ADVANCED_CHIP.get()))
                 .save(consumer);
 
         createAdvancedPadRecipe(ModBlocks.MOB_KILLING_PAD.get(), Items.IRON_SWORD, consumer);
@@ -99,18 +67,6 @@ public class ModRecipeProvider extends RecipeProvider {
         createNullifierRecipe(ModItems.WITHER_NULLIFIER.get(), Items.WITHER_SKELETON_SKULL, Items.MILK_BUCKET, consumer);
     }
 
-    private void createPadRecipe(Block outputBlock, Item item, Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(outputBlock, 4)
-                .define('1', ModItems.BASIC_CHIP.get())
-                .define('2', Tags.Items.INGOTS_IRON)
-                .define('3', item)
-                .define('4', Items.LEATHER)
-                .pattern("434")
-                .pattern("212")
-                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
-                .save(consumer);
-    }
-
     private void createChipRecipe(Item chip, Item material, Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(chip, 4)
                 .define('1', material)
@@ -121,6 +77,18 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("212")
                 .pattern("343")
                 .unlockedBy("has_item", has(material))
+                .save(consumer);
+    }
+
+    private void createPadRecipe(Block outputBlock, Item item, Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(outputBlock, 4)
+                .define('1', ModItems.BASIC_CHIP.get())
+                .define('2', Tags.Items.INGOTS_IRON)
+                .define('3', item)
+                .define('4', Items.LEATHER)
+                .pattern("434")
+                .pattern("212")
+                .unlockedBy("has_item", has(ModItems.BASIC_CHIP.get()))
                 .save(consumer);
     }
 
