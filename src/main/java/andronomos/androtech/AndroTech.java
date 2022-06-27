@@ -1,6 +1,7 @@
 package andronomos.androtech;
 
-import andronomos.androtech.block.ItemIncinerator.ItemIncineratorScreen;
+import andronomos.androtech.block.itemdeconstructor.ItemDeconstructorScreen;
+import andronomos.androtech.block.itemincinerator.ItemIncineratorScreen;
 import andronomos.androtech.block.amethystharvester.AmethystHarvesterScreen;
 import andronomos.androtech.block.animalfarmer.AnimalFarmerScreen;
 import andronomos.androtech.block.blockminer.BlockMinerScreen;
@@ -64,6 +65,7 @@ public class AndroTech {
 			MenuScreens.register(ModContainers.REDSTONE_TRANSMITTER.get(), RedstoneTransmitterScreen::new);
 			MenuScreens.register(ModContainers.AMETHYST_HARVESTER.get(), AmethystHarvesterScreen::new);
 			MenuScreens.register(ModContainers.BLOCK_MINER.get(), BlockMinerScreen::new);
+			MenuScreens.register(ModContainers.ITEM_DECONSTRUCTOR.get(), ItemDeconstructorScreen::new);
 
 			ModPropertyOverrides.register();
 		});

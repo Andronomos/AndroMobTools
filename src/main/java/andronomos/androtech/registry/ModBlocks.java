@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.block.ItemIncinerator.ItemIncinerator;
+import andronomos.androtech.block.itemdeconstructor.ItemDeconstructor;
+import andronomos.androtech.block.itemincinerator.ItemIncinerator;
 import andronomos.androtech.block.amethystharvester.AmethystHarvester;
 import andronomos.androtech.block.animalfarmer.AnimalFarmer;
 import andronomos.androtech.block.blockminer.BlockMiner;
@@ -47,6 +48,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> REDSTONE_RECEIVER = registerBlock("redstone_receiver", () -> new RedstoneReceiver(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> AMETHYST_HARVESTER = registerBlock("amethyst_harvester", () -> new AmethystHarvester(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> BLOCK_MINER = registerBlock("block_miner", () -> new BlockMiner(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> ITEM_DECONSTRUCTOR = registerBlock("item_deconstructor", () -> new ItemDeconstructor(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
 
     public static final RegistryObject<Block> MOB_KILLING_PAD = registerBlock("mob_killing_pad", () -> new MobKillingPad(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
     public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, false);
