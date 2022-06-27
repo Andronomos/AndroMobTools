@@ -1,13 +1,23 @@
 package andronomos.androtech.block;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.items.CapabilityItemHandler;
+
+import java.util.List;
 
 public abstract class ATMachine extends Block {
 	public boolean hasTopTexture;
@@ -49,5 +59,11 @@ public abstract class ATMachine extends Block {
 			level.updateNeighbourForOutputSignal(pos, this);
 			super.onRemove(state, level, pos, newState, isMoving);
 		}
+	}
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public void appendHoverText(ItemStack stack, BlockGetter worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+		tooltip.add(new TranslatableComponent(getDescriptionId() + ".tooltip").withStyle(ChatFormatting.GRAY));
 	}
 }
