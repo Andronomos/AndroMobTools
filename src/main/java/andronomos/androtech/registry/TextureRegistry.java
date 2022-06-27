@@ -16,4 +16,5 @@ public class TextureRegistry {
 	public static final ResourceLocation SLOT_SHEARS = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_shears.png");
 	public static final ResourceLocation SLOT_PICKAXE = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/slot_pickaxe.png");
 	public static final ResourceLocation ICONS = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/icons.png");
+	public static final ResourceLocation SINGLE_SLOT_MACHINE_SCREEN = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/machine/single_slot_machine.png");
 }
