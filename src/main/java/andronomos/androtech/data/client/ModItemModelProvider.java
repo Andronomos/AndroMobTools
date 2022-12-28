@@ -14,6 +14,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         createSingleTexture("basic_chip");
+        createSingleTexture("advanced_chip");
     }
 
     private ItemModelBuilder createSingleTexture(String name) {

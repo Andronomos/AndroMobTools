@@ -1,5 +1,7 @@
-// 1.19.2	2022-12-28T00:10:45.6663839	Recipes
+// 1.19.2	2022-12-28T00:13:15.1249015	Recipes
+c76756980e8835d822462a8cec3d22cbe08a0e80 data/androtech/advancements/recipes/androtech_group/advanced_chip.json
 6780b7309104a17be2fcd9dba249d5a99ce806f2 data/androtech/advancements/recipes/androtech_group/basic_chip.json
+95e09a4c084724e036589a173f6d9eb1f7e154b9 data/androtech/recipes/advanced_chip.json
 df584a06966136b0cd4cdea1b0ae585f4323386f data/androtech/recipes/basic_chip.json
 45009bf0b58f18dca1322d4f79f68b0172f57477 data/minecraft/advancements/recipes/brewing/blaze_powder.json
 0c5ee0ef8b77f9cae2a8bbf5f98aa6b660647a20 data/minecraft/advancements/recipes/brewing/brewing_stand.json

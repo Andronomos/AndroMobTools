@@ -21,6 +21,7 @@ public class ModRecipeProvider extends RecipeProvider {
         super.buildCraftingRecipes(consumer);
 
         createChipRecipe(ModItems.BASIC_CHIP.get(), Items.GOLD_INGOT, consumer);
+        createChipRecipe(ModItems.ADVANCED_CHIP.get(), Items.DIAMOND, consumer);
     }
 
     private void createChipRecipe(Item chip, Item material, Consumer<FinishedRecipe> consumer) {
