@@ -28,7 +28,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('1', material)
                 .define('2', Items.QUARTZ)
                 .define('3', Tags.Items.DUSTS_REDSTONE)
-                .define('4', Tags.Items.GEMS_AMETHYST)
+                .define('4', Tags.Items.INGOTS_COPPER)
                 .pattern("343")
                 .pattern("212")
                 .pattern("343")
