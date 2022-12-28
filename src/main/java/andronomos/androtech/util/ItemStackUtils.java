@@ -5,7 +5,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 public class ItemStackUtils {
 	public static void applyDamage(LivingEntity player, ItemStack stack, int amount, boolean preventBreaking) {
@@ -19,6 +21,12 @@ public class ItemStackUtils {
 			stack.hurtAndBreak(amount, player, (p) -> {
 				p.broadcastBreakEvent(InteractionHand.MAIN_HAND);
 			});
+		}
+	}
+
+	public static void drop(Level level, BlockPos pos, ItemStack drop) {
+		if (!level.isClientSide()) {
+			level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), drop));
 		}
 	}
 
