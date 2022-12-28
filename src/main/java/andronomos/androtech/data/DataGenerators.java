@@ -4,9 +4,9 @@ import andronomos.androtech.data.client.ModBlockStateProvider;
 import andronomos.androtech.data.client.ModItemModelProvider;
 import andronomos.androtech.data.client.ModLanguageProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
@@ -15,15 +15,15 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
 
         if(event.includeServer()) {
-            generator.addProvider(new ModRecipeProvider(generator));
-            generator.addProvider(new ModLootTableProvider(generator));
-            generator.addProvider(new ModBlockTagsProvider(generator, event.getExistingFileHelper()));
+            generator.addProvider(true, new ModRecipeProvider(generator));
+            generator.addProvider(true, new ModLootTableProvider(generator));
+            generator.addProvider(true, new ModBlockTagsProvider(generator, event.getExistingFileHelper()));
         }
 
         if(event.includeClient()) {
-            generator.addProvider(new ModBlockStateProvider(generator, event.getExistingFileHelper()));
-            generator.addProvider(new ModItemModelProvider(generator, event.getExistingFileHelper()));
-            generator.addProvider(new ModLanguageProvider(generator, "en_us"));
+            generator.addProvider(true, new ModBlockStateProvider(generator, event.getExistingFileHelper()));
+            generator.addProvider(true, new ModItemModelProvider(generator, event.getExistingFileHelper()));
+            generator.addProvider(true, new ModLanguageProvider(generator, "en_us"));
         }
     }
 }

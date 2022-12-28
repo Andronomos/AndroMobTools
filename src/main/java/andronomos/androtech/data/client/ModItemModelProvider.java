@@ -1,7 +1,6 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.registry.ModPropertyOverrides;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;

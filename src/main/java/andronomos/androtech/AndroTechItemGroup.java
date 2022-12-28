@@ -13,7 +13,7 @@ public class AndroTechItemGroup extends CreativeModeTab
     @Override
     public ItemStack makeIcon() {
         return new ItemStack(
-                ModItems.NANITE_ENHANCED_PICKAXE.get()
+                ModItems.ITEMS.getEntries().stream().findFirst().get().get()
         );
     }
 }

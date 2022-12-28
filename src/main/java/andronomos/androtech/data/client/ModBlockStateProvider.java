@@ -1,7 +1,6 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.ATMachine;
 import andronomos.androtech.block.pad.PadBlock;
 import andronomos.androtech.block.pad.PadEffectBlock;
 import andronomos.androtech.block.pad.RotatablePadBlock;
@@ -15,6 +14,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -25,7 +25,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
-            String blockName = b.getRegistryName().getPath();
+            String blockName = ForgeRegistries.BLOCKS.getKey(b).getPath();
 
             if(b instanceof ATMachine machine) {
                 if(machine.hasMultiStates) {
@@ -43,7 +43,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
     private void registerSingleStateMachine(ATMachine machine) {
-        String machineName = machine.getRegistryName().getPath();
+        String machineName = ForgeRegistries.BLOCKS.getKey(machine).getPath();
         String topTexture = machine.hasTopTexture ? String.format("block/%s_top", machineName) : "block/machine_top";
         String bottomTexture = machine.hasBottomTexture ? String.format("block/%s_bottom", machineName) : "block/machine_bottom";
         String sideTexture = machine.hasSideTexture ? String.format("block/%s_side", machineName): "block/machine_side";
@@ -53,7 +53,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
             frontTexture = machine.hasFrontTexture ? String.format("block/%s_front", machineName) : "block/machine_front";
         }
 
-        ModelFile model = models().cube(machine.getRegistryName().getPath(),
+        ModelFile model = models().cube(ForgeRegistries.BLOCKS.getKey(machine).getPath(),
                 modLoc(bottomTexture),
                 modLoc(topTexture),
                 modLoc(frontTexture),
@@ -92,7 +92,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerMultiStateMachine(ATMachine machine) {
-        String machineName = machine.getRegistryName().getPath();
+        String machineName = ForgeRegistries.BLOCKS.getKey(machine).getPath();
 
         getVariantBuilder(machine).forAllStates(state -> {
             boolean isPowered = state.getValue(BlockStateProperties.POWERED);
@@ -127,11 +127,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     .build();
         });
 
-        itemModels().withExistingParent(machine.getRegistryName().getPath(), modLoc("block/" + machineName + "_off"));
+        itemModels().withExistingParent(machineName, modLoc("block/" + machineName + "_off"));
     }
 
     private void registerPadStateAndModel(Block block, String top, boolean isDirectional) {
-        ModelFile model = models().withExistingParent(block.getRegistryName().getPath(), modLoc("pad_base"))
+        ModelFile model = models().withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(), modLoc("pad_base"))
                 .texture("particle", modLoc("block/" + top))
                 .texture("design", modLoc("block/" + top))
                 .texture("pad", modLoc("block/machine_bottom"));
@@ -163,11 +163,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
             simpleBlock(block, model);
         }
 
-        itemModels().withExistingParent(block.getRegistryName().getPath(), modLoc("block/" + block.getRegistryName().getPath()));
+        itemModels().withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(), modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block).getPath()));
     }
 
     private void registerSimpleStateAndModel(Block block, String name) {
         simpleBlock(block);
-        itemModels().withExistingParent(block.getRegistryName().getPath(), modLoc("block/" + name));
+        itemModels().withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(), modLoc("block/" + name));
     }
 }
