@@ -26,6 +26,8 @@ public class AndroTech {
 	}
 
 	private void clientSetup(final FMLClientSetupEvent event) {
-
+		event.enqueueWork(() -> {
+			ModPropertyOverrides.register();
+		});
 	}
 }

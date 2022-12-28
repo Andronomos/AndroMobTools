@@ -1,5 +1,6 @@
 package andronomos.androtech.registry;
 
+import andronomos.androtech.item.Module.BlockGPSModule;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -12,6 +13,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> BASIC_CHIP = register("basic_chip");
     public static final RegistryObject<Item> ADVANCED_CHIP = register("advanced_chip");
+    public static final RegistryObject<Item> BLOCK_GPS_MODULE = ITEMS.register("", () -> new BlockGPSModule(GetBaseProperties()));
 
 
 
