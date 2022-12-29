@@ -18,6 +18,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         createSingleTexture("basic_chip");
         createSingleTexture("advanced_chip");
         buildToggleableItem("block_gps_module");
+        buildToggleableItem("mob_stasis_module");
     }
 
     private ItemModelBuilder createSingleTexture(String name) {

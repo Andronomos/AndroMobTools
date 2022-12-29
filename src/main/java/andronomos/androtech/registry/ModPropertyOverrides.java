@@ -14,6 +14,9 @@ public class ModPropertyOverrides {
 	public static void register() {
 		ItemProperties.register(ModItems.BLOCK_GPS_MODULE.get(),
 				IS_ACTIVATED, (stack, level, living, id) -> ItemStackUtils.getBlockPos(stack) != null ? 1 : 0);
+
+		ItemProperties.register(ModItems.MOB_STASIS_MODULE.get(),
+				IS_ACTIVATED, (stack, level, living, id) -> ItemStackUtils.hasEntityTag(stack) ? 1 : 0);
 	}
 
 	private static void registerToggleableItem(Item item) {
