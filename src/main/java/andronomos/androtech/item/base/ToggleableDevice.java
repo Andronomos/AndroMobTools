@@ -50,12 +50,6 @@ public class ToggleableDevice extends AbstractDevice {
 		this.setActivatedState(stack, 0);
 	}
 
-	public void doDamage(ItemStack stack, Entity entity, int amount, boolean preventBreaking) {
-		if(stack.getDamageValue() < stack.getMaxDamage()) {
-			ItemStackUtils.applyDamage((Player)entity, stack, amount, preventBreaking);
-		}
-	}
-
 	private void setActivatedState(ItemStack stack, int activated) {
 		NBTUtils.setIntVal(stack, TAG_ACTIVATED, activated);
 	}

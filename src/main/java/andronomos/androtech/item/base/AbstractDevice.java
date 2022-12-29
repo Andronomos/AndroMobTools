@@ -1,5 +1,8 @@
 package andronomos.androtech.item.base;
 
+import andronomos.androtech.util.ItemStackUtils;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -19,5 +22,11 @@ public class AbstractDevice extends Item {
 	@Override
 	public int getMaxDamage(ItemStack stack) {
 		return DURABILITY;
+	}
+
+	public void doDamage(ItemStack stack, Entity entity, int amount, boolean preventBreaking) {
+		if(stack.getDamageValue() < stack.getMaxDamage()) {
+			ItemStackUtils.applyDamage((Player)entity, stack, amount, preventBreaking);
+		}
 	}
 }
