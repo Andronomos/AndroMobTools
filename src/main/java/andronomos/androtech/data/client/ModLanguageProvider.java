@@ -1,5 +1,7 @@
 package andronomos.androtech.data.client;
 
+import andronomos.androtech.item.Module.BlockGPSModule;
+import andronomos.androtech.item.Module.MobStasisModule;
 import andronomos.androtech.registry.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -25,5 +27,14 @@ public class ModLanguageProvider extends LanguageProvider {
 			name = WordUtils.capitalize(name);
 			add(i, name);
 		});
+
+		add(BlockGPSModule.TOOLTIP_BLOCK_GPS_MODULE, "Location");
+		add(BlockGPSModule.TOOLTIP_BLOCK_GPS_MODULE_X, "X: ");
+		add(BlockGPSModule.TOOLTIP_BLOCK_GPS_MODULE_Y, "Y: ");
+		add(BlockGPSModule.TOOLTIP_BLOCK_GPS_MODULE_Z, "Z: ");
+		add(BlockGPSModule.BLOCK_GPS_MODULE_SAVED, "Saved Block Position ");
+
+		add(MobStasisModule.TOOLTIP_MOB_STASIS_MODULE_MOB, "Mob: ");
+		add(MobStasisModule.TOOLTIP_MOB_STASIS_MODULE_HEALTH, "Health: ");
 	}
 }
