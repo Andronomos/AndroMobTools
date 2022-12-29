@@ -1,5 +1,14 @@
 {
   "item.androtech.advanced_chip": "Advanced Chip",
   "item.androtech.basic_chip": "Basic Chip",
-  "itemGroup.androtech_group": "AndroTech"
+  "item.androtech.block_gps_module": "Block Gps Module",
+  "item.androtech.block_gps_module.saved": "Saved Block Position ",
+  "item.androtech.mob_stasis_module": "Mob Stasis Module",
+  "itemGroup.androtech_group": "AndroTech",
+  "tooltip.androtech.block_gps_module_location": "Location",
+  "tooltip.androtech.block_gps_module_x": "X: ",
+  "tooltip.androtech.block_gps_module_y": "Y: ",
+  "tooltip.androtech.block_gps_module_z": "Z: ",
+  "tooltip.androtech.mob_stasis_module.health": "Health: ",
+  "tooltip.androtech.mob_stasis_module.mob": "Mob: "
 }
