@@ -21,9 +21,7 @@ public class ItemStackUtils {
 
 			stack.hurt(amount, player.getRandom(), player instanceof ServerPlayer ? (ServerPlayer)player : null);
 		} else {
-			stack.hurtAndBreak(amount, player, (p) -> {
-				p.broadcastBreakEvent(InteractionHand.MAIN_HAND);
-			});
+			stack.hurtAndBreak(amount, player, (p) -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
 		}
 	}
 
@@ -50,18 +48,47 @@ public class ItemStackUtils {
 	}
 
 	public static boolean hasEntityTag(ItemStack stack) {
-		return !stack.isEmpty() && stack.hasTag() && stack.getTag().contains("entity");
+		return !stack.isEmpty() && stack.hasTag() && stack.getTag().contains("Entity");
 	}
 
 	@Nullable
-	public static Entity getEntity(ItemStack stack, Level world, boolean withInfo) {
-		EntityType type = EntityType.byString(stack.getTag().getString("entity")).orElse(null);
-		if (type != null) {
-			Entity entity = type.create(world);
-			if (withInfo)
-				entity.load(stack.getTag());
-			return entity;
+	public static Entity createEntity(ItemStack stack, Level level, boolean createCopy) {
+		EntityType type = getEntityType(stack);
+
+		if (type == null) {
+			return null;
 		}
-		return null;
+
+		Entity entity = type.create(level);
+
+		if (createCopy) {
+			entity.load(stack.getTag());
+		}
+
+		return entity;
+	}
+
+	public static void saveEntity(LivingEntity entity, ItemStack stack) {
+		CompoundTag tag = new CompoundTag();
+		entity.save(tag);
+		String entityName = EntityType.getKey(entity.getType()).toString();
+		tag.putString("Entity", entityName);
+		stack.setTag(tag);
+	}
+
+	@Nullable
+	public static EntityType getEntityType(ItemStack stack) {
+		return EntityType.byString(stack.getTag().getString("Entity")).orElse(null);
+	}
+
+	public static boolean isBroken(ItemStack stack) {
+		int maxDamage = stack.getMaxDamage();
+
+		if(maxDamage > 0) {
+			//An item's damage value actually increments when taking damage
+			return stack.getDamageValue() >= maxDamage;
+		}
+
+		return false;
 	}
 }
