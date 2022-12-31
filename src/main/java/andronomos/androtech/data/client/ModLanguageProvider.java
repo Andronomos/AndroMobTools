@@ -29,12 +29,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		});
 
 		add(BlockGPSModule.TOOLTIP_BLOCK_GPS_MODULE, "Location");
-		add(BlockGPSModule.TOOLTIP_BLOCK_GPS_MODULE_X, "X: ");
-		add(BlockGPSModule.TOOLTIP_BLOCK_GPS_MODULE_Y, "Y: ");
-		add(BlockGPSModule.TOOLTIP_BLOCK_GPS_MODULE_Z, "Z: ");
-		add(BlockGPSModule.BLOCK_GPS_MODULE_SAVED, "Saved Block Position ");
+		add(BlockGPSModule.TOOLTIP_BLOCK_GPS_MODULE_COORDS, "X: %1$s Y: %2$s Z: %3$s");
+		add(BlockGPSModule.BLOCK_GPS_MODULE_SAVED, "Saved Block Position %1$s");
 
-		add(MobStasisModule.TOOLTIP_MOB_STASIS_MODULE_MOB, "Mob: ");
-		add(MobStasisModule.TOOLTIP_MOB_STASIS_MODULE_HEALTH, "Health: ");
+		add(MobStasisModule.TOOLTIP_MOB_STASIS_MODULE_MOB, "Mob: %1$s");
+		add(MobStasisModule.TOOLTIP_MOB_STASIS_MODULE_HEALTH, "Health: %1$s");
 	}
 }

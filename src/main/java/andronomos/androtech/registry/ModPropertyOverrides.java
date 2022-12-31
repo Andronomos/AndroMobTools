@@ -17,6 +17,8 @@ public class ModPropertyOverrides {
 
 		ItemProperties.register(ModItems.MOB_STASIS_MODULE.get(),
 				IS_ACTIVATED, (stack, level, living, id) -> ItemStackUtils.hasEntityTag(stack) ? 1 : 0);
+
+		registerToggleableItem(ModItems.ITEM_ATTRACTOR_MODULE.get());
 	}
 
 	private static void registerToggleableItem(Item item) {
