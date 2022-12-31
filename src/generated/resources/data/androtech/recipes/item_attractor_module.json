@@ -5,13 +5,13 @@
       "item": "minecraft:iron_ingot"
     },
     {
-      "item": "minecraft:paper"
+      "item": "minecraft:ender_pearl"
     },
     {
       "item": "androtech:basic_chip"
     }
   ],
   "result": {
-    "item": "androtech:block_gps_module"
+    "item": "androtech:item_attractor_module"
   }
 }

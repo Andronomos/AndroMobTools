@@ -1,7 +1,9 @@
-// 1.19.2	2022-12-28T05:08:25.4304879	Item Models: androtech
+// 1.19.2	2022-12-31T08:48:47.7046272	Item Models: androtech
 4261117b814aab7a2e6a5492a685b419c57fc864 assets/androtech/models/item/advanced_chip.json
 ea868c2641eee86e789edb6b5d104d13164c70e0 assets/androtech/models/item/basic_chip.json
 2e146d5d393b89e01807c5c469eeffac7d7a7c2d assets/androtech/models/item/block_gps_module.json
 7fc1cbe8e3677fb59e3e3214008afd682222b47d assets/androtech/models/item/block_gps_module_activated.json
+44451c58a9fdf58d06a119d4028f1910ad35de5c assets/androtech/models/item/item_attractor_module.json
+46a1f31362e6ab5e3798caf75a7436bee706ceb0 assets/androtech/models/item/item_attractor_module_activated.json
 0d0269c865d87cd16f2e744fd102e0e43674bf35 assets/androtech/models/item/mob_stasis_module.json
 c051ec857bbd13b3c5b97eb6bc26a0ee598176a0 assets/androtech/models/item/mob_stasis_module_activated.json

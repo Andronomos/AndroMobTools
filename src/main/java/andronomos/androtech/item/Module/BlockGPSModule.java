@@ -24,9 +24,7 @@ import java.util.List;
 
 public class BlockGPSModule extends AbstractDevice {
 	public static final String TOOLTIP_BLOCK_GPS_MODULE = "tooltip.androtech.block_gps_module_location";
-	public static final String TOOLTIP_BLOCK_GPS_MODULE_X = "tooltip.androtech.block_gps_module_x";
-	public static final String TOOLTIP_BLOCK_GPS_MODULE_Y = "tooltip.androtech.block_gps_module_y";
-	public static final String TOOLTIP_BLOCK_GPS_MODULE_Z = "tooltip.androtech.block_gps_module_z";
+	public static final String TOOLTIP_BLOCK_GPS_MODULE_COORDS = "tooltip.androtech.block_gps_module_coords";
 	public static final String BLOCK_GPS_MODULE_SAVED = "item.androtech.block_gps_module.saved";
 
 	public BlockGPSModule(Properties properties) {
@@ -56,7 +54,7 @@ public class BlockGPSModule extends AbstractDevice {
 		}
 
 		player.swing(hand);
-		ChatUtils.sendStatusMessage(player, BLOCK_GPS_MODULE_SAVED + ChatUtils.blockPosToString(pos));
+		ChatUtils.sendStatusMessage(player, Component.translatable(BLOCK_GPS_MODULE_SAVED, ChatUtils.blockPosToString(pos)));
 		return InteractionResult.SUCCESS;
 	}
 
@@ -92,11 +90,7 @@ public class BlockGPSModule extends AbstractDevice {
 
 		if(pos != null) {
 			tooltip.add(Component.translatable(TOOLTIP_BLOCK_GPS_MODULE).withStyle(ChatFormatting.GRAY));
-			String xCoord = String.format("%s%s", TOOLTIP_BLOCK_GPS_MODULE_X, pos.getX());
-			String yCoord = String.format("%s%s", TOOLTIP_BLOCK_GPS_MODULE_Y, pos.getY());
-			String zCoord = String.format("%s%s", TOOLTIP_BLOCK_GPS_MODULE_Z, pos.getZ());
-			String coords = String.format("%s %s %s", xCoord, yCoord, zCoord);
-			tooltip.add(Component.literal(coords).withStyle(ChatFormatting.BLUE));
+			tooltip.add(Component.translatable(BLOCK_GPS_MODULE_SAVED, ChatUtils.blockPosToString(pos)).withStyle(ChatFormatting.BLUE));
 		}
 	}
 }

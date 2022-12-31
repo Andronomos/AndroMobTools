@@ -14,11 +14,17 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, andronomos.androtech.AndroTech.MOD_ID);
 
     public static final RegistryObject<Item> BASIC_CHIP = register("basic_chip");
+
     public static final RegistryObject<Item> ADVANCED_CHIP = register("advanced_chip");
-    public static final RegistryObject<Item> BLOCK_GPS_MODULE = ITEMS.register("block_gps_module", () -> new BlockGPSModule(GetBaseProperties()));
-    public static final RegistryObject<Item> MOB_STASIS_MODULE = ITEMS.register("mob_stasis_module", () -> new MobStasisModule(GetBaseProperties().durability(AbstractDevice.DURABILITY)));
 
+    public static final RegistryObject<Item> BLOCK_GPS_MODULE = ITEMS.register("block_gps_module",
+            () -> new BlockGPSModule(GetBaseProperties()));
 
+    public static final RegistryObject<Item> MOB_STASIS_MODULE = ITEMS.register("mob_stasis_module",
+            () -> new MobStasisModule(GetBaseProperties().durability(AbstractDevice.DURABILITY)));
+
+    public static final RegistryObject<Item> ITEM_ATTRACTOR_MODULE = ITEMS.register("item_attractor_module",
+            () -> new MobStasisModule(GetBaseProperties().durability(AbstractDevice.DURABILITY)));
 
     private static RegistryObject<Item> register(String name) {
         return ITEMS.register(name, () -> new Item(GetBaseProperties()));
