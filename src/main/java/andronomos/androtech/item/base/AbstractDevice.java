@@ -19,8 +19,7 @@ public class AbstractDevice extends Item {
 		this.takeDamage = takeDamage;
 	}
 
-	@Override
-	public int getMaxDamage(ItemStack stack) {
+	public int getMaxDurability() {
 		return DURABILITY;
 	}
 
@@ -28,5 +27,12 @@ public class AbstractDevice extends Item {
 		if(stack.getDamageValue() < stack.getMaxDamage()) {
 			ItemStackUtils.applyDamage((Player)entity, stack, amount, preventBreaking);
 		}
+	}
+
+	public boolean isBroken(ItemStack stack) {
+		if(takeDamage) {
+			return ItemStackUtils.isBroken(stack);
+		}
+		return false;
 	}
 }
