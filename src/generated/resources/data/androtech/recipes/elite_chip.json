@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:gold_ingot"
+      "item": "minecraft:diamond"
     },
     {
       "item": "androtech:chip_wafer"
@@ -16,6 +16,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "androtech:advanced_chip"
+    "item": "androtech:elite_chip"
   }
 }
