@@ -2,12 +2,10 @@ package andronomos.androtech.data;
 
 import andronomos.androtech.registry.ModItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraftforge.common.Tags;
 
@@ -40,6 +38,11 @@ public class ModRecipeProvider extends RecipeProvider {
         createModuleRecipe(ModItems.MOB_STASIS_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.LEAD, consumer);
         createModuleRecipe(ModItems.ITEM_ATTRACTOR_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, consumer);
         createModuleRecipe(ModItems.MENDING_MODULE.get(), ModItems.ELITE_CHIP.get(), Items.NETHER_STAR, consumer);
+
+        createNaniteToolRecipe(ModItems.NANITE_ENHANCED_PICKAXE.get(), Items.NETHERITE_PICKAXE,  consumer);
+        createNaniteToolRecipe(ModItems.NANITE_ENHANCED_AXE.get(), Items.NETHERITE_AXE, consumer);
+        createNaniteToolRecipe(ModItems.NANITE_ENHANCED_SHOVEL.get(), Items.NETHERITE_SHOVEL, consumer);
+        createNaniteToolRecipe(ModItems.NANITE_ENHANCED_SWORD.get(), Items.NETHERITE_SWORD, consumer);
     }
 
     private void createChipRecipe(Item chip, Item material, Consumer<FinishedRecipe> consumer) {
@@ -65,4 +68,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(Items.LAVA_BUCKET))
                 .save(consumer);
     }
+
+    private void createNaniteToolRecipe(Item outputItem, Item item, Consumer<FinishedRecipe> consumer) {
+        UpgradeRecipeBuilder.smithing(Ingredient.of(item), Ingredient.of(ModItems.MENDING_MODULE.get()), outputItem)
+                .unlocks("has_mending_module", has(ModItems.MENDING_MODULE.get()))
+                .save(consumer, outputItem + "_smithing");
+    }
+
+    //netheriteSmithing(p_176532_, Items.DIAMOND_LEGGINGS, Items.NETHERITE_LEGGINGS);
+    //protected static void netheriteSmithing(Consumer<FinishedRecipe> p_125995_, Item p_125996_, Item p_125997_) {
+    //    UpgradeRecipeBuilder.smithing(Ingredient.of(p_125996_), Ingredient.of(Items.NETHERITE_INGOT), p_125997_).unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT)).save(p_125995_, getItemName(p_125997_) + "_smithing");
+    //}
 }

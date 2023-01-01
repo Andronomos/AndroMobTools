@@ -5,7 +5,12 @@ import andronomos.androtech.item.Module.ItemAttractorModule;
 import andronomos.androtech.item.Module.MendingModule;
 import andronomos.androtech.item.Module.MobStasisModule;
 import andronomos.androtech.item.base.AbstractDevice;
+import andronomos.androtech.item.tools.NaniteEnhancedAxe;
+import andronomos.androtech.item.tools.NaniteEnhancedPickAxe;
+import andronomos.androtech.item.tools.NaniteEnhancedShovel;
+import andronomos.androtech.item.tools.NaniteEnhancedSword;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -31,6 +36,18 @@ public class ModItems {
 
     public static final RegistryObject<Item> MENDING_MODULE = ITEMS.register("mending_module",
             () -> new MendingModule(GetBaseProperties().durability(AbstractDevice.DURABILITY)));
+
+    public static final RegistryObject<Item> NANITE_ENHANCED_PICKAXE = ITEMS.register("nanite_enhanced_pickaxe",
+            () -> new NaniteEnhancedPickAxe(Tiers.NETHERITE, 1, -2.8F, GetBaseProperties().fireResistant()));
+
+    public static final RegistryObject<Item> NANITE_ENHANCED_AXE = ITEMS.register("nanite_enhanced_axe",
+            () -> new NaniteEnhancedAxe(Tiers.NETHERITE, 5.0F, -3.0F, GetBaseProperties().fireResistant()));
+
+    public static final RegistryObject<Item> NANITE_ENHANCED_SHOVEL = ITEMS.register("nanite_enhanced_shovel",
+            () -> new NaniteEnhancedShovel(Tiers.NETHERITE, 5.0F, -3.0F, GetBaseProperties().fireResistant()));
+
+    public static final RegistryObject<Item> NANITE_ENHANCED_SWORD = ITEMS.register("nanite_enhanced_sword",
+            () -> new NaniteEnhancedSword(Tiers.NETHERITE, 3, -2.4F, GetBaseProperties().fireResistant()));
 
     private static RegistryObject<Item> register(String name) {
         return ITEMS.register(name, () -> new Item(GetBaseProperties()));

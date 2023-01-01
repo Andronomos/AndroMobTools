@@ -15,6 +15,10 @@ public class AndroTechConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> MENDING_MODULE_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Boolean> MOB_STASIS_MODULE_TAKE_DAMAGE;
 	public static ForgeConfigSpec.ConfigValue<Integer> MOB_STASIS_MODULE_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_PICKAXE_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_AXE_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_SHOVEL_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_SWORD_DURABILITY;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -36,6 +40,13 @@ public class AndroTechConfig {
 		builder.push("Mob Stasis Module");
 		MOB_STASIS_MODULE_TAKE_DAMAGE = builder.comment("Enable damage").define("take_damage", false);
 		MOB_STASIS_MODULE_DURABILITY = builder.comment("Durability").define("durability", 1);
+		builder.pop();
+
+		builder.push("Nanite Tools");
+		NANITE_PICKAXE_DURABILITY = builder.comment("Nanite Pickaxe Durability").define("durability", 8124);
+		NANITE_AXE_DURABILITY = builder.comment("Nanite Axe Durability").define("durability", 8124);
+		NANITE_SHOVEL_DURABILITY = builder.comment("Nanite Shovel Durability").define("durability", 8124);
+		NANITE_SWORD_DURABILITY = builder.comment("Nanite Sword Durability").define("durability", 8124);
 		builder.pop();
 	}
 

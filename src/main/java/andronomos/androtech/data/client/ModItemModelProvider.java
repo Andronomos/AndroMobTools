@@ -19,6 +19,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         createSingleTexture("basic_chip");
         createSingleTexture("advanced_chip");
         createSingleTexture("elite_chip");
+        createSingleTexture("nanite_enhanced_pickaxe");
+        createSingleTexture("nanite_enhanced_axe");
+        createSingleTexture("nanite_enhanced_shovel");
+        createSingleTexture("nanite_enhanced_sword");
         buildToggleableItem("block_gps_module");
         buildToggleableItem("mob_stasis_module");
         buildToggleableItem("item_attractor_module");
