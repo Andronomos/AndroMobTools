@@ -9,15 +9,15 @@ public class RadiusUtils {
 	 * Returns a cube from the center position
 	 * **/
 	public static AABB cubefromCenter(BlockPos pos, int size) {
-		double x1 = pos.getX() - size;
-		double y1 = pos.getY() - size;
-		double z1 = pos.getZ() - size;
-		double x2 = pos.getX() + size;
-		double y2 = pos.getY() + size;
-		double z2 = pos.getZ() + size;
+		double x1 = pos.getX();
+		double y1 = pos.getY();
+		double z1 = pos.getZ();
+		double x2 = pos.getX();
+		double y2 = pos.getY();
+		double z2 = pos.getZ();
 
 		//minX minY minZ maxX maxY maxZ
-		return new AABB(x1, y1, z1, x2, y2, z2);
+		return new AABB(x1, y1, z1, x2, y2, z2).inflate(size);
 	}
 
 	/**
