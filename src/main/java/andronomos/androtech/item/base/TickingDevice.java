@@ -11,7 +11,7 @@ public class TickingDevice extends ToggleableDevice {
 	public int tickCounter = 0;
 
 	public TickingDevice(Properties properties) {
-		super(properties, false);
+		super(properties);
 	}
 
 	public TickingDevice(Properties properties, boolean takeDamage) {
