@@ -14,7 +14,7 @@
       "item": "minecraft:glass_pane"
     },
     "5": {
-      "item": "minecraft:paper"
+      "item": "minecraft:lead"
     }
   },
   "pattern": [
@@ -23,6 +23,6 @@
     "121"
   ],
   "result": {
-    "item": "androtech:block_gps_module"
+    "item": "androtech:mob_stasis_module"
   }
 }

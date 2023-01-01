@@ -19,7 +19,8 @@ public class AbstractDevice extends Item {
 		this.takeDamage = takeDamage;
 	}
 
-	public int getMaxDurability() {
+	@Override
+	public int getMaxDamage(ItemStack stack) {
 		return DURABILITY;
 	}
 

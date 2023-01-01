@@ -1,5 +1,6 @@
 package andronomos.androtech.item.Module;
 
+import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.item.base.AbstractDevice;
 import andronomos.androtech.util.ItemStackUtils;
 import net.minecraft.ChatFormatting;
@@ -28,13 +29,17 @@ public class MobStasisModule extends AbstractDevice {
 	public static final String TOOLTIP_MOB_STASIS_MODULE_HEALTH = "tooltip.androtech.mob_stasis_module.health";
 
 	public MobStasisModule(Properties properties) {
-		super(properties);
-		DURABILITY = 1;
+		super(properties, AndroTechConfig.MOB_STASIS_MODULE_TAKE_DAMAGE.get());
 	}
 
 	@Override
 	public int getMaxStackSize(ItemStack stack) {
 		return 1;
+	}
+
+	@Override
+	public int getMaxDamage(ItemStack stack) {
+		return AndroTechConfig.MOB_STASIS_MODULE_DURABILITY.get();
 	}
 
 	@Override
@@ -57,7 +62,7 @@ public class MobStasisModule extends AbstractDevice {
 	@Override
 	public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
 		if(player.getLevel().isClientSide()) return InteractionResult.PASS;
-		if(ItemStackUtils.hasEntityTag(stack) || isBroken(stack)) return InteractionResult.FAIL;
+		if(ItemStackUtils.hasEntityTag(stack)) return InteractionResult.FAIL;
 		if(!captureEntity(stack, target)) return InteractionResult.FAIL;
 		player.swing(hand);
 		return InteractionResult.SUCCESS;
@@ -83,7 +88,7 @@ public class MobStasisModule extends AbstractDevice {
 		if(!level.addFreshEntity(entity)) return false;
 
 		if(takeDamage) {
-			doDamage(stack, player, 1, true);
+			doDamage(stack, player, 1, false);
 		}
 
 		return true;

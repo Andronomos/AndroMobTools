@@ -15,11 +15,15 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        createSingleTexture("chip_wafer");
         createSingleTexture("basic_chip");
         createSingleTexture("advanced_chip");
+        createSingleTexture("elite_chip");
         buildToggleableItem("block_gps_module");
         buildToggleableItem("mob_stasis_module");
         buildToggleableItem("item_attractor_module");
+        buildToggleableItem("mending_module");
+
     }
 
     private ItemModelBuilder createSingleTexture(String name) {

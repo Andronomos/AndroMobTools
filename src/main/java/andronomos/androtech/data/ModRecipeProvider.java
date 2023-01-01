@@ -22,52 +22,45 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         super.buildCraftingRecipes(consumer);
 
-        createChipRecipe(ModItems.BASIC_CHIP.get(), Items.GOLD_INGOT, consumer);
-        createChipRecipe(ModItems.ADVANCED_CHIP.get(), Items.DIAMOND, consumer);
-
-        ShapelessRecipeBuilder.shapeless(ModItems.BLOCK_GPS_MODULE.get())
-                .requires(Items.IRON_INGOT, 1)
-                .requires(Items.PAPER, 1)
-                .requires(ModItems.BASIC_CHIP.get(), 1)
+        ShapedRecipeBuilder.shaped(ModItems.CHIP_WAFER.get())
+                .define('1', Items.COPPER_INGOT)
+                .define('2', Items.CLAY_BALL)
+                .define('3', Items.REDSTONE)
+                .pattern("121")
+                .pattern("232")
+                .pattern("121")
                 .unlockedBy("has_item", has(Items.LAVA_BUCKET))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.MOB_STASIS_MODULE.get())
-                .requires(Items.IRON_INGOT, 1)
-                .requires(Items.PAPER, 1)
-                .requires(ModItems.BASIC_CHIP.get(), 1)
-                .unlockedBy("has_item", has(Items.LAVA_BUCKET))
-                .save(consumer);
+        createChipRecipe(ModItems.BASIC_CHIP.get(), Items.IRON_INGOT, consumer);
+        createChipRecipe(ModItems.ADVANCED_CHIP.get(), Items.GOLD_INGOT, consumer);
+        createChipRecipe(ModItems.ELITE_CHIP.get(), Items.DIAMOND, consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.ITEM_ATTRACTOR_MODULE.get())
-                .requires(Items.IRON_INGOT, 1)
-                .requires(Items.ENDER_PEARL, 1)
-                .requires(ModItems.BASIC_CHIP.get(), 1)
-                .unlockedBy("has_item", has(Items.LAVA_BUCKET))
-                .save(consumer);
+        createModuleRecipe(ModItems.BLOCK_GPS_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.PAPER, consumer);
+        createModuleRecipe(ModItems.MOB_STASIS_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.LEAD, consumer);
+        createModuleRecipe(ModItems.ITEM_ATTRACTOR_MODULE.get(), ModItems.BASIC_CHIP.get(), Items.ENDER_PEARL, consumer);
+        createModuleRecipe(ModItems.MENDING_MODULE.get(), ModItems.ELITE_CHIP.get(), Items.NETHER_STAR, consumer);
     }
 
     private void createChipRecipe(Item chip, Item material, Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(chip, 4)
-                .define('1', material)
-                .define('2', Items.QUARTZ)
-                .define('3', Tags.Items.DUSTS_REDSTONE)
-                .define('4', Tags.Items.INGOTS_COPPER)
-                .pattern("343")
-                .pattern("212")
-                .pattern("343")
+        ShapelessRecipeBuilder.shapeless(chip, 4)
+                .requires(material, 1)
+                .requires(ModItems.CHIP_WAFER.get(), 1)
+                .requires(Items.REDSTONE, 1)
+                .requires(Items.SLIME_BALL, 1)
                 .unlockedBy("has_item", has(material))
                 .save(consumer);
     }
 
-    private void createBasicModuleRecipe(Item outputItem, Item chip, Item item, Consumer<FinishedRecipe> consumer) {
+    private void createModuleRecipe(Item outputItem, Item chip, Item item, Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(outputItem)
                 .define('1', Items.IRON_INGOT)
-                .define('2', Items.PAPER)
-                .define('3', chip)
-                .define('4', item)
-                .pattern("121")
-                .pattern("232")
+                .define('2', chip)
+                .define('3', Items.AMETHYST_SHARD)
+                .define('4', Items.GLASS_PANE)
+                .define('5', item)
+                .pattern("141")
+                .pattern("353")
                 .pattern("121")
                 .unlockedBy("has_item", has(Items.LAVA_BUCKET))
                 .save(consumer);

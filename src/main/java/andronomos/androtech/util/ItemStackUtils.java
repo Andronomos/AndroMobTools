@@ -91,4 +91,12 @@ public class ItemStackUtils {
 
 		return false;
 	}
+
+	public static boolean isRepairable(ItemStack stack) {
+		if(stack.isEmpty()) return false; //if the item doesn't exist
+		if(!stack.isRepairable()) return false; //if the item can't be repaired
+		if(stack.getMaxDamage() == 0) return false; //if the item can't be damaged
+		if(stack.getDamageValue() == 0) return false; //if the item hasn't taken any damage
+		return true;
+	}
 }

@@ -1,5 +1,7 @@
 package andronomos.androtech.item.Module;
 
+import andronomos.androtech.AndroTech;
+import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.item.base.TickingDevice;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -9,15 +11,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
 public class ItemAttractorModule extends TickingDevice {
-	private final int range = 10;
+	private final int range = AndroTechConfig.ATTRACTOR_MODULE_RANGE.get();
 
 	public ItemAttractorModule(Properties properties) {
-		super(properties);
+		super(properties, AndroTechConfig.ATTRACTOR_MODULE_TAKE_DAMAGE.get());
 	}
 
 	@Override
@@ -36,18 +37,14 @@ public class ItemAttractorModule extends TickingDevice {
 		);
 
 		itemsInRange.forEach(item -> {
+			AndroTech.LOGGER.info("ItemAttractorModule#attractItems | item >> {}", item);
+
 			if(!isBroken(stack)) {
-				//boolean inserted = player.getInventory().add(item.getItem());
-
-				//if(!inserted) {
-				//	item.setPos(player.getX(), player.getY(), player.getZ());
-				//}
-
 				item.playerTouch(player);
 
-				//if(takeDamage) {
-				//	doDamage(stack, player, 1,true);
-				//}
+				if(takeDamage) {
+					doDamage(stack, player, 1,true);
+				}
 			}
 		});
 	}
@@ -59,9 +56,6 @@ public class ItemAttractorModule extends TickingDevice {
 			if(!isBroken(stack)) {
 				player.takeXpDelay = 0;
 				orb.playerTouch(player);
-				//if(takeDamage) {
-				//	doDamage(stack, player, 1,true);
-				//}
 			}
 		});
 	}
