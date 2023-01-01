@@ -12,7 +12,7 @@ public class ToggleableDevice extends AbstractDevice {
 	public final static String TAG_ACTIVATED = "activated";
 
 	public ToggleableDevice(Properties properties) {
-		super(properties, false);
+		super(properties);
 	}
 
 	public ToggleableDevice(Properties properties, boolean takeDamage) {
