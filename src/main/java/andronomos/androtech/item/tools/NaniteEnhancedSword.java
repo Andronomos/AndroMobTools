@@ -12,7 +12,6 @@ import net.minecraft.world.level.Level;
 public class NaniteEnhancedSword extends SwordItem {
 	public int tickDelay = Const.TicksInSeconds.THREE;
 	public int tickCounter = 0;
-	private int repairAmount = 10;
 
 	public NaniteEnhancedSword(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
 		super(tier, attackDamage, attackSpeed, properties);
@@ -31,7 +30,7 @@ public class NaniteEnhancedSword extends SwordItem {
 			this.tickCounter = 0;
 
 			if(stack.isDamaged()) {
-				stack.setDamageValue(stack.getDamageValue() - this.repairAmount);
+				stack.setDamageValue(stack.getDamageValue() - AndroTechConfig.NANITE_REPAIR_RATE.get());
 			}
 		}
 

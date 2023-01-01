@@ -19,6 +19,7 @@ public class AndroTechConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_AXE_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_SHOVEL_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_SWORD_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_REPAIR_RATE;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -47,6 +48,7 @@ public class AndroTechConfig {
 		NANITE_AXE_DURABILITY = builder.comment("Nanite Axe Durability").define("durability", 8124);
 		NANITE_SHOVEL_DURABILITY = builder.comment("Nanite Shovel Durability").define("durability", 8124);
 		NANITE_SWORD_DURABILITY = builder.comment("Nanite Sword Durability").define("durability", 8124);
+		NANITE_REPAIR_RATE = builder.comment("Repair Rate").define("repair_rate", 10);
 		builder.pop();
 	}
 
