@@ -37,7 +37,7 @@ public class ItemAttractorModule extends TickingDevice {
 		);
 
 		itemsInRange.forEach(item -> {
-			AndroTech.LOGGER.info("ItemAttractorModule#attractItems | item >> {}", item);
+			//AndroTech.LOGGER.info("ItemAttractorModule#attractItems | item >> {}", item);
 
 			if(!isBroken(stack)) {
 				item.playerTouch(player);
