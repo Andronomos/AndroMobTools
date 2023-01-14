@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
 public abstract class MachineTickingBlockEntity extends MachineBlockEntity {
-	public int tickDelay = Const.TicksInSeconds.THREE;
+	public int tickDelay = Const.TicksInSeconds.FIVE;
 	public int tickCounter = 0;
 
 	public MachineTickingBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
