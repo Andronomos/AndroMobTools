@@ -33,7 +33,7 @@ public class CropFarmerMenu extends MachineMenu {
 				addMediumMachineInventory(h);
 			});
 
-			addSlot(new SlotItemHandler(blockEntity.hoeSlot, 0, Const.MENU_SLOT_X_OFFSET, 16));
+			//addSlot(new SlotItemHandler(blockEntity.hoeSlot, 0, Const.MENU_SLOT_X_OFFSET, 16));
 		}
 
 		setupSlotIndexs(Const.INVENTORY_MACHINE_MEDIUM_SIZE);

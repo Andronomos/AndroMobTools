@@ -27,7 +27,7 @@ public class ItemIncineratorScreen extends MachineScreen<ItemIncineratorMenu> {
 
     @Override
     protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-        drawBackground(stack, TextureRegistry.INVENTORY_PLAIN);
+        drawBackground(stack, TextureRegistry.NO_INVENTORY_SMALL_SCREEN);
         drawSlot(stack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * 4, 29, TextureRegistry.SLOT, Const.SCREEN_SLOT_SIZE);
     }
 }

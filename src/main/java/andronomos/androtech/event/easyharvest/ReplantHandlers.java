@@ -16,11 +16,11 @@ import java.util.List;
 
 public class ReplantHandlers {
     private static List<BlockState> crops = Lists.newArrayList(
-            Blocks.WHEAT.defaultBlockState().with(BlockStateProperties.AGE_7, 7),
-            Blocks.NETHER_WART.defaultBlockState().with(BlockStateProperties.AGE_3, 3),
-            Blocks.CARROTS.defaultBlockState().with(BlockStateProperties.AGE_7, 7),
-            Blocks.POTATOES.defaultBlockState().with(BlockStateProperties.AGE_7, 7),
-            Blocks.BEETROOTS.defaultBlockState().with(BlockStateProperties.AGE_3, 3)
+            //Blocks.WHEAT.defaultBlockState().with(BlockStateProperties.AGE_7, 7),
+            //Blocks.NETHER_WART.defaultBlockState().with(BlockStateProperties.AGE_3, 3),
+            //Blocks.CARROTS.defaultBlockState().with(BlockStateProperties.AGE_7, 7),
+            //Blocks.POTATOES.defaultBlockState().with(BlockStateProperties.AGE_7, 7),
+            //Blocks.BEETROOTS.defaultBlockState().with(BlockStateProperties.AGE_3, 3)
     );
 
     public static final IReplantHandler EASY_HANDLER = (level, pos, state, player, tileEntity) -> {

@@ -26,6 +26,6 @@ public class ItemMenderScreen extends MachineScreen<ItemMenderMenu> {
 
 	@Override
 	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(stack, TextureRegistry.INVENTORY_LARGE);
+		drawBackground(stack, TextureRegistry.DOUBLE_INVENTORY_SCREEN);
 	}
 }

@@ -44,20 +44,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements MenuProvider {
-	public ItemStackHandler hoeSlot;
-	private final LazyOptional<IItemHandler> hoeSlotHandler = LazyOptional.of(() -> hoeSlot);
-	public final LazyOptional<IItemHandler> everything = LazyOptional.of(() -> new CombinedInvWrapper(hoeSlot, itemHandler));
+	//public ItemStackHandler hoeSlot;
+	//private final LazyOptional<IItemHandler> hoeSlotHandler = LazyOptional.of(() -> hoeSlot);
+	//public final LazyOptional<IItemHandler> everything = LazyOptional.of(() -> new CombinedInvWrapper(hoeSlot, itemHandler));
 	private final List<IHarvester> harvesters = new ArrayList<>();
 
 	public CropFarmerBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.CROP_FARMER.get(), pos, state);
 
-		hoeSlot= new ItemStackHandler() {
-			@Override
-			public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-				return stack.getItem() instanceof HoeItem;
-			}
-		};
+		//hoeSlot= new ItemStackHandler() {
+		//	@Override
+		//	public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+		//		return stack.getItem() instanceof HoeItem;
+		//	}
+		//};
 
 		harvesters.add(new NetherWartHarvester());
 		harvesters.add(new CropHarvester());
@@ -92,30 +92,30 @@ public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements 
 		};
 	}
 
-	@NotNull
-	@Override
-	public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-		if (cap == ForgeCapabilities.ITEM_HANDLER) {
-			this.setChanged();
-
-			//If block is broken
-			if(level != null && level.getBlockState(getBlockPos()).getBlock() != getBlockState().getBlock()) {
-				return everything.cast();
-			}
-
-			if(side == null) {
-				return lazyItemHandler.cast();
-			}
-
-			if(side == Direction.DOWN) {
-				return lazyItemHandler.cast();
-			} else {
-				return hoeSlotHandler.cast();
-			}
-		}
-
-		return super.getCapability(cap, side);
-	}
+	//@NotNull
+	//@Override
+	//public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+	//	if (cap == ForgeCapabilities.ITEM_HANDLER) {
+	//		this.setChanged();
+	//
+	//		//If block is broken
+	//		if(level != null && level.getBlockState(getBlockPos()).getBlock() != getBlockState().getBlock()) {
+	//			return everything.cast();
+	//		}
+	//
+	//		if(side == null) {
+	//			return lazyItemHandler.cast();
+	//		}
+	//
+	//		if(side == Direction.DOWN) {
+	//			return lazyItemHandler.cast();
+	//		} else {
+	//			return hoeSlotHandler.cast();
+	//		}
+	//	}
+	//
+	//	return super.getCapability(cap, side);
+	//}
 
 	@Override
 	public AABB getWorkArea() {
@@ -134,8 +134,8 @@ public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements 
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
 		if(state.getValue(CropFarmer.POWERED)) {
 			if(!shouldTick()) return;
-			ItemStack hoe = hoeSlot.getStackInSlot(0);
-			if(hoe.isEmpty()) return;
+			//ItemStack hoe = hoeSlot.getStackInSlot(0);
+			//if(hoe.isEmpty()) return;
 			FakePlayer fakePlayer = FakePlayerFactory.get(level, AndroTech.PROFILE);
 
 			List<BlockPos> nearbyCrops = getCrops(getWorkArea(), level);
@@ -147,34 +147,34 @@ public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements 
 				for (IHarvester harvester : harvesters) {
 					boolean harvestSuccessful = harvester.tryHarvest(block, cropState, level, nearbyCropPos, itemHandler);
 
-					if(harvestSuccessful) {
-						ItemStackUtils.applyDamage(fakePlayer, hoe, 1, false);
-						break;
-					}
+					//if(harvestSuccessful) {
+					//	ItemStackUtils.applyDamage(fakePlayer, hoe, 1, false);
+					//	break;
+					//}
 				}
 			}
 		}
 	}
 
-	@Override
-	public void saveAdditional(CompoundTag tag) {
-		super.saveAdditional(tag);
-		tag.put("Hoe", hoeSlot.serializeNBT());
-	}
+	//@Override
+	//public void saveAdditional(CompoundTag tag) {
+	//	super.saveAdditional(tag);
+	//	tag.put("Hoe", hoeSlot.serializeNBT());
+	//}
+	//
+	//@Override
+	//public void load(CompoundTag tag) {
+	//	super.load(tag);
+	//	if (tag.contains("Hoe")) {
+	//		hoeSlot.deserializeNBT(tag.getCompound("Hoe"));
+	//	}
+	//}
 
-	@Override
-	public void load(CompoundTag tag) {
-		super.load(tag);
-		if (tag.contains("Hoe")) {
-			hoeSlot.deserializeNBT(tag.getCompound("Hoe"));
-		}
-	}
-
-	@Override
-	public void setRemoved() {
-		super.setRemoved();
-		hoeSlotHandler.invalidate();
-	}
+	//@Override
+	//public void setRemoved() {
+	//	super.setRemoved();
+	//	hoeSlotHandler.invalidate();
+	//}
 
 	public static List<BlockPos> getCrops(AABB scanArea, Level level) {
 		List<BlockPos> crops = new ArrayList<>();

@@ -35,7 +35,7 @@ public class CropFarmerScreen extends MachineScreen<CropFarmerMenu> {
 
 	@Override
 	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(stack, TextureRegistry.SINGLE_SLOT_MACHINE_SCREEN);
+		drawBackground(stack, TextureRegistry.MACHINE_SCREEN);
 	}
 
 	@Override

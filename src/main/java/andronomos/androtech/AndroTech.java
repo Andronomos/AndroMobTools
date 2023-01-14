@@ -49,7 +49,7 @@ public class AndroTech {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(new SpawnerEventHandler());
 		MinecraftForge.EVENT_BUS.register(new TeleportInhibitorEvent());
-		MinecraftForge.EVENT_BUS.register(new HarvestEventHandler());
+		//MinecraftForge.EVENT_BUS.register(new HarvestEventHandler());
 		modEventBus.addListener(this::clientSetup);
 	}
 

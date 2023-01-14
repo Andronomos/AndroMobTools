@@ -43,7 +43,7 @@ public class MobClonerScreen extends MachineScreen<MobClonerMenu> {
 
 	@Override
 	protected void renderBg(PoseStack poseStack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(poseStack, TextureRegistry.INVENTORY_PLAIN);
+		drawBackground(poseStack, TextureRegistry.NO_INVENTORY_SMALL_SCREEN);
 
 		menu.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(h -> {
 			//for(int slotCounter = 0; slotCounter < MobClonerBlockEntity.SLOTS; slotCounter++) {

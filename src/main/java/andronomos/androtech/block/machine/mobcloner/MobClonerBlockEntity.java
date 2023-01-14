@@ -41,7 +41,6 @@ public class MobClonerBlockEntity extends MachineTickingBlockEntity implements M
 
 	public MobClonerBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.MOB_CLONER.get(), pos, state);
-		tickDelay = Const.TicksInSeconds.FIVE;
 	}
 
 	@Override

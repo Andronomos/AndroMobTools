@@ -48,7 +48,7 @@ public class RedstoneTransmitterScreen extends MachineScreen<RedstoneTransmitter
 
     @Override
     protected void renderBg(PoseStack poseStack, float partialTicks, int mouseX, int mouseY) {
-        this.drawBackground(poseStack, TextureRegistry.INVENTORY_PLAIN);
+        this.drawBackground(poseStack, TextureRegistry.NO_INVENTORY_SMALL_SCREEN);
 
         menu.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER ).ifPresent(h -> {
             for(int slotCounter = 0; slotCounter < RedstoneTransmitterBlockEntity.SLOTS; slotCounter++) {
