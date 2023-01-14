@@ -13,7 +13,6 @@ import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.SlotItemHandler;
 
 public class CropFarmerMenu extends MachineMenu {
 	public CropFarmerBlockEntity blockEntity;
@@ -30,13 +29,13 @@ public class CropFarmerMenu extends MachineMenu {
 			blockEntity = cropFarmerBlockEntity;
 
 			blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(h -> {
-				addMediumMachineInventory(h);
+				addMachineInventory(h);
 			});
 
 			//addSlot(new SlotItemHandler(blockEntity.hoeSlot, 0, Const.MENU_SLOT_X_OFFSET, 16));
 		}
 
-		setupSlotIndexs(Const.INVENTORY_MACHINE_MEDIUM_SIZE);
+		setupSlotIndexs(Const.INVENTORY_MACHINE_SIZE);
 
 		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, Const.VANILLA_INVENTORY_Y);
 	}

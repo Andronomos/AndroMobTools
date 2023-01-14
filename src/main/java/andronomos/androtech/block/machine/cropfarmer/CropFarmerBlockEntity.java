@@ -2,11 +2,13 @@ package andronomos.androtech.block.machine.cropfarmer;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
+import andronomos.androtech.ModEnergyStorage;
 import andronomos.androtech.block.machine.cropfarmer.harvesters.*;
 import andronomos.androtech.block.machine.MachineTickingBlockEntity;
+import andronomos.androtech.network.AndroTechPacketHandler;
+import andronomos.androtech.network.packet.SyncMachineEnergy;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.BlockPosUtils;
-import andronomos.androtech.util.ItemStackUtils;
 import andronomos.androtech.util.RadiusUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,7 +20,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -33,9 +34,8 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -48,6 +48,8 @@ public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements 
 	//private final LazyOptional<IItemHandler> hoeSlotHandler = LazyOptional.of(() -> hoeSlot);
 	//public final LazyOptional<IItemHandler> everything = LazyOptional.of(() -> new CombinedInvWrapper(hoeSlot, itemHandler));
 	private final List<IHarvester> harvesters = new ArrayList<>();
+	private static final int ENERGY_REQUIREMENT = 32;
+	private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
 	public CropFarmerBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.CROP_FARMER.get(), pos, state);
@@ -66,6 +68,68 @@ public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements 
 		harvesters.add(new SugarcaneHarvester());
 	}
 
+	private final ModEnergyStorage ENERGY_STORAGE = new ModEnergyStorage(60000, 256) {
+		@Override
+		public void onEnergyChanged() {
+			setChanged();
+			AndroTechPacketHandler.sendToClients(new SyncMachineEnergy(this.energy, getBlockPos()));
+		}
+	};
+
+	public IEnergyStorage getEnergyStorage() {
+		return ENERGY_STORAGE;
+	}
+
+	public void setEnergyLevel(int energy) {
+		this.ENERGY_STORAGE.setEnergy(energy);
+	}
+
+	@Override
+	public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+		if(cap == ForgeCapabilities.ITEM_HANDLER) {
+			return lazyItemHandler.cast();
+		}
+
+		if(cap == ForgeCapabilities.ENERGY) {
+			return lazyEnergyHandler.cast();
+		}
+
+		return super.getCapability(cap, side);
+	}
+
+	@Override
+	public void onLoad() {
+		super.onLoad();
+		lazyEnergyHandler = LazyOptional.of(() -> ENERGY_STORAGE);
+	}
+
+	@Override
+	public void invalidateCaps() {
+		super.invalidateCaps();
+		lazyEnergyHandler.invalidate();
+	}
+
+	@Override
+	protected void saveAdditional(CompoundTag tag) {
+		super.saveAdditional(tag);
+		tag.putInt("crop_farmer.energy", ENERGY_STORAGE.getEnergyStored());
+	}
+
+	@Override
+	public void load(CompoundTag tag) {
+		super.load(tag);
+		ENERGY_STORAGE.setEnergy(tag.getInt("crop_farmer.energy"));
+	}
+
+
+
+
+
+
+
+
+	/////////////////////////////////////////////
+
 	@Override
 	public Component getDisplayName() {
 		return Component.translatable(CropFarmer.DISPLAY_NAME);
@@ -79,7 +143,7 @@ public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements 
 
 	@Override
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(Const.INVENTORY_MACHINE_MEDIUM_SIZE) {
+		return new ItemStackHandler(Const.INVENTORY_MACHINE_SIZE) {
 			@Override
 			protected void onContentsChanged(int slot) {
 				setChanged();
@@ -131,11 +195,21 @@ public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements 
 		level.addParticle(ParticleTypes.HAPPY_VILLAGER, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 	}
 
-	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
+	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, CropFarmerBlockEntity blockEntity) {
 		if(state.getValue(CropFarmer.POWERED)) {
 			if(!shouldTick()) return;
 			//ItemStack hoe = hoeSlot.getStackInSlot(0);
 			//if(hoe.isEmpty()) return;
+
+			//demo
+			blockEntity.ENERGY_STORAGE.receiveEnergy(64, false);
+			
+			if(!hasEnoughEnergy(blockEntity)) return;
+
+			extractEnergy(blockEntity);
+			setChanged(level, pos, state);
+
+
 			FakePlayer fakePlayer = FakePlayerFactory.get(level, AndroTech.PROFILE);
 
 			List<BlockPos> nearbyCrops = getCrops(getWorkArea(), level);
@@ -155,6 +229,16 @@ public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements 
 			}
 		}
 	}
+
+	private boolean hasEnoughEnergy(CropFarmerBlockEntity blockEntity) {
+		return blockEntity.ENERGY_STORAGE.getEnergyStored() >= ENERGY_REQUIREMENT;
+	}
+
+	private void extractEnergy(CropFarmerBlockEntity blockEntity) {
+		blockEntity.ENERGY_STORAGE.extractEnergy(ENERGY_REQUIREMENT, false);
+	}
+
+
 
 	//@Override
 	//public void saveAdditional(CompoundTag tag) {
@@ -198,4 +282,6 @@ public class CropFarmerBlockEntity extends MachineTickingBlockEntity implements 
 
 		return crops;
 	}
+
+
 }
