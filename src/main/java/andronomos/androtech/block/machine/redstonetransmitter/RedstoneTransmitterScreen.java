@@ -27,8 +27,8 @@ public class RedstoneTransmitterScreen extends MachineScreen<RedstoneTransmitter
 
         powerButton = (PowerButton) this.addButton(new PowerButton((button) -> {
             BlockPos pos = menu.blockEntity.getBlockPos();
-            AndroTechPacketHandler.INSTANCE.sendToServer(new SyncMachinePoweredState(pos));
-            AndroTechPacketHandler.INSTANCE.sendToServer(new SyncRedstoneTransmitterState(pos));
+            AndroTechPacketHandler.sendToServer(new SyncMachinePoweredState(pos));
+            AndroTechPacketHandler.sendToServer(new SyncRedstoneTransmitterState(pos));
         }, menu.blockEntity));
     }
 

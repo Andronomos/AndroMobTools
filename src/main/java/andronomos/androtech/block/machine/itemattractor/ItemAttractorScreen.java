@@ -22,7 +22,7 @@ public class ItemAttractorScreen extends MachineScreen<ItemAttractorMenu> {
 		super.init();
 
 		powerButton = (PowerButton) this.addButton(new PowerButton((button) -> {
-			AndroTechPacketHandler.INSTANCE.sendToServer(new SyncMachinePoweredState(menu.blockEntity.getBlockPos()));
+			AndroTechPacketHandler.sendToServer(new SyncMachinePoweredState(menu.blockEntity.getBlockPos()));
 		}, menu.blockEntity));
 	}
 
