@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "androtech:block/redstone_receiver_off"
+    },
+    "powered=true": {
+      "model": "androtech:block/redstone_receiver_on"
+    }
+  }
+}

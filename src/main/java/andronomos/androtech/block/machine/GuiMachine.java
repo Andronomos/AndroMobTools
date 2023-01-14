@@ -5,20 +5,23 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.NotNull;
 
-public abstract class GuiMachine extends Machine implements EntityBlock {
-	public GuiMachine(Properties properties) {
-		super(properties);
+public abstract class GuiMachine extends EntityMachine {
+	public GuiMachine(Properties properties, boolean useDefaultSideTexture, boolean useDefaultBottomTexture,
+					  boolean useDefaultTopTexture, boolean useDefaultFrontTexture, boolean hasMultipleStates) {
+		super(properties,useDefaultSideTexture, useDefaultBottomTexture, useDefaultTopTexture, useDefaultFrontTexture, hasMultipleStates);
 	}
 
 	@Override
-	public @NotNull InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
-		return super.use(p_60503_, p_60504_, p_60505_, p_60506_, p_60507_, p_60508_);
+	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+		if(!level.isClientSide()) {
+			OpenScreen(level, pos, player);
+		}
+
+		return InteractionResult.sidedSuccess(level.isClientSide());
 	}
 
-	public abstract void OpenGui(Level level, BlockPos pos, Player player);
+	public abstract void OpenScreen(Level level, BlockPos pos, Player player);
 }

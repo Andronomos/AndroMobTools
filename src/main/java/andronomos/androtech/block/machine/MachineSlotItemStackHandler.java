@@ -1,4 +1,4 @@
-package andronomos.androtech.inventory;
+package andronomos.androtech.block.machine;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

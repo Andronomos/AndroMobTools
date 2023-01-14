@@ -1,0 +1,14 @@
+{
+  "values": [
+    "androtech:crop_farmer",
+    "androtech:mob_cloner",
+    "androtech:item_attractor",
+    "androtech:item_incinerator",
+    "androtech:redstone_transmitter",
+    "androtech:redstone_receiver",
+    "androtech:item_mender",
+    "androtech:mob_killing_pad",
+    "androtech:weak_acceleration_pad",
+    "androtech:strong_acceleration_pad"
+  ]
+}

@@ -1,1 +1,11 @@
-// 1.19.2	2022-12-27T23:52:36.4863139	androtech_lootTables
+// 1.19.2	2023-01-11T19:56:54.2257434	androtech_lootTables
+538e4662826bfa3a7a0ed175382211a755916719 data/androtech/loot_tables/blocks/crop_farmer.json
+85226eb3a965ceb33dfc791319b937e5bda42552 data/androtech/loot_tables/blocks/item_attractor.json
+f4d3ad3b64d4bed141a59de2b0b1192606d2fadd data/androtech/loot_tables/blocks/item_incinerator.json
+1a5e1e2857a684d578acab0646d463316116bfae data/androtech/loot_tables/blocks/item_mender.json
+5b954a9497c5b30f087a881288d27e189450ebd6 data/androtech/loot_tables/blocks/mob_cloner.json
+755502b1c60d874b9cec7003cb7881fe89680b43 data/androtech/loot_tables/blocks/mob_killing_pad.json
+f4b7adc0cc70ba0d0ab8f6ccf8b4f0337c64e39c data/androtech/loot_tables/blocks/redstone_receiver.json
+6bb70071711bb1e79ee50d2420c97bfb694bbc72 data/androtech/loot_tables/blocks/redstone_transmitter.json
+101d4082ebeca1f6339e4811a6f5b0df8a4fd5b6 data/androtech/loot_tables/blocks/strong_acceleration_pad.json
+12e12fb416466f162d6a83b5649198039e3cc336 data/androtech/loot_tables/blocks/weak_acceleration_pad.json

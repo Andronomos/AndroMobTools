@@ -11,52 +11,49 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
-
 public abstract class MachineBlockEntity extends BlockEntity {
-	public final ItemStackHandler inventoryItems = createInventoryItemHandler();
-	public final LazyOptional<IItemHandler> inventoryHandler = LazyOptional.of(() -> inventoryItems);
+	public final ItemStackHandler itemHandler = createInventoryItemHandler();
+	public LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
 	public MachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
 	}
 
-	protected abstract ItemStackHandler createInventoryItemHandler();
-
-	@Nonnull
 	@Override
-	public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-		if (cap == ForgeCapabilities.ITEM_HANDLER) {
-			return inventoryHandler.cast();
+	public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+		if(cap == ForgeCapabilities.ITEM_HANDLER) {
+			return lazyItemHandler.cast();
 		}
+
 		return super.getCapability(cap, side);
+	}
+
+	@Override
+	public void onLoad() {
+		super.onLoad();
+		lazyItemHandler = LazyOptional.of(() -> itemHandler);
 	}
 
 	@Override
 	public void invalidateCaps() {
 		super.invalidateCaps();
-		if (inventoryHandler != null)
-			inventoryHandler.invalidate();
+		lazyItemHandler.invalidate();
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag tag) {
-		tag.put("Inventory", inventoryItems.serializeNBT());
+	protected void saveAdditional(CompoundTag tag) {
+		tag.put("Inventory", itemHandler.serializeNBT());
+		super.saveAdditional(tag);
 	}
 
 	@Override
 	public void load(CompoundTag tag) {
 		super.load(tag);
-		if (tag.contains("Inventory")) {
-			inventoryItems.deserializeNBT(tag.getCompound("Inventory"));
-		}
+		itemHandler.deserializeNBT(tag.getCompound("Inventory"));
 	}
 
-	@Override
-	public void setRemoved() {
-		super.setRemoved();
-		inventoryHandler.invalidate();
-	}
+	protected abstract ItemStackHandler createInventoryItemHandler();
 }

@@ -50,6 +50,21 @@ public class RadiusUtils {
 	}
 
 	/**
+	 * Returns a 9 wide, 2 tall, 9 deep cube from the top position
+	 * **/
+	public static AABB nineByTwoByNineCubeFromTop(BlockPos topPos) {
+		double x1 = topPos.getX() - 4;
+		double y1 = topPos.getY() + 1;
+		double z1 = topPos.getZ() - 4;
+		double x2 = topPos.getX() + 4;
+		double y2 = topPos.getY() + 2;
+		double z2 = topPos.getZ() + 4;
+
+		//minX minY minZ maxX maxY maxZ
+		return new AABB(x1, y1, z1, x2, y2, z2);
+	}
+
+	/**
 	 * Returns a 1 wide, 1 tall, 1 deep cube from the front position
 	 * **/
 	public static BlockPos oneByOneByOneFromFront(BlockPos frontPos, Direction direction) {
@@ -62,6 +77,36 @@ public class RadiusUtils {
 		};
 
 		return targetPos;
+	}
+
+	/**
+	 * Returns a 1 wide, 3 tall, 1 deep cube from the top position
+	 * **/
+	public static AABB oneByThreeByOneFromTop(BlockPos pos) {
+		double x1 = pos.getX();
+		double y1 = pos.getY();
+		double z1 = pos.getZ();
+		double x2 = pos.getX();
+		double y2 = pos.getY() + 2D;
+		double z2 = pos.getZ();
+
+		//minX minY minZ maxX maxY maxZ
+		return new AABB(x1, y1, z1, x2, y2, z2);
+	}
+
+	/**
+	 * Returns a 3 wide, 3 tall, 3 deep cube from the top position
+	 * **/
+	public static AABB threeByThreeByThreeFromTop(BlockPos pos) {
+		double x1 = pos.getX() - 2D;
+		double y1 = pos.getY() - 2D;
+		double z1 = pos.getZ() - 2D;
+		double x2 = pos.getX() + 2D;
+		double y2 = pos.getY() + 2D;
+		double z2 = pos.getZ() + 2D;
+
+		//minX minY minZ maxX maxY maxZ
+		return new AABB(x1, y1, z1, x2, y2, z2);
 	}
 
 	/**

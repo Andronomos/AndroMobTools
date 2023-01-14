@@ -1,34 +1,86 @@
 package andronomos.androtech.block.machine.cropfarmer;
 
 import andronomos.androtech.block.machine.GuiMachine;
+import andronomos.androtech.block.IPoweredMachine;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlockContainer;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class CropFarmer extends GuiMachine implements LiquidBlockContainer {
-	public CropFarmer(Properties properties) {
-		super(properties);
+public class CropFarmer extends GuiMachine implements LiquidBlockContainer, IPoweredMachine {
+	public static final String DISPLAY_NAME = "screen.androtech.crop_farmer";
+	public static final String TOOLTIP = "block.androtech.crop_farmer.tooltip";
+
+	public CropFarmer(Properties properties, boolean useDefaultSideTexture, boolean useDefaultBottomTexture,
+					  boolean useDefaultTopTexture, boolean useDefaultFrontTexture, boolean hasMultipleStates) {
+		super(properties, useDefaultSideTexture, useDefaultBottomTexture, useDefaultTopTexture, useDefaultFrontTexture, hasMultipleStates);
+		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
 	}
 
 	@Override
-	public void OpenGui(Level level, BlockPos pos, Player player) {
-
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		builder.add(BlockStateProperties.POWERED);
 	}
 
 	@Nullable
 	@Override
-	public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-		//todo: return block entity
-		return null;
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new CropFarmerBlockEntity(pos, state);
+	}
+
+	@Override
+	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+		if(state.getBlock() != newState.getBlock()) {
+			level.getBlockEntity(pos).getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(itemHandler -> {
+				for(int i = 0; i < itemHandler.getSlots(); i++) {
+					popResource(level, pos, itemHandler.getStackInSlot(i));
+				}
+			});
+			level.updateNeighbourForOutputSignal(pos, this);
+			super.onRemove(state, level, pos, newState, isMoving);
+		}
+	}
+
+	@Nullable
+	@Override
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+		return (level2, pos, state2, blockEntity) -> {
+			if(blockEntity instanceof CropFarmerBlockEntity cropFarmerBlockEntity) {
+				if(level.isClientSide()) {
+					cropFarmerBlockEntity.clientTick(level2, pos, state2, cropFarmerBlockEntity);
+				} else {
+					cropFarmerBlockEntity.serverTick((ServerLevel) level2, pos, state2, cropFarmerBlockEntity);
+				}
+			}
+		};
+	}
+
+	@Override
+	public void OpenScreen(Level level, BlockPos pos, Player player) {
+		BlockEntity entity = level.getBlockEntity(pos);
+
+		if(entity instanceof CropFarmerBlockEntity cropFarmerBlockEntity) {
+			NetworkHooks.openScreen((ServerPlayer) player, cropFarmerBlockEntity, entity.getBlockPos());
+		} else {
+			throw new IllegalStateException("Missing container provider");
+		}
 	}
 
 	@Override
@@ -37,12 +89,12 @@ public class CropFarmer extends GuiMachine implements LiquidBlockContainer {
 	}
 
 	@Override
-	public boolean canPlaceLiquid(BlockGetter p_54766_, BlockPos p_54767_, BlockState p_54768_, Fluid p_54769_) {
+	public boolean canPlaceLiquid(BlockGetter getter, BlockPos pos, BlockState state, Fluid fluid) {
 		return false;
 	}
 
 	@Override
-	public boolean placeLiquid(LevelAccessor p_54770_, BlockPos p_54771_, BlockState p_54772_, FluidState p_54773_) {
+	public boolean placeLiquid(LevelAccessor accessor, BlockPos pos, BlockState blockState, FluidState fluidState) {
 		return false;
 	}
 }

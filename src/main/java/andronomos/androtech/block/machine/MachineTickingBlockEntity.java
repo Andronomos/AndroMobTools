@@ -11,17 +11,13 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
-public abstract class TickingMachineBlockEntity extends MachineBlockEntity {
+public abstract class MachineTickingBlockEntity extends MachineBlockEntity {
 	public int tickDelay = Const.TicksInSeconds.THREE;
 	public int tickCounter = 0;
 
-	public TickingMachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+	public MachineTickingBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
 	}
-
-	public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity blockEntity) { }
-
-	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) { }
 
 	@Override
 	public boolean isRemoved() {
@@ -45,4 +41,8 @@ public abstract class TickingMachineBlockEntity extends MachineBlockEntity {
 	public AABB getWorkArea(Direction direction) {
 		return RadiusUtils.cubefromCenter(this.worldPosition, 0);
 	}
+
+	public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity blockEntity) { }
+
+	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) { }
 }
