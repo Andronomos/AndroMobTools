@@ -29,7 +29,7 @@ public class ItemAttractorMenu extends MachineMenu {
 			});
 		}
 
-		setupSlotIndexs(Const.INVENTORY_GENERIC_LARGE_SIZE);
+		setupSlotIndexs(Const.INVENTORY_VANILLA_LARGE_SIZE);
 		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, 140);
 	}
 

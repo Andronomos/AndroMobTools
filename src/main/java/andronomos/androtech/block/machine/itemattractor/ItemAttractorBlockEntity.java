@@ -36,7 +36,7 @@ public class ItemAttractorBlockEntity extends MachineTickingBlockEntity implemen
 
 	@Nonnull
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(Const.INVENTORY_GENERIC_LARGE_SIZE) {
+		return new ItemStackHandler(Const.INVENTORY_VANILLA_LARGE_SIZE) {
 			@Override
 			public int getSlotLimit(int slot) {
 				return 64;

@@ -1,21 +1,18 @@
 package andronomos.androtech;
 
 public class Const {
-    public static final int INVENTORY_GENERIC_SMALL_SIZE = 27;
-    public static final int INVENTORY_GENERIC_LARGE_SIZE = 54;
-    public static final int INVENTORY_MACHINE_MEDIUM_SIZE = 21;
+    public static final int INVENTORY_VANILLA_SMALL_SIZE = 27;
+    public static final int INVENTORY_VANILLA_LARGE_SIZE = 54;
+    public static final int INVENTORY_MACHINE_SIZE = 21;
     public static final int MENU_SLOT_X_OFFSET = 8;
     public static final int MENU_SLOT_X_CENTER = 80;
-    public static final int MENU_MACHINE_SLOT_X_OFFSET = 44;
+    public static final int MENU_SLOT_MACHINE_X_OFFSET = 44;
     public static final int MENU_SLOT_SIZE = 16;
     public static final int SCREEN_SLOT_X_OFFSET = 7;
     public static final int SCREEN_SLOT_X_CENTER = 79;
     public static final int SCREEN_SLOT_SIZE = 18;
     public static final int SCREEN_SLOT_LARGE_SIZE = 26;
     public static final int SCREEN_LARGE_IMAGE_HEIGHT = 222;
-
-    public static final int MENU_AUGMENT_FIRST_SLOT_X = 187;
-    public static final int MENU_AUGMENT_FIRST_SLOT_Y = 6;
 
     private static final int PLAYER_HOTBAR_SLOT_COUNT = 9;
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;

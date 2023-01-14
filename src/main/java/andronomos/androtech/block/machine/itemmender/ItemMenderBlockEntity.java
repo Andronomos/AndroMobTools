@@ -28,7 +28,7 @@ public class ItemMenderBlockEntity extends MachineTickingBlockEntity implements 
 
 	@Override
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(Const.INVENTORY_GENERIC_LARGE_SIZE) {
+		return new ItemStackHandler(Const.INVENTORY_VANILLA_LARGE_SIZE) {
 			@Override
 			protected void onContentsChanged(int slot) {
 				// To make sure the TE persists when the chunk is saved later we need to
