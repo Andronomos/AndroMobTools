@@ -1,5 +1,6 @@
 package andronomos.androtech.block.machine.itemincinerator;
 
+import andronomos.androtech.ModEnergyStorage;
 import andronomos.androtech.block.machine.MachineBlockEntity;
 import andronomos.androtech.block.machine.itemattractor.ItemAttractor;
 import andronomos.androtech.block.machine.itemattractor.ItemAttractorMenu;
@@ -55,6 +56,11 @@ public class ItemIncineratorBlockEntity extends MachineBlockEntity implements Me
                 return 64;
             }
         };
+    }
+
+    @Override
+    protected ModEnergyStorage createEnergyHandler() {
+        return null;
     }
 
     @Override

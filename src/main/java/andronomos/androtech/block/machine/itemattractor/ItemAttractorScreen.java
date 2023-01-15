@@ -1,5 +1,6 @@
 package andronomos.androtech.block.machine.itemattractor;
 
+import andronomos.androtech.Const;
 import andronomos.androtech.block.machine.MachineScreen;
 import andronomos.androtech.gui.widget.button.sidebutton.PowerButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
@@ -14,7 +15,8 @@ public class ItemAttractorScreen extends MachineScreen<ItemAttractorMenu> {
 
 	public ItemAttractorScreen(ItemAttractorMenu menu, Inventory inv, Component component) {
 		super(menu, inv, component);
-		this.imageHeight = 222;
+		this.imageHeight = Const.SCREEN_LARGE_IMAGE_HEIGHT;
+		assignEnergyInfoArea(menu.blockEntity.getEnergyStorage());
 	}
 
 	@Override
@@ -38,10 +40,12 @@ public class ItemAttractorScreen extends MachineScreen<ItemAttractorMenu> {
 		this.drawButtonTooltips(stack, mouseX, mouseY);
 		this.drawName(stack, title.getString());
 		powerButton.update();
+		renderEnergyAreaTooltips(stack, mouseX, mouseY);
 	}
 
 	@Override
 	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(stack, TextureRegistry.DOUBLE_INVENTORY_SCREEN);
+		drawBackground(stack, TextureRegistry.MACHINE_SCREEN);
+		energyInfoArea.draw(stack);
 	}
 }

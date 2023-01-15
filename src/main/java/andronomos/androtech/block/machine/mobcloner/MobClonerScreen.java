@@ -16,6 +16,7 @@ public class MobClonerScreen extends MachineScreen<MobClonerMenu> {
 
 	public MobClonerScreen(MobClonerMenu menu, Inventory inventory, Component component) {
 		super(menu, inventory, component);
+		assignEnergyInfoArea(menu.blockEntity.getEnergyStorage());
 	}
 
 	@Override
@@ -39,17 +40,19 @@ public class MobClonerScreen extends MachineScreen<MobClonerMenu> {
 		this.drawButtonTooltips(stack, mouseX, mouseY);
 		this.drawName(stack, title.getString());
 		powerButton.update();
+		renderEnergyAreaTooltips(stack, mouseX, mouseY);
 	}
 
 	@Override
-	protected void renderBg(PoseStack poseStack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(poseStack, TextureRegistry.NO_INVENTORY_SMALL_SCREEN);
+	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
+		drawBackground(stack, TextureRegistry.MOB_CLONER_SCREEN);
+		energyInfoArea.draw(stack);
 
-		menu.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(h -> {
-			//for(int slotCounter = 0; slotCounter < MobClonerBlockEntity.SLOTS; slotCounter++) {
-			//	this.drawSlot(poseStack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * slotCounter, 29, TextureRegistry.SLOT_UNIT, Const.SCREEN_SLOT_SIZE);
-			//}
-			this.drawSlot(poseStack, Const.SCREEN_SLOT_X_CENTER, 29, TextureRegistry.SLOT_UNIT, Const.SCREEN_SLOT_SIZE);
-		});
+		//menu.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(h -> {
+		//	//for(int slotCounter = 0; slotCounter < MobClonerBlockEntity.SLOTS; slotCounter++) {
+		//	//	this.drawSlot(stack, Const.SCREEN_SLOT_X_OFFSET + Const.SCREEN_SLOT_SIZE * slotCounter, 29, TextureRegistry.SLOT_UNIT, Const.SCREEN_SLOT_SIZE);
+		//	//}
+		//	this.drawSlot(stack, Const.SCREEN_SLOT_X_CENTER, 29, TextureRegistry.SLOT_UNIT, Const.SCREEN_SLOT_SIZE);
+		//});
 	}
 }

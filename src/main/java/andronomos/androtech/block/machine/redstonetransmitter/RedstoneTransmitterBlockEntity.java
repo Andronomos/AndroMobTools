@@ -1,7 +1,8 @@
 package andronomos.androtech.block.machine.redstonetransmitter;
 
+import andronomos.androtech.ModEnergyStorage;
+import andronomos.androtech.block.machine.MachineBlockEntity;
 import andronomos.androtech.block.machine.MachineSlotItemStackHandler;
-import andronomos.androtech.block.machine.MachineTickingBlockEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.registry.ModBlocks;
 import andronomos.androtech.registry.ModItems;
@@ -22,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
-public class RedstoneTransmitterBlockEntity extends MachineTickingBlockEntity implements MenuProvider {
+public class RedstoneTransmitterBlockEntity extends MachineBlockEntity implements MenuProvider {
 	public static final int SLOTS = 9;
 
     public RedstoneTransmitterBlockEntity(BlockPos pos, BlockState state) {
@@ -56,6 +57,11 @@ public class RedstoneTransmitterBlockEntity extends MachineTickingBlockEntity im
                 return false;
             }
         };
+    }
+
+    @Override
+    protected ModEnergyStorage createEnergyHandler() {
+        return null;
     }
 
     @Override

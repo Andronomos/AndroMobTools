@@ -1,15 +1,31 @@
 package andronomos.androtech.block.machine.itemmender;
 
+import andronomos.androtech.Const;
 import andronomos.androtech.block.machine.MachineScreen;
+import andronomos.androtech.gui.widget.button.sidebutton.PowerButton;
+import andronomos.androtech.network.AndroTechPacketHandler;
+import andronomos.androtech.network.packet.SyncMachinePoweredState;
 import andronomos.androtech.registry.TextureRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
 public class ItemMenderScreen extends MachineScreen<ItemMenderMenu> {
+	private PowerButton powerButton;
+
 	public ItemMenderScreen(ItemMenderMenu menu, Inventory inventory, Component component) {
 		super(menu, inventory, component);
-		this.imageHeight = 114 + 6 * 18;
+		this.imageHeight = Const.SCREEN_LARGE_IMAGE_HEIGHT;
+		assignEnergyInfoArea(menu.blockEntity.getEnergyStorage());
+	}
+
+	@Override
+	protected void init() {
+		super.init();
+
+		powerButton = (PowerButton) this.addButton(new PowerButton((button) -> {
+			AndroTechPacketHandler.sendToServer(new SyncMachinePoweredState(menu.blockEntity.getBlockPos()));
+		}, menu.blockEntity));
 	}
 
 	@Override
@@ -21,11 +37,15 @@ public class ItemMenderScreen extends MachineScreen<ItemMenderMenu> {
 
 	@Override
 	protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
+		this.drawButtonTooltips(stack, mouseX, mouseY);
 		this.drawName(stack, title.getString());
+		powerButton.update();
+		renderEnergyAreaTooltips(stack, mouseX, mouseY);
 	}
 
 	@Override
 	protected void renderBg(PoseStack stack, float partialTicks, int mouseX, int mouseY) {
-		drawBackground(stack, TextureRegistry.DOUBLE_INVENTORY_SCREEN);
+		drawBackground(stack, TextureRegistry.MACHINE_SCREEN);
+		energyInfoArea.draw(stack);
 	}
 }

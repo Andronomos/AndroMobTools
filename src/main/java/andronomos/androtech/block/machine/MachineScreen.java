@@ -1,9 +1,8 @@
 package andronomos.androtech.block.machine;
 
-import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.machine.cropfarmer.renderer.EnergyInfoArea;
 import andronomos.androtech.gui.widget.button.sidebutton.SideButton;
-import andronomos.androtech.registry.ModBlocks;
-import andronomos.androtech.util.LevelUtils;
+import andronomos.androtech.util.MouseUtils;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.events.GuiEventListener;
@@ -12,17 +11,17 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ClickType;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.energy.IEnergyStorage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class MachineScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {
 	private final List<SideButton> sideButtons = new ArrayList<>();
 	private int sideButtonY;
 	private static final int BUTTON_LEFT = 109;
+	public EnergyInfoArea energyInfoArea;
 
 	public MachineScreen(T menu, Inventory inventory, Component component) {
 		super(menu, inventory, component);
@@ -73,6 +72,26 @@ public abstract class MachineScreen<T extends AbstractContainerMenu> extends Abs
 				}
 			}
 		}
+	}
+
+	public void assignEnergyInfoArea(IEnergyStorage energyStorage) {
+		int relX = (this.width - this.imageWidth) / 2;
+		int relY = (this.height - this.imageHeight) / 2;
+		energyInfoArea = new EnergyInfoArea(relX + 156, relY + 13, energyStorage);
+	}
+
+	public void renderEnergyAreaTooltips(PoseStack stack, int mouseX, int mouseY) {
+		int relX = (this.width - this.imageWidth) / 2;
+		int relY = (this.height - this.imageHeight) / 2;
+
+		if(isMouseAboveArea(mouseX, mouseY, relX, relY, 156, 13, 8, 64)) {
+			renderTooltip(stack, energyInfoArea.getTooltips(),
+					Optional.empty(), mouseX - relX, mouseY - relY);
+		}
+	}
+
+	private boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY, int width, int height) {
+		return MouseUtils.isMouseOver(pMouseX, pMouseY, x + offsetX, y + offsetY, width, height);
 	}
 
 	//@Override
