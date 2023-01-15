@@ -1,5 +1,6 @@
 package andronomos.androtech.block.machine.itemmender;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.ModEnergyStorage;
 import andronomos.androtech.block.machine.MachineBlockEntity;
@@ -17,7 +18,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.ItemStackHandler;
@@ -63,17 +63,22 @@ public class ItemMenderBlockEntity extends MachineBlockEntity implements MenuPro
 		if(!state.getValue(CropFarmer.POWERED)) return;
 		if(!shouldTick()) return;
 
-		if(!hasEnoughEnergy(blockEntity)) return;
-		extractEnergy(blockEntity);
-		setChanged(level, pos, state);
+		//debug
+		AndroTech.LOGGER.info("ItemMenderBlockEntity#serverTick | energyHandler.getEnergyStored >> {}", energyHandler.getEnergyStored());
+		return;
 
-		getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(itemHandler -> {
-			for (int i = 0; i < itemHandler.getSlots(); i++) {
-				ItemStack itemstack = itemHandler.getStackInSlot(i);
-				if (!ItemStackUtils.isRepairable(itemstack)) continue;
-				itemstack.setDamageValue(itemstack.getDamageValue() - AndroTechConfig.MENDING_MODULE_REPAIR_RATE.get());
-			}
-		});
+
+		//if(!hasEnoughEnergy(blockEntity)) return;
+		//extractEnergy(blockEntity);
+		//setChanged(level, pos, state);
+		//
+		//getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(itemHandler -> {
+		//	for (int i = 0; i < itemHandler.getSlots(); i++) {
+		//		ItemStack itemstack = itemHandler.getStackInSlot(i);
+		//		if (!ItemStackUtils.isRepairable(itemstack)) continue;
+		//		itemstack.setDamageValue(itemstack.getDamageValue() - AndroTechConfig.MENDING_MODULE_REPAIR_RATE.get());
+		//	}
+		//});
 	}
 
 	@Override

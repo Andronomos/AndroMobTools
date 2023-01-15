@@ -104,11 +104,9 @@ public class CropFarmerBlockEntity extends MachineBlockEntity implements MenuPro
 		if (!state.getValue(CropFarmer.POWERED)) return;
 		if (!shouldTick()) return;
 
-		AndroTech.LOGGER.info("CropFarmerBlockEntity#serverTick | energyHandler.getEnergyStored >> {}", energyHandler.getEnergyStored());
-
 		//demo
-		//blockEntity.energyHandler.receiveEnergy(AndroTechConfig.CROP_FARMER_ENERGY_TRANSFER_RATE.get(), false);
-		blockEntity.energyHandler.receiveEnergy(5000, false);
+		blockEntity.energyHandler.receiveEnergy(AndroTechConfig.CROP_FARMER_ENERGY_TRANSFER_RATE.get(), false);
+
 
 		if(!hasEnoughEnergy(blockEntity)) return;
 		extractEnergy(blockEntity);
