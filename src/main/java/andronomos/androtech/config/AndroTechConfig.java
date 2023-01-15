@@ -11,15 +11,30 @@ public class AndroTechConfig {
 
 	public static ForgeConfigSpec.ConfigValue<Integer> ATTRACTOR_MODULE_RANGE;
 	public static ForgeConfigSpec.ConfigValue<Boolean> ATTRACTOR_MODULE_TAKE_DAMAGE;
+
 	public static ForgeConfigSpec.ConfigValue<Integer> MENDING_MODULE_REPAIR_RATE;
 	public static ForgeConfigSpec.ConfigValue<Integer> MENDING_MODULE_DURABILITY;
+
 	public static ForgeConfigSpec.ConfigValue<Boolean> MOB_STASIS_MODULE_TAKE_DAMAGE;
 	public static ForgeConfigSpec.ConfigValue<Integer> MOB_STASIS_MODULE_DURABILITY;
+
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_PICKAXE_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_AXE_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_SHOVEL_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_SWORD_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_REPAIR_RATE;
+
+	public static ForgeConfigSpec.ConfigValue<Integer> CROP_FARMER_ENERGY_CAPACITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> CROP_FARMER_ENERGY_TRANSFER_RATE;
+
+	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_ATTRACTOR_ENERGY_CAPACITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_ATTRACTOR_ENERGY_TRANSFER_RATE;
+
+	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_MENDER_ENERGY_CAPACITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_MENDER_ENERGY_TRANSFER_RATE;
+
+	public static ForgeConfigSpec.ConfigValue<Integer> MOB_CLONER_ENERGY_CAPACITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> MOB_CLONER_ENERGY_TRANSFER_RATE;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -50,10 +65,29 @@ public class AndroTechConfig {
 		NANITE_SWORD_DURABILITY = builder.comment("Nanite Sword Durability").define("durability", 8124);
 		NANITE_REPAIR_RATE = builder.comment("Repair Rate").define("repair_rate", 10);
 		builder.pop();
+
+		builder.push("Crop Farmer");
+		CROP_FARMER_ENERGY_CAPACITY = builder.comment("Max energy capacity").define("energy_capacity", 60000);
+		CROP_FARMER_ENERGY_TRANSFER_RATE = builder.comment("Max energy transfer per tick").define("energy_transfer_rate", 256);
+		builder.pop();
+
+		builder.push("Item Attractor");
+		ITEM_ATTRACTOR_ENERGY_CAPACITY = builder.comment("Max energy capacity").define("energy_capacity", 60000);
+		ITEM_ATTRACTOR_ENERGY_TRANSFER_RATE = builder.comment("Max energy transfer per tick").define("energy_transfer_rate", 256);
+		builder.pop();
+
+		builder.push("Item Mender");
+		ITEM_MENDER_ENERGY_CAPACITY = builder.comment("Max energy capacity").define("energy_capacity", 60000);
+		ITEM_MENDER_ENERGY_TRANSFER_RATE = builder.comment("Max energy transfer per tick").define("energy_transfer_rate", 256);
+		builder.pop();
+
+		builder.push("Mob Cloner");
+		MOB_CLONER_ENERGY_CAPACITY = builder.comment("Max energy capacity").define("energy_capacity", 60000);
+		MOB_CLONER_ENERGY_TRANSFER_RATE = builder.comment("Max energy transfer per tick").define("energy_transfer_rate", 256);
+		builder.pop();
 	}
 
-	public static void loadConfig(Path path)
-	{
+	public static void loadConfig(Path path) {
 		final CommentedFileConfig configData = CommentedFileConfig.builder(path).sync().autosave().writingMode(WritingMode.REPLACE).build();
 		configData.load();
 		CONFIG.setConfig(configData);
