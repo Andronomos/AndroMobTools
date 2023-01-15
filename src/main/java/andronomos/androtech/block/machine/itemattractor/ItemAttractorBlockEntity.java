@@ -1,7 +1,11 @@
 package andronomos.androtech.block.machine.itemattractor;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.block.machine.MachineTickingBlockEntity;
+import andronomos.androtech.ModEnergyStorage;
+import andronomos.androtech.block.machine.MachineBlockEntity;
+import andronomos.androtech.config.AndroTechConfig;
+import andronomos.androtech.network.AndroTechPacketHandler;
+import andronomos.androtech.network.packet.SyncMachineEnergy;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.InventoryUtils;
 import andronomos.androtech.util.RadiusUtils;
@@ -27,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class ItemAttractorBlockEntity extends MachineTickingBlockEntity implements MenuProvider {
+public class ItemAttractorBlockEntity extends MachineBlockEntity implements MenuProvider {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public ItemAttractorBlockEntity(BlockPos pos, BlockState state) {
@@ -72,9 +76,25 @@ public class ItemAttractorBlockEntity extends MachineTickingBlockEntity implemen
 		return new ItemAttractorMenu(pContainerId, pPlayerInventory, this);
 	}
 
-	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, ItemAttractorBlockEntity itemAttractor) {
+	@Override
+	protected ModEnergyStorage createEnergyHandler() {
+		return new ModEnergyStorage(AndroTechConfig.ITEM_ATTRACTOR_ENERGY_CAPACITY.get(), AndroTechConfig.ITEM_ATTRACTOR_ENERGY_TRANSFER_RATE.get()) {
+			@Override
+			public void onEnergyChanged() {
+				setChanged();
+				AndroTechPacketHandler.sendToClients(new SyncMachineEnergy(this.energy, getBlockPos()));
+			}
+		};
+	}
+
+	@Override
+	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MachineBlockEntity blockEntity) {
 		if(!state.getValue(POWERED)) return;
 		if(!shouldTick()) return;
+
+		if(!hasEnoughEnergy(blockEntity)) return;
+		extractEnergy(blockEntity);
+		setChanged(level, pos, state);
 
 		if(!InventoryUtils.inventoryIsFull(itemHandler)) {
 			captureDroppedItems();

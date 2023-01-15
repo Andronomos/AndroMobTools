@@ -1,8 +1,12 @@
 package andronomos.androtech.block.machine.itemmender;
 
 import andronomos.androtech.Const;
-import andronomos.androtech.block.machine.MachineTickingBlockEntity;
+import andronomos.androtech.ModEnergyStorage;
+import andronomos.androtech.block.machine.MachineBlockEntity;
+import andronomos.androtech.block.machine.cropfarmer.CropFarmer;
 import andronomos.androtech.config.AndroTechConfig;
+import andronomos.androtech.network.AndroTechPacketHandler;
+import andronomos.androtech.network.packet.SyncMachineEnergy;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.ItemStackUtils;
 import net.minecraft.core.BlockPos;
@@ -21,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
-public class ItemMenderBlockEntity extends MachineTickingBlockEntity implements MenuProvider {
+public class ItemMenderBlockEntity extends MachineBlockEntity implements MenuProvider {
 	public ItemMenderBlockEntity(BlockPos pos, BlockState state) {
 		super(ModBlockEntities.ITEM_MENDER.get(), pos, state);
 	}
@@ -44,16 +48,32 @@ public class ItemMenderBlockEntity extends MachineTickingBlockEntity implements 
 	}
 
 	@Override
-	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
-		if(shouldTick()) {
-			getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(itemHandler -> {
-				for (int i = 0; i < itemHandler.getSlots(); i++) {
-					ItemStack itemstack = itemHandler.getStackInSlot(i);
-					if (!ItemStackUtils.isRepairable(itemstack)) continue;
-					itemstack.setDamageValue(itemstack.getDamageValue() - AndroTechConfig.MENDING_MODULE_REPAIR_RATE.get());
-				}
-			});
-		}
+	protected ModEnergyStorage createEnergyHandler() {
+		return new ModEnergyStorage(AndroTechConfig.ITEM_MENDER_ENERGY_CAPACITY.get(), AndroTechConfig.ITEM_MENDER_ENERGY_TRANSFER_RATE.get()) {
+			@Override
+			public void onEnergyChanged() {
+				setChanged();
+				AndroTechPacketHandler.sendToClients(new SyncMachineEnergy(this.energy, getBlockPos()));
+			}
+		};
+	}
+
+	@Override
+	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MachineBlockEntity blockEntity) {
+		if(!state.getValue(CropFarmer.POWERED)) return;
+		if(!shouldTick()) return;
+
+		if(!hasEnoughEnergy(blockEntity)) return;
+		extractEnergy(blockEntity);
+		setChanged(level, pos, state);
+
+		getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(itemHandler -> {
+			for (int i = 0; i < itemHandler.getSlots(); i++) {
+				ItemStack itemstack = itemHandler.getStackInSlot(i);
+				if (!ItemStackUtils.isRepairable(itemstack)) continue;
+				itemstack.setDamageValue(itemstack.getDamageValue() - AndroTechConfig.MENDING_MODULE_REPAIR_RATE.get());
+			}
+		});
 	}
 
 	@Override

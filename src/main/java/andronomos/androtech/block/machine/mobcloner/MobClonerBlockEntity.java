@@ -1,9 +1,12 @@
 package andronomos.androtech.block.machine.mobcloner;
 
-import andronomos.androtech.Const;
+import andronomos.androtech.ModEnergyStorage;
+import andronomos.androtech.block.machine.MachineBlockEntity;
 import andronomos.androtech.block.machine.MachineSlotItemStackHandler;
-import andronomos.androtech.block.machine.MachineTickingBlockEntity;
+import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.item.Module.MobStasisModule;
+import andronomos.androtech.network.AndroTechPacketHandler;
+import andronomos.androtech.network.packet.SyncMachineEnergy;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.registry.ModItems;
 import andronomos.androtech.util.ItemStackUtils;
@@ -31,7 +34,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MobClonerBlockEntity extends MachineTickingBlockEntity implements MenuProvider {
+public class MobClonerBlockEntity extends MachineBlockEntity implements MenuProvider {
 	private double spin;
 	private int requiredPlayerRange = 64;
 	private int spawnCount = 1;
@@ -68,8 +71,19 @@ public class MobClonerBlockEntity extends MachineTickingBlockEntity implements M
 	}
 
 	@Override
-	public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
-		if(!shouldActivate(level, pos)) return;
+	protected ModEnergyStorage createEnergyHandler() {
+		return new ModEnergyStorage(AndroTechConfig.MOB_CLONER_ENERGY_CAPACITY.get(), AndroTechConfig.MOB_CLONER_ENERGY_TRANSFER_RATE.get()) {
+			@Override
+			public void onEnergyChanged() {
+				setChanged();
+				AndroTechPacketHandler.sendToClients(new SyncMachineEnergy(this.energy, getBlockPos()));
+			}
+		};
+	}
+
+	@Override
+	public void clientTick(Level level, BlockPos pos, BlockState state, MachineBlockEntity blockEntity) {
+		if(!shouldActivate(level, pos, blockEntity)) return;
 
 		double d0 = (double)pos.getX() + level.random.nextDouble();
 		double d1 = (double)pos.getY() + level.random.nextDouble();
@@ -80,8 +94,11 @@ public class MobClonerBlockEntity extends MachineTickingBlockEntity implements M
 	}
 
 	@Override
-	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity mobCloner) {
-		if(!shouldActivate(level, pos)) return;
+	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MachineBlockEntity blockEntity) {
+		if(!shouldActivate(level, pos, blockEntity)) return;
+
+		extractEnergy(blockEntity);
+		setChanged(level, pos, state);
 
 		if(shouldTick()) {
 			for(int slotIndex = 0; slotIndex < itemHandler.getSlots(); slotIndex++) {
@@ -122,13 +139,15 @@ public class MobClonerBlockEntity extends MachineTickingBlockEntity implements M
 	}
 
 	private int getMaxNearbyEntities() {
-		return spawnCount * SLOTS;
+		return spawnCount;
 	}
 
-	public boolean shouldActivate(Level level, BlockPos pos) {
+	public boolean shouldActivate(Level level, BlockPos pos, MachineBlockEntity blockEntity) {
 		if (!this.isNearPlayer(this.level, pos)
 				|| level.hasNeighborSignal(pos)
-				|| !this.getBlockState().getValue(MobCloner.POWERED))
+				|| !this.getBlockState().getValue(MobCloner.POWERED)
+				|| !shouldTick()
+				|| !hasEnoughEnergy(blockEntity))
 			return false;
 
 		return true;

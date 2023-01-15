@@ -1,7 +1,8 @@
 package andronomos.androtech.block.pad.mobkillingpad;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.machine.MachineTickingBlockEntity;
+import andronomos.androtech.ModEnergyStorage;
+import andronomos.androtech.block.machine.MachineBlockEntity;
 import andronomos.androtech.registry.ModBlockEntities;
 import andronomos.androtech.util.RadiusUtils;
 import net.minecraft.core.BlockPos;
@@ -26,17 +27,11 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class MobKillingPadBlockEntity extends MachineTickingBlockEntity implements MenuProvider {
+public class MobKillingPadBlockEntity extends MachineBlockEntity implements MenuProvider {
     public static final int PAD_SLOTS = 1;
-    //private final List<Enchantment> enchantments = new ArrayList<>();
 
     public MobKillingPadBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.MOB_KILLING_PAD.get(), pos, state);
-
-        //enchantments.add(Enchantments.MOB_LOOTING);
-        //enchantments.add(Enchantments.FIRE_ASPECT);
-        //enchantments.add(Enchantments.SHARPNESS);
-        //enchantments.add(Enchantments.SWEEPING_EDGE);
     }
 
     @Override
@@ -65,6 +60,11 @@ public class MobKillingPadBlockEntity extends MachineTickingBlockEntity implemen
                 return super.insertItem(slot, stack, simulate);
             }
         };
+    }
+
+    @Override
+    protected ModEnergyStorage createEnergyHandler() {
+        return null;
     }
 
     public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MobKillingPadBlockEntity mobKillingPadBlockEntity) {
