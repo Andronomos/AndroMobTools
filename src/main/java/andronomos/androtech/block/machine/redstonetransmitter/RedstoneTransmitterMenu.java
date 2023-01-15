@@ -13,8 +13,6 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class RedstoneTransmitterMenu extends MachineMenu {
-	public BlockEntity blockEntity;
-
 	public RedstoneTransmitterMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
 		this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()));
 	}

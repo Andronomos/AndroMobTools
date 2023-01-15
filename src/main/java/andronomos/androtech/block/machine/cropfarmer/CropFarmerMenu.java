@@ -15,8 +15,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 public class CropFarmerMenu extends MachineMenu {
-	public CropFarmerBlockEntity blockEntity;
-
 	public CropFarmerMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
 		this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()));
 	}

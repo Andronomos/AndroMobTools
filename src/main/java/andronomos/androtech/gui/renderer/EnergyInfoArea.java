@@ -1,4 +1,6 @@
-package andronomos.androtech.block.machine.cropfarmer.renderer;
+package andronomos.androtech.gui.renderer;
+import andronomos.androtech.AndroTech;
+import andronomos.androtech.config.AndroTechConfig;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
@@ -35,6 +37,7 @@ public class EnergyInfoArea extends InfoArea {
 
     @Override
     public void draw(PoseStack transform) {
+        //AndroTech.LOGGER.info("EnergyInfoArea#draw | stored energy >> {}", energy.getEnergyStored());
         final int height = area.getHeight();
         int stored = (int)(height*(energy.getEnergyStored()/(float)energy.getMaxEnergyStored()));
         fillGradient(

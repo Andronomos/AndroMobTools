@@ -1,7 +1,7 @@
 package andronomos.androtech.block.machine.cropfarmer;
 
 import andronomos.androtech.block.machine.GuiMachine;
-import andronomos.androtech.block.IPoweredMachine;
+import andronomos.androtech.block.IPoweredBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -10,6 +10,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.LiquidBlockContainer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -24,14 +25,14 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class CropFarmer extends GuiMachine implements LiquidBlockContainer, IPoweredMachine {
+public class CropFarmer extends GuiMachine implements LiquidBlockContainer, IPoweredBlock, EntityBlock {
 	public static final String DISPLAY_NAME = "screen.androtech.crop_farmer";
 	public static final String TOOLTIP = "block.androtech.crop_farmer.tooltip";
 
-	public CropFarmer(Properties properties, boolean useDefaultSideTexture, boolean useDefaultBottomTexture,
-					  boolean useDefaultTopTexture, boolean useDefaultFrontTexture, boolean hasMultipleStates) {
-		super(properties, useDefaultSideTexture, useDefaultBottomTexture, useDefaultTopTexture, useDefaultFrontTexture, hasMultipleStates);
+	public CropFarmer(Properties properties) {
+		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
+		setTexture("top", "crop_farmer_top");
 	}
 
 	@Override

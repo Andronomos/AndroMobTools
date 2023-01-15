@@ -23,4 +23,5 @@ public class TextureRegistry {
 	public static final ResourceLocation MACHINE_SCREEN_SINGLE_SLOT = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/machine/single_slot_machine.png");
 
 	public static final ResourceLocation MOB_CLONER_SCREEN = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/machine/mob_cloner.png");
+	public static final ResourceLocation CREATIVE_ENERGY_GENERATOR = new ResourceLocation(AndroTech.MOD_ID, "textures/gui/machine/creative_energy_generator.png");
 }

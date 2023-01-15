@@ -1,6 +1,5 @@
 package andronomos.androtech.block.machine;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -13,6 +12,8 @@ import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class MachineMenu extends AbstractContainerMenu {
+	public MachineBlockEntity blockEntity;
+
 	protected Player player;
 	protected Inventory inventory;
 

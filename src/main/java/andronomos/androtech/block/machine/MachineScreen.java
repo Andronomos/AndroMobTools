@@ -1,6 +1,6 @@
 package andronomos.androtech.block.machine;
 
-import andronomos.androtech.block.machine.cropfarmer.renderer.EnergyInfoArea;
+import andronomos.androtech.gui.renderer.EnergyInfoArea;
 import andronomos.androtech.gui.widget.button.sidebutton.SideButton;
 import andronomos.androtech.util.MouseUtils;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -78,7 +78,12 @@ public abstract class MachineScreen<T extends AbstractContainerMenu> extends Abs
 		int relX = (this.width - this.imageWidth) / 2;
 		int relY = (this.height - this.imageHeight) / 2;
 		energyInfoArea = new EnergyInfoArea(relX + 156, relY + 13, energyStorage);
+		//energyInfoArea = new EnergyInfoArea(relX + 10, relY + 13, energyStorage);
 	}
+
+	//public void assignEnergyInfoArea(IEnergyStorage energyStorage, int x, int y) {
+	//	energyInfoArea = new EnergyInfoArea(relX + 156, relY + 13, energyStorage);
+	//}
 
 	public void renderEnergyAreaTooltips(PoseStack stack, int mouseX, int mouseY) {
 		int relX = (this.width - this.imageWidth) / 2;

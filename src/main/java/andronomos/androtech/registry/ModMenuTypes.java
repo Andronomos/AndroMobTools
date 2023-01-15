@@ -1,5 +1,6 @@
 package andronomos.androtech.registry;
 
+import andronomos.androtech.block.machine.creativeenergygenerator.CreativeEnergyGeneratorMenu;
 import andronomos.androtech.block.machine.itemmender.ItemMenderMenu;
 import andronomos.androtech.block.machine.cropfarmer.CropFarmerMenu;
 import andronomos.androtech.block.machine.mobcloner.MobClonerMenu;
@@ -25,6 +26,7 @@ public class ModMenuTypes {
 	public static final RegistryObject<MenuType<RedstoneTransmitterMenu>> REDSTONE_TRANSMITTER = register(RedstoneTransmitterMenu::new, "redstone_transmitter_menu");
 	public static final RegistryObject<MenuType<MobKillingPadMenu>> MOB_KILLING_PAD = register(MobKillingPadMenu::new, "mob_killing_pad_menu");
 	public static final RegistryObject<MenuType<ItemMenderMenu>> ITEM_MENDER = register(ItemMenderMenu::new, "item_mender_menu");
+	public static final RegistryObject<MenuType<CreativeEnergyGeneratorMenu>> CREATIVE_ENERGY_GENERATOR = register(CreativeEnergyGeneratorMenu::new, "creative_energy_generator_menu");
 
 
 

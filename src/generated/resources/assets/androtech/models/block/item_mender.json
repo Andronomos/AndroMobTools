@@ -3,7 +3,7 @@
   "textures": {
     "down": "androtech:block/machine_bottom",
     "east": "androtech:block/item_mender_side",
-    "north": "androtech:block/item_mender_side",
+    "north": "androtech:block/machine_side",
     "particle": "androtech:block/item_mender_side",
     "south": "androtech:block/item_mender_side",
     "up": "androtech:block/machine_top",

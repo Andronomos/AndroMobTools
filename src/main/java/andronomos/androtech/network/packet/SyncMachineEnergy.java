@@ -1,5 +1,8 @@
 package andronomos.androtech.network.packet;
 
+import andronomos.androtech.block.machine.Machine;
+import andronomos.androtech.block.machine.MachineBlockEntity;
+import andronomos.androtech.block.machine.MachineMenu;
 import andronomos.androtech.block.machine.cropfarmer.CropFarmerBlockEntity;
 import andronomos.androtech.block.machine.cropfarmer.CropFarmerMenu;
 import net.minecraft.client.Minecraft;
@@ -35,11 +38,10 @@ public class SyncMachineEnergy {
 	public boolean handle(Supplier<NetworkEvent.Context> supplier) {
 		NetworkEvent.Context context = supplier.get();
 		context.enqueueWork(() -> {
-			if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof CropFarmerBlockEntity blockEntity) {
+			if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof MachineBlockEntity blockEntity) {
 				blockEntity.setEnergyLevel(energy);
 
-				if(Minecraft.getInstance().player.containerMenu instanceof CropFarmerMenu menu &&
-						menu.blockEntity.getBlockPos().equals(pos)) {
+				if(Minecraft.getInstance().player.containerMenu instanceof MachineMenu menu && menu.blockEntity.getBlockPos().equals(pos)) {
 					blockEntity.setEnergyLevel(energy);
 				}
 			}

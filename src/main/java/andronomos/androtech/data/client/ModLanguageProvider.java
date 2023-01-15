@@ -1,8 +1,9 @@
 package andronomos.androtech.data.client;
 
+import andronomos.androtech.block.machine.creativeenergygenerator.CreativeEnergyGenerator;
 import andronomos.androtech.block.machine.itemmender.ItemMender;
 import andronomos.androtech.block.machine.cropfarmer.CropFarmer;
-import andronomos.androtech.block.IPoweredMachine;
+import andronomos.androtech.block.IPoweredBlock;
 import andronomos.androtech.block.machine.mobcloner.MobCloner;
 import andronomos.androtech.block.machine.itemattractor.ItemAttractor;
 import andronomos.androtech.block.machine.itemincinerator.ItemIncinerator;
@@ -78,7 +79,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemMender.DISPLAY_NAME, "Item Mender");
 		add(ItemMender.TOOLTIP, "Repairs damaged items");
 
-		add(IPoweredMachine.GUI_ON, "Powered On");
-		add(IPoweredMachine.GUI_OFF, "Powered Off");
+		add(CreativeEnergyGenerator.DISPLAY_NAME, "Creative Energy Generator");
+		add(CreativeEnergyGenerator.TOOLTIP, "Infinite energy source");
+
+		add(IPoweredBlock.GUI_ON, "Powered On");
+		add(IPoweredBlock.GUI_OFF, "Powered Off");
 	}
 }

@@ -1,6 +1,6 @@
 package andronomos.androtech.block.machine.redstonetransmitter;
 
-import andronomos.androtech.block.IPoweredMachine;
+import andronomos.androtech.block.IPoweredBlock;
 import andronomos.androtech.block.machine.GuiMachine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -17,13 +18,16 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class RedstoneTransmitter extends GuiMachine implements IPoweredMachine {
+public class RedstoneTransmitter extends GuiMachine implements IPoweredBlock, EntityBlock {
     public static final String DISPLAY_NAME = "screen.androtech.redstone_transmitter";
     public static final String TOOLTIP = "block.androtech.redstone_transmitter.tooltip";
 
-    public RedstoneTransmitter(Properties properties, boolean useDefaultSideTexture, boolean useDefaultBottomTexture, boolean useDefaultTopTexture, boolean useDefaultFrontTexture, boolean hasMultipleStates) {
-        super(properties, useDefaultSideTexture, useDefaultBottomTexture, useDefaultTopTexture, useDefaultFrontTexture, hasMultipleStates);
+    public RedstoneTransmitter(Properties properties) {
+        super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
+        this.hasMultipleStates = true;
+        setTexture("side_off", "redstone_transmitter_off_side");
+        setTexture("side_on", "redstone_transmitter_on_side");
     }
 
     @Override

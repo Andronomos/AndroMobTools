@@ -1,7 +1,9 @@
-package andronomos.androtech.block.machine.mobcloner;
+package andronomos.androtech.block.machine.creativeenergygenerator;
 
-import andronomos.androtech.block.machine.GuiMachine;
 import andronomos.androtech.block.IPoweredBlock;
+import andronomos.androtech.block.machine.GuiMachine;
+import andronomos.androtech.block.machine.Machine;
+import andronomos.androtech.block.machine.cropfarmer.CropFarmerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,15 +20,13 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class MobCloner extends GuiMachine implements IPoweredBlock, EntityBlock {
-	public static final String DISPLAY_NAME = "screen.mobtools.mob_cloner";
-	public static final String TOOLTIP = "block.androtech.mob_cloner.tooltip";
+public class CreativeEnergyGenerator extends GuiMachine implements IPoweredBlock, EntityBlock {
+	public static final String DISPLAY_NAME = "screen.androtech.creative_energy_generator";
+	public static final String TOOLTIP = "block.androtech.creative_energy_generator.tooltip";
 
-	public MobCloner(Properties properties) {
+	public CreativeEnergyGenerator(Properties properties) {
 		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
-		setTexture("top", "mob_cloner_top");
-		setTexture("side", "mob_cloner_side");
 	}
 
 	@Override
@@ -34,18 +34,12 @@ public class MobCloner extends GuiMachine implements IPoweredBlock, EntityBlock 
 		builder.add(BlockStateProperties.POWERED);
 	}
 
-	@Nullable
-	@Override
-	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new MobClonerBlockEntity(pos, state);
-	}
-
 	@Override
 	public void OpenScreen(Level level, BlockPos pos, Player player) {
 		BlockEntity entity = level.getBlockEntity(pos);
 
-		if(entity instanceof MobClonerBlockEntity mobClonerBlockEntity) {
-			NetworkHooks.openScreen((ServerPlayer) player, mobClonerBlockEntity, entity.getBlockPos());
+		if(entity instanceof CreativeEnergyGeneratorBlockEntity creativeEnergyGeneratorBlockEntity) {
+			NetworkHooks.openScreen((ServerPlayer) player, creativeEnergyGeneratorBlockEntity, entity.getBlockPos());
 		} else {
 			throw new IllegalStateException("Missing container provider");
 		}
@@ -53,13 +47,17 @@ public class MobCloner extends GuiMachine implements IPoweredBlock, EntityBlock 
 
 	@Nullable
 	@Override
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new CreativeEnergyGeneratorBlockEntity(pos, state);
+	}
+
+	@Nullable
+	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
 		return (level2, pos, state2, blockEntity) -> {
-			if(blockEntity instanceof MobClonerBlockEntity mobCloner) {
-				if(level.isClientSide()) {
-					mobCloner.clientTick(level2, pos, state2, mobCloner);
-				} else {
-					mobCloner.serverTick((ServerLevel) level2, pos, state2, mobCloner);
+			if(blockEntity instanceof CreativeEnergyGeneratorBlockEntity cropFarmerBlockEntity) {
+				if(!level.isClientSide()) {
+					cropFarmerBlockEntity.serverTick((ServerLevel) level2, pos, state2, cropFarmerBlockEntity);
 				}
 			}
 		};

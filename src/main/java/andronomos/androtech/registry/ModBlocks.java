@@ -1,6 +1,6 @@
 package andronomos.androtech.registry;
 
-import andronomos.androtech.block.Overlay;
+import andronomos.androtech.block.machine.creativeenergygenerator.CreativeEnergyGenerator;
 import andronomos.androtech.block.machine.itemmender.ItemMender;
 import andronomos.androtech.block.machine.cropfarmer.CropFarmer;
 import andronomos.androtech.block.machine.mobcloner.MobCloner;
@@ -36,27 +36,26 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, andronomos.androtech.AndroTech.MOD_ID);
 
 
-    public static final RegistryObject<Block> CROP_FARMER = registerBlock("crop_farmer", () -> new CropFarmer(MACHINE_PROPERTIES,
-                    true, true, false, true, false),
+    public static final RegistryObject<Block> CROP_FARMER = registerBlock("crop_farmer", () -> new CropFarmer(MACHINE_PROPERTIES),
             ModItems.GetBaseProperties());
 
-    public static final RegistryObject<Block> MOB_CLONER = registerBlock("mob_cloner", () -> new MobCloner(MACHINE_PROPERTIES,
-            false, true, false, false, false), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> MOB_CLONER = registerBlock("mob_cloner", () -> new MobCloner(MACHINE_PROPERTIES),
+            ModItems.GetBaseProperties());
 
-    public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractor(MACHINE_PROPERTIES,
-            false, true, false, false, true), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractor(MACHINE_PROPERTIES),
+            ModItems.GetBaseProperties());
 
-    public static final RegistryObject<Block> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncinerator(MACHINE_PROPERTIES,
-            false, true, false, false, false), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncinerator(MACHINE_PROPERTIES),
+            ModItems.GetBaseProperties());
 
-    public static final RegistryObject<Block> REDSTONE_TRANSMITTER = registerBlock("redstone_transmitter", () -> new RedstoneTransmitter(MACHINE_PROPERTIES,
-            false, true, true, false, true), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> REDSTONE_TRANSMITTER = registerBlock("redstone_transmitter", () -> new RedstoneTransmitter(MACHINE_PROPERTIES),
+            ModItems.GetBaseProperties());
 
-    public static final RegistryObject<Block> REDSTONE_RECEIVER = registerBlock("redstone_receiver", () -> new RedstoneReceiver(MACHINE_PROPERTIES,
-            false, false, false, false, true), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> REDSTONE_RECEIVER = registerBlock("redstone_receiver", () -> new RedstoneReceiver(MACHINE_PROPERTIES),
+            ModItems.GetBaseProperties());
 
-    public static final RegistryObject<Block> ITEM_MENDER = registerBlock("item_mender", () -> new ItemMender(MACHINE_PROPERTIES,
-            false, true, true, false, false), ModItems.GetBaseProperties());
+    public static final RegistryObject<Block> ITEM_MENDER = registerBlock("item_mender", () -> new ItemMender(MACHINE_PROPERTIES),
+            ModItems.GetBaseProperties());
 
     //public static final RegistryObject<Block> OVERLAY = registerBlock("overlay", () -> new Overlay(),
     //        ModItems.GetBaseProperties());
@@ -65,8 +64,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, false);
     public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, false);
 
-
-
+    public static final RegistryObject<Block> CREATIVE_ENERGY_GENERATOR = registerBlock("creative_energy_generator", () -> new CreativeEnergyGenerator(MACHINE_PROPERTIES), ModItems.GetBaseProperties());
 
 
 

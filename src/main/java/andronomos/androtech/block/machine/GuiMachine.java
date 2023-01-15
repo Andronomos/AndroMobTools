@@ -8,10 +8,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-public abstract class GuiMachine extends EntityMachine {
-	public GuiMachine(Properties properties, boolean useDefaultSideTexture, boolean useDefaultBottomTexture,
-					  boolean useDefaultTopTexture, boolean useDefaultFrontTexture, boolean hasMultipleStates) {
-		super(properties,useDefaultSideTexture, useDefaultBottomTexture, useDefaultTopTexture, useDefaultFrontTexture, hasMultipleStates);
+public abstract class GuiMachine extends Machine {
+	public GuiMachine(Properties properties) {
+		super(properties);
 	}
 
 	@Override

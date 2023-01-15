@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class MachineBlockEntity extends BlockEntity {
 	public final ItemStackHandler itemHandler = createInventoryItemHandler();
-	public final ModEnergyStorage energyHandler  = createEnergyHandler();
+	public final ModEnergyStorage energyHandler = createEnergyHandler();
 	public LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 	public LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 	public static int energyRequired = 32;
@@ -58,22 +58,40 @@ public abstract class MachineBlockEntity extends BlockEntity {
 	@Override
 	public void invalidateCaps() {
 		super.invalidateCaps();
-		lazyItemHandler.invalidate();
-		lazyEnergyHandler.invalidate();
+
+		if (itemHandler != null) {
+			lazyItemHandler.invalidate();
+		}
+
+		if (energyHandler != null) {
+			lazyEnergyHandler.invalidate();
+		}
 	}
 
 	@Override
 	protected void saveAdditional(CompoundTag tag) {
-		tag.put("Inventory", itemHandler.serializeNBT());
-		tag.putInt("Energy", energyHandler.getEnergyStored());
+		if (itemHandler != null) {
+			tag.put("Inventory", itemHandler.serializeNBT());
+		}
+
+		if (energyHandler != null) {
+			tag.putInt("Energy", energyHandler.getEnergyStored());
+		}
+
 		super.saveAdditional(tag);
 	}
 
 	@Override
 	public void load(CompoundTag tag) {
 		super.load(tag);
-		itemHandler.deserializeNBT(tag.getCompound("Inventory"));
-		energyHandler.setEnergy(tag.getInt("Energy"));
+
+		if (itemHandler != null) {
+			itemHandler.deserializeNBT(tag.getCompound("Inventory"));
+		}
+
+		if (energyHandler != null) {
+			energyHandler.setEnergy(tag.getInt("Energy"));
+		}
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.IDirectionalMachine;
 import andronomos.androtech.block.machine.Machine;
 import andronomos.androtech.block.pad.PadBlock;
 import andronomos.androtech.block.pad.PadEffectBlock;
@@ -51,6 +50,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //registerMultiState((Machine) ModBlocks.REDSTONE_TRANSMITTER.get());
         //registerMultiState((Machine) ModBlocks.REDSTONE_RECEIVER.get());
         //registerHologramBlockStateAndModel(ModBlocks.OVERLAY.get(), "overlay");
+        //registerSimpleStateAndModel(ModBlocks.CREATIVE_ENERGY_GENERATOR.get(), "creative_energy_generator");
     }
 
     private void registerHologramBlockStateAndModel(Block block, String name) {
@@ -70,10 +70,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void registerSingleState(Machine machine) {
         String blockName = ForgeRegistries.BLOCKS.getKey(machine).getPath();
-        String topTexture = String.format("block/%s_top", machine.useDefaultTopTexture ? "machine" : blockName);
-        String bottomTexture = String.format("block/%s_bottom", machine.useDefaultBottomTexture ? "machine" : blockName);
-        String sideTexture = String.format("block/%s_side", machine.useDefaultSideTexture ? "machine" : blockName);
-        String frontTexture = sideTexture;
+
+        String topTexture = String.format("block/%s", machine.textures.get("top"));
+        String bottomTexture = String.format("block/%s", machine.textures.get("bottom"));
+        String sideTexture = String.format("block/%s", machine.textures.get("side"));
+        String frontTexture = String.format("block/%s", machine.textures.get("front"));
 
         ModelFile model = models().cube(ForgeRegistries.BLOCKS.getKey(machine).getPath(),
                 modLoc(bottomTexture),
@@ -93,23 +94,41 @@ public class ModBlockStateProvider extends BlockStateProvider {
         getVariantBuilder(machine).forAllStates(state -> {
             boolean isPowered = state.getValue(BlockStateProperties.POWERED);
 
-            String topTexture = "block/machine_top";
-            String bottomTexture = "block/machine_bottom";
-
-            if(!machine.useDefaultTopTexture) {
-                topTexture = String.format("block/%s%s", machineName, isPowered ? "_on_top" : "_off_top");
-            }
-
-            if(!machine.useDefaultBottomTexture) {
-                topTexture = String.format("block/%s%s", machineName, isPowered ? "_on_bottom" : "_off_bottom");
-            }
-
-            ResourceLocation side = modLoc(String.format("block/%s_off_side", machineName));
-            ModelFile model = models().cube(machineName + "_off", modLoc(bottomTexture), modLoc(topTexture), side, side, side, side).texture("particle", side);
+            String topTexture = String.format("block/%s", machine.textures.get("top"));
+            String bottomTexture = String.format("block/%s", machine.textures.get("bottom"));
+            String sideTexture = String.format("block/%s", machine.textures.get("side"));
 
             if(isPowered) {
-                side = modLoc(String.format("block/%s_on_side", machineName));
-                model = models().cube(machineName + "_on", modLoc(bottomTexture), modLoc(topTexture), side, side, side, side).texture("particle", side);
+                if(machine.textures.containsKey("top_on")) {
+                    topTexture = String.format("block/%s", machine.textures.get("top_on"));
+                }
+
+                if(machine.textures.containsKey("bottom_on")) {
+                    bottomTexture = String.format("block/%s", machine.textures.get("bottom_on"));
+                }
+
+                if(machine.textures.containsKey("side_on")) {
+                    sideTexture = String.format("block/%s", machine.textures.get("side_on"));
+                }
+            } else {
+                if(machine.textures.containsKey("top_off")) {
+                    topTexture = String.format("block/%s", machine.textures.get("top_off"));
+                }
+
+                if(machine.textures.containsKey("bottom_off")) {
+                    bottomTexture = String.format("block/%s", machine.textures.get("bottom_off"));
+                }
+
+                if(machine.textures.containsKey("side_off")) {
+                    sideTexture = String.format("block/%s", machine.textures.get("side_off"));
+                }
+            }
+
+            ResourceLocation sideResource = modLoc(sideTexture);
+            ModelFile model = models().cube(machineName + "_off", modLoc(bottomTexture), modLoc(topTexture), sideResource, sideResource, sideResource, sideResource).texture("particle", sideResource);
+
+            if(isPowered) {
+                model = models().cube(machineName + "_on", modLoc(bottomTexture), modLoc(topTexture), sideResource, sideResource, sideResource, sideResource).texture("particle", sideResource);
             }
 
             return ConfiguredModel.builder()
@@ -121,45 +140,45 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void registerDirectionalState(Machine machine) {
-        String blockName = ForgeRegistries.BLOCKS.getKey(machine).getPath();
-        String topTexture = String.format("block/%s_top", machine.useDefaultTopTexture ? "machine" : blockName);
-        String bottomTexture = String.format("block/%s_bottom", machine.useDefaultBottomTexture ? "machine" : blockName);
-        String sideTexture = String.format("block/%s_side", machine.useDefaultSideTexture ? "machine" : blockName);
-        String frontTexture = String.format("block/%s_front", machine.useDefaultFrontTexture ? "machine" : blockName);
-
-        ModelFile model = models().cube(ForgeRegistries.BLOCKS.getKey(machine).getPath(),
-                modLoc(bottomTexture),
-                modLoc(topTexture),
-                modLoc(frontTexture),
-                modLoc(sideTexture),
-                modLoc(sideTexture),
-                modLoc(sideTexture)).texture("particle", sideTexture);
-
-        getVariantBuilder(machine).forAllStatesExcept(state -> {
-            Direction direction = state.getValue(IDirectionalMachine.FACING);
-
-            int yRot = 0;
-
-            switch (direction) {
-                case EAST:
-                    yRot = 90;
-                    break;
-                case WEST:
-                    yRot = 270;
-                    break;
-                case SOUTH:
-                    yRot = 180;
-                    break;
-            }
-
-            return ConfiguredModel.builder()
-                    .modelFile(model)
-                    .rotationY(yRot)
-                    .build();
-        });
-
-
-        itemModels().withExistingParent(blockName, modLoc("block/" + blockName));
+        //String blockName = ForgeRegistries.BLOCKS.getKey(machine).getPath();
+        //String topTexture = String.format("block/%s_top", machine.useDefaultTopTexture ? "machine" : blockName);
+        //String bottomTexture = String.format("block/%s_bottom", machine.useDefaultBottomTexture ? "machine" : blockName);
+        //String sideTexture = String.format("block/%s_side", machine.useDefaultSideTexture ? "machine" : blockName);
+        //String frontTexture = String.format("block/%s_front", machine.useDefaultFrontTexture ? "machine" : blockName);
+        //
+        //ModelFile model = models().cube(ForgeRegistries.BLOCKS.getKey(machine).getPath(),
+        //        modLoc(bottomTexture),
+        //        modLoc(topTexture),
+        //        modLoc(frontTexture),
+        //        modLoc(sideTexture),
+        //        modLoc(sideTexture),
+        //        modLoc(sideTexture)).texture("particle", sideTexture);
+        //
+        //getVariantBuilder(machine).forAllStatesExcept(state -> {
+        //    Direction direction = state.getValue(IDirectionalMachine.FACING);
+        //
+        //    int yRot = 0;
+        //
+        //    switch (direction) {
+        //        case EAST:
+        //            yRot = 90;
+        //            break;
+        //        case WEST:
+        //            yRot = 270;
+        //            break;
+        //        case SOUTH:
+        //            yRot = 180;
+        //            break;
+        //    }
+        //
+        //    return ConfiguredModel.builder()
+        //            .modelFile(model)
+        //            .rotationY(yRot)
+        //            .build();
+        //});
+        //
+        //
+        //itemModels().withExistingParent(blockName, modLoc("block/" + blockName));
     }
 
     private void registerPadStateAndModel(Block block, String top, boolean isDirectional) {

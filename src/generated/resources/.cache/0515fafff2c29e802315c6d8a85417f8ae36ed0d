@@ -1,4 +1,5 @@
-// 1.19.2	2023-01-11T19:56:54.2257434	androtech_lootTables
+// 1.19.2	2023-01-14T19:12:40.8218563	androtech_lootTables
+d7371c0c5caf32b526efa8aa569a3bd00223dba7 data/androtech/loot_tables/blocks/creative_energy_generator.json
 538e4662826bfa3a7a0ed175382211a755916719 data/androtech/loot_tables/blocks/crop_farmer.json
 85226eb3a965ceb33dfc791319b937e5bda42552 data/androtech/loot_tables/blocks/item_attractor.json
 f4d3ad3b64d4bed141a59de2b0b1192606d2fadd data/androtech/loot_tables/blocks/item_incinerator.json

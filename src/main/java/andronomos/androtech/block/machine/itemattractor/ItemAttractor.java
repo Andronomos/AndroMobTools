@@ -1,13 +1,14 @@
 package andronomos.androtech.block.machine.itemattractor;
 
 import andronomos.androtech.block.machine.GuiMachine;
-import andronomos.androtech.block.IPoweredMachine;
+import andronomos.androtech.block.IPoweredBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -17,13 +18,19 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class ItemAttractor extends GuiMachine implements IPoweredMachine {
+public class ItemAttractor extends GuiMachine implements IPoweredBlock, EntityBlock {
 	public static final String DISPLAY_NAME = "screen.androtech.item_attractor";
 	public static final String TOOLTIP = "block.androtech.item_attractor.tooltip";
 
-	public ItemAttractor(Properties properties, boolean useDefaultSideTexture, boolean useDefaultBottomTexture, boolean useDefaultTopTexture, boolean useDefaultFrontTexture, boolean hasMultipleStates) {
-		super(properties, useDefaultSideTexture, useDefaultBottomTexture, useDefaultTopTexture, useDefaultFrontTexture, hasMultipleStates);
+	public ItemAttractor(Properties properties) {
+		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
+		this.hasMultipleStates = true;
+		setTexture("top_off", "item_attractor_off_top");
+		setTexture("side_off", "item_attractor_off_side");
+		setTexture("top_on", "item_attractor_on_top");
+		setTexture("side_on", "item_attractor_on_side");
+		setTexture("bottom_on", "item_attractor_on_bottom");
 	}
 
 	@Override

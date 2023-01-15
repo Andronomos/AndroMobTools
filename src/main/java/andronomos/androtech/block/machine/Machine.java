@@ -1,33 +1,14 @@
 package andronomos.androtech.block.machine;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
+import andronomos.androtech.block.ATBlock;
 
-import java.util.List;
-
-public abstract class Machine extends Block {
-	public boolean useDefaultTopTexture;
-	public boolean useDefaultBottomTexture;
-	public boolean useDefaultSideTexture;
-	public boolean useDefaultFrontTexture;
-	public boolean hasMultipleStates;
-
-	public Machine(Properties properties, boolean useDefaultSideTexture, boolean useDefaultBottomTexture,
-				   boolean useDefaultTopTexture, boolean useDefaultFrontTexture, boolean hasMultipleStates) {
+public abstract class Machine extends ATBlock {
+	public Machine(Properties properties) {
 		super(properties);
-		this.useDefaultSideTexture = useDefaultSideTexture;
-		this.useDefaultBottomTexture = useDefaultBottomTexture;
-		this.useDefaultTopTexture = useDefaultTopTexture;
-		this.useDefaultFrontTexture = useDefaultFrontTexture;
-		this.hasMultipleStates = hasMultipleStates;
-	}
 
-	@Override
-	public void appendHoverText(ItemStack stack, BlockGetter worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-		tooltip.add(Component.translatable(getDescriptionId() + ".tooltip").withStyle(ChatFormatting.GRAY));
+		setTexture("top", "machine_top");
+		setTexture("bottom", "machine_bottom");
+		setTexture("side", "machine_side");
+		setTexture("front", "machine_side");
 	}
 }

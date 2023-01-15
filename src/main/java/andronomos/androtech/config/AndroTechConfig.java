@@ -36,6 +36,9 @@ public class AndroTechConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> MOB_CLONER_ENERGY_CAPACITY;
 	public static ForgeConfigSpec.ConfigValue<Integer> MOB_CLONER_ENERGY_TRANSFER_RATE;
 
+	public static ForgeConfigSpec.ConfigValue<Integer> CREATIVE_ENERGY_GENERATOR_ENERGY_CAPACITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> CREATIVE_ENERGY_GENERATOR_ENERGY_TRANSFER_RATE;
+
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
 		setupConfig(configBuilder);
@@ -84,6 +87,11 @@ public class AndroTechConfig {
 		builder.push("Mob Cloner");
 		MOB_CLONER_ENERGY_CAPACITY = builder.comment("Max energy capacity").define("energy_capacity", 60000);
 		MOB_CLONER_ENERGY_TRANSFER_RATE = builder.comment("Max energy transfer per tick").define("energy_transfer_rate", 256);
+		builder.pop();
+
+		builder.push("Creative Energy Generator");
+		CREATIVE_ENERGY_GENERATOR_ENERGY_CAPACITY = builder.comment("Max energy capacity").define("energy_capacity", 999999999);
+		CREATIVE_ENERGY_GENERATOR_ENERGY_TRANSFER_RATE = builder.comment("Max energy transfer per tick").define("energy_transfer_rate", 1000000);
 		builder.pop();
 	}
 

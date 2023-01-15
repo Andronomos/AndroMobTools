@@ -12,8 +12,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 public class ItemAttractorMenu extends MachineMenu {
-	public ItemAttractorBlockEntity blockEntity;
-
 	public ItemAttractorMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
 		this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()));
 	}

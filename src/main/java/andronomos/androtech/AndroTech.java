@@ -1,5 +1,7 @@
 package andronomos.androtech;
 
+import andronomos.androtech.block.machine.creativeenergygenerator.CreativeEnergyGeneratorMenu;
+import andronomos.androtech.block.machine.creativeenergygenerator.CreativeEnergyGeneratorScreen;
 import andronomos.androtech.block.machine.itemmender.ItemMenderScreen;
 import andronomos.androtech.block.machine.cropfarmer.CropFarmerScreen;
 import andronomos.androtech.block.machine.mobcloner.MobClonerScreen;
@@ -62,6 +64,7 @@ public class AndroTech {
 			MenuScreens.register(ModMenuTypes.REDSTONE_TRANSMITTER.get(), RedstoneTransmitterScreen::new);
 			MenuScreens.register(ModMenuTypes.MOB_KILLING_PAD.get(), MobKillingPadScreen::new);
 			MenuScreens.register(ModMenuTypes.ITEM_MENDER.get(), ItemMenderScreen::new);
+			MenuScreens.register(ModMenuTypes.CREATIVE_ENERGY_GENERATOR.get(), CreativeEnergyGeneratorScreen::new);
 
 			ModPropertyOverrides.register();
 		});

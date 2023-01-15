@@ -65,7 +65,7 @@ public class RedstoneTransmitterBlockEntity extends MachineBlockEntity implement
     }
 
     @Override
-    public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
+    public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MachineBlockEntity blockEntity) {
         for(int slotIndex = 0; slotIndex < itemHandler.getSlots(); slotIndex++) {
             ItemStack receiverCard = itemHandler.getStackInSlot(slotIndex);
             if(receiverCard.isEmpty()) continue;

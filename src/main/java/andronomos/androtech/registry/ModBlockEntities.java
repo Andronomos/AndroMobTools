@@ -1,5 +1,7 @@
 package andronomos.androtech.registry;
 
+import andronomos.androtech.block.machine.creativeenergygenerator.CreativeEnergyGenerator;
+import andronomos.androtech.block.machine.creativeenergygenerator.CreativeEnergyGeneratorBlockEntity;
 import andronomos.androtech.block.machine.itemmender.ItemMenderBlockEntity;
 import andronomos.androtech.block.machine.cropfarmer.CropFarmerBlockEntity;
 import andronomos.androtech.block.machine.mobcloner.MobClonerBlockEntity;
@@ -40,5 +42,9 @@ public class ModBlockEntities {
 
 	public static final RegistryObject<BlockEntityType<ItemMenderBlockEntity>> ITEM_MENDER = BLOCK_ENTITIES.register("item_mender", () -> BlockEntityType.Builder
 			.of(ItemMenderBlockEntity::new, ModBlocks.ITEM_MENDER.get())
+			.build(null));
+
+	public static final RegistryObject<BlockEntityType<CreativeEnergyGeneratorBlockEntity>> CREATIVE_ENERGY_GENERATOR = BLOCK_ENTITIES.register("creative_energy_generator", () -> BlockEntityType.Builder
+			.of(CreativeEnergyGeneratorBlockEntity::new, ModBlocks.CREATIVE_ENERGY_GENERATOR.get())
 			.build(null));
 }

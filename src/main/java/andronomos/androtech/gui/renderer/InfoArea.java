@@ -1,4 +1,4 @@
-package andronomos.androtech.block.machine.cropfarmer.renderer;
+package andronomos.androtech.gui.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.GuiComponent;

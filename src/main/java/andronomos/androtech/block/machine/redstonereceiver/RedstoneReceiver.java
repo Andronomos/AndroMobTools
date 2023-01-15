@@ -1,6 +1,6 @@
 package andronomos.androtech.block.machine.redstonereceiver;
 
-import andronomos.androtech.block.IPoweredMachine;
+import andronomos.androtech.block.IPoweredBlock;
 import andronomos.androtech.block.machine.Machine;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -10,13 +10,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-public class RedstoneReceiver extends Machine implements IPoweredMachine {
+public class RedstoneReceiver extends Machine implements IPoweredBlock {
     public static final String DISPLAY_NAME = "screen.androtech.redstone_receiver";
     public static final String TOOLTIP = "block.androtech.redstone_receiver.tooltip";
 
-    public RedstoneReceiver(Properties properties, boolean useDefaultSideTexture, boolean useDefaultBottomTexture, boolean useDefaultTopTexture, boolean useDefaultFrontTexture, boolean hasMultipleStates) {
-        super(properties, useDefaultSideTexture, useDefaultBottomTexture, useDefaultTopTexture, useDefaultFrontTexture, hasMultipleStates);
+    public RedstoneReceiver(Properties properties) {
+        super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
+        this.hasMultipleStates = true;
+        setTexture("top_off", "redstone_receiver_off_top");
+        setTexture("side_off", "redstone_receiver_off_side");
+        setTexture("bottom_off", "redstone_receiver_off_bottom");
+        setTexture("top_on", "redstone_receiver_on_top");
+        setTexture("side_on", "redstone_receiver_on_side");
+        setTexture("bottom_on", "redstone_receiver_on_bottom");
     }
 
     @Override

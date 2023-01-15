@@ -13,8 +13,6 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class MobClonerMenu extends MachineMenu {
-	public MobClonerBlockEntity blockEntity;
-
 	public MobClonerMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
 		this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()));
 	}
@@ -25,7 +23,7 @@ public class MobClonerMenu extends MachineMenu {
 		if (entity != null && entity instanceof MobClonerBlockEntity mobClonerBE) {
 			blockEntity = mobClonerBE;
 			blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(h -> {
-				addSlot(new SlotItemHandler(h, 0, Const.MENU_SLOT_X_CENTER, 33));
+				addSlot(new SlotItemHandler(h, 0, Const.MENU_SLOT_X_CENTER, 34));
 			});
 		}
 

@@ -9,6 +9,7 @@
     "androtech:item_mender",
     "androtech:mob_killing_pad",
     "androtech:weak_acceleration_pad",
-    "androtech:strong_acceleration_pad"
+    "androtech:strong_acceleration_pad",
+    "androtech:creative_energy_generator"
   ]
 }

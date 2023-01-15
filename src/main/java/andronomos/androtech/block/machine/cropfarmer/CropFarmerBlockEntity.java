@@ -1,5 +1,6 @@
 package andronomos.androtech.block.machine.cropfarmer;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Const;
 import andronomos.androtech.ModEnergyStorage;
 import andronomos.androtech.block.machine.MachineBlockEntity;
@@ -23,7 +24,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StemGrownBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.IPlantable;
@@ -89,7 +89,8 @@ public class CropFarmerBlockEntity extends MachineBlockEntity implements MenuPro
 		return RadiusUtils.nineByOneByNineCubeFromTop(getBlockPos());
 	}
 
-	public void clientTick(Level level, BlockPos pos, BlockState state, BlockEntity blockEntity) {
+	@Override
+	public void clientTick(Level level, BlockPos pos, BlockState state, MachineBlockEntity blockEntity) {
 		if(!state.getValue(CropFarmer.POWERED)) return;
 
 		double d0 = (double)pos.getX() + level.random.nextDouble();
@@ -98,29 +99,32 @@ public class CropFarmerBlockEntity extends MachineBlockEntity implements MenuPro
 		level.addParticle(ParticleTypes.HAPPY_VILLAGER, d0, d1, d2, 0.0D, 0.0D, 0.0D);
 	}
 
-	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, CropFarmerBlockEntity blockEntity) {
-		if(state.getValue(CropFarmer.POWERED)) {
-			if(!shouldTick()) return;
+	@Override
+	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, MachineBlockEntity blockEntity) {
+		if (!state.getValue(CropFarmer.POWERED)) return;
+		if (!shouldTick()) return;
 
-			//demo
-			//blockEntity.energyHandler.receiveEnergy(64, false);
-			
-			if(!hasEnoughEnergy(blockEntity)) return;
-			extractEnergy(blockEntity);
-			setChanged(level, pos, state);
+		AndroTech.LOGGER.info("CropFarmerBlockEntity#serverTick | energyHandler.getEnergyStored >> {}", energyHandler.getEnergyStored());
 
-			List<BlockPos> nearbyCrops = getCrops(getWorkArea(), level);
+		//demo
+		//blockEntity.energyHandler.receiveEnergy(AndroTechConfig.CROP_FARMER_ENERGY_TRANSFER_RATE.get(), false);
+		blockEntity.energyHandler.receiveEnergy(5000, false);
 
-			for (BlockPos nearbyCropPos : nearbyCrops) {
-				BlockState cropState = level.getBlockState(nearbyCropPos);
-				Block block = cropState.getBlock();
+		if(!hasEnoughEnergy(blockEntity)) return;
+		extractEnergy(blockEntity);
+		setChanged(level, pos, state);
 
-				for (IHarvester harvester : harvesters) {
-					boolean harvestSuccessful = harvester.tryHarvest(block, cropState, level, nearbyCropPos, itemHandler);
+		List<BlockPos> nearbyCrops = getCrops(getWorkArea(), level);
 
-					if(harvestSuccessful) {
-						break;
-					}
+		for (BlockPos nearbyCropPos : nearbyCrops) {
+			BlockState cropState = level.getBlockState(nearbyCropPos);
+			Block block = cropState.getBlock();
+
+			for (IHarvester harvester : harvesters) {
+				boolean harvestSuccessful = harvester.tryHarvest(block, cropState, level, nearbyCropPos, itemHandler);
+
+				if(harvestSuccessful) {
+					break;
 				}
 			}
 		}

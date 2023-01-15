@@ -1,4 +1,6 @@
 {
+  "block.androtech.creative_energy_generator": "Creative Energy Generator",
+  "block.androtech.creative_energy_generator.tooltip": "Infinite energy source",
   "block.androtech.crop_farmer": "Crop Farmer",
   "block.androtech.crop_farmer.tooltip": "Automatically harvests most crops and fertilizes soil",
   "block.androtech.item_attractor": "Item Attractor",
@@ -31,6 +33,7 @@
   "item.androtech.nanite_enhanced_shovel": "Nanite Enhanced Shovel",
   "item.androtech.nanite_enhanced_sword": "Nanite Enhanced Sword",
   "itemGroup.androtech_group": "AndroTech",
+  "screen.androtech.creative_energy_generator": "Creative Energy Generator",
   "screen.androtech.crop_farmer": "Crop Farmer",
   "screen.androtech.item_attractor": "Item Attractor",
   "screen.androtech.item_incinerator": "Item Attractor",

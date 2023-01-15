@@ -26,8 +26,7 @@ public class SyncRedstoneTransmitterState {
 	}
 
 	public static SyncRedstoneTransmitterState decode(FriendlyByteBuf buf) {
-		BlockPos pos = new BlockPos(buf.readBlockPos());
-		return new SyncRedstoneTransmitterState(pos);
+		return new SyncRedstoneTransmitterState(buf.readBlockPos());
 	}
 
 	public static void handle(SyncRedstoneTransmitterState msg, Supplier<NetworkEvent.Context> ctx) {
