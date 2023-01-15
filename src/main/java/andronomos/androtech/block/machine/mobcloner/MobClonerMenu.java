@@ -25,18 +25,13 @@ public class MobClonerMenu extends MachineMenu {
 		if (entity != null && entity instanceof MobClonerBlockEntity mobClonerBE) {
 			blockEntity = mobClonerBE;
 			blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(h -> {
-				addSlot(new SlotItemHandler(h, 0, Const.MENU_SLOT_X_CENTER, 30));
+				addSlot(new SlotItemHandler(h, 0, Const.MENU_SLOT_X_CENTER, 33));
 			});
 		}
 
 		setupSlotIndexs(MobClonerBlockEntity.SLOTS);
 		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, Const.VANILLA_INVENTORY_Y);
 	}
-
-	//@Override
-	//public ItemStack quickMoveStack(Player player, int slotId) {
-	//
-	//}
 
 	@Override
 	public boolean stillValid(Player player) {

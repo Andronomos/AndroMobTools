@@ -24,12 +24,16 @@ public class ItemMenderMenu extends MachineMenu {
 		if(entity != null && entity instanceof ItemMenderBlockEntity itemMenderBlockEntity) {
 			this.blockEntity = itemMenderBlockEntity;
 			blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(h -> {
-				addLargeInventory(h);
+				//addLargeInventory(h);
+				addMachineInventory(h);
 			});
 		}
 
-		setupSlotIndexs(Const.INVENTORY_VANILLA_LARGE_SIZE);
-		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, 140);
+		//setupSlotIndexs(Const.INVENTORY_VANILLA_LARGE_SIZE);
+		//layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, 140);
+
+		setupSlotIndexs(Const.INVENTORY_MACHINE_SIZE);
+		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, Const.VANILLA_INVENTORY_Y);
 	}
 
 	@Override

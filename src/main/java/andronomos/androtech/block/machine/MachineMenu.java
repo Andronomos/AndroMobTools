@@ -80,8 +80,6 @@ public abstract class MachineMenu extends AbstractContainerMenu {
 	public void addMachineInventory(IItemHandler handler) {
 		for(int y = 0; y < 3; y++) {
 			for (int x = 0; x < 7; x++) {
-				AndroTech.LOGGER.info("MachineMenu#addMachineInventory | x pos >> {}", Const.MENU_SLOT_MACHINE_X_OFFSET + x * Const.SCREEN_SLOT_SIZE);
-
 				addSlot(new SlotItemHandler(handler, x + y * 7,
 						Const.MENU_SLOT_X_OFFSET + x * Const.SCREEN_SLOT_SIZE,
 						Const.MENU_SLOT_SIZE + y * Const.SCREEN_SLOT_SIZE));

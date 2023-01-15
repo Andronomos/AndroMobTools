@@ -36,7 +36,6 @@ public class CropFarmerMenu extends MachineMenu {
 		}
 
 		setupSlotIndexs(Const.INVENTORY_MACHINE_SIZE);
-
 		layoutPlayerInventorySlots(Const.VANILLA_INVENTORY_X, Const.VANILLA_INVENTORY_Y);
 	}
 
