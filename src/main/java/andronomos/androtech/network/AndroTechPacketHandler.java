@@ -1,11 +1,13 @@
 package andronomos.androtech.network;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.network.packet.SyncMachineEnergy;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
 //import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
 import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -13,33 +15,67 @@ import net.minecraftforge.network.simple.SimpleChannel;
 public class AndroTechPacketHandler {
 	private static final String PROTOCOL_VERSION = "1";
 
-	public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
-			new ResourceLocation(andronomos.androtech.AndroTech.MOD_ID, "main"),
-			() -> PROTOCOL_VERSION,
-			PROTOCOL_VERSION::equals,
-			PROTOCOL_VERSION::equals
-	);
+	private static SimpleChannel INSTANCE;
+
+	//public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
+	//		new ResourceLocation(AndroTech.MOD_ID, "main"),
+	//		() -> PROTOCOL_VERSION,
+	//		PROTOCOL_VERSION::equals,
+	//		PROTOCOL_VERSION::equals
+	//);
+
+	private static int packetId = 0;
+	private static int id() {
+		return packetId++;
+	}
 
 	public static void register() {
-		int messageId = 0;
+		SimpleChannel net = NetworkRegistry.ChannelBuilder
+				.named(new ResourceLocation(AndroTech.MOD_ID, "messages"))
+				.networkProtocolVersion(() -> "1.0")
+				.clientAcceptedVersions(s -> true)
+				.serverAcceptedVersions(s -> true)
+				.simpleChannel();
 
-		INSTANCE.registerMessage(messageId++,
-				SyncMachinePoweredState.class,
-				SyncMachinePoweredState::encode,
-				SyncMachinePoweredState::decode,
-				SyncMachinePoweredState::handle);
+		INSTANCE = net;
 
-		INSTANCE.registerMessage(messageId++,
-				SyncRedstoneTransmitterState.class,
-				SyncRedstoneTransmitterState::encode,
-				SyncRedstoneTransmitterState::decode,
-				SyncRedstoneTransmitterState::handle);
+		net.messageBuilder(SyncMachinePoweredState.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(SyncMachinePoweredState::decode)
+				.encoder(SyncMachinePoweredState::encode)
+				.consumerMainThread(SyncMachinePoweredState::handle)
+				.add();
 
-		INSTANCE.registerMessage(messageId++,
-				SyncMachineEnergy.class,
-				SyncMachineEnergy::encode,
-				SyncMachineEnergy::decode,
-				SyncMachineEnergy::handle);
+		net.messageBuilder(SyncRedstoneTransmitterState.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(SyncRedstoneTransmitterState::decode)
+				.encoder(SyncRedstoneTransmitterState::encode)
+				.consumerMainThread(SyncRedstoneTransmitterState::handle)
+				.add();
+
+		net.messageBuilder(SyncMachineEnergy.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+				.decoder(SyncMachineEnergy::decode)
+				.encoder(SyncMachineEnergy::encode)
+				.consumerMainThread(SyncMachineEnergy::handle)
+				.add();
+
+		//int messageId = 0;
+		//
+		//INSTANCE.registerMessage(messageId++,
+		//		SyncMachinePoweredState.class,
+		//		SyncMachinePoweredState::encode,
+		//		SyncMachinePoweredState::decode,
+		//		SyncMachinePoweredState::handle);
+		//
+		//INSTANCE.registerMessage(messageId++,
+		//		SyncRedstoneTransmitterState.class,
+		//		SyncRedstoneTransmitterState::encode,
+		//		SyncRedstoneTransmitterState::decode,
+		//		SyncRedstoneTransmitterState::handle);
+		//
+		//INSTANCE.registerMessage(messageId++,
+		//		SyncMachineEnergy.class,
+		//		SyncMachineEnergy::encode,
+		//		SyncMachineEnergy::decode,
+		//		SyncMachineEnergy::handle);
 	}
 
 	public static <MSG> void sendToServer(MSG message) {
