@@ -20,7 +20,6 @@ public class AndroTech {
 		ModBlocks.BLOCKS.register(modEventBus);
 		ModItems.ITEMS.register(modEventBus);
 		MinecraftForge.EVENT_BUS.register(this);
-		//test2
 		modEventBus.addListener(this::clientSetup);
 	}
 
