@@ -27,13 +27,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
 			String textureFolder = blockName;
 
 			switch (blockType) {
-				case "PadBlock" -> registerPadStateAndModel(b, blockName + "_top", b instanceof RotatablePadBlock);
+				case "PadBlock", "PadEffectBlock" -> registerPadStateAndModel(b, blockName + "_top");
 				default -> registerBlockStateAndModel(b, blockName, textureFolder);
 			}
 		});
 	}
 
-	private void registerPadStateAndModel(Block block, String top, boolean isDirectional) {
+	private void registerPadStateAndModel(Block block, String top) {
 		String blockName = ForgeRegistries.BLOCKS.getKey(block).getPath();
 
 		ModelFile model = models().withExistingParent(blockName, modLoc("pad_base"))
@@ -41,7 +41,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 				.texture("design", modLoc("block/" + top))
 				.texture("pad", modLoc("block/machine_bottom"));
 
-		if(isDirectional) {
+		if(block instanceof RotatablePadBlock) {
 			getVariantBuilder(block).forAllStatesExcept(state -> {
 				Direction direction = state.getValue(PadEffectBlock.FACING);
 
