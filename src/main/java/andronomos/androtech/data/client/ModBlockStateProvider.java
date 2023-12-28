@@ -1,7 +1,6 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.pad.PadEffectBlock;
 import andronomos.androtech.block.pad.RotatablePadBlock;
 import andronomos.androtech.registry.ModBlocks;
