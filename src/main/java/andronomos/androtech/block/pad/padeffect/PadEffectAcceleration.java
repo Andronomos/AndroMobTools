@@ -23,8 +23,7 @@ public class PadEffectAcceleration implements PadEffect {
         if(moveUp) {
             direction = Direction.UP;
             entity.setDeltaMovement(0, this.velocity, 0);
-        }
-        else {
+        } else {
             direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
             entity.setDeltaMovement(entity.getDeltaMovement().add(this.velocity * (direction.getStepX()), 0, this.velocity * (direction.getStepZ())));
         }

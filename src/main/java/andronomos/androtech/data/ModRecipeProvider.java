@@ -22,8 +22,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 	}
 
-	private void generateSingleItemShapelessRecipe(Block output, Block sourceBlock, Consumer<FinishedRecipe> consumer)
-	{
+	private void generateSingleItemShapelessRecipe(Block output, Block sourceBlock, Consumer<FinishedRecipe> consumer) {
 		ShapelessRecipeBuilder shapeless = ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,
 				output, 1);
 		shapeless.requires(sourceBlock.asItem());
