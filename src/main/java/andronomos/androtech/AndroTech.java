@@ -1,8 +1,9 @@
 package andronomos.androtech;
 
-import andronomos.androtech.registry.ModBlocks;
-import andronomos.androtech.registry.ModCreativeTabs;
-import andronomos.androtech.registry.ModItems;
+import andronomos.androtech.registry.BlockEntityRegistry;
+import andronomos.androtech.registry.BlockRegistry;
+import andronomos.androtech.registry.CreativeTabRegistry;
+import andronomos.androtech.registry.ItemRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -18,9 +19,10 @@ public class AndroTech {
 
 	public AndroTech() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		ModBlocks.BLOCKS.register(modEventBus);
-		ModItems.ITEMS.register(modEventBus);
-		ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+		BlockRegistry.BLOCKS.register(modEventBus);
+		ItemRegistry.ITEMS.register(modEventBus);
+		CreativeTabRegistry.CREATIVE_MODE_TABS.register(modEventBus);
+		BlockEntityRegistry.BLOCK_ENTITIES.register(modEventBus);
 		MinecraftForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::clientSetup);
 	}
