@@ -2,6 +2,7 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.pad.PadEffectBlock;
+import andronomos.androtech.block.pad.damagepad.DamagePadBlock;
 import andronomos.androtech.block.pad.padeffect.PadEffect;
 import andronomos.androtech.block.pad.padeffect.PadEffects;
 import net.minecraft.world.item.BlockItem;
@@ -15,7 +16,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
-public class ModBlocks {
+public class BlockRegistry {
 	private static Block.Properties PAD_PROPERTIES = Block.Properties.copy(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE)
 			.strength(5.0F)
 			.sound(SoundType.METAL)
@@ -26,6 +27,7 @@ public class ModBlocks {
 
 	public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, true);
 	public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, true);
+	public static final RegistryObject<Block> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
 
 
 
@@ -39,7 +41,7 @@ public class ModBlocks {
 
 	private static <BLOCK extends Block> RegistryObject<BLOCK> registerBlock(final String name, final Supplier<BLOCK> blockFactory) {
 		final RegistryObject<BLOCK> block = BLOCKS.register(name, blockFactory);
-		andronomos.androtech.registry.ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+		ItemRegistry.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
 		return block;
 	}
 }
