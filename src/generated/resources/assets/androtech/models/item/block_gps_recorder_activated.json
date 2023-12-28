@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "androtech:item/block_gps_recorder_activated"
-  }
-}

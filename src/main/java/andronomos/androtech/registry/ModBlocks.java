@@ -28,8 +28,8 @@ public class ModBlocks {
 
 
 
-	private static <T extends Block> RegistryObject<Block> registerPad(String name, PadEffect effect, boolean shouledAffectPlayer) {
-		return registerBlock(name, () -> new PadEffectBlock(PAD_PROPERTIES.noOcclusion(), effect, shouledAffectPlayer));
+	private static <T extends Block> RegistryObject<Block> registerPad(String name, PadEffect effect, boolean shouldAffectPlayer) {
+		return registerBlock(name, () -> new PadEffectBlock(PAD_PROPERTIES.noOcclusion(), effect, shouldAffectPlayer));
 	}
 
 	public static RegistryObject<Block> registerBlock(final String name, Block.Properties properties) {
