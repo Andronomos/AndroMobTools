@@ -1,5 +1,6 @@
 {
   "values": [
-    "androtech:weak_acceleration_pad"
+    "androtech:weak_acceleration_pad",
+    "androtech:strong_acceleration_pad"
   ]
 }

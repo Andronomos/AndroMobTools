@@ -1,4 +1,7 @@
-// 1.20.1	2023-12-27T17:06:13.3170785	Block States: androtech
+// 1.20.1	2023-12-27T17:12:50.3579142	Block States: androtech
+835099cbb37a7ca58ab251914d62b5a14472d0b9 assets/androtech/blockstates/strong_acceleration_pad.json
 4d05ebf1e7a7fc48ad9221a397a9cfee4fa5a69a assets/androtech/blockstates/weak_acceleration_pad.json
+be6076ef085b9e0db0924286320675acca917419 assets/androtech/models/block/strong_acceleration_pad.json
 40e10ce83222eadd6aa31a99abfbe2b8feaee531 assets/androtech/models/block/weak_acceleration_pad.json
+d73a5c77f3e22205f857bc05b44f81074848c93f assets/androtech/models/item/strong_acceleration_pad.json
 a9eb1cb331367f760bef6f6d44a26afe6e2d0c33 assets/androtech/models/item/weak_acceleration_pad.json
