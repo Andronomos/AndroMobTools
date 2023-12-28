@@ -1,7 +1,7 @@
 package andronomos.androtech.data;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.registry.ModBlocks;
+import andronomos.androtech.registry.BlockRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -24,7 +24,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
 	@Override
 	protected void addTags(HolderLookup.Provider provider) {
-		ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
+		BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
 			String blockType = b.getClass().getSimpleName();
 			tag(BlockTags.MINEABLE_WITH_PICKAXE).add(b);
 		});
