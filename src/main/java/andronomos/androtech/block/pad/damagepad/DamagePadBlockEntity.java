@@ -14,6 +14,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -27,7 +28,7 @@ import java.util.List;
 
 public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvider {
 	public DamagePadBlockEntity(BlockPos pos, BlockState state) {
-		super(BlockEntityRegistry.DAMAGE_PAD_BE.get(), pos, state);
+		super(BlockEntityRegistry.DAMAGE_PAD_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.PAD_SLOTS));
 	}
 
 	@Override
@@ -60,7 +61,7 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 	@Nullable
 	@Override
 	public AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
-		return new DamagePadMenu(containerId, inventory, this);
+		return new DamagePadMenu(containerId, inventory, this, this.data);
 	}
 
 	public void serverTick() {

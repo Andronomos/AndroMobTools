@@ -44,7 +44,6 @@ public class DamagePadBlock extends PadBlock implements EntityBlock {
 				throw new IllegalStateException("Missing container provider");
 			}
 		}
-
 		return InteractionResult.sidedSuccess(level.isClientSide);
 	}
 

@@ -3,6 +3,8 @@ package andronomos.androtech.block.base;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,11 +17,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class BaseBlockEntity extends BlockEntity {
-	public final ItemStackHandler itemHandler = createInventoryItemHandler();
-	public LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+	protected final ItemStackHandler itemHandler = createInventoryItemHandler();
+	protected LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+	protected final ContainerData data;
 
-	public BaseBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+	public BaseBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, ContainerData data) {
 		super(type, pos, state);
+		this.data = data;
 	}
 
 	@Override
