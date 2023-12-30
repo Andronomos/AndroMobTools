@@ -115,19 +115,19 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 	}
 
 	private boolean hasSharpnessUpgrade() {
-		return itemHandler.getStackInSlot(0).getItem() != ItemRegistry.DAMAGE_PAD_UPGRADE_SHARPNESS.get();
+		return itemHandler.getStackInSlot(0).getItem() == ItemRegistry.DAMAGE_PAD_UPGRADE_SHARPNESS.get();
 	}
 
 	private boolean hasLootingUpgrade() {
-		return itemHandler.getStackInSlot(1).getItem() != ItemRegistry.DAMAGE_PAD_UPGRADE_LOOTING.get();
+		return itemHandler.getStackInSlot(1).getItem() == ItemRegistry.DAMAGE_PAD_UPGRADE_LOOTING.get();
 	}
 
 	private boolean hasFlameUpgrade() {
-		return itemHandler.getStackInSlot(2).getItem() != ItemRegistry.DAMAGE_PAD_UPGRADE_FIRE.get();
+		return itemHandler.getStackInSlot(2).getItem() == ItemRegistry.DAMAGE_PAD_UPGRADE_FIRE.get();
 	}
 
 	private boolean hasSmiteUpgrade() {
-		return itemHandler.getStackInSlot(3).getItem() != ItemRegistry.DAMAGE_PAD_UPGRADE_SMITE.get();
+		return itemHandler.getStackInSlot(3).getItem() == ItemRegistry.DAMAGE_PAD_UPGRADE_SMITE.get();
 	}
 
 	private boolean hasArthropodUpgrade() {
