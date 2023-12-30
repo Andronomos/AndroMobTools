@@ -1,9 +1,10 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.pad.PadBlock;
 import andronomos.androtech.block.pad.PadEffectBlock;
 import andronomos.androtech.block.pad.RotatablePadBlock;
-import andronomos.androtech.registry.ModBlocks;
+import andronomos.androtech.registry.BlockRegistry;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.*;
@@ -21,14 +22,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
-		ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
+		BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
 			String blockName = ForgeRegistries.BLOCKS.getKey(b).getPath();
 			String blockType = b.getClass().getSimpleName();
 			String textureFolder = blockName;
 
-			switch (blockType) {
-				case "PadBlock", "PadEffectBlock" -> registerPadStateAndModel(b, blockName + "_top");
-				default -> registerBlockStateAndModel(b, blockName, textureFolder);
+			if(b instanceof PadBlock) {
+				registerPadStateAndModel(b, blockName + "_top");
+			} else {
+				registerBlockStateAndModel(b, blockName, textureFolder);
 			}
 		});
 	}
