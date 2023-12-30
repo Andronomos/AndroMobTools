@@ -10,16 +10,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.MenuProvider;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.util.FakePlayer;
@@ -32,7 +27,7 @@ import java.util.List;
 
 public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvider {
 	public DamagePadBlockEntity(BlockPos pos, BlockState state) {
-		super(BlockEntityRegistry.DAMAGE_PAD.get(), pos, state);
+		super(BlockEntityRegistry.DAMAGE_PAD_BE.get(), pos, state);
 	}
 
 	@Override
@@ -64,9 +59,8 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	@Nullable
 	@Override
-	public AbstractContainerMenu createMenu(int p_39954_, Inventory inventory, Player player) {
-		//todo: create menu
-		return null;
+	public AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
+		return new DamagePadMenu(containerId, inventory, this);
 	}
 
 	public void serverTick() {
