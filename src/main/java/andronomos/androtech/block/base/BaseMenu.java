@@ -9,7 +9,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.jetbrains.annotations.Nullable;
 
-public class BaseMenu extends AbstractContainerMenu {
+public abstract class BaseMenu extends AbstractContainerMenu {
 	private final ContainerData data;
 
 	protected final BlockEntity blockEntity;
@@ -56,11 +56,6 @@ public class BaseMenu extends AbstractContainerMenu {
 		}
 		sourceSlot.onTake(player, sourceStack);
 		return sourceStackCopy;
-	}
-
-	@Override
-	public boolean stillValid(Player player) {
-		return false;
 	}
 
 	protected void setSlotIndexes(int slotCount) {
