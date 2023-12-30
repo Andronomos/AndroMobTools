@@ -1,10 +1,9 @@
 package andronomos.androtech;
 
-import andronomos.androtech.registry.BlockEntityRegistry;
-import andronomos.androtech.registry.BlockRegistry;
-import andronomos.androtech.registry.CreativeTabRegistry;
-import andronomos.androtech.registry.ItemRegistry;
+import andronomos.androtech.block.pad.damagepad.DamagePadScreen;
+import andronomos.androtech.registry.*;
 import com.mojang.authlib.GameProfile;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -27,11 +26,14 @@ public class AndroTech {
 		ItemRegistry.ITEMS.register(modEventBus);
 		CreativeTabRegistry.CREATIVE_MODE_TABS.register(modEventBus);
 		BlockEntityRegistry.BLOCK_ENTITIES.register(modEventBus);
+		MenuTypeRegistry.MENU_TYPES.register(modEventBus);
 		MinecraftForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::clientSetup);
 	}
 
 	private void clientSetup(final FMLClientSetupEvent event) {
-
+		event.enqueueWork(() -> {
+			MenuScreens.register(MenuTypeRegistry.DAMAGE_PAD_MENU.get(), DamagePadScreen::new);
+		});
 	}
 }
