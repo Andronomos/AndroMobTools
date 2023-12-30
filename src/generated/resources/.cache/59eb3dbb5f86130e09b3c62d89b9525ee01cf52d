@@ -1,3 +1,4 @@
-// 1.20.1	2023-12-27T17:12:50.3579142	Loot Tables
+// 1.20.1	2023-12-28T02:59:13.699366	Loot Tables
+a495d59a605aff85a73c653ba9f9189e318e8eaa data/androtech/loot_tables/blocks/damage_pad.json
 5c9cb4c93de6b14a7254ce69125c492c7cca7aa6 data/androtech/loot_tables/blocks/strong_acceleration_pad.json
 848f0b63355f7ffaef6370c0a34576abf96e504a data/androtech/loot_tables/blocks/weak_acceleration_pad.json

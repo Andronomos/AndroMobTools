@@ -1,5 +1,8 @@
 {
-  "block.androtech.strong_acceleration_pad": "Strong acceleration pad",
-  "block.androtech.weak_acceleration_pad": "Weak acceleration pad",
-  "creativetab.androtech": "AndroTech"
+  "block.androtech.damage_pad": "Damage Pad",
+  "block.androtech.damage_pad.tooltip": "Damages entities that stand on it",
+  "block.androtech.strong_acceleration_pad": "Strong Acceleration Pad",
+  "block.androtech.weak_acceleration_pad": "Weak Acceleration Pad",
+  "creativetab.androtech": "AndroTech",
+  "screen.androtech.damage_pad": "Damage Pad"
 }

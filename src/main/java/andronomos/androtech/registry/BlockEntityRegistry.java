@@ -11,7 +11,7 @@ public class BlockEntityRegistry {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, AndroTech.MODID);
 
 	public static final RegistryObject<BlockEntityType<DamagePadBlockEntity>> DAMAGE_PAD = BLOCK_ENTITIES
-			.register("damage_pad", () -> BlockEntityType.Builder
+			.register("damage_pad_block_entity", () -> BlockEntityType.Builder
 			.of(DamagePadBlockEntity::new, BlockRegistry.DAMAGE_PAD.get())
 			.build(null));
 }
