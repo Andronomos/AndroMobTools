@@ -10,8 +10,8 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlockEntityRegistry {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, AndroTech.MODID);
 
-	public static final RegistryObject<BlockEntityType<DamagePadBlockEntity>> DAMAGE_PAD = BLOCK_ENTITIES
-			.register("damage_pad_block_entity", () -> BlockEntityType.Builder
+	public static final RegistryObject<BlockEntityType<DamagePadBlockEntity>> DAMAGE_PAD_BE = BLOCK_ENTITIES
+			.register("damage_pad_be", () -> BlockEntityType.Builder
 			.of(DamagePadBlockEntity::new, BlockRegistry.DAMAGE_PAD.get())
 			.build(null));
 }
