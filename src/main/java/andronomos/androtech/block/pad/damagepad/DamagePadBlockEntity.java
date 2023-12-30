@@ -16,6 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.util.FakePlayer;
@@ -85,6 +86,17 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 			//todo: get upgrades and apply them to the sword
 			//sword.enchant(Enchantments.SHARPNESS, 1 * 10);
 
+			if(hasSharpnessUpgrade())
+				sword.enchant(Enchantments.SHARPNESS, itemHandler.getStackInSlot(0).getCount() * 10);
+			if(hasLootingUpgrade())
+				sword.enchant(Enchantments.MOB_LOOTING, itemHandler.getStackInSlot(1).getCount());
+			if(hasFlameUpgrade())
+				sword.enchant(Enchantments.FIRE_ASPECT, itemHandler.getStackInSlot(2).getCount());
+			if(hasSmiteUpgrade())
+				sword.enchant(Enchantments.SMITE, itemHandler.getStackInSlot(3).getCount() * 10);
+			if(hasArthropodUpgrade())
+				sword.enchant(Enchantments.BANE_OF_ARTHROPODS, itemHandler.getStackInSlot(4).getCount() * 10);
+
 			FakePlayer fp = FakePlayerFactory.get((ServerLevel) getLevel(), AndroTech.PROFILE);
 			fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
 			fp.setSilent(true);
@@ -100,5 +112,25 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	public AABB getWorkArea() {
 		return RadiusUtils.oneByThreeByOneFromTop(getBlockPos());
+	}
+
+	private boolean hasSharpnessUpgrade() {
+		return itemHandler.getStackInSlot(0).getItem() != ItemRegistry.DAMAGE_PAD_UPGRADE_SHARPNESS.get();
+	}
+
+	private boolean hasLootingUpgrade() {
+		return itemHandler.getStackInSlot(1).getItem() != ItemRegistry.DAMAGE_PAD_UPGRADE_LOOTING.get();
+	}
+
+	private boolean hasFlameUpgrade() {
+		return itemHandler.getStackInSlot(2).getItem() != ItemRegistry.DAMAGE_PAD_UPGRADE_FIRE.get();
+	}
+
+	private boolean hasSmiteUpgrade() {
+		return itemHandler.getStackInSlot(3).getItem() != ItemRegistry.DAMAGE_PAD_UPGRADE_SMITE.get();
+	}
+
+	private boolean hasArthropodUpgrade() {
+		return itemHandler.getStackInSlot(4).getItem() != ItemRegistry.DAMAGE_PAD_UPGRADE_ARTHRO.get();
 	}
 }

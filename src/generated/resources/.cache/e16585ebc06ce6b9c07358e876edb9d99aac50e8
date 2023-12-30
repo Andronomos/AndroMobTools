@@ -1,1 +1,6 @@
-// 1.20.1	2023-12-27T17:06:13.3150719	Item Models: androtech
+// 1.20.1	2023-12-30T06:25:40.2680492	Item Models: androtech
+63ed640eacd01b0467f45f43b7f6b433787a87ae assets/androtech/models/item/damage_pad_upgrade_arthro.json
+7af4540464e944e1ba36c4ae5d624114b1fda024 assets/androtech/models/item/damage_pad_upgrade_fire.json
+ed60f03c835dd90b6cde614241da9b1b5b5dc3bd assets/androtech/models/item/damage_pad_upgrade_looting.json
+a367b6b95ee6aabff95aaff4384394d95bc364ba assets/androtech/models/item/damage_pad_upgrade_sharpness.json
+94a3e1ec923bcb6e211ba1f030e63b2e6107342b assets/androtech/models/item/damage_pad_upgrade_smite.json
