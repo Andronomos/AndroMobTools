@@ -14,4 +14,6 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	}
 
 	protected abstract ItemStackHandler createInventoryItemHandler();
+
+
 }
