@@ -33,23 +33,6 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	@Override
 	protected ItemStackHandler createInventoryItemHandler() {
-		//return new ItemStackHandler(DamagePadBlock.PAD_SLOTS) {
-		//	@Override
-		//	public int getSlotLimit(int slot) {
-		//		return DamagePadBlock.UPGRADE_STACK_LIMIT;
-		//	}
-		//
-		//	@Override
-		//	protected void onContentsChanged(int slot) {
-		//		setChanged();
-		//	}
-		//
-		//	@Nonnull
-		//	@Override
-		//	public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-		//		return super.insertItem(slot, stack, simulate);
-		//	}
-		//};
 		return new ItemStackHandler(DamagePadBlock.PAD_SLOTS);
 	}
 
@@ -65,7 +48,8 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 		return new DamagePadMenu(containerId, inventory, this, this.data);
 	}
 
-	public void serverTick() {
+	@Override
+	protected void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity blockEntity) {
 		if (level.getGameTime() % 10 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof DamagePadBlock) {
 			activate();
 		}
