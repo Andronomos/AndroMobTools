@@ -1,12 +1,16 @@
 package andronomos.androtech.block.base;
 
+import andronomos.androtech.util.RadiusUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -64,4 +68,16 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	}
 
 	protected abstract ItemStackHandler createInventoryItemHandler();
+
+	protected void clientTick(Level level, BlockPos pos, BlockState state, BaseBlockEntity blockEntity) { }
+
+	protected void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity blockEntity) { }
+
+	protected AABB getWorkArea() {
+		return getWorkArea(Direction.NORTH);
+	}
+
+	protected AABB getWorkArea(Direction direction) {
+		return RadiusUtils.cubefromCenter(this.worldPosition, 0);
+	}
 }
