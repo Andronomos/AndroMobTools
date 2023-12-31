@@ -17,7 +17,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("looting_augment");
 		createSingleTexture("fire_augment");
 		createSingleTexture("smite_augment");
-		createSingleTexture("arthro_augment");
 	}
 
 	private ItemModelBuilder createSingleTexture(String name) {
