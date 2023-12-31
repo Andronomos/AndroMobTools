@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.item.FakeSword;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -21,6 +22,10 @@ public class CreativeTabRegistry {
 				});
 
 				ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach(i -> {
+					if(i instanceof FakeSword) {
+						return;
+					}
+
 					output.accept(i);
 				});
 			}).build());
