@@ -1,17 +1,18 @@
 package andronomos.androtech.inventory;
 
 import net.minecraft.world.Container;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 import javax.annotation.Nonnull;
 
-public class RestrictedSlot extends Slot {
+public class RestrictedSlotHandler extends SlotItemHandler {
 	ItemStack item;
 	int maxItems;
 
-	public RestrictedSlot(Container inventory, int slotIndex, int x, int y, ItemStack item, int maxItems) {
-		super(inventory, slotIndex, x, y);
+	public RestrictedSlotHandler(IItemHandler itemHandler, int slotIndex, int x, int y, ItemStack item, int maxItems) {
+		super(itemHandler, slotIndex, x, y);
 		this.item = item;
 		this.maxItems = maxItems;
 	}
