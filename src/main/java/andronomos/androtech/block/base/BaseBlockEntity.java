@@ -1,6 +1,6 @@
 package andronomos.androtech.block.base;
 
-import andronomos.androtech.util.RadiusUtils;
+import andronomos.androtech.util.RadiusHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -78,6 +78,6 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	}
 
 	protected AABB getWorkArea(Direction direction) {
-		return RadiusUtils.cubefromCenter(this.worldPosition, 0);
+		return RadiusHelper.cubefromCenter(this.worldPosition, 0);
 	}
 }

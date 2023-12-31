@@ -4,8 +4,8 @@ import andronomos.androtech.block.base.BaseBlockEntity;
 import andronomos.androtech.block.pad.damagepad.DamagePadBlock;
 import andronomos.androtech.Constants;
 import andronomos.androtech.registry.BlockEntityRegistry;
-import andronomos.androtech.util.InventoryUtils;
-import andronomos.androtech.util.RadiusUtils;
+import andronomos.androtech.util.InventoryHelper;
+import andronomos.androtech.util.RadiusHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -43,7 +43,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 
 	@Override
 	public AABB getWorkArea() {
-		return RadiusUtils.nineByNineByNineCubeFromCenter(getBlockPos());
+		return RadiusHelper.nineByNineByNineCubeFromCenter(getBlockPos());
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 		if (level.getGameTime() % 10 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof ItemAttractorBlock) {
 			setChanged(level, pos, state);
 
-			if(!InventoryUtils.inventoryIsFull(itemHandler)) {
+			if(!InventoryHelper.inventoryIsFull(itemHandler)) {
 				captureDroppedItems();
 			}
 
@@ -77,7 +77,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 			if(item == null)
 				return;
 
-			ItemStack stack = InventoryUtils.insertIntoInventory(item.getItem().copy(), itemHandler, false);
+			ItemStack stack = InventoryHelper.insertIntoInventory(item.getItem().copy(), itemHandler, false);
 
 			if (!stack.isEmpty()) {
 				item.setItem(stack);

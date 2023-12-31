@@ -4,7 +4,7 @@ import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
-import andronomos.androtech.util.RadiusUtils;
+import andronomos.androtech.util.RadiusHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -88,7 +88,7 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 	}
 
 	public AABB getWorkArea() {
-		return RadiusUtils.oneByThreeByOneFromTop(getBlockPos());
+		return RadiusHelper.oneByThreeByOneFromTop(getBlockPos());
 	}
 
 	private boolean hasSharpnessUpgrade() {
