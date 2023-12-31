@@ -13,7 +13,6 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.SlotItemHandler;
 
 public class DamagePadMenu extends BaseMenu {
 	public DamagePadMenu(int containerId, Inventory inventory, FriendlyByteBuf extraData) {
@@ -26,13 +25,11 @@ public class DamagePadMenu extends BaseMenu {
 		addPlayerHotbar();
 		if(entity instanceof DamagePadBlockEntity damagePadBlockEntity) {
 			damagePadBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-				//addSlot(new SlotItemHandler(iItemHandler, 0, 30, 30));
-
-				addSlot(new RestrictedSlotHandler(iItemHandler, 0, 30, 30, ItemRegistry.DAMAGE_PAD_UPGRADE_SHARPNESS.get().getDefaultInstance(), 10));
-				addSlot(new RestrictedSlotHandler(iItemHandler, 1, 55, 30, ItemRegistry.DAMAGE_PAD_UPGRADE_LOOTING.get().getDefaultInstance(), 10 ));
-				addSlot(new RestrictedSlotHandler(iItemHandler, 2, 80, 30, ItemRegistry.DAMAGE_PAD_UPGRADE_FIRE.get().getDefaultInstance(), 10 ));
-				addSlot(new RestrictedSlotHandler(iItemHandler, 3, 105, 30, ItemRegistry.DAMAGE_PAD_UPGRADE_SMITE.get().getDefaultInstance(), 10 ));
-				addSlot(new RestrictedSlotHandler(iItemHandler, 4, 130, 30, ItemRegistry.DAMAGE_PAD_UPGRADE_ARTHRO.get().getDefaultInstance(), 10 ));
+				addSlot(new RestrictedSlotHandler(iItemHandler, 0, 30, 30, ItemRegistry.SHARPNESS_AUGMENT.get().getDefaultInstance(), 10));
+				addSlot(new RestrictedSlotHandler(iItemHandler, 1, 55, 30, ItemRegistry.LOOTING_AUGMENT.get().getDefaultInstance(), 10 ));
+				addSlot(new RestrictedSlotHandler(iItemHandler, 2, 80, 30, ItemRegistry.FIRE_AUGMENT.get().getDefaultInstance(), 10 ));
+				addSlot(new RestrictedSlotHandler(iItemHandler, 3, 105, 30, ItemRegistry.SMITE_AUGMENT.get().getDefaultInstance(), 10 ));
+				addSlot(new RestrictedSlotHandler(iItemHandler, 4, 130, 30, ItemRegistry.ARTHRO_AUGMENT.get().getDefaultInstance(), 10 ));
 			});
 		}
 		setSlotIndexes(DamagePadBlock.PAD_SLOTS);
