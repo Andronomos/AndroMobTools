@@ -7,7 +7,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class InventoryUtils {
+public class InventoryHelper {
 	public static boolean inventoryIsFull(IItemHandler handler) {
 		AtomicBoolean isFull = new AtomicBoolean(true);
 
