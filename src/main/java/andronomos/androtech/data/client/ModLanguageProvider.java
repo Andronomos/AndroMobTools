@@ -1,6 +1,7 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.pad.damagepad.DamagePadBlock;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.CreativeTabRegistry;
@@ -32,6 +33,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
 		add(DamagePadBlock.DISPLAY_NAME, "Damage Pad");
 		add(DamagePadBlock.TOOLTIP, "Damages entities that stand on it");
+		add(ItemAttractorBlock.DISPLAY_NAME, "Item Attractor");
+		add(ItemAttractorBlock.TOOLTIP, "Pulls nearby items");
 		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
 		add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");

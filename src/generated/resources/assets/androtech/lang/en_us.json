@@ -1,6 +1,8 @@
 {
   "block.androtech.damage_pad": "Damage Pad",
   "block.androtech.damage_pad.tooltip": "Damages entities that stand on it",
+  "block.androtech.item_attractor": "Item Attractor",
+  "block.androtech.item_attractor.tooltip": "Pulls nearby items",
   "block.androtech.strong_acceleration_pad": "Strong Acceleration Pad",
   "block.androtech.weak_acceleration_pad": "Weak Acceleration Pad",
   "creativetab.androtech": "AndroTech",
@@ -8,5 +10,6 @@
   "item.androtech.looting_augment": "Looting Augment",
   "item.androtech.sharpness_augment": "Sharpness Augment",
   "item.androtech.smite_augment": "Smite Augment",
-  "screen.androtech.damage_pad": "Damage Pad"
+  "screen.androtech.damage_pad": "Damage Pad",
+  "screen.androtech.item_attractor": "Item Attractor"
 }

@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.pad.PadEffectBlock;
 import andronomos.androtech.block.pad.damagepad.DamagePadBlock;
 import andronomos.androtech.block.pad.padeffect.PadEffect;
@@ -22,13 +23,18 @@ public class BlockRegistry {
 			.sound(SoundType.METAL)
 			.requiresCorrectToolForDrops();
 
+	private static Block.Properties MACHINE_PROPERTIES = Block.Properties.copy(Blocks.IRON_BLOCK)
+			.strength(5.0F)
+			.sound(SoundType.METAL)
+			.requiresCorrectToolForDrops();
+
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, AndroTech.MODID);
 
 
 	public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, true);
 	public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, true);
 	public static final RegistryObject<Block> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
-
+	public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
 
 
 	private static <T extends Block> RegistryObject<Block> registerPad(String name, PadEffect effect, boolean shouldAffectPlayer) {
