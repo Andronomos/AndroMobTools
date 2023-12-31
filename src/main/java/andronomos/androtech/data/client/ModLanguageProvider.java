@@ -32,7 +32,6 @@ public class ModLanguageProvider extends LanguageProvider {
 
 		add(DamagePadBlock.DISPLAY_NAME, "Damage Pad");
 		add(DamagePadBlock.TOOLTIP, "Damages entities that stand on it");
-		add(ItemRegistry.ARTHRO_AUGMENT.get(), "Arthropod Augment");
 		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
 		add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");

@@ -89,8 +89,6 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 				sword.enchant(Enchantments.FIRE_ASPECT, itemHandler.getStackInSlot(2).getCount());
 			if (hasSmiteUpgrade())
 				sword.enchant(Enchantments.SMITE, itemHandler.getStackInSlot(3).getCount() * 10);
-			if (hasArthropodUpgrade())
-				sword.enchant(Enchantments.BANE_OF_ARTHROPODS, itemHandler.getStackInSlot(4).getCount() * 10);
 
 			FakePlayer fp = FakePlayerFactory.get((ServerLevel) getLevel(), AndroTech.PROFILE);
 			fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
@@ -123,9 +121,5 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	private boolean hasSmiteUpgrade() {
 		return itemHandler.getStackInSlot(3).getItem() == ItemRegistry.SMITE_AUGMENT.get();
-	}
-
-	private boolean hasArthropodUpgrade() {
-		return itemHandler.getStackInSlot(4).getItem() != ItemRegistry.ARTHRO_AUGMENT.get();
 	}
 }

@@ -29,7 +29,6 @@ public class DamagePadMenu extends BaseMenu {
 				addSlot(new RestrictedSlotHandler(iItemHandler, 1, 55, 30, ItemRegistry.LOOTING_AUGMENT.get().getDefaultInstance(), 10 ));
 				addSlot(new RestrictedSlotHandler(iItemHandler, 2, 80, 30, ItemRegistry.FIRE_AUGMENT.get().getDefaultInstance(), 10 ));
 				addSlot(new RestrictedSlotHandler(iItemHandler, 3, 105, 30, ItemRegistry.SMITE_AUGMENT.get().getDefaultInstance(), 10 ));
-				addSlot(new RestrictedSlotHandler(iItemHandler, 4, 130, 30, ItemRegistry.ARTHRO_AUGMENT.get().getDefaultInstance(), 10 ));
 			});
 		}
 		setSlotIndexes(DamagePadBlock.PAD_SLOTS);

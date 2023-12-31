@@ -26,7 +26,4 @@ public class ItemRegistry {
 
 	public static final RegistryObject<Item> SMITE_AUGMENT = ITEMS.register("smite_augment",
 			() -> new DamagePadUpgradeItem(new Item.Properties(), Enchantments.SMITE));
-
-	public static final RegistryObject<Item> ARTHRO_AUGMENT = ITEMS.register("arthro_augment",
-			() -> new DamagePadUpgradeItem(new Item.Properties(), Enchantments.BANE_OF_ARTHROPODS));
 }
