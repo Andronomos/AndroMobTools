@@ -15,18 +15,18 @@ public class ItemRegistry {
 	public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword",
 			() -> new FakeSword(new Item.Properties()));
 
-	public static final RegistryObject<Item> DAMAGE_PAD_UPGRADE_SHARPNESS = ITEMS.register("damage_pad_upgrade_sharpness",
+	public static final RegistryObject<Item> SHARPNESS_AUGMENT = ITEMS.register("sharpness_augment",
 			() -> new DamagePadUpgradeItem(new Item.Properties(), Enchantments.SHARPNESS));
 
-	public static final RegistryObject<Item> DAMAGE_PAD_UPGRADE_LOOTING = ITEMS.register("damage_pad_upgrade_looting",
+	public static final RegistryObject<Item> LOOTING_AUGMENT = ITEMS.register("looting_augment",
 			() -> new DamagePadUpgradeItem(new Item.Properties(), Enchantments.MOB_LOOTING));
 
-	public static final RegistryObject<Item> DAMAGE_PAD_UPGRADE_FIRE = ITEMS.register("damage_pad_upgrade_fire",
+	public static final RegistryObject<Item> FIRE_AUGMENT = ITEMS.register("fire_augment",
 			() -> new DamagePadUpgradeItem(new Item.Properties(), Enchantments.FIRE_ASPECT));
 
-	public static final RegistryObject<Item> DAMAGE_PAD_UPGRADE_SMITE = ITEMS.register("damage_pad_upgrade_smite",
+	public static final RegistryObject<Item> SMITE_AUGMENT = ITEMS.register("smite_augment",
 			() -> new DamagePadUpgradeItem(new Item.Properties(), Enchantments.SMITE));
 
-	public static final RegistryObject<Item> DAMAGE_PAD_UPGRADE_ARTHRO = ITEMS.register("damage_pad_upgrade_arthro",
+	public static final RegistryObject<Item> ARTHRO_AUGMENT = ITEMS.register("arthro_augment",
 			() -> new DamagePadUpgradeItem(new Item.Properties(), Enchantments.BANE_OF_ARTHROPODS));
 }
