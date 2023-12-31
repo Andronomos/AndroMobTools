@@ -1,4 +1,4 @@
-package andronomos.androtech.inventory;
+package andronomos.androtech.inventory.server;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
