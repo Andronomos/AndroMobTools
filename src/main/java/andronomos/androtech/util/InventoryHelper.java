@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class InventoryHelper {
-	public static boolean inventoryIsFull(IItemHandler handler) {
+	public static boolean isFull(IItemHandler handler) {
 		AtomicBoolean isFull = new AtomicBoolean(true);
 
 		for(int i = 0; i <= handler.getSlots() - 1; i++) {
@@ -24,7 +24,7 @@ public class InventoryHelper {
 		return isFull.get();
 	}
 
-	public static ItemStack insertIntoInventory(ItemStack stack, ItemStackHandler itemHandler, boolean simulate) {
+	public static ItemStack insert(ItemStack stack, ItemStackHandler itemHandler, boolean simulate) {
 		AtomicReference<ItemStack> returnStack = new AtomicReference<>(stack.copy());
 		for(int i = 0; i < itemHandler.getSlots() && !returnStack.get().isEmpty(); ++i) {
 			returnStack.set(itemHandler.insertItem(i, returnStack.get(), simulate));

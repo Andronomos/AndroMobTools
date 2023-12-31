@@ -8,7 +8,7 @@ public class RadiusHelper {
 	/**
 	 * Returns a cube from the center position
 	 * **/
-	public static AABB cubefromCenter(BlockPos pos, int size) {
+	public static AABB boxFromCenter(BlockPos pos, int size) {
 		double x1 = pos.getX();
 		double y1 = pos.getY();
 		double z1 = pos.getZ();
@@ -23,15 +23,15 @@ public class RadiusHelper {
 	/**
 	 * Returns a 9 wide, 9 tall, 9 deep cube from the center position
 	 * **/
-	public static AABB nineByNineByNineCubeFromCenter(BlockPos centerPos) {
-		return cubefromCenter(centerPos, 4);
+	public static AABB nineByNineByNineBoxFromCenter(BlockPos centerPos) {
+		return boxFromCenter(centerPos, 4);
 	}
 
 	/**
 	 * Returns a 2 wide, 2 tall, 2 deep cube from the center position
 	 * **/
 	public static AABB twoByTwoByTwoCubeFromCenter(BlockPos centerPos) {
-		return cubefromCenter(centerPos, 2);
+		return boxFromCenter(centerPos, 2);
 	}
 
 	/**
