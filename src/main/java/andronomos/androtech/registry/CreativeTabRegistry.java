@@ -15,7 +15,13 @@ public class CreativeTabRegistry {
 	public static final RegistryObject<CreativeModeTab> BLOCKPALETTE_TAB = CREATIVE_MODE_TABS.register(BASETABNAME, () -> CreativeModeTab.builder()
 			.title(Component.translatable("creativetab." + BASETABNAME))
 			.icon(BlockRegistry.WEAK_ACCELERATION_PAD.get().asItem()::getDefaultInstance)
-			.displayItems((parameters, output) -> BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
-				output.accept(b);
-			})).build());
+			.displayItems((parameters, output) -> {
+				BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
+					output.accept(b);
+				});
+
+				ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach(i -> {
+					output.accept(i);
+				});
+			}).build());
 }
