@@ -31,11 +31,11 @@ public class ModLanguageProvider extends LanguageProvider {
 
 		add(DamagePadBlock.DISPLAY_NAME, "Damage Pad");
 		add(DamagePadBlock.TOOLTIP, "Damages entities that stand on it");
-		add(ItemRegistry.DAMAGE_PAD_UPGRADE_ARTHRO.get(), "Damage Pad Arthropod Upgrade");
-		add(ItemRegistry.DAMAGE_PAD_UPGRADE_FIRE.get(), "Damage Pad Fire Aspect Upgrade");
-		add(ItemRegistry.DAMAGE_PAD_UPGRADE_SMITE.get(), "Damage Pad Smite Upgrade");
-		add(ItemRegistry.DAMAGE_PAD_UPGRADE_SHARPNESS.get(), "Damage Pad Sharpness Upgrade");
-		add(ItemRegistry.DAMAGE_PAD_UPGRADE_LOOTING.get(), "Damage Pad Looting Upgrade");
+		add(ItemRegistry.ARTHRO_AUGMENT.get(), "Arthropod Augment");
+		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
+		add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");
+		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");
+		add(ItemRegistry.LOOTING_AUGMENT.get(), "Looting Augment");
 	}
 
 	static String capitalizeWords(String input) {
