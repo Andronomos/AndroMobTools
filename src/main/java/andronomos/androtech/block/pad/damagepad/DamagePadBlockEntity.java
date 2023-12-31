@@ -22,9 +22,9 @@ import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.items.ItemStackHandler;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvider {
@@ -34,23 +34,24 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	@Override
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(DamagePadBlock.PAD_SLOTS) {
-			@Override
-			public int getSlotLimit(int slot) {
-				return DamagePadBlock.UPGRADE_STACK_LIMIT;
-			}
-
-			@Override
-			protected void onContentsChanged(int slot) {
-				setChanged();
-			}
-
-			@Override
-			public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-				//todo: check for upgrade item
-				return super.isItemValid(slot, stack);
-			}
-		};
+		//return new ItemStackHandler(DamagePadBlock.PAD_SLOTS) {
+		//	@Override
+		//	public int getSlotLimit(int slot) {
+		//		return DamagePadBlock.UPGRADE_STACK_LIMIT;
+		//	}
+		//
+		//	@Override
+		//	protected void onContentsChanged(int slot) {
+		//		setChanged();
+		//	}
+		//
+		//	@Nonnull
+		//	@Override
+		//	public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+		//		return super.insertItem(slot, stack, simulate);
+		//	}
+		//};
+		return new ItemStackHandler(DamagePadBlock.PAD_SLOTS);
 	}
 
 
@@ -82,9 +83,6 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 			}
 
 			ItemStack sword = new ItemStack(ItemRegistry.FAKE_SWORD.get(), 1);
-
-			//todo: get upgrades and apply them to the sword
-			//sword.enchant(Enchantments.SHARPNESS, 1 * 10);
 
 			if(hasSharpnessUpgrade())
 				sword.enchant(Enchantments.SHARPNESS, itemHandler.getStackInSlot(0).getCount() * 10);
