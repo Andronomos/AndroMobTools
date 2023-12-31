@@ -2,7 +2,6 @@ package andronomos.androtech.block.itemattractor;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseScreen;
-import andronomos.androtech.constants.SlotConstants;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -13,7 +12,6 @@ public class ItemAttractorScreen extends BaseScreen<ItemAttractorMenu> {
 
 	public ItemAttractorScreen(ItemAttractorMenu menu, Inventory inventory, Component component) {
 		super(menu, inventory, component);
-		this.imageHeight = SlotConstants.SCREEN_LARGE_IMAGE_HEIGHT;
 	}
 
 	@Override

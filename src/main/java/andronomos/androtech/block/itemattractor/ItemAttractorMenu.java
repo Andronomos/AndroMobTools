@@ -1,7 +1,7 @@
 package andronomos.androtech.block.itemattractor;
 
 import andronomos.androtech.block.base.BaseMenu;
-import andronomos.androtech.constants.SlotConstants;
+import andronomos.androtech.Constants;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
@@ -24,10 +24,10 @@ public class ItemAttractorMenu extends BaseMenu {
 		addPlayerHotbar();
 		if(entity instanceof ItemAttractorBlockEntity itemAttractorBlockEntity) {
 			itemAttractorBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(h -> {
-				addLargeInventory(h);
+				addInventory(h);
 			});
 		}
-		setSlotIndexes(SlotConstants.INVENTORY_MACHINE_SIZE);
+		setSlotIndexes(Constants.VANILLA_INVENTORY_SLOT_COUNT);
 		addDataSlots(data);
 	}
 

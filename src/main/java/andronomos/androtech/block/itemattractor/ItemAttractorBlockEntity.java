@@ -2,7 +2,7 @@ package andronomos.androtech.block.itemattractor;
 
 import andronomos.androtech.block.base.BaseBlockEntity;
 import andronomos.androtech.block.pad.damagepad.DamagePadBlock;
-import andronomos.androtech.constants.SlotConstants;
+import andronomos.androtech.Constants;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.util.InventoryUtils;
 import andronomos.androtech.util.RadiusUtils;
@@ -38,7 +38,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 
 	@Nonnull
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(SlotConstants.INVENTORY_VANILLA_LARGE_SIZE);
+		return new ItemStackHandler(Constants.VANILLA_INVENTORY_SLOT_COUNT);
 	}
 
 	@Override
