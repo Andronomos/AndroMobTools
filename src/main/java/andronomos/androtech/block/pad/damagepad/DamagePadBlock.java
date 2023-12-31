@@ -1,8 +1,10 @@
 package andronomos.androtech.block.pad.damagepad;
 
+import andronomos.androtech.block.itemattractor.ItemAttractorBlockEntity;
 import andronomos.androtech.block.pad.PadBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -52,7 +54,7 @@ public class DamagePadBlock extends PadBlock implements EntityBlock {
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
 		return level.isClientSide ? null : (level1, pos, state1, blockEntity) -> {
 			if(blockEntity instanceof DamagePadBlockEntity damagePadBlockEntity) {
-				damagePadBlockEntity.serverTick();
+				damagePadBlockEntity.serverTick((ServerLevel)level1, pos, state1, damagePadBlockEntity);
 			}
 		};
 	}
