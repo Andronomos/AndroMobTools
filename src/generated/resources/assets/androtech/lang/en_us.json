@@ -4,5 +4,10 @@
   "block.androtech.strong_acceleration_pad": "Strong Acceleration Pad",
   "block.androtech.weak_acceleration_pad": "Weak Acceleration Pad",
   "creativetab.androtech": "AndroTech",
+  "item.androtech.damage_pad_upgrade_arthro": "Damage Pad Arthropod Upgrade",
+  "item.androtech.damage_pad_upgrade_fire": "Damage Pad Fire Aspect Upgrade",
+  "item.androtech.damage_pad_upgrade_looting": "Damage Pad Looting Upgrade",
+  "item.androtech.damage_pad_upgrade_sharpness": "Damage Pad Sharpness Upgrade",
+  "item.androtech.damage_pad_upgrade_smite": "Damage Pad Smite Upgrade",
   "screen.androtech.damage_pad": "Damage Pad"
 }

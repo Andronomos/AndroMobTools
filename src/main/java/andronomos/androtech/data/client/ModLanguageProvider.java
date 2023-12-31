@@ -4,6 +4,7 @@ import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.pad.damagepad.DamagePadBlock;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.CreativeTabRegistry;
+import andronomos.androtech.registry.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -26,11 +27,15 @@ public class ModLanguageProvider extends LanguageProvider {
 			name = capitalizeWords(name);
 			add(b, name);
 		});
-
 		add("creativetab." + CreativeTabRegistry.BASETABNAME, "AndroTech");
 
 		add(DamagePadBlock.DISPLAY_NAME, "Damage Pad");
 		add(DamagePadBlock.TOOLTIP, "Damages entities that stand on it");
+		add(ItemRegistry.DAMAGE_PAD_UPGRADE_ARTHRO.get(), "Damage Pad Arthropod Upgrade");
+		add(ItemRegistry.DAMAGE_PAD_UPGRADE_FIRE.get(), "Damage Pad Fire Aspect Upgrade");
+		add(ItemRegistry.DAMAGE_PAD_UPGRADE_SMITE.get(), "Damage Pad Smite Upgrade");
+		add(ItemRegistry.DAMAGE_PAD_UPGRADE_SHARPNESS.get(), "Damage Pad Sharpness Upgrade");
+		add(ItemRegistry.DAMAGE_PAD_UPGRADE_LOOTING.get(), "Damage Pad Looting Upgrade");
 	}
 
 	static String capitalizeWords(String input) {
