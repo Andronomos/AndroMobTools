@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/damage_pad_upgrade_fire"
+    "layer0": "androtech:item/looting_augment"
   }
 }

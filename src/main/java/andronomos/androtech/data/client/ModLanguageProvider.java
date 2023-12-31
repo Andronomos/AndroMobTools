@@ -27,6 +27,7 @@ public class ModLanguageProvider extends LanguageProvider {
 			name = capitalizeWords(name);
 			add(b, name);
 		});
+
 		add("creativetab." + CreativeTabRegistry.BASETABNAME, "AndroTech");
 
 		add(DamagePadBlock.DISPLAY_NAME, "Damage Pad");

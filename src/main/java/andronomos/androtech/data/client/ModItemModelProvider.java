@@ -13,11 +13,11 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 	@Override
 	protected void registerModels() {
-		createSingleTexture("damage_pad_upgrade_sharpness");
-		createSingleTexture("damage_pad_upgrade_looting");
-		createSingleTexture("damage_pad_upgrade_fire");
-		createSingleTexture("damage_pad_upgrade_smite");
-		createSingleTexture("damage_pad_upgrade_arthro");
+		createSingleTexture("sharpness_augment");
+		createSingleTexture("looting_augment");
+		createSingleTexture("fire_augment");
+		createSingleTexture("smite_augment");
+		createSingleTexture("arthro_augment");
 	}
 
 	private ItemModelBuilder createSingleTexture(String name) {

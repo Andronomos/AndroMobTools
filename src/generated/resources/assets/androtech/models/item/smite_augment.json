@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "androtech:item/damage_pad_upgrade_looting"
+    "layer0": "androtech:item/smite_augment"
   }
 }

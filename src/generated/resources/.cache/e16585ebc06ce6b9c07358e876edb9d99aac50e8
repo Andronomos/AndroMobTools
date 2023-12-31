@@ -1,6 +1,6 @@
-// 1.20.1	2023-12-30T06:25:40.2680492	Item Models: androtech
-63ed640eacd01b0467f45f43b7f6b433787a87ae assets/androtech/models/item/damage_pad_upgrade_arthro.json
-7af4540464e944e1ba36c4ae5d624114b1fda024 assets/androtech/models/item/damage_pad_upgrade_fire.json
-ed60f03c835dd90b6cde614241da9b1b5b5dc3bd assets/androtech/models/item/damage_pad_upgrade_looting.json
-a367b6b95ee6aabff95aaff4384394d95bc364ba assets/androtech/models/item/damage_pad_upgrade_sharpness.json
-94a3e1ec923bcb6e211ba1f030e63b2e6107342b assets/androtech/models/item/damage_pad_upgrade_smite.json
+// 1.20.1	2023-12-30T21:29:21.6252013	Item Models: androtech
+b585bc1611e59af75d5b5a1c8e38603dcf092395 assets/androtech/models/item/arthro_augment.json
+8ca13f16d331836e29bfc3bf3d94f563baf10f68 assets/androtech/models/item/fire_augment.json
+05c2e96cc6a11860869849b29f802786b613634a assets/androtech/models/item/looting_augment.json
+1ea76ffeda9e54e1c37a4577fe055946ec3a21cd assets/androtech/models/item/sharpness_augment.json
+05ee779022abc915a0eb5a566a6714f197c12aea assets/androtech/models/item/smite_augment.json
