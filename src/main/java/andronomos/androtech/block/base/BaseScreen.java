@@ -1,5 +1,6 @@
 package andronomos.androtech.block.base;
 
+import andronomos.androtech.inventory.client.SideButton;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -9,9 +10,23 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class BaseScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {
+	private final List<SideButton> sideButtons = new ArrayList<>();
+	private int sideButtonY;
+	private static final int BUTTON_LEFT = 109;
+
 	public BaseScreen(T menu, Inventory inventory, Component component) {
 		super(menu, inventory, component);
+	}
+
+	@Override
+	protected void init() {
+		super.init();
+		sideButtonY = this.topPos;
+		sideButtons.clear();
 	}
 
 	@Override
@@ -24,6 +39,14 @@ public abstract class BaseScreen<T extends AbstractContainerMenu> extends Abstra
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		super.renderLabels(guiGraphics, mouseX, mouseY);
+	}
+
+	public SideButton addButton(SideButton button) {
+		button.setX(this.width / 2 - BUTTON_LEFT);;
+		button.setY(sideButtonY);
+		sideButtonY += button.getHeight() + 2;
+		sideButtons.add(button);
+		return this.addRenderableWidget(button);
 	}
 
 	//protected void drawName(GuiGraphics guiGraphics, String name) {
