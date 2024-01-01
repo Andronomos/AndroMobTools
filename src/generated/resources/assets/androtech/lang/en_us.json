@@ -6,6 +6,8 @@
   "block.androtech.strong_acceleration_pad": "Strong Acceleration Pad",
   "block.androtech.weak_acceleration_pad": "Weak Acceleration Pad",
   "creativetab.androtech": "AndroTech",
+  "gui.androtech.powered_off": "Powered Off",
+  "gui.androtech.powered_on": "Powered On",
   "item.androtech.fire_augment": "Fire Aspect Augment",
   "item.androtech.looting_augment": "Looting Augment",
   "item.androtech.sharpness_augment": "Sharpness Augment",
