@@ -12,9 +12,9 @@ public class RadiusHelper {
 		double x1 = pos.getX();
 		double y1 = pos.getY();
 		double z1 = pos.getZ();
-		double x2 = pos.getX();
-		double y2 = pos.getY();
-		double z2 = pos.getZ();
+		double x2 = pos.getX() + 0.5D;
+		double y2 = pos.getY() + 0.5D;
+		double z2 = pos.getZ() + 0.5D;
 
 		//minX minY minZ maxX maxY maxZ
 		return new AABB(x1, y1, z1, x2, y2, z2).inflate(size);
