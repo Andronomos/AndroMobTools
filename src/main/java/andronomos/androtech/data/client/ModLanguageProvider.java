@@ -1,9 +1,9 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.IPoweredBlock;
+import andronomos.androtech.block.MachineBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
-import andronomos.androtech.block.pad.damagepad.DamagePadBlock;
+import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.CreativeTabRegistry;
 import andronomos.androtech.registry.ItemRegistry;
@@ -40,8 +40,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");
 		add(ItemRegistry.LOOTING_AUGMENT.get(), "Looting Augment");
-		add(IPoweredBlock.GUI_ON, "Powered On");
-		add(IPoweredBlock.GUI_OFF, "Powered Off");
+		add(MachineBlock.GUI_ON, "Powered On");
+		add(MachineBlock.GUI_OFF, "Powered Off");
 	}
 
 	static String capitalizeWords(String input) {

@@ -2,7 +2,7 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.itemattractor.ItemAttractorMenu;
-import andronomos.androtech.block.pad.damagepad.DamagePadMenu;
+import andronomos.androtech.block.damagepad.DamagePadMenu;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;

@@ -1,15 +1,13 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.base.ATMachineBlock;
-import andronomos.androtech.block.pad.PadBlock;
-import andronomos.androtech.block.pad.PadEffectBlock;
-import andronomos.androtech.block.pad.RotatablePadBlock;
+import andronomos.androtech.block.FlatMachineBlock;
+import andronomos.androtech.block.MachineBlock;
 import andronomos.androtech.registry.BlockRegistry;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -28,9 +26,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
 			String blockName = ForgeRegistries.BLOCKS.getKey(b).getPath();
 
-			if(b instanceof PadBlock) {
-				registerPadStateAndModel(b, blockName + "_top");
-			} else if (b instanceof ATMachineBlock machineBlock) {
+			if(b instanceof FlatMachineBlock flatMachineBlock) {
+				registerFlatMachineState(flatMachineBlock);
+			} else if (b instanceof MachineBlock machineBlock) {
 				registerMachineBlockState(machineBlock);
 			} else {
 				registerBlockStateAndModel(b, blockName, blockName);
@@ -38,7 +36,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		});
 	}
 
-	private void registerMachineBlockState(ATMachineBlock machine) {
+	private void registerMachineBlockState(MachineBlock machine) {
 		String machineName = ForgeRegistries.BLOCKS.getKey(machine).getPath();
 
 		if (machine.hasMultipleStates) {
@@ -89,17 +87,16 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		}
 	}
 
-	private void registerPadStateAndModel(Block block, String top) {
-		String blockName = ForgeRegistries.BLOCKS.getKey(block).getPath();
-
+	private void registerFlatMachineState(FlatMachineBlock machine) {
+		String blockName = ForgeRegistries.BLOCKS.getKey(machine).getPath();
 		ModelFile model = models().withExistingParent(blockName, modLoc("pad_base"))
-				.texture("particle", modLoc("block/" + top))
-				.texture("design", modLoc("block/" + top))
-				.texture("pad", modLoc("block/machine_bottom"));
+				.texture("particle", modLoc("block/" + machine.textures.get("top")))
+				.texture("design", modLoc("block/" + machine.textures.get("top")))
+				.texture("pad", modLoc("block/" + machine.textures.get("bottom")));
 
-		if(block instanceof RotatablePadBlock) {
-			getVariantBuilder(block).forAllStatesExcept(state -> {
-				Direction direction = state.getValue(PadEffectBlock.FACING);
+		if (machine.isDirectional) {
+			getVariantBuilder(machine).forAllStatesExcept(state -> {
+				Direction direction = state.getValue(FlatMachineBlock.FACING);
 
 				int yRot = switch (direction) {
 					case EAST -> 90;
@@ -114,7 +111,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 						.build();
 			});
 		} else {
-			simpleBlock(block, model);
+			simpleBlock(machine, model);
 		}
 
 		itemModels().withExistingParent(blockName, modLoc("block/" + blockName));

@@ -1,17 +1,32 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,powered=false": {
       "model": "androtech:block/weak_acceleration_pad",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,powered=true": {
+      "model": "androtech:block/weak_acceleration_pad",
+      "y": 90
+    },
+    "facing=north,powered=false": {
       "model": "androtech:block/weak_acceleration_pad"
     },
-    "facing=south": {
+    "facing=north,powered=true": {
+      "model": "androtech:block/weak_acceleration_pad"
+    },
+    "facing=south,powered=false": {
       "model": "androtech:block/weak_acceleration_pad",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,powered=true": {
+      "model": "androtech:block/weak_acceleration_pad",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "androtech:block/weak_acceleration_pad",
+      "y": 270
+    },
+    "facing=west,powered=true": {
       "model": "androtech:block/weak_acceleration_pad",
       "y": 270
     }

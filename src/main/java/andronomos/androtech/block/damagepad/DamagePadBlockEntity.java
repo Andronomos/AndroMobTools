@@ -1,4 +1,4 @@
-package andronomos.androtech.block.pad.damagepad;
+package andronomos.androtech.block.damagepad;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseBlockEntity;
@@ -43,7 +43,6 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 			}
 		};
 	}
-
 
 	@Override
 	public Component getDisplayName() {

@@ -2,7 +2,7 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlockEntity;
-import andronomos.androtech.block.pad.damagepad.DamagePadBlockEntity;
+import andronomos.androtech.block.damagepad.DamagePadBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

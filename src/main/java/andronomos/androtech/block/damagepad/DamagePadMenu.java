@@ -1,8 +1,7 @@
-package andronomos.androtech.block.pad.damagepad;
+package andronomos.androtech.block.damagepad;
 
 import andronomos.androtech.block.base.BaseMenu;
 import andronomos.androtech.inventory.server.RestrictedSlotHandler;
-import andronomos.androtech.item.DamagePadUpgradeItem;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import andronomos.androtech.registry.MenuTypeRegistry;
@@ -12,13 +11,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.SimpleContainerData;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-
-import static andronomos.androtech.Constants.*;
 
 public class DamagePadMenu extends BaseMenu {
 	public DamagePadMenu(int containerId, Inventory inventory, FriendlyByteBuf extraData) {

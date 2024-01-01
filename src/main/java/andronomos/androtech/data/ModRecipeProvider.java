@@ -1,5 +1,7 @@
 package andronomos.androtech.data;
 
+import andronomos.androtech.registry.BlockRegistry;
+import andronomos.androtech.registry.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
@@ -7,6 +9,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -19,7 +22,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 	@Override
 	protected void buildRecipes(Consumer<FinishedRecipe> recipeConsumer) {
-
+		//ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.STRONG_ACCELERATION_PAD.get(), 4)
+		//		.define('1', Tags.Items.INGOTS_IRON)
+		//		.pattern("000")
+		//		.pattern("000")
+		//		.pattern("111")
+		//		.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
+		//		.save(recipeConsumer);
 	}
 
 	private void generateSingleItemShapelessRecipe(Block output, Block sourceBlock, Consumer<FinishedRecipe> consumer) {
