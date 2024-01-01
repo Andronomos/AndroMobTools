@@ -54,7 +54,7 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	@Override
 	protected void saveAdditional(CompoundTag tag) {
 		if (itemHandler != null) {
-			tag.put("Inventory", itemHandler.serializeNBT());
+			tag.put("inventory", itemHandler.serializeNBT());
 		}
 		super.saveAdditional(tag);
 	}
@@ -63,9 +63,11 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	public void load(CompoundTag tag) {
 		super.load(tag);
 		if (itemHandler != null) {
-			itemHandler.deserializeNBT(tag.getCompound("Inventory"));
+			itemHandler.deserializeNBT(tag.getCompound("inventory"));
 		}
 	}
+
+
 
 	protected abstract ItemStackHandler createInventoryItemHandler();
 
@@ -78,6 +80,6 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	}
 
 	protected AABB getWorkArea(Direction direction) {
-		return RadiusHelper.cubefromCenter(this.worldPosition, 0);
+		return RadiusHelper.boxFromCenter(this.worldPosition, 0);
 	}
 }
