@@ -1,5 +1,6 @@
 package andronomos.androtech.block.pad;
 
+import andronomos.androtech.block.base.ATMachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.BlockGetter;
@@ -9,11 +10,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class PadBlock extends Block {
+public abstract class PadBlock extends ATMachineBlock {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 
     public PadBlock(Properties properties) {
-        super(properties);
+        super(properties, false);
+    }
+
+    public PadBlock(Properties properties, boolean hasMultipleStates) {
+        super(properties, hasMultipleStates);
     }
 
     @Override

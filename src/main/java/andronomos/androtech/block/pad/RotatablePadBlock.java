@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 
 import javax.annotation.Nullable;
 
-public class RotatablePadBlock extends PadBlock {
+public abstract class RotatablePadBlock extends PadBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public RotatablePadBlock(Properties properties) {

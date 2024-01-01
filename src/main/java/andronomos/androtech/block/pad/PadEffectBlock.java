@@ -38,4 +38,9 @@ public class PadEffectBlock extends RotatablePadBlock {
 	public boolean isPossibleToRespawnInThis(BlockState p_279289_) {
 		return true;
 	}
+
+	@Override
+	public void OpenScreen(Level level, BlockPos pos, Player player) {
+		return;
+	}
 }
