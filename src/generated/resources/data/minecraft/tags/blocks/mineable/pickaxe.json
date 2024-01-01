@@ -1,6 +1,7 @@
 {
   "values": [
     "androtech:weak_acceleration_pad",
+    "androtech:normal_acceleration_pad",
     "androtech:strong_acceleration_pad",
     "androtech:damage_pad",
     "androtech:item_attractor"

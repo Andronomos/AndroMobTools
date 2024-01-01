@@ -3,6 +3,7 @@
   "block.androtech.damage_pad.tooltip": "Damages entities that stand on it",
   "block.androtech.item_attractor": "Item Attractor",
   "block.androtech.item_attractor.tooltip": "Pulls nearby items",
+  "block.androtech.normal_acceleration_pad": "Normal Acceleration Pad",
   "block.androtech.strong_acceleration_pad": "Strong Acceleration Pad",
   "block.androtech.weak_acceleration_pad": "Weak Acceleration Pad",
   "creativetab.androtech": "AndroTech",

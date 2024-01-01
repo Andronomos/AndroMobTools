@@ -1,14 +1,17 @@
-// 1.20.1	2023-12-31T07:05:01.848839	Block States: androtech
+// 1.20.1	2024-01-01T05:22:04.2880132	Block States: androtech
 e8186ee8f14a18fbecec42a05c581045f140e3c9 assets/androtech/blockstates/damage_pad.json
 c1ab93bfe555ddf7e219e7bcf0b769b9c0ec0d58 assets/androtech/blockstates/item_attractor.json
+8f952f8911f173c5a1a0eac87aba451447efc2dc assets/androtech/blockstates/normal_acceleration_pad.json
 835099cbb37a7ca58ab251914d62b5a14472d0b9 assets/androtech/blockstates/strong_acceleration_pad.json
 4d05ebf1e7a7fc48ad9221a397a9cfee4fa5a69a assets/androtech/blockstates/weak_acceleration_pad.json
 c5cef02c4c79fa564ce399cb1ef417c65852bfdd assets/androtech/models/block/damage_pad.json
 79b5bba23bc46224fad0b76ec72f993f50f8f0f7 assets/androtech/models/block/item_attractor_off.json
 2078581b65ced1a95ad3381dada6e11518e0e8f2 assets/androtech/models/block/item_attractor_on.json
+4fb14da16ab8feb9019eb8c8475a9156ca6204c8 assets/androtech/models/block/normal_acceleration_pad.json
 be6076ef085b9e0db0924286320675acca917419 assets/androtech/models/block/strong_acceleration_pad.json
 40e10ce83222eadd6aa31a99abfbe2b8feaee531 assets/androtech/models/block/weak_acceleration_pad.json
 51fab1f64dbeb0234b0967df1c1b6693013be4e0 assets/androtech/models/item/damage_pad.json
 c8b25840450184260b4b0a522238d84ed3cb46ac assets/androtech/models/item/item_attractor.json
+b0b8090dcad9de9a457e40d914b16d3905bdb158 assets/androtech/models/item/normal_acceleration_pad.json
 d73a5c77f3e22205f857bc05b44f81074848c93f assets/androtech/models/item/strong_acceleration_pad.json
 a9eb1cb331367f760bef6f6d44a26afe6e2d0c33 assets/androtech/models/item/weak_acceleration_pad.json

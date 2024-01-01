@@ -32,6 +32,7 @@ public class BlockRegistry {
 
 
 	public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad", PadEffects.ACCELERATION_WEAK, true);
+	public static final RegistryObject<Block> NORMAL_ACCELERATION_PAD = registerPad("normal_acceleration_pad", PadEffects.ACCELERATION_NORMAL, true);
 	public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad", PadEffects.ACCELERATION_STRONG, true);
 	public static final RegistryObject<Block> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
 	public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
