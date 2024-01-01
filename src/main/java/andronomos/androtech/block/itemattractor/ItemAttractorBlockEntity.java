@@ -38,12 +38,20 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 
 	@Nonnull
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(Constants.VANILLA_INVENTORY_SLOT_COUNT);
+		return new ItemStackHandler(Constants.VANILLA_INVENTORY_SLOT_COUNT) {
+			@Override
+			protected void onContentsChanged(int slot) {
+				setChanged();
+				if(!level.isClientSide()) {
+					level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+				}
+			}
+		};
 	}
 
 	@Override
 	public AABB getWorkArea() {
-		return RadiusHelper.nineByNineByNineCubeFromCenter(getBlockPos());
+		return RadiusHelper.nineByNineByNineBoxFromCenter(getBlockPos());
 	}
 
 	@Override
@@ -64,7 +72,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 		if (level.getGameTime() % 10 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof ItemAttractorBlock) {
 			setChanged(level, pos, state);
 
-			if(!InventoryHelper.inventoryIsFull(itemHandler)) {
+			if(!InventoryHelper.isFull(itemHandler)) {
 				captureDroppedItems();
 			}
 
@@ -77,7 +85,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 			if(item == null)
 				return;
 
-			ItemStack stack = InventoryHelper.insertIntoInventory(item.getItem().copy(), itemHandler, false);
+			ItemStack stack = InventoryHelper.insert(item.getItem().copy(), itemHandler, false);
 
 			if (!stack.isEmpty()) {
 				item.setItem(stack);

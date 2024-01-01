@@ -33,7 +33,15 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	@Override
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(DamagePadBlock.PAD_SLOTS);
+		return new ItemStackHandler(DamagePadBlock.PAD_SLOTS) {
+			@Override
+			protected void onContentsChanged(int slot) {
+				setChanged();
+				if(!level.isClientSide()) {
+					level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+				}
+			}
+		};
 	}
 
 
