@@ -1,6 +1,5 @@
 package andronomos.androtech.block.base;
 
-import andronomos.androtech.block.base.ATBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -10,6 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class ATMachineBlock extends ATBlock {
 	public boolean hasMultipleStates;
@@ -24,7 +24,7 @@ public abstract class ATMachineBlock extends ATBlock {
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+	public @NotNull InteractionResult use(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult result) {
 		if(!level.isClientSide) {
 			OpenScreen(level, pos, player);
 		}
@@ -32,7 +32,7 @@ public abstract class ATMachineBlock extends ATBlock {
 	}
 
 	@Override
-	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+	public void onRemove(BlockState state, @NotNull Level level, @NotNull BlockPos pos, BlockState newState, boolean isMoving) {
 		if (state.getBlock() != newState.getBlock()) {
 			final BlockEntity entity = level.getBlockEntity(pos);
 			if(entity != null) {

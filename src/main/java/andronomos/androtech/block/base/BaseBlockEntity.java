@@ -60,7 +60,7 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public void load(CompoundTag tag) {
+	public void load(@NotNull CompoundTag tag) {
 		super.load(tag);
 		if (itemHandler != null) {
 			itemHandler.deserializeNBT(tag.getCompound("inventory"));
@@ -74,10 +74,6 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	protected void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity blockEntity) { }
 
 	protected AABB getWorkArea() {
-		return getWorkArea(Direction.NORTH);
-	}
-
-	protected AABB getWorkArea(Direction direction) {
 		return RadiusHelper.boxFromCenter(this.worldPosition, 0);
 	}
 }

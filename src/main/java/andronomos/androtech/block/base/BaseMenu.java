@@ -1,11 +1,12 @@
 package andronomos.androtech.block.base;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.Constants;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -13,7 +14,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.Nullable;
 
-import static andronomos.androtech.Constants.*;
+import static andronomos.androtech.Constants.PLAYER_INVENTORY_SLOT_COUNT;
+import static andronomos.androtech.Constants.VANILLA_INVENTORY_FIRST_SLOT_INDEX;
 
 public abstract class BaseMenu extends AbstractContainerMenu {
 	public final BlockEntity blockEntity;
