@@ -1,6 +1,8 @@
 package andronomos.androtech;
 
+import andronomos.androtech.block.itemattractor.ItemAttractorScreen;
 import andronomos.androtech.block.pad.damagepad.DamagePadScreen;
+import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.registry.*;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -22,6 +24,7 @@ public class AndroTech {
 
 	public AndroTech() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		AndroTechPacketHandler.register();
 		BlockRegistry.BLOCKS.register(modEventBus);
 		ItemRegistry.ITEMS.register(modEventBus);
 		CreativeTabRegistry.CREATIVE_MODE_TABS.register(modEventBus);
@@ -34,6 +37,7 @@ public class AndroTech {
 	private void clientSetup(final FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
 			MenuScreens.register(MenuTypeRegistry.DAMAGE_PAD_MENU.get(), DamagePadScreen::new);
+			MenuScreens.register(MenuTypeRegistry.ITEM_ATTRACTOR_MENU.get(), ItemAttractorScreen::new);
 		});
 	}
 }
