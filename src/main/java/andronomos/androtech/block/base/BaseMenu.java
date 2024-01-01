@@ -1,6 +1,8 @@
 package andronomos.androtech.block.base;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.Constants;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -11,17 +13,16 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class BaseMenu extends AbstractContainerMenu {
-	private final ContainerData data;
+import static andronomos.androtech.Constants.*;
 
+public abstract class BaseMenu extends AbstractContainerMenu {
 	public final BlockEntity blockEntity;
 	protected final Level level;
 	protected final Inventory inventory;
 	protected final Player player;
-	protected static int playerInventoryFirstSlot;
-	protected static int playerInventoryLastSlot;
-	protected static int blockEntityFirstSlot;
-	protected static int blockEntityLastSlot;
+	protected static int blockEntitySlotCount;
+
+	private final ContainerData data;
 
 	public BaseMenu(@Nullable MenuType<?> menuType, int containerId, Inventory inventory, BlockEntity entity, ContainerData data) {
 		super(menuType, containerId);
@@ -40,17 +41,18 @@ public abstract class BaseMenu extends AbstractContainerMenu {
 		ItemStack sourceStack = sourceSlot.getItem();
 		ItemStack sourceStackCopy = sourceStack.copy();
 
-		if(slotIndex >= playerInventoryFirstSlot) {
-			if(!moveItemStackTo(sourceStack, blockEntityFirstSlot, blockEntityLastSlot, false)) {
+		if (slotIndex < VANILLA_INVENTORY_FIRST_SLOT_INDEX + PLAYER_INVENTORY_SLOT_COUNT) {
+			if (!moveItemStackTo(sourceStack, PLAYER_INVENTORY_SLOT_COUNT, PLAYER_INVENTORY_SLOT_COUNT + blockEntitySlotCount, false)) {
+				return ItemStack.EMPTY;
+			}
+		} else if (slotIndex < PLAYER_INVENTORY_SLOT_COUNT + blockEntitySlotCount) {
+			if (!moveItemStackTo(sourceStack, VANILLA_INVENTORY_FIRST_SLOT_INDEX, VANILLA_INVENTORY_FIRST_SLOT_INDEX + PLAYER_INVENTORY_SLOT_COUNT, false)) {
 				return ItemStack.EMPTY;
 			}
 		} else {
-			if(!moveItemStackTo(sourceStack, playerInventoryFirstSlot, playerInventoryLastSlot, false)) {
-				return ItemStack.EMPTY;
-			}
+			return ItemStack.EMPTY;
 		}
 
-		// If stack size == 0 (the entire stack was moved) set slot contents to null
 		if (sourceStack.getCount() == 0) {
 			sourceSlot.set(ItemStack.EMPTY);
 		} else {
@@ -60,11 +62,23 @@ public abstract class BaseMenu extends AbstractContainerMenu {
 		return sourceStackCopy;
 	}
 
+	//@Override
+	//public void clicked(int slotId, int mouseButton, ClickType clickType, Player player) {
+	//	super.clicked(slotId, mouseButton, clickType, player);
+	//
+	//	if (player.level().isClientSide) {
+	//		return;
+	//	}
+	//
+	//	AndroTech.LOGGER.info(String.format("inventory.getContainerSize: %s", inventory.getContainerSize()));
+	//	AndroTech.LOGGER.info(String.format("blockEntitySlotCount: %s", blockEntitySlotCount));
+	//
+	//	player.sendSystemMessage(Component.literal(String.format("Slotid: %s", slotId)));
+	//	//player.sendSystemMessage(Component.literal(String.format("mouseButton: %s", mouseButton)));
+	//}
+
 	protected void setSlotIndexes(int slotCount) {
-		blockEntityFirstSlot = 0;
-		blockEntityLastSlot = Math.max(slotCount, 1); //moveItemStackTo requires 2 different slotIds to work properly so the last slot must be larger than the first
-		playerInventoryFirstSlot = slotCount > 1 ? slotCount + 1 : slotCount;
-		playerInventoryLastSlot = slotCount > 1 ? slotCount + Constants.PLAYER_INVENTORY_SLOT_COUNT : Constants.PLAYER_INVENTORY_SLOT_COUNT;
+		blockEntitySlotCount = slotCount;
 	}
 
 	protected void addPlayerInventory() {
