@@ -1,7 +1,7 @@
 package andronomos.androtech;
 
 import andronomos.androtech.block.itemattractor.ItemAttractorScreen;
-import andronomos.androtech.block.pad.damagepad.DamagePadScreen;
+import andronomos.androtech.block.damagepad.DamagePadScreen;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.registry.*;
 import com.mojang.authlib.GameProfile;
