@@ -1,7 +1,7 @@
 package andronomos.androtech.block.itemattractor;
 
-import andronomos.androtech.block.base.machine.ATGUIMachineBlock;
 import andronomos.androtech.block.IPoweredBlock;
+import andronomos.androtech.block.base.ATMachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class ItemAttractorBlock extends ATGUIMachineBlock implements IPoweredBlock, EntityBlock {
+public class ItemAttractorBlock extends ATMachineBlock implements IPoweredBlock, EntityBlock {
 	public static final String DISPLAY_NAME = "screen.androtech.item_attractor";
 	public static final String TOOLTIP = "block.androtech.item_attractor.tooltip";
 
