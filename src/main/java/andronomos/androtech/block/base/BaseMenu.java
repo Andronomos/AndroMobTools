@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public abstract class BaseMenu extends AbstractContainerMenu {
 	private final ContainerData data;
 
-	protected final BlockEntity blockEntity;
+	public final BlockEntity blockEntity;
 	protected final Level level;
 	protected final Inventory inventory;
 	protected final Player player;
