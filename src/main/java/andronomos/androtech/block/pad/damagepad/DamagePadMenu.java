@@ -24,15 +24,15 @@ public class DamagePadMenu extends BaseMenu {
 		addPlayerInventory();
 		addPlayerHotbar();
 		if(entity instanceof DamagePadBlockEntity damagePadBlockEntity) {
-			damagePadBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-				addSlot(new RestrictedSlotHandler(iItemHandler, 0, 43, 30, ItemRegistry.SHARPNESS_AUGMENT.get().getDefaultInstance(), 10));
-				addSlot(new RestrictedSlotHandler(iItemHandler, 1, 68, 30, ItemRegistry.LOOTING_AUGMENT.get().getDefaultInstance(), 10 ));
-				addSlot(new RestrictedSlotHandler(iItemHandler, 2, 93, 30, ItemRegistry.FIRE_AUGMENT.get().getDefaultInstance(), 10 ));
-				addSlot(new RestrictedSlotHandler(iItemHandler, 3, 118, 30, ItemRegistry.SMITE_AUGMENT.get().getDefaultInstance(), 10 ));
+			damagePadBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(itemHandler -> {
+				addSlot(new RestrictedSlotHandler(itemHandler, 0, 43, 30, ItemRegistry.SHARPNESS_AUGMENT.get().getDefaultInstance(), 10));
+				addSlot(new RestrictedSlotHandler(itemHandler, 1, 68, 30, ItemRegistry.LOOTING_AUGMENT.get().getDefaultInstance(), 10 ));
+				addSlot(new RestrictedSlotHandler(itemHandler, 2, 93, 30, ItemRegistry.FIRE_AUGMENT.get().getDefaultInstance(), 10 ));
+				addSlot(new RestrictedSlotHandler(itemHandler, 3, 118, 30, ItemRegistry.SMITE_AUGMENT.get().getDefaultInstance(), 10 ));
 			});
 		}
 		setSlotIndexes(DamagePadBlock.PAD_SLOTS);
-		addDataSlots(data);
+		//addDataSlots(data);
 	}
 
 	//@Override
