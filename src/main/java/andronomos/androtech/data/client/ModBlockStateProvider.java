@@ -1,7 +1,7 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.base.machine.ATMachineBlock;
+import andronomos.androtech.block.base.ATMachineBlock;
 import andronomos.androtech.block.pad.PadBlock;
 import andronomos.androtech.block.pad.PadEffectBlock;
 import andronomos.androtech.block.pad.RotatablePadBlock;
@@ -88,8 +88,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 			itemModels().withExistingParent(machineName, modLoc("block/" + machineName));
 		}
 	}
-
-
 
 	private void registerPadStateAndModel(Block block, String top) {
 		String blockName = ForgeRegistries.BLOCKS.getKey(block).getPath();
