@@ -8,6 +8,7 @@ public class Constants {
 	public static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
 	public static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_ROW_COUNT * PLAYER_INVENTORY_COLUMN_COUNT + PLAYER_HOTBAR_SLOT_COUNT;
 
+	public static final int VANILLA_INVENTORY_FIRST_SLOT_INDEX = 0;
 	public static final int VANILLA_INVENTORY_SLOT_COUNT = 27;
 	public static final int VANILLA_LARGE_INVENTORY_SLOT_COUNT = 54;
 
