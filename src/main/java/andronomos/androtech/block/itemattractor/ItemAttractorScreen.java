@@ -25,19 +25,11 @@ public class ItemAttractorScreen extends BaseScreen<ItemAttractorMenu> {
 		}, menu.blockEntity));
 	}
 
-	//@Override
-	//public void render(PoseStack stack, int mouseX, int mouseY, float partialTicks) {
-	//	this.renderBackground(stack);
-	//	super.render(stack, mouseX, mouseY, partialTicks);
-	//	this.renderTooltip(stack, mouseX, mouseY);
-	//}
-
-	//@Override
-	//protected void renderLabels(PoseStack stack, int mouseX, int mouseY) {
-	//	//this.drawButtonTooltips(stack, mouseX, mouseY);
-	//	this.drawName(stack, title.getString());
-	//	powerButton.update();
-	//}
+	@Override
+	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+		super.renderLabels(guiGraphics, mouseX, mouseY);
+		powerButton.update();
+	}
 
 	@Override
 	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
