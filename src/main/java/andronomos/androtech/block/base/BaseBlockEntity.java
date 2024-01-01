@@ -67,8 +67,6 @@ public abstract class BaseBlockEntity extends BlockEntity {
 		}
 	}
 
-
-
 	protected abstract ItemStackHandler createInventoryItemHandler();
 
 	protected void clientTick(Level level, BlockPos pos, BlockState state, BaseBlockEntity blockEntity) { }

@@ -31,7 +31,6 @@ public class SyncMachinePoweredState {
 			BlockState state = level.getBlockState(msg.pos);
 			level.setBlockAndUpdate(msg.pos, state.cycle(BlockStateProperties.POWERED));
 		});
-
 		ctx.get().setPacketHandled(true);
 	}
 }
