@@ -9,7 +9,7 @@ public class FlatMachineEffects {
 	public static ICollisionEffect ACCELERATION_NORMAL = new CollisionEffectAcceleration(0.3d);
 	public static ICollisionEffect ACCELERATION_STRONG = new CollisionEffectAcceleration(1.5d);
 
-	public static ICollisionEffect JUMP_WEAK = new CollisionEffectJumpBoost(.06d);
-	public static ICollisionEffect JUMP_NORMAL = new CollisionEffectJumpBoost(0.3D);
+	public static ICollisionEffect JUMP_WEAK = new CollisionEffectJumpBoost(.3d);
+	public static ICollisionEffect JUMP_NORMAL = new CollisionEffectJumpBoost(1D);
 	public static ICollisionEffect JUMP_STRONG = new CollisionEffectJumpBoost(1.5d);
 }
