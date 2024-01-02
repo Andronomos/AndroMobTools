@@ -19,6 +19,11 @@ public class ItemRegistry {
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AndroTech.MODID);
 
+	public static final RegistryObject<Item> CIRCUIT_WAFER = register("circuit_wafer");
+	public static final RegistryObject<Item> BASIC_CIRCUIT = register("basic_circuit");
+	public static final RegistryObject<Item> ADVANCED_CIRCUIT = register("advanced_circuit");
+	public static final RegistryObject<Item> ELITE_CIRCUIT = register("elite_circuit");
+
 	public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword",
 			() -> new FakeSword(new Item.Properties()));
 
@@ -45,4 +50,8 @@ public class ItemRegistry {
 
 	public static final RegistryObject<Item> NANITE_ENHANCED_SWORD = ITEMS.register("nanite_enhanced_sword",
 			() -> new NaniteEnhancedSword(Tiers.NETHERITE, 3, -2.4F, NANITE_TOOL_PROPERTIES));
+
+	private static RegistryObject<Item> register(String name) {
+		return ITEMS.register(name, () -> new Item(new Item.Properties()));
+	}
 }
