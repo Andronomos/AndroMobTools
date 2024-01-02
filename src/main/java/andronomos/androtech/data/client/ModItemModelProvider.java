@@ -18,6 +18,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("fire_augment");
 		createSingleTexture("smite_augment");
 		createSingleTexture("fake_sword");
+		createSingleTexture("nanite_enhanced_pickaxe");
+		createSingleTexture("nanite_enhanced_axe");
+		createSingleTexture("nanite_enhanced_shovel");
+		createSingleTexture("nanite_enhanced_sword");
 	}
 
 	private ItemModelBuilder createSingleTexture(String name) {
