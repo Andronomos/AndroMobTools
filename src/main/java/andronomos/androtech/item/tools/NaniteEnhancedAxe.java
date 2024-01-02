@@ -8,6 +8,7 @@ import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class NaniteEnhancedAxe extends AxeItem {
 	public int tickDelay = Constants.TicksInSeconds.THREE;
@@ -23,7 +24,7 @@ public class NaniteEnhancedAxe extends AxeItem {
 	}
 
 	@Override
-	public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
+	public void inventoryTick(@NotNull ItemStack stack, Level level, @NotNull Entity entity, int itemSlot, boolean isSelected) {
 		if (level.isClientSide || !(entity instanceof Player)) return;
 		if(this.tickCounter == this.tickDelay) {
 			this.tickCounter = 0;
