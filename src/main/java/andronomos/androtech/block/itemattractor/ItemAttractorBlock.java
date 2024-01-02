@@ -21,6 +21,7 @@ public class ItemAttractorBlock extends MachineBlock {
 		super(properties, true, false, false);
 		addTexture("top_off", "item_attractor_off_top");
 		addTexture("side_off", "item_attractor_off_side");
+		addTexture("bottom_off", "item_attractor_off_bottom");
 		addTexture("top_on", "item_attractor_on_top");
 		addTexture("side_on", "item_attractor_on_side");
 		addTexture("bottom_on", "item_attractor_on_bottom");
