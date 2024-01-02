@@ -19,7 +19,6 @@ public class ItemRegistry {
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AndroTech.MODID);
 
-	public static final RegistryObject<Item> CHIP_WAFER = register("chip_wafer");
 	public static final RegistryObject<Item> BASIC_CHIP = register("basic_chip");
 	public static final RegistryObject<Item> ADVANCED_CHIP = register("advanced_chip");
 	public static final RegistryObject<Item> ELITE_CHIP = register("elite_chip");

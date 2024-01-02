@@ -44,7 +44,6 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemRegistry.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
 		add(ItemRegistry.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Shovel");
 		add(ItemRegistry.NANITE_ENHANCED_SWORD.get(), "Nanite Enhanced Sword");
-		add(ItemRegistry.CHIP_WAFER.get(), "Chip Wafer");
 		add(ItemRegistry.BASIC_CHIP.get(), "Basic Chip");
 		add(ItemRegistry.ADVANCED_CHIP.get(), "Advanced Chip");
 		add(ItemRegistry.ELITE_CHIP.get(), "Elite Chip");
