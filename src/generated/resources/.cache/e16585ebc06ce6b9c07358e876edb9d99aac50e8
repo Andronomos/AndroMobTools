@@ -1,4 +1,8 @@
-// 1.20.1	2024-01-01T22:54:33.3197509	Item Models: androtech
+// 1.20.1	2024-01-01T23:28:22.3819415	Item Models: androtech
+d4287454af1218414113927b7ed5b3325fe726d2 assets/androtech/models/item/advanced_circuit.json
+11a89a85a97edba5954929d994278e318237a3c2 assets/androtech/models/item/basic_circuit.json
+0282e3ff3e8bc38fc873bd127a3612ea0c125a0f assets/androtech/models/item/circuit_wafer.json
+d3fef5cd206aa232af22668ef585077373d38e62 assets/androtech/models/item/elite_circuit.json
 d4e243d044ce15d21fd25a12d258e9829ece72ea assets/androtech/models/item/fake_sword.json
 8ca13f16d331836e29bfc3bf3d94f563baf10f68 assets/androtech/models/item/fire_augment.json
 05c2e96cc6a11860869849b29f802786b613634a assets/androtech/models/item/looting_augment.json
