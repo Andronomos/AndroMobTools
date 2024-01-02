@@ -1,6 +1,10 @@
-// 1.20.1	2023-12-31T07:05:01.8476575	Item Models: androtech
+// 1.20.1	2024-01-01T22:54:33.3197509	Item Models: androtech
 d4e243d044ce15d21fd25a12d258e9829ece72ea assets/androtech/models/item/fake_sword.json
 8ca13f16d331836e29bfc3bf3d94f563baf10f68 assets/androtech/models/item/fire_augment.json
 05c2e96cc6a11860869849b29f802786b613634a assets/androtech/models/item/looting_augment.json
+094002525a83485715222c2c3a0bd57001ae46c2 assets/androtech/models/item/nanite_enhanced_axe.json
+e46395f08d1489c564e0bd9c40f65b1b6cc43886 assets/androtech/models/item/nanite_enhanced_pickaxe.json
+9750200c83cd210911ccd18ccc39c5eb2ec2d494 assets/androtech/models/item/nanite_enhanced_shovel.json
+d2592148738811d2a974e41046755d83612aef0f assets/androtech/models/item/nanite_enhanced_sword.json
 1ea76ffeda9e54e1c37a4577fe055946ec3a21cd assets/androtech/models/item/sharpness_augment.json
 05ee779022abc915a0eb5a566a6714f197c12aea assets/androtech/models/item/smite_augment.json
