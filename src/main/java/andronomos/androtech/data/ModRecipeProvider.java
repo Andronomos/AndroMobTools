@@ -5,6 +5,7 @@ import andronomos.androtech.registry.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
@@ -22,6 +23,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 	@Override
 	protected void buildRecipes(Consumer<FinishedRecipe> recipeConsumer) {
+		generateChipRecipe(ItemRegistry.BASIC_CHIP.get(), Items.IRON_INGOT, recipeConsumer);
+		generateChipRecipe(ItemRegistry.ADVANCED_CHIP.get(), Items.GOLD_INGOT, recipeConsumer);
+		generateChipRecipe(ItemRegistry.ELITE_CHIP.get(), Items.DIAMOND, recipeConsumer);
+
 		//ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.STRONG_ACCELERATION_PAD.get(), 4)
 		//		.define('1', Tags.Items.INGOTS_IRON)
 		//		.pattern("000")
@@ -29,6 +34,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		//		.pattern("111")
 		//		.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
 		//		.save(recipeConsumer);
+	}
+
+	private void generateChipRecipe(Item output, Item item, Consumer<FinishedRecipe> consumer) {
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 1)
+				.define('1', Items.COPPER_INGOT)
+				.define('2', Items.SLIME_BALL)
+				.define('3', Items.REDSTONE)
+				.define('4', Items.QUARTZ)
+				.define('5', Items.AMETHYST_SHARD)
+				.define('6', item)
+				.pattern("414")
+				.pattern("365")
+				.pattern("424")
+				.unlockedBy("has_item", has(Items.REDSTONE))
+				.save(consumer);
 	}
 
 	private void generateSingleItemShapelessRecipe(Block output, Block sourceBlock, Consumer<FinishedRecipe> consumer) {
