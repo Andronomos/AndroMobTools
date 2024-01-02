@@ -40,6 +40,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");
 		add(ItemRegistry.LOOTING_AUGMENT.get(), "Looting Augment");
+		add(ItemRegistry.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
+		add(ItemRegistry.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
+		add(ItemRegistry.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Shovel");
+		add(ItemRegistry.NANITE_ENHANCED_SWORD.get(), "Nanite Enhanced Sword");
 		add(MachineBlock.GUI_ON, "Powered On");
 		add(MachineBlock.GUI_OFF, "Powered Off");
 	}
