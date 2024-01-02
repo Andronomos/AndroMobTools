@@ -1,6 +1,5 @@
 package andronomos.androtech.data;
 
-import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -8,12 +7,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
@@ -22,7 +20,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 	}
 
 	@Override
-	protected void buildRecipes(Consumer<FinishedRecipe> recipeConsumer) {
+	protected void buildRecipes(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
 		generateChipRecipe(ItemRegistry.BASIC_CHIP.get(), Items.IRON_INGOT, recipeConsumer);
 		generateChipRecipe(ItemRegistry.ADVANCED_CHIP.get(), Items.GOLD_INGOT, recipeConsumer);
 		generateChipRecipe(ItemRegistry.ELITE_CHIP.get(), Items.DIAMOND, recipeConsumer);
@@ -69,27 +67,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 	}
 
 	private void generateStoneCutterRecipe(Block output, Block input, int amount, Consumer<FinishedRecipe> consumer) {
-		String blockName = ForgeRegistries.BLOCKS.getKey(output).getPath();
+		String blockName = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(output)).getPath();
 		SingleItemRecipeBuilder stonecutting = SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), RecipeCategory.BUILDING_BLOCKS, output, amount);
 		stonecutting.unlockedBy("has_item", has(input));
 		stonecutting.save(consumer, blockName + "_from_stonecutting");
-	}
-
-	private void generateSlabRecipe(SlabBlock output, Item input, Consumer<FinishedRecipe> consumer) {
-		ShapedRecipeBuilder shaped = ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, output, 6);
-		shaped.define('#', input);
-		shaped.pattern("###");
-		shaped.unlockedBy("has_item", has(input));
-		shaped.save(consumer);
-	}
-
-	private void generateStairRecipe(StairBlock output, Item input, Consumer<FinishedRecipe> consumer) {
-		ShapedRecipeBuilder shaped = ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, output, 4);
-		shaped.define('#', input);
-		shaped.pattern("#  ");
-		shaped.pattern("## ");
-		shaped.pattern("###");
-		shaped.unlockedBy("has_item", has(input));
-		shaped.save(consumer);
 	}
 }
