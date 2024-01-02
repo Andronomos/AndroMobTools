@@ -22,6 +22,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("nanite_enhanced_axe");
 		createSingleTexture("nanite_enhanced_shovel");
 		createSingleTexture("nanite_enhanced_sword");
+		createSingleTexture("circuit_wafer");
+		createSingleTexture("basic_circuit");
+		createSingleTexture("advanced_circuit");
+		createSingleTexture("elite_circuit");
 	}
 
 	private ItemModelBuilder createSingleTexture(String name) {
