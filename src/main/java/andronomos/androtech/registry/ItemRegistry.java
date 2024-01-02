@@ -19,10 +19,10 @@ public class ItemRegistry {
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AndroTech.MODID);
 
-	public static final RegistryObject<Item> CIRCUIT_WAFER = register("circuit_wafer");
-	public static final RegistryObject<Item> BASIC_CIRCUIT = register("basic_circuit");
-	public static final RegistryObject<Item> ADVANCED_CIRCUIT = register("advanced_circuit");
-	public static final RegistryObject<Item> ELITE_CIRCUIT = register("elite_circuit");
+	public static final RegistryObject<Item> CHIP_WAFER = register("chip_wafer");
+	public static final RegistryObject<Item> BASIC_CHIP = register("basic_chip");
+	public static final RegistryObject<Item> ADVANCED_CHIP = register("advanced_chip");
+	public static final RegistryObject<Item> ELITE_CHIP = register("elite_chip");
 
 	public static final RegistryObject<Item> FAKE_SWORD = ITEMS.register("fake_sword",
 			() -> new FakeSword(new Item.Properties()));
