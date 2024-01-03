@@ -1,7 +1,9 @@
-// 1.20.1	2024-01-02T00:39:10.084279	Recipes
+// 1.20.1	2024-01-02T16:38:02.6585267	Recipes
 21f931524e06c577cb0725c109894bea8cdc40ce data/androtech/advancements/recipes/misc/advanced_chip.json
 8452d868daf6f9daaf3ad3985ff247c05281f193 data/androtech/advancements/recipes/misc/basic_chip.json
+0b246f154730e22aca45929b0e7458deb420a733 data/androtech/advancements/recipes/misc/damage_pad.json
 a0275f817c0596b5638ec51f25715320e97d8c32 data/androtech/advancements/recipes/misc/elite_chip.json
 c6252f7e3e0ef0720e4f7063a89b1a02bf3fa310 data/androtech/recipes/advanced_chip.json
 0b16f2413551a1b513b29753497ed8306da686f2 data/androtech/recipes/basic_chip.json
+cc91164950833d364c087e9df6181da2919607c9 data/androtech/recipes/damage_pad.json
 ebabf00841172744c44fa11ecd815453f3f32aa2 data/androtech/recipes/elite_chip.json
