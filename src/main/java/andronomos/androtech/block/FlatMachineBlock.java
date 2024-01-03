@@ -38,7 +38,8 @@ public class FlatMachineBlock extends MachineBlock {
 
 	@Override
 	public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float p_180658_4_) {
-		entity.causeFallDamage(p_180658_4_, 0.0f, entity.level().damageSources().generic());
+		//entity.causeFallDamage(p_180658_4_, 0.0F, level.damageSources().fall());
+		return;
 	}
 
 	@Override
