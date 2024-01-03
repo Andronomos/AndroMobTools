@@ -1,4 +1,4 @@
-package andronomos.androtech.block.base;
+package andronomos.androtech.block;
 
 import andronomos.androtech.util.RadiusHelper;
 import net.minecraft.core.BlockPos;

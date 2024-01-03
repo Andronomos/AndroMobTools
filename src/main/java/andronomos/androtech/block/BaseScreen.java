@@ -1,4 +1,4 @@
-package andronomos.androtech.block.base;
+package andronomos.androtech.block;
 
 import andronomos.androtech.inventory.client.SideButton;
 import com.mojang.blaze3d.systems.RenderSystem;
