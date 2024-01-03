@@ -1,6 +1,6 @@
 package andronomos.androtech.block.itemattractor;
 
-import andronomos.androtech.block.base.BaseBlockEntity;
+import andronomos.androtech.block.BaseBlockEntity;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.Constants;
 import andronomos.androtech.registry.BlockEntityRegistry;

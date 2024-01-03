@@ -1,6 +1,6 @@
 package andronomos.androtech.block.itemattractor;
 
-import andronomos.androtech.block.base.BaseMenu;
+import andronomos.androtech.block.BaseMenu;
 import andronomos.androtech.Constants;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.MenuTypeRegistry;
