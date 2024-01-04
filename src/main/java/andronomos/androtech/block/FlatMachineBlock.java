@@ -49,14 +49,9 @@ public class FlatMachineBlock extends MachineBlock {
 
 	@Override
 	public void entityInside(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Entity entity) {
-		if (collisionEffect == null) {
+		if(collisionEffect == null || entity.isShiftKeyDown() || entity.getY() >= (double) pos.getY() + 0.4d) {
 			return;
 		}
-
-		if (entity.isShiftKeyDown()) {
-			return;
-		}
-
 		collisionEffect.onCollision(state, world, pos, entity);
 	}
 }
