@@ -44,6 +44,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		generateAccelerationPadRecipe(BlockRegistry.WEAK_ACCELERATION_PAD.get(), ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
 		generateAccelerationPadRecipe(BlockRegistry.NORMAL_ACCELERATION_PAD.get(), ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		generateAccelerationPadRecipe(BlockRegistry.STRONG_ACCELERATION_PAD.get(), ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.REDSTONE_SIGNAL_RECEIVER.get(), 1)
+				.define('1', Tags.Items.INGOTS_IRON)
+				.define('2', Items.REPEATER)
+				.define('3', Items.ENDER_PEARL)
+				.define('4', ItemRegistry.BASIC_CHIP.get())
+				.pattern("131")
+				.pattern("323")
+				.pattern("141")
+				.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
+				.save(recipeConsumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.REDSTONE_SIGNAL_TRANSMITTER.get(), 1)
+				.define('1', Tags.Items.INGOTS_IRON)
+				.define('2', Items.ENDER_PEARL)
+				.define('3', Items.REDSTONE_TORCH)
+				.define('4', ItemRegistry.BASIC_CHIP.get())
+				.pattern("121")
+				.pattern("232")
+				.pattern("141")
+				.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
+				.save(recipeConsumer);
 	}
 
 	private void generateAccelerationPadRecipe(Block output, Item chip, Consumer<FinishedRecipe> consumer) {

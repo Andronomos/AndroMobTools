@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "tag": "forge:ingots/iron"
+    },
+    "2": {
+      "item": "minecraft:repeater"
+    },
+    "3": {
+      "item": "minecraft:ender_pearl"
+    },
+    "4": {
+      "item": "androtech:basic_chip"
+    }
+  },
+  "pattern": [
+    "131",
+    "323",
+    "141"
+  ],
+  "result": {
+    "item": "androtech:redstone_signal_receiver"
+  },
+  "show_notification": true
+}
