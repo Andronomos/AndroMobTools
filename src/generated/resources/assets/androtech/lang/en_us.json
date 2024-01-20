@@ -5,6 +5,8 @@
   "block.androtech.item_attractor.tooltip": "Pulls nearby items",
   "block.androtech.machine_block": "Machine Block",
   "block.androtech.normal_acceleration_pad": "Normal Acceleration Pad",
+  "block.androtech.redstone_receiver.tooltip": "Emits a redstone signal when powered by a wireless redstone transmitter",
+  "block.androtech.redstone_signal_receiver": "Redstone Signal Receiver",
   "block.androtech.strong_acceleration_pad": "Strong Acceleration Pad",
   "block.androtech.weak_acceleration_pad": "Weak Acceleration Pad",
   "creativetab.androtech": "AndroTech",
@@ -22,5 +24,6 @@
   "item.androtech.sharpness_augment": "Sharpness Augment",
   "item.androtech.smite_augment": "Smite Augment",
   "screen.androtech.damage_pad": "Damage Pad",
-  "screen.androtech.item_attractor": "Item Attractor"
+  "screen.androtech.item_attractor": "Item Attractor",
+  "screen.androtech.redstone_receiver": "Redstone Signal Receiver"
 }

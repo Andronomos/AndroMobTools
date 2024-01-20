@@ -1,7 +1,8 @@
-// 1.20.1	2024-01-19T19:21:24.3385408	Loot Tables
+// 1.20.1	2024-01-20T01:16:47.0671607	Loot Tables
 a495d59a605aff85a73c653ba9f9189e318e8eaa data/androtech/loot_tables/blocks/damage_pad.json
 35faf206fc7411f6391bef35182e77854308529b data/androtech/loot_tables/blocks/item_attractor.json
 bc03e3696840c7d1051b4f7330fd0b0406d1019d data/androtech/loot_tables/blocks/machine_block.json
 0d80e72f35c327df58166944c249b2ffbe5bd358 data/androtech/loot_tables/blocks/normal_acceleration_pad.json
+6fd5430a79c72603b8d0991d33a87b1190f68cac data/androtech/loot_tables/blocks/redstone_signal_receiver.json
 5c9cb4c93de6b14a7254ce69125c492c7cca7aa6 data/androtech/loot_tables/blocks/strong_acceleration_pad.json
 848f0b63355f7ffaef6370c0a34576abf96e504a data/androtech/loot_tables/blocks/weak_acceleration_pad.json

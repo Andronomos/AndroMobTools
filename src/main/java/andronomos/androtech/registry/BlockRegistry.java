@@ -7,6 +7,7 @@ import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.block.FlatMachineBlock;
 import andronomos.androtech.block.FlatMachineEffects;
 import andronomos.androtech.block.collisioneffect.ICollisionEffect;
+import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -55,11 +56,9 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
 	public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<Block> MACHINE_BLOCK = registerBlock("machine_block", () -> new MachineBlock(MACHINE_PROPERTIES, false, false, false));
+	public static final RegistryObject<Block> REDSTONE_SIGNAL_RECIEVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES, true, false, false));
 
 
-	//private static <T extends Block> RegistryObject<Block> registerPad(String name, PadEffect effect, boolean shouldAffectPlayer) {
-	//	return registerBlock(name, () -> new PadEffectBlock(PAD_PROPERTIES.noOcclusion(), effect, shouldAffectPlayer));
-	//}
 
 	private static <T extends Block> RegistryObject<Block> registerPad(String name, boolean hasToolTip, boolean isDirectional, String topTexture, ICollisionEffect effect) {
 		return registerBlock(name, () -> new FlatMachineBlock(PAD_PROPERTIES.noOcclusion(), hasToolTip, isDirectional, topTexture, effect));
