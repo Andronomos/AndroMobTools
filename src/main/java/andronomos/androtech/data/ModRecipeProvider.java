@@ -5,10 +5,14 @@ import andronomos.androtech.registry.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.crafting.StrictNBTIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
@@ -37,6 +41,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
 				.save(recipeConsumer);
 
+		generateAccelerationPadRecipe(BlockRegistry.WEAK_ACCELERATION_PAD.get(), ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
+		generateAccelerationPadRecipe(BlockRegistry.NORMAL_ACCELERATION_PAD.get(), ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
+		generateAccelerationPadRecipe(BlockRegistry.STRONG_ACCELERATION_PAD.get(), ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
+
 		//ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.STRONG_ACCELERATION_PAD.get(), 4)
 		//		.define('1', Tags.Items.INGOTS_IRON)
 		//		.pattern("000")
@@ -44,6 +52,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		//		.pattern("111")
 		//		.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
 		//		.save(recipeConsumer);
+	}
+
+	private void generateAccelerationPadRecipe(Block output, Item chip, Consumer<FinishedRecipe> consumer) {
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 6)
+				.define('1', Tags.Items.INGOTS_IRON)
+				.define('2', chip)
+				.define('3', StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.SWIFTNESS)))
+				.pattern("   ")
+				.pattern("323")
+				.pattern("111")
+				.unlockedBy("has_item", has(chip))
+				.save(consumer);
 	}
 
 	private void generateChipRecipe(Item output, Item item, Consumer<FinishedRecipe> consumer) {
