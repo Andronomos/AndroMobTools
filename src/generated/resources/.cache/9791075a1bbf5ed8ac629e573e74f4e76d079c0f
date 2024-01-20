@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-20T01:18:50.1600132	Block States: androtech
+// 1.20.1	2024-01-20T01:35:18.3886912	Block States: androtech
 e8186ee8f14a18fbecec42a05c581045f140e3c9 assets/androtech/blockstates/damage_pad.json
 daef09f8c6b43db240eafad135cb2aa3bf08e9ed assets/androtech/blockstates/item_attractor.json
 2f7c762b1ed1c6d2f70781d21162c66195bf035a assets/androtech/blockstates/machine_block.json
@@ -12,7 +12,7 @@ c5cef02c4c79fa564ce399cb1ef417c65852bfdd assets/androtech/models/block/damage_pa
 793fec9230a28d3d17988004164489c6f7ae6370 assets/androtech/models/block/machine_block.json
 4fb14da16ab8feb9019eb8c8475a9156ca6204c8 assets/androtech/models/block/normal_acceleration_pad.json
 c9992099640b25c876c5e8675b1fa2d6835c6827 assets/androtech/models/block/redstone_signal_receiver_off.json
-793fec9230a28d3d17988004164489c6f7ae6370 assets/androtech/models/block/redstone_signal_receiver_on.json
+6232776143ec5df298b74300c5388e1ca86ad64e assets/androtech/models/block/redstone_signal_receiver_on.json
 be6076ef085b9e0db0924286320675acca917419 assets/androtech/models/block/strong_acceleration_pad.json
 40e10ce83222eadd6aa31a99abfbe2b8feaee531 assets/androtech/models/block/weak_acceleration_pad.json
 51fab1f64dbeb0234b0967df1c1b6693013be4e0 assets/androtech/models/item/damage_pad.json
