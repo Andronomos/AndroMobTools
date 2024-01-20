@@ -44,14 +44,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		generateAccelerationPadRecipe(BlockRegistry.WEAK_ACCELERATION_PAD.get(), ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
 		generateAccelerationPadRecipe(BlockRegistry.NORMAL_ACCELERATION_PAD.get(), ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		generateAccelerationPadRecipe(BlockRegistry.STRONG_ACCELERATION_PAD.get(), ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
-
-		//ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.STRONG_ACCELERATION_PAD.get(), 4)
-		//		.define('1', Tags.Items.INGOTS_IRON)
-		//		.pattern("000")
-		//		.pattern("000")
-		//		.pattern("111")
-		//		.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
-		//		.save(recipeConsumer);
 	}
 
 	private void generateAccelerationPadRecipe(Block output, Item chip, Consumer<FinishedRecipe> consumer) {
