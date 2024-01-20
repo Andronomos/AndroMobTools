@@ -2,6 +2,7 @@ package andronomos.androtech;
 
 import andronomos.androtech.block.itemattractor.ItemAttractorScreen;
 import andronomos.androtech.block.damagepad.DamagePadScreen;
+import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterScreen;
 import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.registry.*;
@@ -44,6 +45,7 @@ public class AndroTech {
 		event.enqueueWork(() -> {
 			MenuScreens.register(MenuTypeRegistry.DAMAGE_PAD_MENU.get(), DamagePadScreen::new);
 			MenuScreens.register(MenuTypeRegistry.ITEM_ATTRACTOR_MENU.get(), ItemAttractorScreen::new);
+			MenuScreens.register(MenuTypeRegistry.REDSTONE_SIGNAL_TRANSMITTER_MENU.get(), RedstoneSignalTransmitterScreen::new);
 		});
 	}
 }

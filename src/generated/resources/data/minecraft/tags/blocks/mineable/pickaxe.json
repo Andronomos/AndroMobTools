@@ -6,6 +6,7 @@
     "androtech:damage_pad",
     "androtech:item_attractor",
     "androtech:machine_block",
-    "androtech:redstone_signal_receiver"
+    "androtech:redstone_signal_receiver",
+    "androtech:redstone_signal_transmitter"
   ]
 }

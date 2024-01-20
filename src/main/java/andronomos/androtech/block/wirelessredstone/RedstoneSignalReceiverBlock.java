@@ -4,16 +4,13 @@ import andronomos.androtech.block.MachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class RedstoneSignalReceiverBlock extends MachineBlock {
 	public static final String DISPLAY_NAME = "screen.androtech.redstone_receiver";
 	public static final String TOOLTIP = "block.androtech.redstone_receiver.tooltip";
 
-	public RedstoneSignalReceiverBlock(Properties properties, boolean hasMultipleStates, boolean hasTooltip, boolean isDirectional) {
+	public RedstoneSignalReceiverBlock(Properties properties) {
 		super(properties, true, false, false);
 		addTexture("top_off", "redstone_signal_receiver_off_top");
 		addTexture("side_off", "redstone_signal_receiver_off_side");

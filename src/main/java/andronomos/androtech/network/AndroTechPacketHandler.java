@@ -3,6 +3,7 @@ package andronomos.androtech.network;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
 //import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
+import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -36,12 +37,12 @@ public class AndroTechPacketHandler {
 				.consumerMainThread(SyncMachinePoweredState::handle)
 				.add();
 
-		//net.messageBuilder(SyncRedstoneTransmitterState.class, id(), NetworkDirection.PLAY_TO_SERVER)
-		//		.decoder(SyncRedstoneTransmitterState::decode)
-		//		.encoder(SyncRedstoneTransmitterState::encode)
-		//		.consumerMainThread(SyncRedstoneTransmitterState::handle)
-		//		.add();
-		//
+		net.messageBuilder(SyncRedstoneTransmitterState.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(SyncRedstoneTransmitterState::decode)
+				.encoder(SyncRedstoneTransmitterState::encode)
+				.consumerMainThread(SyncRedstoneTransmitterState::handle)
+				.add();
+
 		//net.messageBuilder(SyncMachineEnergy.class, id(), NetworkDirection.PLAY_TO_CLIENT)
 		//		.decoder(SyncMachineEnergy::decode)
 		//		.encoder(SyncMachineEnergy::encode)

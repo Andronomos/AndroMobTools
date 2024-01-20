@@ -10,6 +10,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -23,6 +25,7 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	protected final ItemStackHandler itemHandler = createInventoryItemHandler();
 	protected LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 	protected final ContainerData data;
+	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public BaseBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, ContainerData data) {
 		super(type, pos, state);

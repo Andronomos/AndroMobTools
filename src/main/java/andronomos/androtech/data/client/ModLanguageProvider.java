@@ -5,6 +5,7 @@ import andronomos.androtech.block.MachineBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
+import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlock;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.CreativeTabRegistry;
 import andronomos.androtech.registry.ItemRegistry;
@@ -38,7 +39,9 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemAttractorBlock.DISPLAY_NAME, "Item Attractor");
 		add(ItemAttractorBlock.TOOLTIP, "Pulls nearby items");
 		add(RedstoneSignalReceiverBlock.DISPLAY_NAME, "Redstone Signal Receiver");
-		add(RedstoneSignalReceiverBlock.TOOLTIP, "Emits a redstone signal when powered by a wireless redstone transmitter");
+		add(RedstoneSignalReceiverBlock.TOOLTIP, "Emits a redstone signal when powered by a signal transmitter");
+		add(RedstoneSignalTransmitterBlock.DISPLAY_NAME, "Redstone Signal Transmitter");
+		add(RedstoneSignalTransmitterBlock.TOOLTIP, "Transmits a redstone signal to a receiver");
 		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
 		add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");

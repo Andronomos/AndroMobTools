@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "androtech:block/machine_bottom",
+    "east": "androtech:block/redstone_signal_transmitter_on_side",
+    "north": "androtech:block/redstone_signal_transmitter_on_side",
+    "particle": "androtech:block/redstone_signal_transmitter_on_side",
+    "south": "androtech:block/redstone_signal_transmitter_on_side",
+    "up": "androtech:block/machine_top",
+    "west": "androtech:block/redstone_signal_transmitter_on_side"
+  }
+}
