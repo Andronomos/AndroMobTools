@@ -1,8 +1,8 @@
 package andronomos.androtech.block.itemattractor;
 
+import andronomos.androtech.Constants;
 import andronomos.androtech.block.BaseBlockEntity;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
-import andronomos.androtech.Constants;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.util.InventoryHelper;
 import andronomos.androtech.util.RadiusHelper;
@@ -20,8 +20,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
@@ -30,10 +28,8 @@ import javax.annotation.Nonnull;
 import java.util.List;
 
 public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuProvider {
-	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
-
 	public ItemAttractorBlockEntity(BlockPos pos, BlockState state) {
-		super(BlockEntityRegistry.ITEM_ATTRACTOR_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.PAD_SLOTS));
+		super(BlockEntityRegistry.REDSTONE_SIGNAL_TRANSMITTER_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.SLOTS));
 	}
 
 	@Nonnull

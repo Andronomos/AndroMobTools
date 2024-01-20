@@ -14,8 +14,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 public class ItemAttractorMenu extends BaseMenu {
-	public ItemAttractorMenu(int containerId, Inventory inventory, FriendlyByteBuf extraData) {
-		this(containerId, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(inventory.getContainerSize()));
+	public ItemAttractorMenu(int containerId, Inventory inventory, FriendlyByteBuf data) {
+		this(containerId, inventory, inventory.player.level().getBlockEntity(data.readBlockPos()), new SimpleContainerData(inventory.getContainerSize()));
 	}
 
 	public ItemAttractorMenu(int containerId, Inventory inventory, BlockEntity entity, ContainerData data) {

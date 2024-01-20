@@ -28,12 +28,12 @@ import java.util.List;
 
 public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvider {
 	public DamagePadBlockEntity(BlockPos pos, BlockState state) {
-		super(BlockEntityRegistry.DAMAGE_PAD_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.PAD_SLOTS));
+		super(BlockEntityRegistry.DAMAGE_PAD_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.SLOTS));
 	}
 
 	@Override
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(DamagePadBlock.PAD_SLOTS) {
+		return new ItemStackHandler(DamagePadBlock.SLOTS) {
 			@Override
 			protected void onContentsChanged(int slot) {
 				setChanged();

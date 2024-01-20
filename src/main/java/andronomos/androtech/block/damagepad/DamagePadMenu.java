@@ -31,7 +31,7 @@ public class DamagePadMenu extends BaseMenu {
 				addSlot(new RestrictedSlotHandler(itemHandler, 3, 118, 30, ItemRegistry.SMITE_AUGMENT.get().getDefaultInstance(), DamagePadBlock.AUGMENT_STACK_LIMIT));
 			});
 		}
-		setSlotIndexes(DamagePadBlock.PAD_SLOTS);
+		setSlotIndexes(DamagePadBlock.SLOTS);
 		//addDataSlots(data);
 	}
 
