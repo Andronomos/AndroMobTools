@@ -23,17 +23,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 	@Override
 	protected void registerStatesAndModels() {
-		BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
-			String blockName = ForgeRegistries.BLOCKS.getKey(b).getPath();
+		registerFlatMachineState(BlockRegistry.DAMAGE_PAD.get());
+		registerFlatMachineState(BlockRegistry.WEAK_ACCELERATION_PAD.get());
+		registerFlatMachineState(BlockRegistry.NORMAL_ACCELERATION_PAD.get());
+		registerFlatMachineState(BlockRegistry.STRONG_ACCELERATION_PAD.get());
 
-			if(b instanceof FlatMachineBlock flatMachineBlock) {
-				registerFlatMachineState(flatMachineBlock);
-			} else if (b instanceof MachineBlock machineBlock) {
-				registerMachineBlockState(machineBlock);
-			} else {
-				registerBlockStateAndModel(b, blockName, blockName);
-			}
-		});
+		registerMachineBlockState(BlockRegistry.ITEM_ATTRACTOR.get());
+		registerMachineBlockState(BlockRegistry.MACHINE_BLOCK.get());
+		registerMachineBlockState(BlockRegistry.REDSTONE_SIGNAL_TRANSMITTER.get());
 	}
 
 	private void registerMachineBlockState(MachineBlock machine) {

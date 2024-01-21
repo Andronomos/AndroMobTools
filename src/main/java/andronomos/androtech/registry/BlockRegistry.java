@@ -33,18 +33,18 @@ public class BlockRegistry {
 
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, AndroTech.MODID);
 
-	public static final RegistryObject<Block> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad",
+	public static final RegistryObject<FlatMachineBlock> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad",
 			false,
 			true,
 			"weak_acceleration_pad_top",
 			FlatMachineEffects.ACCELERATION_WEAK);
 
-	public static final RegistryObject<Block> NORMAL_ACCELERATION_PAD = registerPad("normal_acceleration_pad", false,
+	public static final RegistryObject<FlatMachineBlock> NORMAL_ACCELERATION_PAD = registerPad("normal_acceleration_pad", false,
 			true,
 			"normal_acceleration_pad_top",
 			FlatMachineEffects.ACCELERATION_NORMAL);
 
-	public static final RegistryObject<Block> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad",false,
+	public static final RegistryObject<FlatMachineBlock> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad",false,
 			true,
 			"strong_acceleration_pad_top",
 			FlatMachineEffects.ACCELERATION_STRONG);
@@ -54,15 +54,15 @@ public class BlockRegistry {
 	//		"weak_jump_pad_top",
 	//		FlatMachineEffects.JUMP_WEAK);
 
-	public static final RegistryObject<Block> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
-	public static final RegistryObject<Block> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
-	public static final RegistryObject<Block> MACHINE_BLOCK = registerBlock("machine_block", () -> new MachineBlock(MACHINE_PROPERTIES, false, false, false));
-	public static final RegistryObject<Block> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
-	public static final RegistryObject<Block> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<FlatMachineBlock> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
+	public static final RegistryObject<MachineBlock> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> MACHINE_BLOCK = registerBlock("machine_block", () -> new MachineBlock(MACHINE_PROPERTIES, false, false, false));
+	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));
 
 
 
-	private static <T extends Block> RegistryObject<Block> registerPad(String name, boolean hasToolTip, boolean isDirectional, String topTexture, ICollisionEffect effect) {
+	private static <T extends FlatMachineBlock> RegistryObject<FlatMachineBlock> registerPad(String name, boolean hasToolTip, boolean isDirectional, String topTexture, ICollisionEffect effect) {
 		return registerBlock(name, () -> new FlatMachineBlock(PAD_PROPERTIES.noOcclusion(), hasToolTip, isDirectional, topTexture, effect));
 	}
 
