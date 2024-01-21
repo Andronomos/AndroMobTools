@@ -1,6 +1,5 @@
 package andronomos.androtech.block.wirelessredstone.redstonetransmitter;
 
-import andronomos.androtech.Constants;
 import andronomos.androtech.block.BaseMenu;
 import andronomos.androtech.inventory.server.RestrictedSlotHandler;
 import andronomos.androtech.registry.BlockRegistry;
@@ -27,6 +26,7 @@ public class RedstoneSignalTransmitterMenu extends BaseMenu {
 		if(entity instanceof RedstoneSignalTransmitterBlockEntity transmitterBlockEntity) {
 			transmitterBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(itemHandler -> {
 				addSlot(new RestrictedSlotHandler(itemHandler, 0, 80, 30, ItemRegistry.SMITE_AUGMENT.get().getDefaultInstance(), 1));
+				//todo: replace smite augment with gpu module
 			});
 		}
 		setSlotIndexes(RedstoneSignalTransmitterBlock.SLOTS);

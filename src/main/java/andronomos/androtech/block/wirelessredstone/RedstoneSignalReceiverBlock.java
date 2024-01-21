@@ -4,9 +4,14 @@ import andronomos.androtech.block.MachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 public class RedstoneSignalReceiverBlock extends MachineBlock {
+	private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 10, 16);
 	public static final String DISPLAY_NAME = "screen.androtech.redstone_receiver";
 	public static final String TOOLTIP = "block.androtech.redstone_receiver.tooltip";
 
@@ -33,5 +38,10 @@ public class RedstoneSignalReceiverBlock extends MachineBlock {
 	@Override
 	public boolean isSignalSource(BlockState state) {
 		return true;
+	}
+
+	@Override
+	public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+		return SHAPE;
 	}
 }
