@@ -10,7 +10,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
@@ -21,12 +20,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class GPSCardItem extends MultiStateItem {
-	public static final String TOOLTIP_GPS_CARD = "tooltip.androtech.gps_card_location";
-	public static final String TOOLTIP_GPS_CARD_COORDS = "tooltip.androtech.gps_card_coords";
-	public static final String GPS_CARD_SAVED = "item.androtech.gps_card.saved";
+public class GPSModuleItem extends MultiStateItem {
+	public static final String TOOLTIP_GPS_MODULE = "tooltip.androtech.gps_module_location";
+	public static final String TOOLTIP_GPS_MODULE_COORDS = "tooltip.androtech.gps_module_coords";
+	public static final String GPS_MODULE_SAVED = "item.androtech.gps_module.saved";
 
-	public GPSCardItem(Properties properties) {
+	public GPSModuleItem(Properties properties) {
 		super(properties);
 	}
 
@@ -40,8 +39,8 @@ public class GPSCardItem extends MultiStateItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
 		BlockPos pos = ItemStackHelper.getBlockPos(stack);
 		if(pos != null) {
-			tooltip.add(Component.translatable(TOOLTIP_GPS_CARD).withStyle(ChatFormatting.GRAY));
-			tooltip.add(Component.translatable(GPS_CARD_SAVED, ChatHelper.blockPosToString(pos)).withStyle(ChatFormatting.BLUE));
+			tooltip.add(Component.translatable(TOOLTIP_GPS_MODULE).withStyle(ChatFormatting.GRAY));
+			tooltip.add(Component.translatable(GPS_MODULE_SAVED, ChatHelper.blockPosToString(pos)).withStyle(ChatFormatting.BLUE));
 		}
 	}
 
@@ -59,12 +58,12 @@ public class GPSCardItem extends MultiStateItem {
 			held.shrink(1);
 		}
 		player.swing(hand);
-		ChatHelper.sendStatusMessage(player, Component.translatable(GPS_CARD_SAVED, ChatHelper.blockPosToString(pos)));
+		ChatHelper.sendStatusMessage(player, Component.translatable(GPS_MODULE_SAVED, ChatHelper.blockPosToString(pos)));
 		return InteractionResult.SUCCESS;
 	}
 
 	private void recordPos(BlockPos pos, Player player) {
-		ItemStack drop = new ItemStack(ItemRegistry.GPS_CARD.get());
+		ItemStack drop = new ItemStack(ItemRegistry.GPS_MODULE.get());
 		setBlockPos(drop, pos, player);
 		if(!player.addItem(drop)) ItemStackHelper.drop(player.level(), player.blockPosition(), drop);
 	}

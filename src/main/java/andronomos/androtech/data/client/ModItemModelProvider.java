@@ -28,7 +28,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("advanced_chip");
 		createSingleTexture("elite_chip");
 
-		buildMultiSTateItemModel("gps_card");
+		buildMultiSTateItemModel("gps_module");
 	}
 
 	private ItemModelBuilder createSingleTexture(String name) {

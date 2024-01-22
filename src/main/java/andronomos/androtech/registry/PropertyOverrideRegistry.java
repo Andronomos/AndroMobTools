@@ -12,7 +12,7 @@ public class PropertyOverrideRegistry {
 	public static final ResourceLocation IS_ACTIVATED = new ResourceLocation(AndroTech.MODID, "activated");
 
 	public static void register() {
-		ItemProperties.register(ItemRegistry.GPS_CARD.get(),
+		ItemProperties.register(ItemRegistry.GPS_MODULE.get(),
 				IS_ACTIVATED, (stack, level, living, id) -> ItemStackHelper.getBlockPos(stack) != null ? 1 : 0);
 
 		//ItemProperties.register(ItemRegistry.MOB_STASIS_MODULE.get(),

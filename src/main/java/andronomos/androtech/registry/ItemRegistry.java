@@ -1,9 +1,8 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.item.DamagePadAugmentItem;
 import andronomos.androtech.item.FakeSword;
-import andronomos.androtech.item.GPSCardItem;
+import andronomos.androtech.item.GPSModuleItem;
 import andronomos.androtech.item.tools.NaniteEnhancedAxe;
 import andronomos.androtech.item.tools.NaniteEnhancedPickAxe;
 import andronomos.androtech.item.tools.NaniteEnhancedShovel;
@@ -28,19 +27,19 @@ public class ItemRegistry {
 			() -> new FakeSword(new Item.Properties()));
 
 	public static final RegistryObject<Item> SHARPNESS_AUGMENT = ITEMS.register("sharpness_augment",
-			() -> new DamagePadAugmentItem(new Item.Properties(), Enchantments.SHARPNESS));
+			() -> new Item(new Item.Properties()));
 
 	public static final RegistryObject<Item> LOOTING_AUGMENT = ITEMS.register("looting_augment",
-			() -> new DamagePadAugmentItem(new Item.Properties(), Enchantments.MOB_LOOTING));
+			() -> new Item(new Item.Properties()));
 
 	public static final RegistryObject<Item> FIRE_AUGMENT = ITEMS.register("fire_augment",
-			() -> new DamagePadAugmentItem(new Item.Properties(), Enchantments.FIRE_ASPECT));
+			() -> new Item(new Item.Properties()));
 
 	public static final RegistryObject<Item> SMITE_AUGMENT = ITEMS.register("smite_augment",
-			() -> new DamagePadAugmentItem(new Item.Properties(), Enchantments.SMITE));
+			() -> new Item(new Item.Properties()));
 
-	public static final RegistryObject<Item> GPS_CARD = ITEMS.register("gps_card",
-			() -> new GPSCardItem(new Item.Properties()));
+	public static final RegistryObject<Item> GPS_MODULE = ITEMS.register("gps_module",
+			() -> new GPSModuleItem(new Item.Properties()));
 
 	public static final RegistryObject<Item> NANITE_ENHANCED_PICKAXE = ITEMS.register("nanite_enhanced_pickaxe",
 			() -> new NaniteEnhancedPickAxe(Tiers.NETHERITE, 1, -2.8F, new Item.Properties().fireResistant()));
