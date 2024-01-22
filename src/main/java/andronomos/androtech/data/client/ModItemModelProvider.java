@@ -1,9 +1,11 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.registry.PropertyOverrideRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModItemModelProvider extends ItemModelProvider {
@@ -25,9 +27,24 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("basic_chip");
 		createSingleTexture("advanced_chip");
 		createSingleTexture("elite_chip");
+
+		buildMultiSTateItemModel("gps_card");
 	}
 
 	private ItemModelBuilder createSingleTexture(String name) {
 		return singleTexture(name, mcLoc("item/generated"), "layer0", modLoc("item/" + name));
+	}
+
+	private void buildMultiSTateItemModel(String name) {
+		ItemModelBuilder modelNormal = createSingleTexture(name);
+		ModelFile modelactivated = createSingleTexture(name + "_activated");
+		modelNormal.override()
+				.predicate(PropertyOverrideRegistry.IS_ACTIVATED, 0)
+				.model(modelNormal)
+				.end()
+				.override()
+				.predicate(PropertyOverrideRegistry.IS_ACTIVATED, 1)
+				.model(modelactivated)
+				.end();
 	}
 }

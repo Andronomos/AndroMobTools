@@ -18,6 +18,7 @@
   "item.androtech.basic_chip": "Basic Chip",
   "item.androtech.elite_chip": "Elite Chip",
   "item.androtech.fire_augment": "Fire Aspect Augment",
+  "item.androtech.gps_card.saved": "Saved Block Position %1$s",
   "item.androtech.looting_augment": "Looting Augment",
   "item.androtech.nanite_enhanced_axe": "Nanite Enhanced Axe",
   "item.androtech.nanite_enhanced_pickaxe": "Nanite Enhanced Pickaxe",
@@ -28,5 +29,7 @@
   "screen.androtech.damage_pad": "Damage Pad",
   "screen.androtech.item_attractor": "Item Attractor",
   "screen.androtech.redstone_receiver": "Redstone Signal Receiver",
-  "screen.androtech.redstone_transmitter": "Redstone Signal Transmitter"
+  "screen.androtech.redstone_transmitter": "Redstone Signal Transmitter",
+  "tooltip.androtech.gps_card_coords": "X: %1$s Y: %2$s Z: %3$s",
+  "tooltip.androtech.gps_card_location": "Location"
 }

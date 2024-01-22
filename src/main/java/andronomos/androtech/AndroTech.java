@@ -46,6 +46,7 @@ public class AndroTech {
 			MenuScreens.register(MenuTypeRegistry.DAMAGE_PAD_MENU.get(), DamagePadScreen::new);
 			MenuScreens.register(MenuTypeRegistry.ITEM_ATTRACTOR_MENU.get(), ItemAttractorScreen::new);
 			MenuScreens.register(MenuTypeRegistry.REDSTONE_SIGNAL_TRANSMITTER_MENU.get(), RedstoneSignalTransmitterScreen::new);
+			PropertyOverrideRegistry.register();
 		});
 	}
 }
