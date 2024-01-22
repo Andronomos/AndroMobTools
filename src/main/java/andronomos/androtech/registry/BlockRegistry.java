@@ -49,11 +49,6 @@ public class BlockRegistry {
 			"strong_acceleration_pad_top",
 			FlatMachineEffects.ACCELERATION_STRONG);
 
-	//public static final RegistryObject<Block> WEAK_JUMP_PAD = registerPad("weak_jump_pad",false,
-	//		false,
-	//		"weak_jump_pad_top",
-	//		FlatMachineEffects.JUMP_WEAK);
-
 	public static final RegistryObject<FlatMachineBlock> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
 	public static final RegistryObject<MachineBlock> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> MACHINE_BLOCK = registerBlock("machine_block", () -> new MachineBlock(MACHINE_PROPERTIES, false, false, false));
