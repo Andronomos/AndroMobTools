@@ -25,8 +25,7 @@ public class RedstoneSignalTransmitterMenu extends BaseMenu {
 		addPlayerHotbar();
 		if(entity instanceof RedstoneSignalTransmitterBlockEntity transmitterBlockEntity) {
 			transmitterBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(itemHandler -> {
-				addSlot(new RestrictedSlotHandler(itemHandler, 0, 80, 30, ItemRegistry.SMITE_AUGMENT.get().getDefaultInstance(), 1));
-				//todo: replace smite augment with gpu module
+				addSlot(new RestrictedSlotHandler(itemHandler, 0, 80, 30, ItemRegistry.GPS_CARD.get().getDefaultInstance(), 1));
 			});
 		}
 		setSlotIndexes(RedstoneSignalTransmitterBlock.SLOTS);
