@@ -2,19 +2,19 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "androtech:item/gps_card",
+      "model": "androtech:item/gps_module",
       "predicate": {
         "androtech:activated": 0.0
       }
     },
     {
-      "model": "androtech:item/gps_card_activated",
+      "model": "androtech:item/gps_module_activated",
       "predicate": {
         "androtech:activated": 1.0
       }
     }
   ],
   "textures": {
-    "layer0": "androtech:item/gps_card"
+    "layer0": "androtech:item/gps_module"
   }
 }
