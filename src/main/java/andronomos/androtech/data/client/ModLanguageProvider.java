@@ -56,6 +56,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemRegistry.ELITE_CHIP.get(), "Elite Chip");
 		add(MachineBlock.GUI_ON, "Powered On");
 		add(MachineBlock.GUI_OFF, "Powered Off");
+		add(ItemRegistry.GPS_CARD.get(), "GPS Card");
 		add(GPSCardItem.TOOLTIP_GPS_CARD, "Location");
 		add(GPSCardItem.TOOLTIP_GPS_CARD_COORDS, "X: %1$s Y: %2$s Z: %3$s");
 		add(GPSCardItem.GPS_CARD_SAVED, "Saved Block Position %1$s");
