@@ -73,13 +73,13 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 			ItemStack sword = new ItemStack(ItemRegistry.FAKE_SWORD.get(), 1);
 
 			if (hasSharpnessUpgrade())
-				sword.enchant(Enchantments.SHARPNESS, itemHandler.getStackInSlot(0).getCount() * 10);
+				sword.enchant(Enchantments.SHARPNESS, itemHandler.getStackInSlot(0).getCount() * 5);
 			if (hasLootingUpgrade())
-				sword.enchant(Enchantments.MOB_LOOTING, itemHandler.getStackInSlot(1).getCount());
-			if (hasFlameUpgrade())
-				sword.enchant(Enchantments.FIRE_ASPECT, itemHandler.getStackInSlot(2).getCount());
+				sword.enchant(Enchantments.MOB_LOOTING, itemHandler.getStackInSlot(1).getCount() * 3);
+			if (hasFireUpgrade())
+				sword.enchant(Enchantments.FIRE_ASPECT, itemHandler.getStackInSlot(2).getCount() * 2);
 			if (hasSmiteUpgrade())
-				sword.enchant(Enchantments.SMITE, itemHandler.getStackInSlot(3).getCount() * 10);
+				sword.enchant(Enchantments.SMITE, itemHandler.getStackInSlot(3).getCount() * 5);
 
 			FakePlayer fp = FakePlayerFactory.get((ServerLevel) getLevel(), AndroTech.PROFILE);
 			fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
@@ -90,7 +90,7 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 			entity.setLastHurtByMob(null);
 			sword.setDamageValue(0);
 
-			AndroTech.LOGGER.info(String.format("DamagePadBlockEntity#activate | entity health: %s", entity.getHealth()));
+			//AndroTech.LOGGER.info(String.format("DamagePadBlockEntity#activate | entity health: %s", entity.getHealth()));
 		}
 	}
 
@@ -106,7 +106,7 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 		return itemHandler.getStackInSlot(1).getItem() == ItemRegistry.LOOTING_AUGMENT.get();
 	}
 
-	private boolean hasFlameUpgrade() {
+	private boolean hasFireUpgrade() {
 		return itemHandler.getStackInSlot(2).getItem() == ItemRegistry.FIRE_AUGMENT.get();
 	}
 

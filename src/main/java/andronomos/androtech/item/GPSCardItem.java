@@ -51,16 +51,13 @@ public class GPSCardItem extends MultiStateItem {
 		Player player = context.getPlayer();
 		InteractionHand hand = context.getHand();
 		ItemStack held = player.getItemInHand(hand);
-
 		int numHeld = held.getCount();
-
 		if(numHeld == 1) {
 			held = recordPos(held, pos, player);
 		} else {
 			recordPos(pos, player);
 			held.shrink(1);
 		}
-
 		player.swing(hand);
 		ChatHelper.sendStatusMessage(player, Component.translatable(GPS_CARD_SAVED, ChatHelper.blockPosToString(pos)));
 		return InteractionResult.SUCCESS;
