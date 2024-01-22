@@ -17,11 +17,13 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -37,7 +39,7 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 			@Override
 			protected void onContentsChanged(int slot) {
 				setChanged();
-				if(!level.isClientSide()) {
+				if(level != null && !level.isClientSide()) {
 					level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
 				}
 			}
@@ -45,13 +47,13 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 	}
 
 	@Override
-	public Component getDisplayName() {
+	public @NotNull Component getDisplayName() {
 		return Component.translatable(DamagePadBlock.DISPLAY_NAME);
 	}
 
 	@Nullable
 	@Override
-	public AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
+	public AbstractContainerMenu createMenu(int containerId, @NotNull Inventory inventory, @NotNull Player player) {
 		return new DamagePadMenu(containerId, inventory, this, this.data);
 	}
 
@@ -63,7 +65,13 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 	}
 
 	private void activate() {
-		List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, getWorkArea());
+		Level level = getLevel();
+
+		if(level == null) {
+			return;
+		}
+
+		List<LivingEntity> list = level.getEntitiesOfClass(LivingEntity.class, getWorkArea());
 
 		for (LivingEntity entity : list) {
 			if (entity == null || entity.isCrouching()) {
@@ -73,13 +81,13 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 			ItemStack sword = new ItemStack(ItemRegistry.FAKE_SWORD.get(), 1);
 
 			if (hasSharpnessUpgrade())
-				sword.enchant(Enchantments.SHARPNESS, itemHandler.getStackInSlot(0).getCount() * 5);
+				sword.enchant(Enchantments.SHARPNESS, itemHandler.getStackInSlot(0).getCount());
 			if (hasLootingUpgrade())
-				sword.enchant(Enchantments.MOB_LOOTING, itemHandler.getStackInSlot(1).getCount() * 3);
+				sword.enchant(Enchantments.MOB_LOOTING, itemHandler.getStackInSlot(1).getCount());
 			if (hasFireUpgrade())
-				sword.enchant(Enchantments.FIRE_ASPECT, itemHandler.getStackInSlot(2).getCount() * 2);
+				sword.enchant(Enchantments.FIRE_ASPECT, itemHandler.getStackInSlot(2).getCount());
 			if (hasSmiteUpgrade())
-				sword.enchant(Enchantments.SMITE, itemHandler.getStackInSlot(3).getCount() * 5);
+				sword.enchant(Enchantments.SMITE, itemHandler.getStackInSlot(3).getCount());
 
 			FakePlayer fp = FakePlayerFactory.get((ServerLevel) getLevel(), AndroTech.PROFILE);
 			fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
