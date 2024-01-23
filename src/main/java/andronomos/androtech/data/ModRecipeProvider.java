@@ -67,22 +67,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
 				.save(recipeConsumer);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.GPS_MODULE.get(), 1)
-				.define('1', Items.IRON_INGOT)
-				.define('2', ItemRegistry.BASIC_CHIP.get())
-				.define('3', Items.AMETHYST_SHARD)
-				.define('4', Items.GLASS_PANE)
-				.define('5', Items.COMPASS)
-				.pattern(" 4 ")
-				.pattern("353")
-				.pattern("121")
-				.unlockedBy("has_item", has(ItemRegistry.BASIC_CHIP.get()))
-				.save(recipeConsumer);
-
-		generateAugmentRecipe(ItemRegistry.SHARPNESS_AUGMENT.get(), Items.IRON_SWORD, recipeConsumer);
-		generateAugmentRecipe(ItemRegistry.FIRE_AUGMENT.get(), Items.BLAZE_POWDER, recipeConsumer);
-		generateAugmentRecipe(ItemRegistry.LOOTING_AUGMENT.get(), Items.RABBIT_FOOT, recipeConsumer);
-		//generateAugmentRecipe(ItemRegistry.SMITE_AUGMENT.get(), Items.IRON_SWORD, recipeConsumer);
+		generateDeviceRecipe(ItemRegistry.GPS_MODULE.get(), Items.COMPASS, ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
+		generateDeviceRecipe(ItemRegistry.SHARPNESS_AUGMENT.get(), Items.IRON_SWORD, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
+		generateDeviceRecipe(ItemRegistry.FIRE_AUGMENT.get(), Items.BLAZE_POWDER, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
+		generateDeviceRecipe(ItemRegistry.LOOTING_AUGMENT.get(), Items.RABBIT_FOOT, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
+		//generateDeviceRecipe(ItemRegistry.SMITE_AUGMENT.get(), Items.IRON_SWORD, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 	}
 
 	private void generateAccelerationPadRecipe(Block output, Item chip, Consumer<FinishedRecipe> consumer) {
@@ -97,17 +86,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.save(consumer);
 	}
 
-	private void generateAugmentRecipe(Item output, Item item, Consumer<FinishedRecipe> consumer) {
+	private void generateDeviceRecipe(Item output, Item item, Item chip, Consumer<FinishedRecipe> consumer) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output)
 				.define('1', Items.IRON_INGOT)
-				.define('2', ItemRegistry.ADVANCED_CHIP.get())
+				.define('2', chip)
 				.define('3', Items.GLASS_PANE)
 				.define('4', item)
 				.define('5', Items.AMETHYST_SHARD)
-				.pattern(" 3 ")
+				.define('6', Items.REDSTONE)
+				.pattern("636")
 				.pattern("545")
 				.pattern("121")
-				.unlockedBy("has_item", has(ItemRegistry.ADVANCED_CHIP.get()))
+				.unlockedBy("has_item", has(chip))
 				.save(consumer);
 	}
 

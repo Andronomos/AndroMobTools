@@ -9,18 +9,21 @@
       "item": "androtech:basic_chip"
     },
     "3": {
-      "item": "minecraft:amethyst_shard"
-    },
-    "4": {
       "item": "minecraft:glass_pane"
     },
-    "5": {
+    "4": {
       "item": "minecraft:compass"
+    },
+    "5": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "6": {
+      "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    " 4 ",
-    "353",
+    "636",
+    "545",
     "121"
   ],
   "result": {

@@ -16,10 +16,13 @@
     },
     "5": {
       "item": "minecraft:amethyst_shard"
+    },
+    "6": {
+      "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    " 3 ",
+    "636",
     "545",
     "121"
   ],
