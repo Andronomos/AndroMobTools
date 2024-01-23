@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:iron_ingot"
+    },
+    "2": {
+      "item": "androtech:basic_chip"
+    },
+    "3": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "4": {
+      "item": "minecraft:glass_pane"
+    },
+    "5": {
+      "item": "minecraft:compass"
+    }
+  },
+  "pattern": [
+    " 4 ",
+    "353",
+    "121"
+  ],
+  "result": {
+    "item": "androtech:gps_module"
+  },
+  "show_notification": true
+}

@@ -73,7 +73,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.define('3', Items.AMETHYST_SHARD)
 				.define('4', Items.GLASS_PANE)
 				.define('5', Items.COMPASS)
-				.pattern("141")
+				.pattern(" 4 ")
 				.pattern("353")
 				.pattern("121")
 				.unlockedBy("has_item", has(ItemRegistry.BASIC_CHIP.get()))
@@ -101,13 +101,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output)
 				.define('1', Items.IRON_INGOT)
 				.define('2', ItemRegistry.ADVANCED_CHIP.get())
-				.define('3', Items.AMETHYST_SHARD)
-				.define('4', Items.GLASS_PANE)
-				.define('5', item)
-				.pattern("111")
-				.pattern("454")
+				.define('3', Items.GLASS_PANE)
+				.define('4', item)
+				.define('5', Items.AMETHYST_SHARD)
+				.pattern(" 3 ")
+				.pattern("545")
 				.pattern("121")
-				.unlockedBy("has_item", has(Items.LAVA_BUCKET))
+				.unlockedBy("has_item", has(ItemRegistry.ADVANCED_CHIP.get()))
 				.save(consumer);
 	}
 
