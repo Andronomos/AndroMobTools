@@ -11,6 +11,7 @@ import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.StrictNBTIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -90,7 +91,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output)
 				.define('1', Items.IRON_INGOT)
 				.define('2', chip)
-				.define('3', Items.GLASS_PANE)
+				.define('3', Blocks.GLASS)
 				.define('4', item)
 				.define('5', Items.AMETHYST_SHARD)
 				.define('6', Items.REDSTONE)
