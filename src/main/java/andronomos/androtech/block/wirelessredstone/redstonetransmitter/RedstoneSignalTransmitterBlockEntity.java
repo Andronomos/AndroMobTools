@@ -1,5 +1,6 @@
 package andronomos.androtech.block.wirelessredstone.redstonetransmitter;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.BaseBlockEntity;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
@@ -16,9 +17,12 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class RedstoneSignalTransmitterBlockEntity extends BaseBlockEntity implements MenuProvider {
+	private BlockPos lastReceiverPosition;
+
 	public RedstoneSignalTransmitterBlockEntity(BlockPos pos, BlockState state) {
 		super(BlockEntityRegistry.REDSTONE_SIGNAL_TRANSMITTER_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.SLOTS));
 	}
@@ -29,7 +33,7 @@ public class RedstoneSignalTransmitterBlockEntity extends BaseBlockEntity implem
 			@Override
 			protected void onContentsChanged(int slot) {
 				setChanged();
-				if(!level.isClientSide()) {
+				if (level != null && !level.isClientSide()) {
 					level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
 				}
 			}
@@ -37,34 +41,66 @@ public class RedstoneSignalTransmitterBlockEntity extends BaseBlockEntity implem
 	}
 
 	@Override
-	public Component getDisplayName() {
+	public @NotNull Component getDisplayName() {
 		return Component.translatable(RedstoneSignalTransmitterBlock.DISPLAY_NAME);
 	}
 
 	@Nullable
 	@Override
-	public AbstractContainerMenu createMenu(int containerId, Inventory pPlayerInventory, Player pPlayer) {
+	public AbstractContainerMenu createMenu(int containerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
 		return new RedstoneSignalTransmitterMenu(containerId, pPlayerInventory, this, this.data);
 	}
 
 	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity entity) {
-		for(int slotIndex = 0; slotIndex < itemHandler.getSlots(); slotIndex++) {
-			ItemStack receiverCard = itemHandler.getStackInSlot(slotIndex);
-			if(receiverCard.isEmpty()) continue;
-			updateReceiver(ItemStackHelper.getBlockPos(receiverCard));
+		ItemStack receiverCard = itemHandler.getStackInSlot(0);
+
+		if(receiverCard.isEmpty()) {
+			BlockState receiverState = getReceiverState(lastReceiverPosition);
+			setReceiverPoweredState(lastReceiverPosition, receiverState, false);
 		}
+
+		BlockPos receiverPos = ItemStackHelper.getBlockPos(receiverCard);
+		lastReceiverPosition = receiverPos;
+		updateReceiver(receiverPos);
+	}
+
+	private BlockState getReceiverState(BlockPos receiverPos) {
+		if(receiverPos == null) {
+			return null;
+		}
+		return level.getBlockState(receiverPos);
 	}
 
 	private void updateReceiver(BlockPos receiverPos) {
-		if(receiverPos == null) return; //this should only happen when the receiver card doesn't have any coords
-		BlockState receiverState = level.getBlockState(receiverPos);
-		if(receiverState == null) return;
-		if(receiverState.getBlock() != BlockRegistry.REDSTONE_SIGNAL_RECEIVER.get()) return;
+		if(receiverPos == null) {
+			return;
+		}
+
+		BlockState receiverState = getReceiverState(receiverPos);
+
+		if(receiverState == null) {
+			return;
+		}
+
+		if(receiverState.getBlock() != BlockRegistry.REDSTONE_SIGNAL_RECEIVER.get()) {
+			return;
+		}
+
 		boolean receiverIsPowered = receiverState.getValue(POWERED);
 		boolean transmitterIsPowered = level.getBlockState(this.worldPosition).getValue(POWERED);
+
 		if(receiverIsPowered != transmitterIsPowered) {
-			level.setBlockAndUpdate(receiverPos, receiverState.setValue(POWERED, transmitterIsPowered));
+			setReceiverPoweredState(receiverPos, receiverState, transmitterIsPowered);
+		}
+	}
+
+	private void setReceiverPoweredState(BlockPos receiverPos, BlockState receiverState, boolean isPowered) {
+		if(receiverPos == null || receiverState == null) {
+			return;
+		}
+		if (level != null) {
+			level.setBlockAndUpdate(receiverPos, receiverState.setValue(POWERED, isPowered));
 		}
 	}
 }
