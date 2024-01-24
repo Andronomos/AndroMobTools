@@ -30,7 +30,7 @@ import java.util.List;
 
 public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuProvider {
 	public ItemAttractorBlockEntity(BlockPos pos, BlockState state) {
-		super(BlockEntityRegistry.REDSTONE_SIGNAL_TRANSMITTER_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.SLOTS));
+		super(BlockEntityRegistry.ITEM_ATTRACTOR_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.SLOTS));
 	}
 
 	@Nonnull
