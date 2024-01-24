@@ -54,8 +54,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 				ResourceLocation sideResource = modLoc(sideTexture);
 				ModelFile model = models().cube(machineName + stateTextureKey,
-								modLoc(bottomTexture), modLoc(topTexture),
-								sideResource, sideResource, sideResource, sideResource)
+								modLoc(bottomTexture),
+								modLoc(topTexture),
+								sideResource,
+								sideResource,
+								sideResource,
+								sideResource)
 						.texture("particle", sideResource);
 
 				return ConfiguredModel.builder()
