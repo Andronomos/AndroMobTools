@@ -1,5 +1,6 @@
 package andronomos.androtech.network.packet;
 
+import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlock;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlockEntity;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.util.ItemStackHelper;
@@ -35,7 +36,7 @@ public class SyncRedstoneTransmitterState {
 			if(level.getBlockEntity(msg.pos) instanceof RedstoneSignalTransmitterBlockEntity) {
 				level.getBlockEntity(msg.pos).getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(itemHandler -> {
 					BlockState transmitterState = level.getBlockState(msg.pos);
-					for(int slotIndex = 0; slotIndex < 9; slotIndex++) {
+					for(int slotIndex = 0; slotIndex < RedstoneSignalTransmitterBlock.SLOTS; slotIndex++) {
 						ItemStack blockGPSModule = itemHandler.getStackInSlot(slotIndex);
 						if(!blockGPSModule.isEmpty()) {
 							BlockPos receiverPos = ItemStackHelper.getBlockPos(blockGPSModule);
