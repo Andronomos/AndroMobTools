@@ -6,6 +6,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import org.jetbrains.annotations.NotNull;
 
 public class ItemIncineratorScreen extends BaseScreen<ItemIncineratorMenu> {
 
@@ -14,7 +15,7 @@ public class ItemIncineratorScreen extends BaseScreen<ItemIncineratorMenu> {
     }
 
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+    protected void renderBg(@NotNull GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
         drawBackground(guiGraphics, new ResourceLocation(AndroTech.MODID, "textures/gui/item_incinerator.png"));
     }
 }

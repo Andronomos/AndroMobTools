@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 public class ItemIncineratorMenu extends BaseMenu {
     public ItemIncineratorMenu(int containerId, Inventory inventory, FriendlyByteBuf data) {
@@ -34,7 +35,7 @@ public class ItemIncineratorMenu extends BaseMenu {
     }
 
     @Override
-    public boolean stillValid(Player playerIn) {
+    public boolean stillValid(@NotNull Player playerIn) {
         return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, BlockRegistry.ITEM_INCINERATOR.get());
     }
 

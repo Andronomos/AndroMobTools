@@ -39,7 +39,7 @@ public class ItemIncineratorBlockEntity extends BaseBlockEntity implements MenuP
             @Override
             protected void onContentsChanged(int slot) {
                 setChanged();
-                if(!level.isClientSide()) {
+                if (level != null && !level.isClientSide()) {
                     level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
                 }
             }
@@ -47,7 +47,7 @@ public class ItemIncineratorBlockEntity extends BaseBlockEntity implements MenuP
     }
 
     @Override
-    public Component getDisplayName() {
+    public @NotNull Component getDisplayName() {
         return Component.translatable(ItemIncineratorBlock.DISPLAY_NAME);
     }
 

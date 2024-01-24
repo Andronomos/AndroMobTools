@@ -39,7 +39,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 			@Override
 			protected void onContentsChanged(int slot) {
 				setChanged();
-				if(!level.isClientSide()) {
+				if (level != null && !level.isClientSide()) {
 					level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
 				}
 			}
@@ -52,7 +52,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 	}
 
 	@Override
-	public Component getDisplayName() {
+	public @NotNull Component getDisplayName() {
 		return Component.translatable(ItemAttractorBlock.DISPLAY_NAME);
 	}
 
