@@ -3,7 +3,7 @@
   "textures": {
     "down": "androtech:block/item_incinerator_bottom",
     "east": "androtech:block/item_incinerator_side",
-    "north": "androtech:block/machine_side",
+    "north": "androtech:block/item_incinerator_side",
     "particle": "androtech:block/item_incinerator_side",
     "south": "androtech:block/item_incinerator_side",
     "up": "androtech:block/item_incinerator_top",
