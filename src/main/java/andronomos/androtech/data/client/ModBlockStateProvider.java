@@ -28,6 +28,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		registerFlatMachineState(BlockRegistry.STRONG_ACCELERATION_PAD.get());
 
 		registerMachineBlockState(BlockRegistry.ITEM_ATTRACTOR.get());
+		registerMachineBlockState(BlockRegistry.ITEM_INCINERATOR.get());
 		registerMachineBlockState(BlockRegistry.MACHINE_BLOCK.get());
 		registerMachineBlockState(BlockRegistry.REDSTONE_SIGNAL_TRANSMITTER.get());
 	}

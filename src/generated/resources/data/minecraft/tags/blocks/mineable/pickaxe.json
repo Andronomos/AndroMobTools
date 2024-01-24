@@ -5,6 +5,7 @@
     "androtech:strong_acceleration_pad",
     "androtech:damage_pad",
     "androtech:item_attractor",
+    "androtech:item_incinerator",
     "androtech:machine_block",
     "androtech:redstone_signal_receiver",
     "androtech:redstone_signal_transmitter"

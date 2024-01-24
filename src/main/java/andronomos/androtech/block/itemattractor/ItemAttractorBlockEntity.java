@@ -22,6 +22,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
@@ -57,8 +58,8 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 
 	@Nullable
 	@Override
-	public AbstractContainerMenu createMenu(int containerId, Inventory pPlayerInventory, Player pPlayer) {
-		return new ItemAttractorMenu(containerId, pPlayerInventory, this, this.data);
+	public AbstractContainerMenu createMenu(int containerId, @NotNull Inventory playerInventory, @NotNull Player player) {
+		return new ItemAttractorMenu(containerId, playerInventory, this, this.data);
 	}
 
 	@Override

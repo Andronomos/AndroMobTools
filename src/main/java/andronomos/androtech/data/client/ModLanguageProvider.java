@@ -4,6 +4,7 @@ import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.MachineBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
+import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlock;
 import andronomos.androtech.item.GPSModuleItem;
@@ -39,6 +40,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(DamagePadBlock.TOOLTIP, "Damages entities that stand on it");
 		add(ItemAttractorBlock.DISPLAY_NAME, "Item Attractor");
 		add(ItemAttractorBlock.TOOLTIP, "Pulls nearby items");
+		add(ItemIncineratorBlock.DISPLAY_NAME, "Item Incinerator");
+		add(ItemIncineratorBlock.TOOLTIP, "Destroys items placed inside it");
 		add(RedstoneSignalReceiverBlock.DISPLAY_NAME, "Redstone Signal Receiver");
 		add(RedstoneSignalReceiverBlock.TOOLTIP, "Emits a redstone signal when powered by a signal transmitter");
 		add(RedstoneSignalTransmitterBlock.DISPLAY_NAME, "Redstone Signal Transmitter");

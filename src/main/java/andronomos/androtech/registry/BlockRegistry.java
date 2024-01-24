@@ -7,6 +7,7 @@ import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.block.FlatMachineBlock;
 import andronomos.androtech.block.FlatMachineEffects;
 import andronomos.androtech.block.collisioneffect.ICollisionEffect;
+import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlock;
 import net.minecraft.world.item.BlockItem;
@@ -51,6 +52,7 @@ public class BlockRegistry {
 
 	public static final RegistryObject<FlatMachineBlock> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
 	public static final RegistryObject<MachineBlock> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncineratorBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> MACHINE_BLOCK = registerBlock("machine_block", () -> new MachineBlock(MACHINE_PROPERTIES, false, false, false));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));
