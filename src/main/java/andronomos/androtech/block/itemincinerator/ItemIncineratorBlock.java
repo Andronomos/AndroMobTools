@@ -21,6 +21,7 @@ public class ItemIncineratorBlock extends MachineBlock {
         addTexture("top", "item_incinerator_top");
         addTexture("bottom", "item_incinerator_bottom");
         addTexture("side", "item_incinerator_side");
+        addTexture("front", "item_incinerator_side");
     }
 
     @Nullable
