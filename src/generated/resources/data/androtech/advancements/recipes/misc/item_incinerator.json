@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "minecraft:ender_pearl"
+              "minecraft:lava_bucket"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "androtech:redstone_signal_transmitter"
+        "recipe": "androtech:item_incinerator"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "androtech:redstone_signal_transmitter"
+      "androtech:item_incinerator"
     ]
   },
   "sends_telemetry_event": false

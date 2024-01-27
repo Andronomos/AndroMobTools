@@ -47,25 +47,49 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		generateAccelerationPadRecipe(BlockRegistry.STRONG_ACCELERATION_PAD.get(), ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.REDSTONE_SIGNAL_RECEIVER.get(), 1)
-				.define('1', Tags.Items.INGOTS_IRON)
-				.define('2', Items.REPEATER)
-				.define('3', Items.ENDER_PEARL)
-				.define('4', ItemRegistry.BASIC_CHIP.get())
+				.define('1', Items.REPEATER)
+				.define('2', Items.ENDER_PEARL)
+				.define('3', ItemRegistry.BASIC_CHIP.get())
+				.define('4', BlockRegistry.MACHINE_BLOCK.get())
+				.pattern("121")
+				.pattern("242")
 				.pattern("131")
-				.pattern("323")
-				.pattern("141")
-				.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
+				.unlockedBy("has_item", has(Items.ENDER_PEARL))
 				.save(recipeConsumer);
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.REDSTONE_SIGNAL_TRANSMITTER.get(), 1)
-				.define('1', Tags.Items.INGOTS_IRON)
+				.define('1', Items.REDSTONE_TORCH)
 				.define('2', Items.ENDER_PEARL)
-				.define('3', Items.REDSTONE_TORCH)
-				.define('4', ItemRegistry.BASIC_CHIP.get())
+				.define('3', ItemRegistry.BASIC_CHIP.get())
+				.define('4', BlockRegistry.MACHINE_BLOCK.get())
 				.pattern("121")
-				.pattern("232")
-				.pattern("141")
-				.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
+				.pattern("242")
+				.pattern("131")
+				.unlockedBy("has_item", has(Items.ENDER_PEARL))
+				.save(recipeConsumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.ITEM_ATTRACTOR.get(), 1)
+				.define('1', BlockRegistry.MACHINE_BLOCK.get())
+				.define('2', ItemRegistry.BASIC_CHIP.get())
+				.define('3', Blocks.GLASS)
+				.define('4', Items.HOPPER)
+				.define('5', Items.CHEST)
+				.define('6', Items.ENDER_PEARL)
+				.pattern("343")
+				.pattern("615")
+				.pattern("323")
+				.unlockedBy("has_item", has(Items.HOPPER))
+				.save(recipeConsumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.ITEM_INCINERATOR.get(), 1)
+				.define('1', BlockRegistry.MACHINE_BLOCK.get())
+				.define('2', ItemRegistry.BASIC_CHIP.get())
+				.define('3', Blocks.GLASS)
+				.define('4', Items.LAVA_BUCKET)
+				.pattern("343")
+				.pattern(" 1 ")
+				.pattern("323")
+				.unlockedBy("has_item", has(Items.LAVA_BUCKET))
 				.save(recipeConsumer);
 
 		generateDeviceRecipe(ItemRegistry.GPS_MODULE.get(), Items.COMPASS, ItemRegistry.BASIC_CHIP.get(), recipeConsumer);

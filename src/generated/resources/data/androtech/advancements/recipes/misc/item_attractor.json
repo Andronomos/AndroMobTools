@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "minecraft:ender_pearl"
+              "minecraft:hopper"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "androtech:redstone_signal_transmitter"
+        "recipe": "androtech:item_attractor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "androtech:redstone_signal_transmitter"
+      "androtech:item_attractor"
     ]
   },
   "sends_telemetry_event": false

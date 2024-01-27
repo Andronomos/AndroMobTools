@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "androtech:machine_block"
+    },
+    "2": {
+      "item": "androtech:basic_chip"
+    },
+    "3": {
+      "item": "minecraft:glass"
+    },
+    "4": {
+      "item": "minecraft:hopper"
+    },
+    "5": {
+      "item": "minecraft:chest"
+    },
+    "6": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "pattern": [
+    "343",
+    "615",
+    "323"
+  ],
+  "result": {
+    "item": "androtech:item_attractor"
+  },
+  "show_notification": true
+}

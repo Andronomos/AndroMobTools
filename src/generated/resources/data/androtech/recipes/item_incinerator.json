@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "androtech:machine_block"
+    },
+    "2": {
+      "item": "androtech:basic_chip"
+    },
+    "3": {
+      "item": "minecraft:glass"
+    },
+    "4": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "pattern": [
+    "343",
+    " 1 ",
+    "323"
+  ],
+  "result": {
+    "item": "androtech:item_incinerator"
+  },
+  "show_notification": true
+}
