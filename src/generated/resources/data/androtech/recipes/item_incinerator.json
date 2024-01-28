@@ -3,22 +3,22 @@
   "category": "misc",
   "key": {
     "1": {
-      "item": "androtech:machine_block"
+      "tag": "forge:ingots/iron"
     },
     "2": {
-      "item": "androtech:basic_chip"
+      "item": "minecraft:lava_bucket"
     },
     "3": {
-      "item": "minecraft:glass"
+      "item": "androtech:basic_chip"
     },
     "4": {
-      "item": "minecraft:lava_bucket"
+      "item": "minecraft:glass"
     }
   },
   "pattern": [
-    "343",
-    " 1 ",
-    "323"
+    "141",
+    "424",
+    "131"
   ],
   "result": {
     "item": "androtech:item_incinerator"

@@ -3,28 +3,25 @@
   "category": "misc",
   "key": {
     "1": {
-      "item": "androtech:machine_block"
+      "tag": "forge:ingots/iron"
     },
     "2": {
-      "item": "androtech:basic_chip"
+      "item": "minecraft:ender_eye"
     },
     "3": {
-      "item": "minecraft:glass"
-    },
-    "4": {
-      "item": "minecraft:hopper"
-    },
-    "5": {
       "item": "minecraft:chest"
     },
-    "6": {
-      "item": "minecraft:ender_pearl"
+    "4": {
+      "item": "androtech:basic_chip"
+    },
+    "5": {
+      "item": "minecraft:glass"
     }
   },
   "pattern": [
-    "343",
-    "615",
-    "323"
+    "121",
+    "535",
+    "141"
   ],
   "result": {
     "item": "androtech:item_attractor"
