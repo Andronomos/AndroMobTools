@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class DamagePadBlock extends FlatMachineBlock {
-	public static final int SLOTS = 4;
+	public static final int SLOTS = 3;
 	public static final int AUGMENT_STACK_LIMIT = 10;
 	public static final String DISPLAY_NAME = "screen.androtech.damage_pad";
 	public static final String TOOLTIP = "block.androtech.damage_pad.tooltip";
