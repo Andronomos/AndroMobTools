@@ -5,7 +5,7 @@
   "block.androtech.item_attractor.tooltip": "Pulls nearby items",
   "block.androtech.item_incinerator": "Item Incinerator",
   "block.androtech.item_incinerator.tooltip": "Destroys items placed inside it",
-  "block.androtech.machine_block": "Machine Block",
+  "block.androtech.machine_case": "Machine Case",
   "block.androtech.normal_acceleration_pad": "Normal Acceleration Pad",
   "block.androtech.redstone_receiver.tooltip": "Emits a redstone signal when powered by a signal transmitter",
   "block.androtech.redstone_signal_receiver": "Redstone Signal Receiver",

@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "androtech:machine_block"
+          "name": "androtech:machine_case"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "androtech:blocks/machine_block"
+  "random_sequence": "androtech:blocks/machine_case"
 }
