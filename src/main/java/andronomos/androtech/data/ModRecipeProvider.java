@@ -101,7 +101,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy("has_item", has(Items.LAVA_BUCKET))
 				.save(recipeConsumer);
 
-		generateDeviceRecipe(ItemRegistry.GPS_MODULE.get(), Items.COMPASS, ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
+		generateDeviceRecipe(ItemRegistry.GPS_RECORDER.get(), Items.COMPASS, ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.SHARPNESS_AUGMENT.get(), Items.IRON_SWORD, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.FIRE_AUGMENT.get(), Items.BLAZE_POWDER, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.LOOTING_AUGMENT.get(), Items.RABBIT_FOOT, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);

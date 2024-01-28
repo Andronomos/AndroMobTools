@@ -28,7 +28,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("advanced_chip");
 		createSingleTexture("elite_chip");
 
-		buildMultiStateItemModel("gps_module");
+		buildMultiStateItemModel("gps_recorder");
 		buildMultiStateItemModel("portable_item_attractor");
 	}
 

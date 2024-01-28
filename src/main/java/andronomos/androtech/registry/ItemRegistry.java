@@ -2,7 +2,7 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.item.FakeSword;
-import andronomos.androtech.item.GPSModuleItem;
+import andronomos.androtech.item.GPSRecorderItem;
 import andronomos.androtech.item.PortableItemAttractorItem;
 import andronomos.androtech.item.tools.NaniteEnhancedAxe;
 import andronomos.androtech.item.tools.NaniteEnhancedPickAxe;
@@ -38,8 +38,8 @@ public class ItemRegistry {
 	//public static final RegistryObject<Item> SMITE_AUGMENT = ITEMS.register("smite_augment",
 	//		() -> new Item(new Item.Properties()));
 
-	public static final RegistryObject<Item> GPS_MODULE = ITEMS.register("gps_module",
-			() -> new GPSModuleItem(new Item.Properties()));
+	public static final RegistryObject<Item> GPS_RECORDER = ITEMS.register("gps_recorder",
+			() -> new GPSRecorderItem(new Item.Properties()));
 
 	public static final RegistryObject<Item> PORTABLE_ITEM_ATTRACTOR = ITEMS.register("portable_item_attractor",
 			() -> new PortableItemAttractorItem(new Item.Properties()));

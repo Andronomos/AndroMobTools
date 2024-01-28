@@ -25,7 +25,7 @@ public class RedstoneSignalTransmitterMenu extends BaseMenu {
 		addPlayerHotbar();
 		if(entity instanceof RedstoneSignalTransmitterBlockEntity transmitterBlockEntity) {
 			transmitterBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(itemHandler -> {
-				addSlot(new RestrictedSlotHandler(itemHandler, 0, 80, 30, ItemRegistry.GPS_MODULE.get().getDefaultInstance(), 1));
+				addSlot(new RestrictedSlotHandler(itemHandler, 0, 80, 30, ItemRegistry.GPS_RECORDER.get().getDefaultInstance(), 1));
 			});
 		}
 		setSlotIndexes(RedstoneSignalTransmitterBlock.SLOTS);

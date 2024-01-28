@@ -20,12 +20,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class GPSModuleItem extends MultiStateItem {
+public class GPSRecorderItem extends MultiStateItem {
 	public static final String TOOLTIP_GPS_MODULE = "tooltip.androtech.gps_module_location";
 	public static final String TOOLTIP_GPS_MODULE_COORDS = "tooltip.androtech.gps_module_coords";
 	public static final String GPS_MODULE_SAVED = "item.androtech.gps_module.saved";
 
-	public GPSModuleItem(Properties properties) {
+	public GPSRecorderItem(Properties properties) {
 		super(properties);
 	}
 
@@ -63,7 +63,7 @@ public class GPSModuleItem extends MultiStateItem {
 	}
 
 	private void recordPos(BlockPos pos, Player player) {
-		ItemStack drop = new ItemStack(ItemRegistry.GPS_MODULE.get());
+		ItemStack drop = new ItemStack(ItemRegistry.GPS_RECORDER.get());
 		setBlockPos(drop, pos, player);
 		if(!player.addItem(drop)) ItemStackHelper.drop(player.level(), player.blockPosition(), drop);
 	}
