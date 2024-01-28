@@ -16,6 +16,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -36,7 +37,7 @@ public class GPSRecorderItem extends MultiStateItem {
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+	public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
 		BlockPos pos = ItemStackHelper.getBlockPos(stack);
 		if(pos != null) {
 			tooltip.add(Component.translatable(TOOLTIP_GPS_MODULE).withStyle(ChatFormatting.GRAY));
@@ -45,14 +46,14 @@ public class GPSRecorderItem extends MultiStateItem {
 	}
 
 	@Override
-	public InteractionResult useOn(UseOnContext context) {
+	public @NotNull InteractionResult useOn(UseOnContext context) {
 		BlockPos pos = context.getClickedPos();
 		Player player = context.getPlayer();
 		InteractionHand hand = context.getHand();
 		ItemStack held = player.getItemInHand(hand);
 		int numHeld = held.getCount();
 		if(numHeld == 1) {
-			held = recordPos(held, pos, player);
+			held = recordPos(held, pos);
 		} else {
 			recordPos(pos, player);
 			held.shrink(1);
@@ -64,16 +65,16 @@ public class GPSRecorderItem extends MultiStateItem {
 
 	private void recordPos(BlockPos pos, Player player) {
 		ItemStack drop = new ItemStack(ItemRegistry.GPS_RECORDER.get());
-		setBlockPos(drop, pos, player);
+		setBlockPos(drop, pos);
 		if(!player.addItem(drop)) ItemStackHelper.drop(player.level(), player.blockPosition(), drop);
 	}
 
-	private ItemStack recordPos(ItemStack stack, BlockPos pos, Player player) {
-		setBlockPos(stack, pos, player);
+	private ItemStack recordPos(ItemStack stack, BlockPos pos) {
+		setBlockPos(stack, pos);
 		return stack;
 	}
 
-	private void setBlockPos(ItemStack stack, BlockPos pos, Player player) {
+	private void setBlockPos(ItemStack stack, BlockPos pos) {
 		if (pos == null || stack.isEmpty()) {
 			return;
 		}
