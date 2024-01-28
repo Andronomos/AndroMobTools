@@ -76,12 +76,12 @@ public class MachineBlock extends Block implements EntityBlock {
 
 	@Nullable
 	@Override
-	public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
+	public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
 		return null; //return nothing if the block doesn't have a block entity
 	}
 
 	@Override
-	public void appendHoverText(@NotNull ItemStack stack, BlockGetter worldIn, List<Component> tooltip, @NotNull TooltipFlag flagIn) {
+	public void appendHoverText(@NotNull ItemStack stack, BlockGetter worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
 		if (hasTooltip) {
 			tooltip.add(Component.translatable(getDescriptionId() + ".tooltip").withStyle(ChatFormatting.GRAY));
 		}
@@ -89,10 +89,10 @@ public class MachineBlock extends Block implements EntityBlock {
 
 	@javax.annotation.Nullable
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
+	public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
 		BlockState state = super.getStateForPlacement(context);
 		for(final Direction facing : context.getNearestLookingDirections()) {
-			if(facing.getAxis().isHorizontal()) {
+			if(facing.getAxis().isHorizontal() && state != null) {
 				state = state.setValue(FACING, facing);
 				break;
 			}
@@ -101,19 +101,19 @@ public class MachineBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
 		builder.add(FACING);
 		builder.add(POWERED);
 	}
 
 	@Override
-	public BlockState rotate(BlockState state, Rotation rotation) {
+	public @NotNull BlockState rotate(BlockState state, Rotation rotation) {
 		return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
 	}
 
 	@Override
-	public BlockState mirror(BlockState state, Mirror mirror) {
+	public @NotNull BlockState mirror(BlockState state, Mirror mirror) {
 		return state.setValue(FACING, mirror.mirror(state.getValue(FACING)));
 	}
 
@@ -122,6 +122,6 @@ public class MachineBlock extends Block implements EntityBlock {
 	}
 
 	public void OpenScreen(Level level, BlockPos pos, Player player) {
-		return; //do nothing if the block doesn't have a screen
+		//do nothing if the block doesn't have a screen
 	}
 }
