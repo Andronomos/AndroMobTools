@@ -37,6 +37,11 @@ public class MachineBlock extends Block implements EntityBlock {
 	public final boolean hasTooltip;
 	public final boolean isDirectional;
 
+	public MachineBlock(Properties properties)
+	{
+		this(properties, false, false, false);
+	}
+
 	public MachineBlock(Properties properties, boolean hasMultipleStates, boolean hasTooltip, boolean isDirectional) {
 		super(properties);
 		this.hasMultipleStates = hasMultipleStates;
