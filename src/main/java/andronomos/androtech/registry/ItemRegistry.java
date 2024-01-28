@@ -3,13 +3,13 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.item.FakeSword;
 import andronomos.androtech.item.GPSModuleItem;
+import andronomos.androtech.item.PortableItemAttractorItem;
 import andronomos.androtech.item.tools.NaniteEnhancedAxe;
 import andronomos.androtech.item.tools.NaniteEnhancedPickAxe;
 import andronomos.androtech.item.tools.NaniteEnhancedShovel;
 import andronomos.androtech.item.tools.NaniteEnhancedSword;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -40,6 +40,9 @@ public class ItemRegistry {
 
 	public static final RegistryObject<Item> GPS_MODULE = ITEMS.register("gps_module",
 			() -> new GPSModuleItem(new Item.Properties()));
+
+	public static final RegistryObject<Item> PORTABLE_ITEM_ATTRACTOR = ITEMS.register("portable_item_attractor",
+			() -> new PortableItemAttractorItem(new Item.Properties()));
 
 	public static final RegistryObject<Item> NANITE_ENHANCED_PICKAXE = ITEMS.register("nanite_enhanced_pickaxe",
 			() -> new NaniteEnhancedPickAxe(Tiers.NETHERITE, 1, -2.8F, new Item.Properties().fireResistant()));
