@@ -52,6 +52,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");
 		add(ItemRegistry.LOOTING_AUGMENT.get(), "Looting Augment");
 		add(ItemRegistry.GPS_MODULE.get(), "GPS Module");
+		add(ItemRegistry.PORTABLE_ITEM_ATTRACTOR.get(), "Portable Item Attractor");
 		add(GPSModuleItem.TOOLTIP_GPS_MODULE, "Location");
 		add(GPSModuleItem.TOOLTIP_GPS_MODULE_COORDS, "X: %1$s Y: %2$s Z: %3$s");
 		add(GPSModuleItem.GPS_MODULE_SAVED, "Saved Block Position %1$s");
