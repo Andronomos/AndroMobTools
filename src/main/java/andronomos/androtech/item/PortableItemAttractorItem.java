@@ -35,7 +35,7 @@ public class PortableItemAttractorItem extends TickingItem {
 	private void attractItems(ItemStack stack, Level level, ServerPlayer player, AABB area) {
 		List<ItemEntity> itemsInRange = level.getEntitiesOfClass(ItemEntity.class, area,
 				item -> !item.getPersistentData().contains("PreventRemoteMovement") &&
-						(item.getOwner() == null || !item.getOwner().equals(player.getUUID()) || !item.isPickable())
+						(item.getOwner() == null || !item.getOwner().getUUID().equals(player.getUUID()) || !item.isPickable())
 		);
 
 		itemsInRange.forEach(item -> {

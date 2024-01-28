@@ -38,14 +38,14 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 	private void buildMultiStateItemModel(String name) {
 		ItemModelBuilder modelNormal = createSingleTexture(name);
-		ModelFile modelactivated = createSingleTexture(name + "_activated");
+		ModelFile modelActivated = createSingleTexture(name + "_activated");
 		modelNormal.override()
 				.predicate(PropertyOverrideRegistry.IS_ACTIVATED, 0)
 				.model(modelNormal)
 				.end()
 				.override()
 				.predicate(PropertyOverrideRegistry.IS_ACTIVATED, 1)
-				.model(modelactivated)
+				.model(modelActivated)
 				.end();
 	}
 }

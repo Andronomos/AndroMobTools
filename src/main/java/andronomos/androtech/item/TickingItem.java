@@ -6,6 +6,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class TickingItem extends MultiStateItem {
 	public int tickCounter = 0;
@@ -17,7 +18,7 @@ public abstract class TickingItem extends MultiStateItem {
 	}
 
 	@Override
-	public void inventoryTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
+	public void inventoryTick(@NotNull ItemStack stack, Level level, @NotNull Entity entity, int itemSlot, boolean isSelected) {
 		if(level.isClientSide || !(entity instanceof Player) || !isActivated(stack)) {
 			return;
 		}
@@ -40,10 +41,10 @@ public abstract class TickingItem extends MultiStateItem {
 	}
 
 	public boolean isBroken(ItemStack stack) {
-		if(takeDamage) {
-			return ItemStackHelper.isBroken(stack);
+		if(!takeDamage) {
+			return false;
 		}
-		return false;
+		return ItemStackHelper.isBroken(stack);
 	}
 
 	public int getTickDelay() {
