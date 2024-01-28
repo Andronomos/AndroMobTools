@@ -8,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public abstract class TickingItem extends MultiStateItem {
-	public int tickDelay = Constants.TicksInSeconds.THREE;
 	public int tickCounter = 0;
 	public boolean takeDamage;
 
@@ -23,7 +22,7 @@ public abstract class TickingItem extends MultiStateItem {
 			return;
 		}
 
-		if(tickCounter == tickDelay) {
+		if(tickCounter == getTickDelay()) {
 			tickCounter = 0;
 			if(takeDamage) {
 				doDamage(stack, entity, 1,false);
@@ -45,6 +44,10 @@ public abstract class TickingItem extends MultiStateItem {
 			return ItemStackHelper.isBroken(stack);
 		}
 		return false;
+	}
+
+	public int getTickDelay() {
+		return Constants.TicksInSeconds.THREE;
 	}
 
 	public abstract void onTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected);
