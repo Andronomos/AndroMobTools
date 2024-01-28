@@ -30,7 +30,7 @@ public class ItemAttractorBlock extends MachineBlock {
 
 	@Nullable
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+	public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
 		return new ItemAttractorBlockEntity(pos, state);
 	}
 

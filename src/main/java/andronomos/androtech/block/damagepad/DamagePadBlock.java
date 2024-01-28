@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.network.NetworkHooks;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class DamagePadBlock extends FlatMachineBlock {
@@ -26,7 +27,7 @@ public class DamagePadBlock extends FlatMachineBlock {
 
 	@Nullable
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+	public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
 		return BlockEntityRegistry.DAMAGE_PAD_BE.get().create(pos, state);
 	}
 
