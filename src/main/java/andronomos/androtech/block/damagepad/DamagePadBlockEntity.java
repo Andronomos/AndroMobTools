@@ -86,8 +86,8 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 				sword.enchant(Enchantments.MOB_LOOTING, itemHandler.getStackInSlot(1).getCount());
 			if (hasFireUpgrade())
 				sword.enchant(Enchantments.FIRE_ASPECT, itemHandler.getStackInSlot(2).getCount());
-			if (hasSmiteUpgrade())
-				sword.enchant(Enchantments.SMITE, itemHandler.getStackInSlot(3).getCount());
+			//if (hasSmiteUpgrade())
+			//	sword.enchant(Enchantments.SMITE, itemHandler.getStackInSlot(3).getCount());
 
 			FakePlayer fp = FakePlayerFactory.get((ServerLevel) getLevel(), AndroTech.PROFILE);
 			fp.setItemInHand(InteractionHand.MAIN_HAND, sword);
@@ -118,7 +118,7 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 		return itemHandler.getStackInSlot(2).getItem() == ItemRegistry.FIRE_AUGMENT.get();
 	}
 
-	private boolean hasSmiteUpgrade() {
-		return itemHandler.getStackInSlot(3).getItem() == ItemRegistry.SMITE_AUGMENT.get();
-	}
+	//private boolean hasSmiteUpgrade() {
+	//	return itemHandler.getStackInSlot(3).getItem() == ItemRegistry.SMITE_AUGMENT.get();
+	//}
 }

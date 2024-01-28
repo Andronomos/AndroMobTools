@@ -35,8 +35,8 @@ public class ItemRegistry {
 	public static final RegistryObject<Item> FIRE_AUGMENT = ITEMS.register("fire_augment",
 			() -> new Item(new Item.Properties()));
 
-	public static final RegistryObject<Item> SMITE_AUGMENT = ITEMS.register("smite_augment",
-			() -> new Item(new Item.Properties()));
+	//public static final RegistryObject<Item> SMITE_AUGMENT = ITEMS.register("smite_augment",
+	//		() -> new Item(new Item.Properties()));
 
 	public static final RegistryObject<Item> GPS_MODULE = ITEMS.register("gps_module",
 			() -> new GPSModuleItem(new Item.Properties()));
