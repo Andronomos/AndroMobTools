@@ -48,7 +48,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(RedstoneSignalTransmitterBlock.TOOLTIP, "Transmits a redstone signal to a receiver");
 
 		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
-		add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");
+		//add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");
 		add(ItemRegistry.LOOTING_AUGMENT.get(), "Looting Augment");
 		add(ItemRegistry.GPS_MODULE.get(), "GPS Module");
