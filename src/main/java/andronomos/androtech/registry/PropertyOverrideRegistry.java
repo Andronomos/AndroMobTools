@@ -18,11 +18,11 @@ public class PropertyOverrideRegistry {
 		//ItemProperties.register(ItemRegistry.MOB_STASIS_MODULE.get(),
 		//		IS_ACTIVATED, (stack, level, living, id) -> ItemStackHelper.hasEntityTag(stack) ? 1 : 0);
 
-		//registerToggleableItem(ItemRegistry.ITEM_ATTRACTOR_MODULE.get());
-		//registerToggleableItem(ItemRegistry.MENDING_MODULE.get());
+		registerMultiStateItem(ItemRegistry.PORTABLE_ITEM_ATTRACTOR.get());
+		//registerMultiStateItem(ItemRegistry.MENDING_MODULE.get());
 	}
 
-	private static void registerToggleableItem(Item item) {
+	private static void registerMultiStateItem(Item item) {
 		ItemProperties.register(item, IS_ACTIVATED, (stack, level, living, id) -> stackIsActivated(stack) ? 1 : 0);
 	}
 

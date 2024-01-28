@@ -18,7 +18,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("sharpness_augment");
 		createSingleTexture("looting_augment");
 		createSingleTexture("fire_augment");
-		createSingleTexture("smite_augment");
+		//createSingleTexture("smite_augment");
 		createSingleTexture("fake_sword");
 		createSingleTexture("nanite_enhanced_pickaxe");
 		createSingleTexture("nanite_enhanced_axe");
@@ -28,14 +28,15 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("advanced_chip");
 		createSingleTexture("elite_chip");
 
-		buildMultiSTateItemModel("gps_module");
+		buildMultiStateItemModel("gps_module");
+		buildMultiStateItemModel("portable_item_attractor");
 	}
 
 	private ItemModelBuilder createSingleTexture(String name) {
 		return singleTexture(name, mcLoc("item/generated"), "layer0", modLoc("item/" + name));
 	}
 
-	private void buildMultiSTateItemModel(String name) {
+	private void buildMultiStateItemModel(String name) {
 		ItemModelBuilder modelNormal = createSingleTexture(name);
 		ModelFile modelactivated = createSingleTexture(name + "_activated");
 		modelNormal.override()
