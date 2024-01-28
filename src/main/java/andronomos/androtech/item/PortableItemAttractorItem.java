@@ -1,5 +1,6 @@
 package andronomos.androtech.item;
 
+import andronomos.androtech.Constants;
 import andronomos.androtech.config.AndroTechConfig;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -16,6 +17,11 @@ public class PortableItemAttractorItem extends TickingItem {
 
 	public PortableItemAttractorItem(Properties properties) {
 		super(properties, AndroTechConfig.PORTABLE_ATTRACTOR_TAKE_DAMAGE.get());
+	}
+
+	@Override
+	public int getTickDelay() {
+		return Constants.TicksInSeconds.ONE;
 	}
 
 	@Override
