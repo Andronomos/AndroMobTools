@@ -1,9 +1,11 @@
 package andronomos.androtech.item;
 
+import andronomos.androtech.util.ItemStackHelper;
 import andronomos.androtech.util.NBTHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -12,9 +14,11 @@ import org.jetbrains.annotations.NotNull;
 
 public class MultiStateItem extends Item {
 	public final static String TAG_ACTIVATED = "activated";
+	public boolean takeDamage;
 
-	public MultiStateItem(Properties properties) {
+	public MultiStateItem(Properties properties, boolean takeDamage) {
 		super(properties);
+		this.takeDamage = takeDamage;
 	}
 
 	@Override
@@ -46,5 +50,18 @@ public class MultiStateItem extends Item {
 
 	private void setActivatedState(ItemStack stack, int activated) {
 		NBTHelper.setIntVal(stack, TAG_ACTIVATED, activated);
+	}
+
+	public void doDamage(ItemStack stack, Entity entity, int amount, boolean preventBreaking) {
+		if(stack.getDamageValue() < stack.getMaxDamage()) {
+			ItemStackHelper.applyDamage((Player)entity, stack, amount, preventBreaking);
+		}
+	}
+
+	public boolean isBroken(ItemStack stack) {
+		if(!takeDamage) {
+			return false;
+		}
+		return ItemStackHelper.isBroken(stack);
 	}
 }

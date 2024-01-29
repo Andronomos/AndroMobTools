@@ -10,11 +10,10 @@ import org.jetbrains.annotations.NotNull;
 
 public abstract class TickingItem extends MultiStateItem {
 	public int tickCounter = 0;
-	public boolean takeDamage;
+
 
 	public TickingItem(Properties properties, boolean takeDamage) {
-		super(properties);
-		this.takeDamage = takeDamage;
+		super(properties, takeDamage);
 	}
 
 	@Override
@@ -32,19 +31,6 @@ public abstract class TickingItem extends MultiStateItem {
 		}
 
 		tickCounter++;
-	}
-
-	public void doDamage(ItemStack stack, Entity entity, int amount, boolean preventBreaking) {
-		if(stack.getDamageValue() < stack.getMaxDamage()) {
-			ItemStackHelper.applyDamage((Player)entity, stack, amount, preventBreaking);
-		}
-	}
-
-	public boolean isBroken(ItemStack stack) {
-		if(!takeDamage) {
-			return false;
-		}
-		return ItemStackHelper.isBroken(stack);
 	}
 
 	public int getTickDelay() {
