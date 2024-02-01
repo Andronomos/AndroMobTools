@@ -27,7 +27,7 @@ public class GPSRecorderItem extends MultiStateItem {
 	public static final String GPS_MODULE_SAVED = "item.androtech.gps_module.saved";
 
 	public GPSRecorderItem(Properties properties) {
-		super(properties);
+		super(properties, false);
 	}
 
 	@Override
