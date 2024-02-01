@@ -30,6 +30,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 		buildMultiStateItemModel("gps_recorder");
 		buildMultiStateItemModel("portable_item_attractor");
+		buildMultiStateItemModel("mob_storage_device");
 	}
 
 	private ItemModelBuilder createSingleTexture(String name) {

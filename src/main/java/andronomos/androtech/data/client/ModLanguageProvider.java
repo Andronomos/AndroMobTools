@@ -8,6 +8,7 @@ import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlock;
 import andronomos.androtech.item.GPSRecorderItem;
+import andronomos.androtech.item.MobStorageDevice;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.CreativeTabRegistry;
 import andronomos.androtech.registry.ItemRegistry;
@@ -56,6 +57,9 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(GPSRecorderItem.TOOLTIP_GPS_MODULE, "Location");
 		add(GPSRecorderItem.TOOLTIP_GPS_MODULE_COORDS, "X: %1$s Y: %2$s Z: %3$s");
 		add(GPSRecorderItem.GPS_MODULE_SAVED, "Saved Block Position %1$s");
+		add(MobStorageDevice.TOOLTIP_MOB_STORAGE_DEVICE_MOB, "Mob: %1$s");
+		add(MobStorageDevice.TOOLTIP_MOB_STORAGE_DEVICE_HEALTH, "Health: %1$s");
+		add(ItemRegistry.MOB_STORAGE_DEVICE.get(), "Mob Storage Device");
 
 		add(ItemRegistry.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
 		add(ItemRegistry.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");

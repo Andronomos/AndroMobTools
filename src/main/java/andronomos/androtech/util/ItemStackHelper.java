@@ -4,10 +4,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 public class ItemStackHelper {
 	public static void applyDamage(LivingEntity player, ItemStack stack, int amount, boolean preventBreaking) {
@@ -46,5 +49,39 @@ public class ItemStackHelper {
 		if (!level.isClientSide()) {
 			level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), drop));
 		}
+	}
+
+	public static boolean hasEntityTag(ItemStack stack) {
+		return !stack.isEmpty() && stack.hasTag() && stack.getTag().contains("Entity");
+	}
+
+	@Nullable
+	public static Entity createEntity(ItemStack stack, Level level, boolean createCopy) {
+		EntityType type = getEntityType(stack);
+
+		if (type == null) {
+			return null;
+		}
+
+		Entity entity = type.create(level);
+
+		if (createCopy) {
+			entity.load(stack.getTag());
+		}
+
+		return entity;
+	}
+
+	public static void saveEntity(LivingEntity entity, ItemStack stack) {
+		CompoundTag tag = new CompoundTag();
+		entity.save(tag);
+		String entityName = EntityType.getKey(entity.getType()).toString();
+		tag.putString("Entity", entityName);
+		stack.setTag(tag);
+	}
+
+	@Nullable
+	public static EntityType getEntityType(ItemStack stack) {
+		return EntityType.byString(stack.getTag().getString("Entity")).orElse(null);
 	}
 }

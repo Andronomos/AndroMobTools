@@ -4,6 +4,7 @@ import andronomos.androtech.AndroTech;
 import andronomos.androtech.item.FakeSword;
 import andronomos.androtech.item.GPSRecorderItem;
 import andronomos.androtech.item.ItemAttractionEmitterItem;
+import andronomos.androtech.item.MobStorageDevice;
 import andronomos.androtech.item.tools.NaniteEnhancedAxe;
 import andronomos.androtech.item.tools.NaniteEnhancedPickAxe;
 import andronomos.androtech.item.tools.NaniteEnhancedShovel;
@@ -43,6 +44,9 @@ public class ItemRegistry {
 
 	public static final RegistryObject<Item> ITEM_ATTRACTION_EMITTER = ITEMS.register("item_attraction_emitter",
 			() -> new ItemAttractionEmitterItem(new Item.Properties()));
+
+	public static final RegistryObject<Item> MOB_STORAGE_DEVICE = ITEMS.register("mob_storage_device",
+			() -> new MobStorageDevice(new Item.Properties()));
 
 	public static final RegistryObject<Item> NANITE_ENHANCED_PICKAXE = ITEMS.register("nanite_enhanced_pickaxe",
 			() -> new NaniteEnhancedPickAxe(Tiers.NETHERITE, 1, -2.8F, new Item.Properties().fireResistant()));
