@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "androtech:portable_item_attractor"
+        "recipe": "androtech:item_attraction_emitter"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "androtech:portable_item_attractor"
+      "androtech:item_attraction_emitter"
     ]
   },
   "sends_telemetry_event": false

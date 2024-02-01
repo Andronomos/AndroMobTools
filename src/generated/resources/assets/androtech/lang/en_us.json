@@ -22,12 +22,13 @@
   "item.androtech.fire_augment": "Fire Aspect Augment",
   "item.androtech.gps_module.saved": "Saved Block Position %1$s",
   "item.androtech.gps_recorder": "GPS Recorder",
+  "item.androtech.item_attraction_emitter": "Item Attraction Emitter",
   "item.androtech.looting_augment": "Looting Augment",
+  "item.androtech.mob_storage_device": "Mob Storage Device",
   "item.androtech.nanite_enhanced_axe": "Nanite Enhanced Axe",
   "item.androtech.nanite_enhanced_pickaxe": "Nanite Enhanced Pickaxe",
   "item.androtech.nanite_enhanced_shovel": "Nanite Enhanced Shovel",
   "item.androtech.nanite_enhanced_sword": "Nanite Enhanced Sword",
-  "item.androtech.portable_item_attractor": "Portable Item Attractor",
   "item.androtech.sharpness_augment": "Sharpness Augment",
   "screen.androtech.damage_pad": "Damage Pad",
   "screen.androtech.item_attractor": "Item Attractor",
@@ -35,5 +36,7 @@
   "screen.androtech.redstone_receiver": "Redstone Signal Receiver",
   "screen.androtech.redstone_transmitter": "Redstone Signal Transmitter",
   "tooltip.androtech.gps_module_coords": "X: %1$s Y: %2$s Z: %3$s",
-  "tooltip.androtech.gps_module_location": "Location"
+  "tooltip.androtech.gps_module_location": "Location",
+  "tooltip.androtech.mob_storage_device.health": "Health: %1$s",
+  "tooltip.androtech.mob_storage_device.mob": "Mob: %1$s"
 }
