@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "androtech:item/mob_storage_device_activated"
+  }
+}
