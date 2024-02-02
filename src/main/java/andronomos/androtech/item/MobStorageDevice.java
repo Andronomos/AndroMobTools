@@ -19,6 +19,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -38,11 +39,11 @@ public class MobStorageDevice extends MultiStateItem {
 
 	@Override
 	public int getMaxDamage(ItemStack stack) {
-		return AndroTechConfig.MOB_STASIS_MODULE_DURABILITY.get();
+		return AndroTechConfig.MOB_STORAGE_DEVICE_DURABILITY.get();
 	}
 
 	@Override
-	public InteractionResult useOn(UseOnContext context) {
+	public @NotNull InteractionResult useOn(UseOnContext context) {
 		if(context.getLevel().isClientSide()) {
 			return InteractionResult.PASS;
 		}
@@ -64,7 +65,7 @@ public class MobStorageDevice extends MultiStateItem {
 	}
 
 	@Override
-	public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
+	public @NotNull InteractionResult interactLivingEntity(@NotNull ItemStack stack, Player player, @NotNull LivingEntity target, @NotNull InteractionHand hand) {
 		if(player.level().isClientSide()) {
 			return InteractionResult.PASS;
 		}
@@ -115,15 +116,12 @@ public class MobStorageDevice extends MultiStateItem {
 		if (entity instanceof Player || !entity.isAlive() || entity instanceof WitherBoss) {
 			return false;
 		}
-		if (entity instanceof Wolf && ((Wolf) entity).getRemainingPersistentAngerTime() > 0) {
-			return false;
-		}
-		return true;
+		return !(entity instanceof Wolf) || ((Wolf) entity).getRemainingPersistentAngerTime() <= 0;
 	}
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+	public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
 		if(ItemStackHelper.hasEntityTag(stack)) {
 			tooltip.add(Component.translatable(TOOLTIP_MOB_STORAGE_DEVICE_MOB, stack.getTag().getString("Entity")).withStyle(ChatFormatting.BLUE));
 			tooltip.add(Component.translatable(TOOLTIP_MOB_STORAGE_DEVICE_HEALTH, stack.getTag().getDouble("Health")).withStyle(ChatFormatting.RED));

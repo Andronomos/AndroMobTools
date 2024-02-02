@@ -9,14 +9,14 @@ import java.nio.file.Path;
 public class AndroTechConfig {
 	public static final ForgeConfigSpec CONFIG;
 
-	public static ForgeConfigSpec.ConfigValue<Integer> PORTABLE_ATTRACTOR_RANGE;
-	public static ForgeConfigSpec.ConfigValue<Boolean> PORTABLE_ATTRACTOR_TAKE_DAMAGE;
+	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_ATTRACTION_EMITTER_RANGE;
+	public static ForgeConfigSpec.ConfigValue<Boolean> ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> MENDING_MODULE_REPAIR_RATE;
 	public static ForgeConfigSpec.ConfigValue<Integer> MENDING_MODULE_DURABILITY;
 
-	public static ForgeConfigSpec.ConfigValue<Boolean> MOB_STASIS_MODULE_TAKE_DAMAGE;
-	public static ForgeConfigSpec.ConfigValue<Integer> MOB_STASIS_MODULE_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Boolean> MOB_STORAGE_DEVICE_TAKE_DAMAGE;
+	public static ForgeConfigSpec.ConfigValue<Integer> MOB_STORAGE_DEVICE_DURABILITY;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_PICKAXE_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_AXE_DURABILITY;
@@ -37,13 +37,13 @@ public class AndroTechConfig {
 		builder.pop();
 
 		builder.push("Attractor Module");
-		PORTABLE_ATTRACTOR_RANGE = builder.comment("The distance in blocks the attractor module will pull items").define("range", 10);
-		PORTABLE_ATTRACTOR_TAKE_DAMAGE = builder.comment("Enable damage").define("take_damage", true);
+		ITEM_ATTRACTION_EMITTER_RANGE = builder.comment("The distance in blocks the attractor module will pull items").define("range", 10);
+		ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE = builder.comment("Enable damage").define("take_damage", true);
 		builder.pop();
 
-		builder.push("Mob Stasis Module");
-		MOB_STASIS_MODULE_TAKE_DAMAGE = builder.comment("Enable damage").define("take_damage", false);
-		MOB_STASIS_MODULE_DURABILITY = builder.comment("Durability").define("durability", 1);
+		builder.push("Mob Capture Device");
+		MOB_STORAGE_DEVICE_TAKE_DAMAGE = builder.comment("Enable damage").define("take_damage", false);
+		MOB_STORAGE_DEVICE_DURABILITY = builder.comment("Durability").define("durability", 1);
 		builder.pop();
 
 		builder.push("Nanite Tools");

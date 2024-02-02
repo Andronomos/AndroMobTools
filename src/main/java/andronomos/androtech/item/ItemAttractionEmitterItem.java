@@ -13,10 +13,10 @@ import net.minecraft.world.phys.AABB;
 import java.util.List;
 
 public class ItemAttractionEmitterItem extends TickingItem {
-	private final int range = AndroTechConfig.PORTABLE_ATTRACTOR_RANGE.get();
+	private final int range = AndroTechConfig.ITEM_ATTRACTION_EMITTER_RANGE.get();
 
 	public ItemAttractionEmitterItem(Properties properties) {
-		super(properties, AndroTechConfig.PORTABLE_ATTRACTOR_TAKE_DAMAGE.get());
+		super(properties, AndroTechConfig.ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE.get());
 	}
 
 	@Override
