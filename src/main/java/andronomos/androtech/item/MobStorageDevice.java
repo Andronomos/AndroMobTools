@@ -74,19 +74,11 @@ public class MobStorageDevice extends AbstractDeviceItem {
 
 	public boolean releaseEntity(ItemStack stack, Player player, Direction facing, Level level, BlockPos pos) {
 		if (facing != null) pos = pos.offset(facing.getNormal());
-
 		Entity entity = ItemStackHelper.createEntity(stack, level, true);
-
 		if (entity == null) return false;
-
 		entity.absMoveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0, 0);
-
 		if(!level.addFreshEntity(entity)) return false;
-
-		if(hasDurability) {
-			doDamage(stack, player, 1, false);
-		}
-
+		if(hasDurability) doDamage(stack, player, 1, false);
 		return true;
 	}
 
