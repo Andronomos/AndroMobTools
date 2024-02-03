@@ -26,10 +26,6 @@ public class ToggleableDeviceItem extends AbstractDeviceItem {
 	public @NotNull InteractionResultHolder<ItemStack> use(Level level, @NotNull Player player, @NotNull InteractionHand hand) {
 		if(!level.isClientSide) {
 			ItemStack stack = player.getItemInHand(hand);
-			CompoundTag tag = stack.getTag();
-			AndroTech.LOGGER.info(String.format("MultiStateItem#use | stack nbt: %s", tag != null ? tag.toString() : "null"));
-			ChatHelper.sendStatusMessage(player, Component.literal(tag != null ? tag.toString() : "null"));
-
 			if(!isActivated(stack)) {
 				activate(stack);
 			} else {
