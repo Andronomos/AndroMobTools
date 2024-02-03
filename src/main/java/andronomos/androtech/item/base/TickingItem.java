@@ -22,9 +22,6 @@ public abstract class TickingItem extends ToggleableDeviceItem {
 
 		if(tickCounter == getTickDelay()) {
 			tickCounter = 0;
-			if(hasDurability) {
-				doDamage(stack, entity, 1,false);
-			}
 			onTick(stack, level, entity, itemSlot, isSelected);
 		}
 
