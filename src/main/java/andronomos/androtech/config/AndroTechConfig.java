@@ -10,6 +10,7 @@ public class AndroTechConfig {
 	public static final ForgeConfigSpec CONFIG;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> DEVICE_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Boolean> DEVICE_TAKE_DAMAGE;
 	public static ForgeConfigSpec.ConfigValue<Integer> TICKING_DEVICE_DURABILITY;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_ATTRACTION_EMITTER_RANGE;
@@ -41,6 +42,7 @@ public class AndroTechConfig {
 
 	public static void setupConfig(ForgeConfigSpec.Builder builder) {
 		builder.push("General");
+		DEVICE_TAKE_DAMAGE = builder.comment("Do devices without a specific config option take damage").define("take_damage", false);
 		DEVICE_DURABILITY = builder.comment("Default durability for devices").define("durability", 50);
 		TICKING_DEVICE_DURABILITY = builder.comment("Default durability for devices that tick").define("tick_durability", 1000);
 		builder.pop();
