@@ -78,7 +78,7 @@ public class MobStorageDevice extends AbstractDeviceItem {
 		if (entity == null) return false;
 		entity.absMoveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0, 0);
 		if(!level.addFreshEntity(entity)) return false;
-		if(hasDurability) doDamage(stack, player, 1, false);
+		if(hasDurability) doDamage(stack, player, 1, AndroTechConfig.MOB_STORAGE_DEVICE_CAN_BREAK.get());
 		return true;
 	}
 
