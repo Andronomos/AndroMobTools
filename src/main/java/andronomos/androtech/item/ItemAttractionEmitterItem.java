@@ -42,7 +42,6 @@ public class ItemAttractionEmitterItem extends TickingItem {
 		itemsInRange.forEach(item -> {
 			if(!isBroken(stack)) {
 				item.playerTouch(player);
-
 				if(hasDurability) {
 					doDamage(stack, player, 1,true);
 				}
@@ -52,7 +51,6 @@ public class ItemAttractionEmitterItem extends TickingItem {
 
 	private void attractExperience(ItemStack stack, Level level, ServerPlayer player, AABB area) {
 		List<ExperienceOrb> experienceOrbs = level.getEntitiesOfClass(ExperienceOrb.class, area);
-
 		experienceOrbs.forEach(orb -> {
 			if(!isBroken(stack)) {
 				player.takeXpDelay = 0;
