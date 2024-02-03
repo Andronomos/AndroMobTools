@@ -57,29 +57,24 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 		BlockPos pos = context.getClickedPos();
 		Player player = context.getPlayer();
 		InteractionHand hand = context.getHand();
-		ItemStack held = player.getItemInHand(hand);
-		int numHeld = held.getCount();
-		if(numHeld == 1) {
-			recordPos(held, pos);
-		} else {
-			recordPos(pos, player);
-			held.shrink(1);
-		}
-		if(hasDurability) doDamage(held, player, 1, AndroTechConfig.GPS_RECORDER_CAN_BREAK.get());
+		recordPos(hand, pos, player);
 		player.swing(hand);
 		ChatHelper.sendStatusMessage(player, Component.translatable(GPS_MODULE_SAVED, ChatHelper.blockPosToString(pos)));
 		return InteractionResult.SUCCESS;
 	}
 
-	private void recordPos(BlockPos pos, Player player) {
-		ItemStack drop = new ItemStack(ItemRegistry.GPS_RECORDER.get());
-		setBlockPos(drop, pos);
-		if(!player.addItem(drop)) ItemStackHelper.drop(player.level(), player.blockPosition(), drop);
-	}
+	private void recordPos(InteractionHand hand, BlockPos pos, Player player) {
+		ItemStack held = player.getItemInHand(hand);
 
-	private ItemStack recordPos(ItemStack stack, BlockPos pos) {
-		setBlockPos(stack, pos);
-		return stack;
+		if(held.getCount() == 1) {
+			setBlockPos(held, pos);
+			if(hasDurability) doDamage(held, player, 1, AndroTechConfig.GPS_RECORDER_CAN_BREAK.get());
+		} else {
+			ItemStack drop = new ItemStack(ItemRegistry.GPS_RECORDER.get());
+			setBlockPos(drop, pos);
+			if(hasDurability) doDamage(drop, player, 1, AndroTechConfig.GPS_RECORDER_CAN_BREAK.get());
+			if(!player.addItem(drop)) ItemStackHelper.drop(player.level(), player.blockPosition(), drop);
+		}
 	}
 
 	private void setBlockPos(ItemStack stack, BlockPos pos) {
