@@ -19,7 +19,6 @@ public class PropertyOverrideRegistry {
 				IS_ACTIVATED, (stack, level, living, id) -> ItemStackHelper.hasEntityTag(stack) ? 1 : 0);
 
 		registerMultiStateItem(ItemRegistry.ITEM_ATTRACTION_EMITTER.get());
-		//registerMultiStateItem(ItemRegistry.MENDING_MODULE.get());
 	}
 
 	private static void registerMultiStateItem(Item item) {
