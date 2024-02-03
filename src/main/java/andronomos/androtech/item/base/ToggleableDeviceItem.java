@@ -45,8 +45,8 @@ public class ToggleableDeviceItem extends AbstractDeviceItem {
 		NBTHelper.setIntVal(stack, TAG_ACTIVATED, 0);
 	}
 
-	public void doDamage(ItemStack stack, Entity entity, int amount, boolean preventBreaking) {
-		ItemStackHelper.applyDamage((Player)entity, stack, amount, preventBreaking);
+	public void doDamage(ItemStack stack, Entity entity, int amount, boolean allowBreaking) {
+		ItemStackHelper.applyDamage((Player)entity, stack, amount, allowBreaking);
 	}
 
 	public boolean isBroken(ItemStack stack) {
