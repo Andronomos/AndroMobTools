@@ -1,7 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.item.MultiStateItem;
+import andronomos.androtech.item.base.ToggleableDeviceItem;
 import andronomos.androtech.util.ItemStackHelper;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +27,7 @@ public class PropertyOverrideRegistry {
 	}
 
 	private static boolean stackIsActivated(ItemStack stack) {
-		if(stack.getItem() instanceof MultiStateItem multiStateItem) {
+		if(stack.getItem() instanceof ToggleableDeviceItem multiStateItem) {
 			return multiStateItem.isActivated(stack);
 		}
 		return false;

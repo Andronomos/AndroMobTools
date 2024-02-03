@@ -1,4 +1,4 @@
-package andronomos.androtech.item;
+package andronomos.androtech.item.base;
 
 import andronomos.androtech.Constants;
 import net.minecraft.world.entity.Entity;
@@ -7,11 +7,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public abstract class TickingItem extends MultiStateItem {
+public abstract class TickingItem extends ToggleableDeviceItem {
 	public int tickCounter = 0;
 
-	public TickingItem(Properties properties, boolean takeDamage) {
-		super(properties, takeDamage);
+	public TickingItem(Properties properties, boolean hasDurability) {
+		super(properties, hasDurability);
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public abstract class TickingItem extends MultiStateItem {
 
 		if(tickCounter == getTickDelay()) {
 			tickCounter = 0;
-			if(takeDamage) {
+			if(hasDurability) {
 				doDamage(stack, entity, 1,false);
 			}
 			onTick(stack, level, entity, itemSlot, isSelected);

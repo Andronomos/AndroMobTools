@@ -5,6 +5,7 @@ import andronomos.androtech.item.FakeSword;
 import andronomos.androtech.item.GPSRecorderItem;
 import andronomos.androtech.item.ItemAttractionEmitterItem;
 import andronomos.androtech.item.MobStorageDevice;
+import andronomos.androtech.item.base.AbstractDeviceItem;
 import andronomos.androtech.item.tools.NaniteEnhancedAxe;
 import andronomos.androtech.item.tools.NaniteEnhancedPickAxe;
 import andronomos.androtech.item.tools.NaniteEnhancedShovel;
@@ -16,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ItemRegistry {
+	public static final Item.Properties DEVICE_PROPERTIES = new Item.Properties().durability(AbstractDeviceItem.DURABILITY);
 	public static final Item.Properties NANITE_TOOL_PROPERTIES = new Item.Properties().fireResistant();
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AndroTech.MODID);
@@ -40,16 +42,16 @@ public class ItemRegistry {
 	//		() -> new Item(new Item.Properties()));
 
 	public static final RegistryObject<Item> GPS_RECORDER = ITEMS.register("gps_recorder",
-			() -> new GPSRecorderItem(new Item.Properties()));
+			() -> new GPSRecorderItem(DEVICE_PROPERTIES));
 
 	public static final RegistryObject<Item> ITEM_ATTRACTION_EMITTER = ITEMS.register("item_attraction_emitter",
 			() -> new ItemAttractionEmitterItem(new Item.Properties()));
 
 	public static final RegistryObject<Item> MOB_STORAGE_DEVICE = ITEMS.register("mob_storage_device",
-			() -> new MobStorageDevice(new Item.Properties()));
+			() -> new MobStorageDevice(DEVICE_PROPERTIES));
 
 	public static final RegistryObject<Item> NANITE_ENHANCED_PICKAXE = ITEMS.register("nanite_enhanced_pickaxe",
-			() -> new NaniteEnhancedPickAxe(Tiers.NETHERITE, 1, -2.8F, new Item.Properties().fireResistant()));
+			() -> new NaniteEnhancedPickAxe(Tiers.NETHERITE, 1, -2.8F, NANITE_TOOL_PROPERTIES));
 
 	public static final RegistryObject<Item> NANITE_ENHANCED_AXE = ITEMS.register("nanite_enhanced_axe",
 			() -> new NaniteEnhancedAxe(Tiers.NETHERITE, 5.0F, -3.0F, NANITE_TOOL_PROPERTIES));

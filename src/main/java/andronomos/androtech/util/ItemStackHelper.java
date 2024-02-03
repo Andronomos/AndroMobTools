@@ -13,15 +13,29 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemStackHelper {
-	public static void applyDamage(LivingEntity player, ItemStack stack, int amount, boolean preventBreaking) {
-		if(preventBreaking) {
-			if(stack.getDamageValue() == stack.getMaxDamage()) {
-				return;
-			}
-			stack.hurt(amount, player.getRandom(), player instanceof ServerPlayer ? (ServerPlayer)player : null);
-		} else {
-			stack.hurtAndBreak(amount, player, (p) -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
-		}
+
+	/**
+	 * Applies a damage value to an ItemStack
+	 * @param player
+	 * @param stack
+	 * @param amount
+	 * @param allowBreaking Allow the item to break
+	 */
+	public static void applyDamage(LivingEntity player, ItemStack stack, int amount, boolean allowBreaking) {
+		if(stack.getDamageValue() > stack.getMaxDamage()) return; //the item can't take anymore damage
+		if(!allowBreaking && stack.getDamageValue() == stack.getMaxDamage()) return;
+		stack.hurtAndBreak(amount, player, (p) -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+	}
+
+	/**
+	 * Determines if a ItemStack has durability remaining
+	 * @param stack
+	 * @return
+	 */
+	public static boolean isBroken(ItemStack stack) {
+		int maxDamage = stack.getMaxDamage();
+		if(maxDamage <= 0) return false;
+		return stack.getDamageValue() >= maxDamage; //An item's damage value actually increments when taking damage
 	}
 
 	public static BlockPos getBlockPos(ItemStack stack) {
@@ -34,15 +48,6 @@ public class ItemStackHelper {
 			return null;
 		}
 		return new BlockPos(xPos, yPos, zPos);
-	}
-
-	public static boolean isBroken(ItemStack stack) {
-		int maxDamage = stack.getMaxDamage();
-		if(maxDamage > 0) {
-			//An item's damage value actually increments when taking damage
-			return stack.getDamageValue() >= maxDamage;
-		}
-		return false;
 	}
 
 	public static void drop(Level level, BlockPos pos, ItemStack drop) {

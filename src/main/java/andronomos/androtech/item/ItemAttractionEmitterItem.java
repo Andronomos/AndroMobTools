@@ -2,6 +2,7 @@ package andronomos.androtech.item;
 
 import andronomos.androtech.Constants;
 import andronomos.androtech.config.AndroTechConfig;
+import andronomos.androtech.item.base.TickingItem;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -42,7 +43,7 @@ public class ItemAttractionEmitterItem extends TickingItem {
 			if(!isBroken(stack)) {
 				item.playerTouch(player);
 
-				if(takeDamage) {
+				if(hasDurability) {
 					doDamage(stack, player, 1,true);
 				}
 			}

@@ -1,6 +1,7 @@
 package andronomos.androtech.item;
 
 import andronomos.androtech.config.AndroTechConfig;
+import andronomos.androtech.item.base.AbstractDeviceItem;
 import andronomos.androtech.util.ItemStackHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -24,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MobStorageDevice extends MultiStateItem {
+public class MobStorageDevice extends AbstractDeviceItem {
 	public static final String TOOLTIP_MOB_STORAGE_DEVICE_MOB = "tooltip.androtech.mob_storage_device.mob";
 	public static final String TOOLTIP_MOB_STORAGE_DEVICE_HEALTH = "tooltip.androtech.mob_storage_device.health";
 
@@ -66,46 +67,36 @@ public class MobStorageDevice extends MultiStateItem {
 
 	@Override
 	public @NotNull InteractionResult interactLivingEntity(@NotNull ItemStack stack, Player player, @NotNull LivingEntity target, @NotNull InteractionHand hand) {
-		if(player.level().isClientSide()) {
-			return InteractionResult.PASS;
-		}
-		if(ItemStackHelper.hasEntityTag(stack)) {
-			return InteractionResult.FAIL;
-		}
-		if(!captureEntity(stack, target)) {
-			return InteractionResult.FAIL;
-		}
+		if(player.level().isClientSide()) return InteractionResult.PASS;
+		if(ItemStackHelper.hasEntityTag(stack)) return InteractionResult.FAIL;
+		if(!captureEntity(stack, target)) return InteractionResult.FAIL;
 		player.swing(hand);
 		return InteractionResult.SUCCESS;
 	}
 
 	public boolean captureEntity(ItemStack stack, LivingEntity entity) {
-		if(!entityIsValid(entity)) {
-			return false;
-		}
+		if(!entityIsValid(entity)) return false;
 		ItemStackHelper.saveEntity(entity, stack);
-		entity.remove(Entity.RemovalReason.KILLED);
+
+		if(ItemStackHelper.hasEntityTag(stack)) {
+			entity.remove(Entity.RemovalReason.KILLED);
+		}
+
 		return true;
 	}
 
 	public boolean releaseEntity(ItemStack stack, Player player, Direction facing, Level level, BlockPos pos) {
-		if (facing != null) {
-			pos = pos.offset(facing.getNormal());
-		}
+		if (facing != null) pos = pos.offset(facing.getNormal());
 
 		Entity entity = ItemStackHelper.createEntity(stack, level, true);
 
-		if (entity == null) {
-			return false;
-		}
+		if (entity == null) return false;
 
 		entity.absMoveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0, 0);
 
-		if(!level.addFreshEntity(entity)) {
-			return false;
-		}
+		if(!level.addFreshEntity(entity)) return false;
 
-		if(takeDamage) {
+		if(hasDurability) {
 			doDamage(stack, player, 1, false);
 		}
 

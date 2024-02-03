@@ -1,5 +1,6 @@
 package andronomos.androtech.item;
 
+import andronomos.androtech.item.base.AbstractDeviceItem;
 import andronomos.androtech.registry.ItemRegistry;
 import andronomos.androtech.util.ChatHelper;
 import andronomos.androtech.util.ItemStackHelper;
@@ -9,7 +10,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class GPSRecorderItem extends MultiStateItem {
+public class GPSRecorderItem extends AbstractDeviceItem {
 	public static final String TOOLTIP_GPS_MODULE = "tooltip.androtech.gps_module_location";
 	public static final String TOOLTIP_GPS_MODULE_COORDS = "tooltip.androtech.gps_module_coords";
 	public static final String GPS_MODULE_SAVED = "item.androtech.gps_module.saved";
