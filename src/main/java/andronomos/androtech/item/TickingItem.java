@@ -1,7 +1,6 @@
 package andronomos.androtech.item;
 
 import andronomos.androtech.Constants;
-import andronomos.androtech.util.ItemStackHelper;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -10,7 +9,6 @@ import org.jetbrains.annotations.NotNull;
 
 public abstract class TickingItem extends MultiStateItem {
 	public int tickCounter = 0;
-
 
 	public TickingItem(Properties properties, boolean takeDamage) {
 		super(properties, takeDamage);
