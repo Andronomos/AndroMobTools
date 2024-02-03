@@ -60,11 +60,12 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 		ItemStack held = player.getItemInHand(hand);
 		int numHeld = held.getCount();
 		if(numHeld == 1) {
-			held = recordPos(held, pos);
+			recordPos(held, pos);
 		} else {
 			recordPos(pos, player);
 			held.shrink(1);
 		}
+		if(hasDurability) doDamage(held, player, 1, AndroTechConfig.GPS_RECORDER_CAN_BREAK.get());
 		player.swing(hand);
 		ChatHelper.sendStatusMessage(player, Component.translatable(GPS_MODULE_SAVED, ChatHelper.blockPosToString(pos)));
 		return InteractionResult.SUCCESS;
