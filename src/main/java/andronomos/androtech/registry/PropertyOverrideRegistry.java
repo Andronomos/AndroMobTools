@@ -27,8 +27,7 @@ public class PropertyOverrideRegistry {
 	}
 
 	private static boolean stackIsActivated(ItemStack stack) {
-		Item item = stack.getItem();
-		if(item instanceof MultiStateItem multiStateItem) {
+		if(stack.getItem() instanceof MultiStateItem multiStateItem) {
 			return multiStateItem.isActivated(stack);
 		}
 		return false;
