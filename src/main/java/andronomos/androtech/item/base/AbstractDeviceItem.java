@@ -17,10 +17,10 @@ import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractDeviceItem extends Item {
 	public static int DURABILITY = AndroTechConfig.DEVICE_DURABILITY.get();
-	public boolean hasDurability = false;
+	public boolean hasDurability;
 
 	public AbstractDeviceItem(Properties properties) {
-		super(properties);
+		this(properties, AndroTechConfig.DEVICE_TAKE_DAMAGE.get());
 	}
 
 	public AbstractDeviceItem(Properties properties, boolean hasDurability) {
@@ -36,8 +36,10 @@ public abstract class AbstractDeviceItem extends Item {
 		if(!level.isClientSide) {
 			ItemStack stack = player.getItemInHand(hand);
 			CompoundTag tag = stack.getTag();
-			AndroTech.LOGGER.info(String.format("MultiStateItem#use | stack nbt: %s", tag != null ? tag.toString() : "null"));
-			ChatHelper.sendStatusMessage(player, Component.literal(tag != null ? tag.toString() : "null"));
+			AndroTech.LOGGER.info(String.format("MultiStateItem#use | nbt: %s", tag != null ? tag.toString() : "null"));
+			AndroTech.LOGGER.info(String.format("MultiStateItem#use | isDamageableItem: %s", stack.isDamageableItem()));
+			AndroTech.LOGGER.info(String.format("MultiStateItem#use | getMaxDamage: %s", stack.getMaxDamage()));
+			AndroTech.LOGGER.info(String.format("MultiStateItem#use | getDamageValue: %s", stack.getDamageValue()));
 		}
 		return super.use(level, player, hand);
 	}
