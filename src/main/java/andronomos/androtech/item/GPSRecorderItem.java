@@ -1,5 +1,6 @@
 package andronomos.androtech.item;
 
+import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.item.base.AbstractDeviceItem;
 import andronomos.androtech.registry.ItemRegistry;
 import andronomos.androtech.util.ChatHelper;
@@ -28,12 +29,17 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 	public static final String GPS_MODULE_SAVED = "item.androtech.gps_module.saved";
 
 	public GPSRecorderItem(Properties properties) {
-		super(properties, false);
+		super(properties, AndroTechConfig.GPS_RECORDER_TAKE_DAMAGE.get());
 	}
 
 	@Override
 	public int getMaxStackSize(ItemStack stack) {
 		return ItemStackHelper.getBlockPos(stack) == null ? 64 : 1;
+	}
+
+	@Override
+	public int getMaxDamage(ItemStack stack) {
+		return AndroTechConfig.GPS_RECORDER_DURABILITY.get();
 	}
 
 	@Override
