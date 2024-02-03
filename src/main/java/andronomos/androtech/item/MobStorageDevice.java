@@ -30,7 +30,7 @@ public class MobStorageDevice extends AbstractDeviceItem {
 	public static final String TOOLTIP_MOB_STORAGE_DEVICE_HEALTH = "tooltip.androtech.mob_storage_device.health";
 
 	public MobStorageDevice(Properties properties) {
-		super(properties, true);
+		super(properties, AndroTechConfig.MOB_STORAGE_DEVICE_TAKE_DAMAGE.get());
 	}
 
 	@Override
@@ -45,23 +45,12 @@ public class MobStorageDevice extends AbstractDeviceItem {
 
 	@Override
 	public @NotNull InteractionResult useOn(UseOnContext context) {
-		if(context.getLevel().isClientSide()) {
-			return InteractionResult.PASS;
-		}
-
+		if(context.getLevel().isClientSide()) return InteractionResult.PASS;
 		Player player = context.getPlayer();
 		ItemStack stack = player.getItemInHand(context.getHand());
-
-		if (!ItemStackHelper.hasEntityTag(stack)) {
-			return InteractionResult.PASS;
-		}
-
-		if (!releaseEntity(stack, player, context.getClickedFace(), context.getLevel(), context.getClickedPos())) {
-			return InteractionResult.FAIL;
-		}
-
+		if (!ItemStackHelper.hasEntityTag(stack)) return InteractionResult.PASS;
+		if (!releaseEntity(stack, player, context.getClickedFace(), context.getLevel(), context.getClickedPos())) return InteractionResult.FAIL;
 		stack.setTag(null);
-
 		return InteractionResult.SUCCESS;
 	}
 
@@ -77,11 +66,9 @@ public class MobStorageDevice extends AbstractDeviceItem {
 	public boolean captureEntity(ItemStack stack, LivingEntity entity) {
 		if(!entityIsValid(entity)) return false;
 		ItemStackHelper.saveEntity(entity, stack);
-
 		if(ItemStackHelper.hasEntityTag(stack)) {
 			entity.remove(Entity.RemovalReason.KILLED);
 		}
-
 		return true;
 	}
 
