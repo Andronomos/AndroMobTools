@@ -35,7 +35,7 @@ public class ItemStackHelper {
 	public static boolean isBroken(ItemStack stack) {
 		int maxDamage = stack.getMaxDamage();
 		if(maxDamage <= 0) return false;
-		return stack.getDamageValue() >= maxDamage; //An item's damage value actually increments when taking damage
+		return stack.getDamageValue() >= maxDamage; //An item's damage value increments when taking damage
 	}
 
 	public static BlockPos getBlockPos(ItemStack stack) {
