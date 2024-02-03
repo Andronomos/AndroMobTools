@@ -1,12 +1,8 @@
 package andronomos.androtech.item.base;
 
-import andronomos.androtech.AndroTech;
-import andronomos.androtech.item.base.AbstractDeviceItem;
-import andronomos.androtech.util.ChatHelper;
 import andronomos.androtech.util.ItemStackHelper;
 import andronomos.androtech.util.NBTHelper;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
