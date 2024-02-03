@@ -56,7 +56,7 @@ public class ItemStackHelper {
 	}
 
 	@Nullable
-	public static Entity createEntity(ItemStack stack, Level level, boolean createCopy) {
+	public static Entity createEntity(ItemStack stack, Level level, boolean exactCopy) {
 		EntityType type = getEntityType(stack);
 
 		if (type == null) {
@@ -65,7 +65,7 @@ public class ItemStackHelper {
 
 		Entity entity = type.create(level);
 
-		if (createCopy) {
+		if (exactCopy) {
 			entity.load(stack.getTag());
 		}
 
@@ -73,7 +73,7 @@ public class ItemStackHelper {
 	}
 
 	public static void saveEntity(LivingEntity entity, ItemStack stack) {
-		CompoundTag tag = new CompoundTag();
+		CompoundTag tag = stack.getOrCreateTag();
 		entity.save(tag);
 		String entityName = EntityType.getKey(entity.getType()).toString();
 		tag.putString("Entity", entityName);
