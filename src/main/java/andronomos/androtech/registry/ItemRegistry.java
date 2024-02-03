@@ -45,7 +45,7 @@ public class ItemRegistry {
 			() -> new GPSRecorderItem(DEVICE_PROPERTIES));
 
 	public static final RegistryObject<Item> ITEM_ATTRACTION_EMITTER = ITEMS.register("item_attraction_emitter",
-			() -> new ItemAttractionEmitterItem(new Item.Properties()));
+			() -> new ItemAttractionEmitterItem(DEVICE_PROPERTIES));
 
 	public static final RegistryObject<Item> MOB_STORAGE_DEVICE = ITEMS.register("mob_storage_device",
 			() -> new MobStorageDevice(DEVICE_PROPERTIES));
