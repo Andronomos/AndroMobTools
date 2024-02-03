@@ -14,15 +14,18 @@ public class AndroTechConfig {
 
 	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_ATTRACTION_EMITTER_RANGE;
 	public static ForgeConfigSpec.ConfigValue<Boolean> ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE;
+	public static ForgeConfigSpec.ConfigValue<Boolean> ITEM_ATTRACTION_EMITTER_CAN_BREAK;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> MENDING_MODULE_REPAIR_RATE;
 	public static ForgeConfigSpec.ConfigValue<Integer> MENDING_MODULE_DURABILITY;
 
 	public static ForgeConfigSpec.ConfigValue<Boolean> GPS_RECORDER_TAKE_DAMAGE;
 	public static ForgeConfigSpec.ConfigValue<Integer> GPS_RECORDER_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Boolean> GPS_RECORDER_CAN_BREAK;
 
 	public static ForgeConfigSpec.ConfigValue<Boolean> MOB_STORAGE_DEVICE_TAKE_DAMAGE;
 	public static ForgeConfigSpec.ConfigValue<Integer> MOB_STORAGE_DEVICE_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Boolean> MOB_STORAGE_DEVICE_CAN_BREAK;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_PICKAXE_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_AXE_DURABILITY;
@@ -48,18 +51,21 @@ public class AndroTechConfig {
 		builder.pop();
 
 		builder.push("Item Attraction Emitter");
-		ITEM_ATTRACTION_EMITTER_RANGE = builder.comment("The distance in blocks the attractor module will pull items").define("range", 10);
+		ITEM_ATTRACTION_EMITTER_RANGE = builder.comment("Range").define("range", 10);
 		ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE = builder.comment("Take damage").define("take_damage", true);
+		ITEM_ATTRACTION_EMITTER_CAN_BREAK = builder.comment("Can break").define("can_break", false);
 		builder.pop();
 
 		builder.push("GPS Recorder");
-		GPS_RECORDER_TAKE_DAMAGE = builder.comment("Take damage").define("take_damage", false);
-		GPS_RECORDER_DURABILITY = builder.comment("").define("durability", 10);
+		GPS_RECORDER_TAKE_DAMAGE = builder.comment("Take damage").define("take_damage", true);
+		GPS_RECORDER_DURABILITY = builder.comment("Durability").define("durability", 10);
+		GPS_RECORDER_CAN_BREAK = builder.comment("Can break").define("can_break", false);
 		builder.pop();
 
 		builder.push("Mob Capture Device");
 		MOB_STORAGE_DEVICE_TAKE_DAMAGE = builder.comment("Take damage").define("take_damage", true);
 		MOB_STORAGE_DEVICE_DURABILITY = builder.comment("Durability").define("durability", 10);
+		MOB_STORAGE_DEVICE_CAN_BREAK = builder.comment("Can break").define("can_break", false);
 		builder.pop();
 
 		builder.push("Nanite Tools");
