@@ -9,6 +9,9 @@ import java.nio.file.Path;
 public class AndroTechConfig {
 	public static final ForgeConfigSpec CONFIG;
 
+	public static ForgeConfigSpec.ConfigValue<Integer> DEVICE_DURABILITY;
+	public static ForgeConfigSpec.ConfigValue<Integer> TICKING_DEVICE_DURABILITY;
+
 	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_ATTRACTION_EMITTER_RANGE;
 	public static ForgeConfigSpec.ConfigValue<Boolean> ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE;
 
@@ -31,6 +34,10 @@ public class AndroTechConfig {
 	}
 
 	public static void setupConfig(ForgeConfigSpec.Builder builder) {
+		builder.push("General");
+		DEVICE_DURABILITY = builder.comment("Default durability for devices").define("durability", 50);
+		TICKING_DEVICE_DURABILITY = builder.comment("Default durability for devices that tick").define("durability", 1000);
+
 		builder.push("Mending Module");
 		MENDING_MODULE_REPAIR_RATE = builder.comment("Repair Value").define("repair_value", 10);
 		MENDING_MODULE_DURABILITY = builder.comment("Durability").define("durability", 10065);
@@ -38,7 +45,7 @@ public class AndroTechConfig {
 
 		builder.push("Attractor Module");
 		ITEM_ATTRACTION_EMITTER_RANGE = builder.comment("The distance in blocks the attractor module will pull items").define("range", 10);
-		ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE = builder.comment("Enable damage").define("take_damage", true);
+		ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE = builder.comment("Enable damage").define("take_damage", false);
 		builder.pop();
 
 		builder.push("Mob Capture Device");
