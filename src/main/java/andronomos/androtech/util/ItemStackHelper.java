@@ -1,9 +1,7 @@
 package andronomos.androtech.util;
 
-import andronomos.androtech.AndroTech;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -20,7 +18,6 @@ public class ItemStackHelper {
 	 *
 	 * @param stack The item to apply damage to
 	 * @param amount The amount of damage to apply to the item
-	 * @param allowBreaking Allow the item to break
 	 */
 	public static void applyDamage(LivingEntity player, ItemStack stack, int amount) {
 		if(stack.getDamageValue() > stack.getMaxDamage()) return; //the item can't take anymore damage
