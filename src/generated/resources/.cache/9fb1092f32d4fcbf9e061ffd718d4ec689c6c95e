@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-04T08:22:54.5491891	Recipes
+// 1.20.1	2024-02-04T12:15:28.9276667	Recipes
 21f931524e06c577cb0725c109894bea8cdc40ce data/androtech/advancements/recipes/misc/advanced_chip.json
 8452d868daf6f9daaf3ad3985ff247c05281f193 data/androtech/advancements/recipes/misc/basic_chip.json
 0b246f154730e22aca45929b0e7458deb420a733 data/androtech/advancements/recipes/misc/damage_pad.json
@@ -9,6 +9,7 @@ a0275f817c0596b5638ec51f25715320e97d8c32 data/androtech/advancements/recipes/mis
 9fc2974f8bb1c69c310535ca90f39a079692d184 data/androtech/advancements/recipes/misc/item_attractor.json
 e9465447575007af00708295b33de9f69748f490 data/androtech/advancements/recipes/misc/item_incinerator.json
 e1e5e5f449b5564a248de72d327dba416efdbf9a data/androtech/advancements/recipes/misc/looting_augment.json
+7191cb1221fbdd87efd437b545cbb4167706e95e data/androtech/advancements/recipes/misc/mob_storage_device.json
 e9a8e29c00abc1aef74ddbe5dda6d8a87420bafd data/androtech/advancements/recipes/misc/normal_acceleration_pad.json
 8f48c214f34294223a51d1f91e77aac276ff4567 data/androtech/advancements/recipes/misc/redstone_signal_receiver.json
 2e26c59e6e6c966907cf835fc100dc0f9a794a5c data/androtech/advancements/recipes/misc/redstone_signal_transmitter.json
@@ -25,6 +26,7 @@ ebabf00841172744c44fa11ecd815453f3f32aa2 data/androtech/recipes/elite_chip.json
 e8ccddacae0d13a53585d841968764d41fc3322b data/androtech/recipes/item_attractor.json
 9e0ad9dc10aa9a888359bf1f4f8b62f15d1c3c78 data/androtech/recipes/item_incinerator.json
 aa9e09b80073eeedc90d5fbc2421432c63d59179 data/androtech/recipes/looting_augment.json
+d02a3834b3360a35888f6634ac5aa24fcf6f8657 data/androtech/recipes/mob_storage_device.json
 0fe80cf6a5982dcbf1cd4b7236c955f1d03184bb data/androtech/recipes/normal_acceleration_pad.json
 3ff4c35ddc1b7ff81bdcc916e2cc444c688a4512 data/androtech/recipes/redstone_signal_receiver.json
 e99514cf400263bb6027c958a8c4ef5a6f1c9573 data/androtech/recipes/redstone_signal_transmitter.json

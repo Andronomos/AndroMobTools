@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "tag": "forge:ingots/iron"
+    },
+    "2": {
+      "item": "androtech:advanced_chip"
+    },
+    "3": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "4": {
+      "item": "minecraft:lead"
+    }
+  },
+  "pattern": [
+    "131",
+    "343",
+    "121"
+  ],
+  "result": {
+    "item": "androtech:mob_storage_device"
+  },
+  "show_notification": true
+}
