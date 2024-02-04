@@ -50,6 +50,6 @@ public class ToggleableDeviceItem extends AbstractDeviceItem {
 	}
 
 	public boolean isBroken(ItemStack stack) {
-		return hasDurability ? ItemStackHelper.isBroken(stack) : false;
+		return hasDurability && ItemStackHelper.isBroken(stack);
 	}
 }
