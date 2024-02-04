@@ -44,10 +44,10 @@ public class AndroTechConfig {
 		TICKING_DEVICE_DURABILITY = builder.comment("Default durability for devices that tick").define("tick_durability", 1000);
 		builder.pop();
 
-		builder.push("Mending Module");
-		MENDING_MODULE_REPAIR_RATE = builder.comment("The amount of durability to restore per cycle").define("repair_value", 10);
-		MENDING_MODULE_DURABILITY = builder.comment("Durability").define("durability", 1000);
-		builder.pop();
+		//builder.push("Mending Module");
+		//MENDING_MODULE_REPAIR_RATE = builder.comment("The amount of durability to restore per cycle").define("repair_value", 10);
+		//MENDING_MODULE_DURABILITY = builder.comment("Durability").define("durability", 1000);
+		//builder.pop();
 
 		builder.push("Item Attraction Emitter");
 		ITEM_ATTRACTION_EMITTER_RANGE = builder.comment("Range").define("range", 10);
@@ -65,10 +65,10 @@ public class AndroTechConfig {
 		builder.pop();
 
 		builder.push("Nanite Tools");
-		NANITE_PICKAXE_DURABILITY = builder.comment("Nanite Pickaxe Durability").define("durability", 8124);
-		NANITE_AXE_DURABILITY = builder.comment("Nanite Axe Durability").define("durability", 8124);
-		NANITE_SHOVEL_DURABILITY = builder.comment("Nanite Shovel Durability").define("durability", 8124);
-		NANITE_SWORD_DURABILITY = builder.comment("Nanite Sword Durability").define("durability", 8124);
+		NANITE_PICKAXE_DURABILITY = builder.comment("Nanite Pickaxe Durability").define("pickaxe_durability", 8124);
+		NANITE_AXE_DURABILITY = builder.comment("Nanite Axe Durability").define("axe_durability", 8124);
+		NANITE_SHOVEL_DURABILITY = builder.comment("Nanite Shovel Durability").define("shovel_durability", 8124);
+		NANITE_SWORD_DURABILITY = builder.comment("Nanite Sword Durability").define("sword_durability", 8124);
 		NANITE_REPAIR_RATE = builder.comment("Repair Rate").define("repair_rate", 10);
 		builder.pop();
 	}
