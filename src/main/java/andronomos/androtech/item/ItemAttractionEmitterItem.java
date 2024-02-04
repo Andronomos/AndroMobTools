@@ -43,7 +43,7 @@ public class ItemAttractionEmitterItem extends TickingItem {
 			if(!isBroken(stack)) {
 				item.playerTouch(player);
 				if(hasDurability) {
-					doDamage(stack, player, 1,AndroTechConfig.ITEM_ATTRACTION_EMITTER_CAN_BREAK.get());
+					doDamage(stack, player, 1);
 				}
 			}
 		});

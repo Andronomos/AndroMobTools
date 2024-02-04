@@ -54,6 +54,7 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 
 	@Override
 	public @NotNull InteractionResult useOn(UseOnContext context) {
+		if(context.getLevel().isClientSide) return InteractionResult.FAIL;
 		BlockPos pos = context.getClickedPos();
 		Player player = context.getPlayer();
 		InteractionHand hand = context.getHand();
@@ -68,11 +69,11 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 
 		if(held.getCount() == 1) {
 			setBlockPos(held, pos);
-			if(hasDurability) doDamage(held, player, 1, AndroTechConfig.GPS_RECORDER_CAN_BREAK.get());
+			if(hasDurability) doDamage(held, player, 1);
 		} else {
 			ItemStack drop = new ItemStack(ItemRegistry.GPS_RECORDER.get());
 			setBlockPos(drop, pos);
-			if(hasDurability) doDamage(drop, player, 1, AndroTechConfig.GPS_RECORDER_CAN_BREAK.get());
+			if(hasDurability) doDamage(drop, player, 1);
 			if(!player.addItem(drop)) ItemStackHelper.drop(player.level(), player.blockPosition(), drop);
 		}
 	}

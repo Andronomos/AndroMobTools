@@ -1,5 +1,6 @@
 package andronomos.androtech.util;
 
+import andronomos.androtech.AndroTech;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
@@ -16,26 +17,25 @@ public class ItemStackHelper {
 
 	/**
 	 * Applies a damage value to an ItemStack
-	 * @param player
-	 * @param stack
-	 * @param amount
+	 *
+	 * @param stack The item to apply damage to
+	 * @param amount The amount of damage to apply to the item
 	 * @param allowBreaking Allow the item to break
 	 */
-	public static void applyDamage(LivingEntity player, ItemStack stack, int amount, boolean allowBreaking) {
+	public static void applyDamage(LivingEntity player, ItemStack stack, int amount) {
 		if(stack.getDamageValue() > stack.getMaxDamage()) return; //the item can't take anymore damage
-		if(!allowBreaking && stack.getDamageValue() == stack.getMaxDamage()) return;
 		stack.hurtAndBreak(amount, player, (p) -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
 	}
 
 	/**
 	 * Determines if a ItemStack has durability remaining
-	 * @param stack
-	 * @return
+	 *
+	 * @param stack The item to check the durability of
 	 */
 	public static boolean isBroken(ItemStack stack) {
 		int maxDamage = stack.getMaxDamage();
 		if(maxDamage <= 0) return false;
-		return stack.getDamageValue() >= maxDamage; //An item's damage value increments when taking damage
+		return stack.getDamageValue() >= maxDamage - 1; //An item's damage value increments when taking damage
 	}
 
 	public static BlockPos getBlockPos(ItemStack stack) {

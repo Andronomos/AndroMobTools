@@ -2,10 +2,8 @@ package andronomos.androtech.item.base;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.config.AndroTechConfig;
-import andronomos.androtech.util.ChatHelper;
 import andronomos.androtech.util.ItemStackHelper;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -49,9 +47,9 @@ public abstract class AbstractDeviceItem extends Item {
 		return AndroTechConfig.DEVICE_DURABILITY.get();
 	}
 
-	public void doDamage(ItemStack stack, Entity entity, int amount, boolean preventBreaking) {
+	public void doDamage(ItemStack stack, Entity entity, int amount) {
 		if(stack.getDamageValue() < stack.getMaxDamage()) {
-			ItemStackHelper.applyDamage((Player)entity, stack, amount, preventBreaking);
+			ItemStackHelper.applyDamage((Player)entity, stack, amount);
 		}
 	}
 
