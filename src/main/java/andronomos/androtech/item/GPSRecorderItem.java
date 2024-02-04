@@ -81,7 +81,7 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 		} else {
 			ItemStack drop = new ItemStack(ItemRegistry.GPS_RECORDER.get());
 			setBlockPos(drop, pos);
-			if(hasDurability) doDamage(drop, player, 1);
+			if(hasDurability) doDamage(drop, player, AndroTechConfig.GPS_RECORDER_DAMAGE_RATE.get());
 			if(!player.addItem(drop)) ItemStackHelper.drop(player.level(), player.blockPosition(), drop);
 		}
 	}

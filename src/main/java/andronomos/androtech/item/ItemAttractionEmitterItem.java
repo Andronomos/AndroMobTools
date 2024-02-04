@@ -44,7 +44,7 @@ public class ItemAttractionEmitterItem extends TickingItem {
 				item.setNoPickUpDelay();
 				item.playerTouch(player);
 				if(hasDurability) {
-					doDamage(stack, player, 1);
+					doDamage(stack, player, AndroTechConfig.ITEM_ATTRACTION_EMITTER_DAMAGE_RATE.get());
 				}
 			}
 		});
