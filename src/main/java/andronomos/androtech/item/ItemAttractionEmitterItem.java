@@ -41,6 +41,7 @@ public class ItemAttractionEmitterItem extends TickingItem {
 
 		itemsInRange.forEach(item -> {
 			if(!isBroken(stack)) {
+				item.setNoPickUpDelay();
 				item.playerTouch(player);
 				if(hasDurability) {
 					doDamage(stack, player, 1);
