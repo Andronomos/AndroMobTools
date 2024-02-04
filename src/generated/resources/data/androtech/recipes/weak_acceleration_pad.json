@@ -13,11 +13,14 @@
       "count": 1,
       "item": "minecraft:potion",
       "nbt": "{Potion:\"minecraft:swiftness\"}"
+    },
+    "4": {
+      "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    "   ",
-    "323",
+    " 3 ",
+    "424",
     "111"
   ],
   "result": {
