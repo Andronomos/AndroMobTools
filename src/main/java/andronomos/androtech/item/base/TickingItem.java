@@ -1,6 +1,7 @@
 package andronomos.androtech.item.base;
 
 import andronomos.androtech.Constants;
+import andronomos.androtech.config.AndroTechConfig;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -26,6 +27,11 @@ public abstract class TickingItem extends ToggleableDeviceItem {
 		}
 
 		tickCounter++;
+	}
+
+	@Override
+	public int getMaxDamage(ItemStack stack) {
+		return AndroTechConfig.TICKING_DEVICE_DURABILITY.get();
 	}
 
 	public int getTickDelay() {
