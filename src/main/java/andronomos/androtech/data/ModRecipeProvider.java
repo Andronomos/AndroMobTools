@@ -113,8 +113,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.define('1', Tags.Items.INGOTS_IRON)
 				.define('2', chip)
 				.define('3', StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.SWIFTNESS)))
-				.pattern("   ")
-				.pattern("323")
+				.define('4', Items.REDSTONE)
+				.pattern(" 3 ")
+				.pattern("424")
 				.pattern("111")
 				.unlockedBy("has_item", has(chip))
 				.save(consumer);
