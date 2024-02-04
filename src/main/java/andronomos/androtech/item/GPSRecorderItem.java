@@ -67,6 +67,14 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 	private void recordPos(InteractionHand hand, BlockPos pos, Player player) {
 		ItemStack held = player.getItemInHand(hand);
 
+		BlockPos pos2 = ItemStackHelper.getBlockPos(held);
+
+		if(pos2 != null) {
+			if(pos.getX() == pos2.getX() && pos.getY() == pos2.getY() && pos.getZ() == pos2.getZ()) {
+				return;
+			}
+		}
+
 		if(held.getCount() == 1) {
 			setBlockPos(held, pos);
 			if(hasDurability) doDamage(held, player, 1);
