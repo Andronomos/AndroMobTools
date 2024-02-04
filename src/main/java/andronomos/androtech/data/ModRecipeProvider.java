@@ -109,7 +109,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.pattern("131")
 				.pattern("343")
 				.pattern("121")
-				.unlockedBy("has_item", has(Items.LAVA_BUCKET))
+				.unlockedBy("has_item", has(Items.LEAD))
 				.save(recipeConsumer);
 
 		generateDeviceRecipe(ItemRegistry.GPS_RECORDER.get(), Items.COMPASS, ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
