@@ -64,7 +64,7 @@ public class AndroTechConfig {
 		GPS_RECORDER_DAMAGE_RATE = builder.comment("Damage per use").define("damage_rate", 1);
 		builder.pop();
 
-		builder.push("Mob Capture Device");
+		builder.push("Mob Storage Device");
 		MOB_STORAGE_DEVICE_TAKE_DAMAGE = builder.comment("Take damage").define("take_damage", true);
 		MOB_STORAGE_DEVICE_DURABILITY = builder.comment("Durability").define("durability", 10);
 		MOB_STORAGE_DEVICE_DAMAGE_RATE = builder.comment("Damage per use").define("damage_rate", 1);
