@@ -61,10 +61,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(MobStorageDevice.TOOLTIP_MOB_STORAGE_DEVICE_HEALTH, "Health: %1$s");
 		add(ItemRegistry.MOB_STORAGE_DEVICE.get(), "Mob Storage Device");
 
-		add(ItemRegistry.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
-		add(ItemRegistry.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
-		add(ItemRegistry.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Shovel");
-		add(ItemRegistry.NANITE_ENHANCED_SWORD.get(), "Nanite Enhanced Sword");
+		//add(ItemRegistry.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
+		//add(ItemRegistry.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
+		//add(ItemRegistry.NANITE_ENHANCED_SHOVEL.get(), "Nanite Enhanced Shovel");
+		//add(ItemRegistry.NANITE_ENHANCED_SWORD.get(), "Nanite Enhanced Sword");
 
 		add(ItemRegistry.BASIC_CHIP.get(), "Basic Chip");
 		add(ItemRegistry.ADVANCED_CHIP.get(), "Advanced Chip");

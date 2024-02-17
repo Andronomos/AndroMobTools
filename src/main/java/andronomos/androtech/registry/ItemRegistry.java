@@ -50,17 +50,17 @@ public class ItemRegistry {
 	public static final RegistryObject<Item> MOB_STORAGE_DEVICE = ITEMS.register("mob_storage_device",
 			() -> new MobStorageDevice(DEVICE_PROPERTIES));
 
-	public static final RegistryObject<Item> NANITE_ENHANCED_PICKAXE = ITEMS.register("nanite_enhanced_pickaxe",
-			() -> new NaniteEnhancedPickAxe(Tiers.NETHERITE, 1, -2.8F, NANITE_TOOL_PROPERTIES));
-
-	public static final RegistryObject<Item> NANITE_ENHANCED_AXE = ITEMS.register("nanite_enhanced_axe",
-			() -> new NaniteEnhancedAxe(Tiers.NETHERITE, 5.0F, -3.0F, NANITE_TOOL_PROPERTIES));
-
-	public static final RegistryObject<Item> NANITE_ENHANCED_SHOVEL = ITEMS.register("nanite_enhanced_shovel",
-			() -> new NaniteEnhancedShovel(Tiers.NETHERITE, 5.0F, -3.0F, NANITE_TOOL_PROPERTIES));
-
-	public static final RegistryObject<Item> NANITE_ENHANCED_SWORD = ITEMS.register("nanite_enhanced_sword",
-			() -> new NaniteEnhancedSword(Tiers.NETHERITE, 3, -2.4F, NANITE_TOOL_PROPERTIES));
+	//public static final RegistryObject<Item> NANITE_ENHANCED_PICKAXE = ITEMS.register("nanite_enhanced_pickaxe",
+	//		() -> new NaniteEnhancedPickAxe(Tiers.NETHERITE, 1, -2.8F, NANITE_TOOL_PROPERTIES));
+	//
+	//public static final RegistryObject<Item> NANITE_ENHANCED_AXE = ITEMS.register("nanite_enhanced_axe",
+	//		() -> new NaniteEnhancedAxe(Tiers.NETHERITE, 5.0F, -3.0F, NANITE_TOOL_PROPERTIES));
+	//
+	//public static final RegistryObject<Item> NANITE_ENHANCED_SHOVEL = ITEMS.register("nanite_enhanced_shovel",
+	//		() -> new NaniteEnhancedShovel(Tiers.NETHERITE, 5.0F, -3.0F, NANITE_TOOL_PROPERTIES));
+	//
+	//public static final RegistryObject<Item> NANITE_ENHANCED_SWORD = ITEMS.register("nanite_enhanced_sword",
+	//		() -> new NaniteEnhancedSword(Tiers.NETHERITE, 3, -2.4F, NANITE_TOOL_PROPERTIES));
 
 	private static RegistryObject<Item> register(String name) {
 		return ITEMS.register(name, () -> new Item(new Item.Properties()));
