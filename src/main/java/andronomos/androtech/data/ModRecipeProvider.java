@@ -150,14 +150,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 	private void generateChipRecipe(Item output, Item item, Consumer<FinishedRecipe> consumer) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 1)
 				.define('1', Items.COPPER_INGOT)
-				.define('2', Items.SLIME_BALL)
-				.define('3', Items.REDSTONE)
-				.define('4', Items.QUARTZ)
-				.define('5', Items.AMETHYST_SHARD)
-				.define('6', item)
-				.pattern("414")
-				.pattern("365")
-				.pattern("424")
+				.define('2', Items.REDSTONE)
+				.define('3', Items.QUARTZ)
+				.define('4', item)
+				.pattern("313")
+				.pattern("242")
+				.pattern("313")
 				.unlockedBy("has_item", has(Items.REDSTONE))
 				.save(consumer);
 	}
