@@ -54,7 +54,7 @@ public class AndroTechConfig {
 
 		builder.push("Item Attraction Emitter");
 		ITEM_ATTRACTION_EMITTER_RANGE = builder.comment("Range").define("range", 10);
-		ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE = builder.comment("Take damage").define("take_damage", true);
+		ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE = builder.comment("Take damage").define("take_damage", false);
 		ITEM_ATTRACTION_EMITTER_DAMAGE_RATE = builder.comment("Damage per item").define("damage_rate", 1);
 		builder.pop();
 
