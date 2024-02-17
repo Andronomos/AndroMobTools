@@ -3,21 +3,24 @@
   "category": "misc",
   "key": {
     "1": {
-      "tag": "forge:ingots/iron"
+      "item": "minecraft:iron_ingot"
     },
     "2": {
       "item": "androtech:advanced_chip"
     },
     "3": {
-      "item": "minecraft:amethyst_shard"
+      "item": "minecraft:lead"
     },
     "4": {
-      "item": "minecraft:lead"
+      "item": "minecraft:amethyst_shard"
+    },
+    "5": {
+      "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    "131",
-    "343",
+    "151",
+    "434",
     "121"
   ],
   "result": {

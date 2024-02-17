@@ -9,21 +9,18 @@
       "item": "androtech:advanced_chip"
     },
     "3": {
-      "item": "minecraft:glass"
-    },
-    "4": {
       "item": "minecraft:blaze_powder"
     },
-    "5": {
+    "4": {
       "item": "minecraft:amethyst_shard"
     },
-    "6": {
+    "5": {
       "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    "636",
-    "545",
+    "151",
+    "434",
     "121"
   ],
   "result": {
