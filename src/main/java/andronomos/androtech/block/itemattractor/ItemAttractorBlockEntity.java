@@ -73,7 +73,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 				captureDroppedItems();
 			}
 
-			deleteCapturedXp();
+			//deleteCapturedXp();
 		}
 	}
 
@@ -96,13 +96,13 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 		return getLevel().getEntitiesOfClass(ItemEntity.class, getWorkArea(), EntitySelector.ENTITY_STILL_ALIVE);
 	}
 
-	private List<ExperienceOrb> getCapturedXP() {
-		return getLevel().getEntitiesOfClass(ExperienceOrb.class, getWorkArea(), EntitySelector.ENTITY_STILL_ALIVE);
-	}
+	//private List<ExperienceOrb> getCapturedXP() {
+	//	return getLevel().getEntitiesOfClass(ExperienceOrb.class, getWorkArea(), EntitySelector.ENTITY_STILL_ALIVE);
+	//}
 
-	private void deleteCapturedXp() {
-		for(ExperienceOrb orb : getCapturedXP()) {
-			orb.remove(Entity.RemovalReason.KILLED);
-		}
-	}
+	//private void deleteCapturedXp() {
+	//	for(ExperienceOrb orb : getCapturedXP()) {
+	//		orb.remove(Entity.RemovalReason.KILLED);
+	//	}
+	//}
 }
