@@ -76,7 +76,7 @@ public class MachineBlock extends Block implements EntityBlock {
 		if(!level.isClientSide) {
 			OpenScreen(level, pos, player);
 		}
-		return InteractionResult.PASS;
+		return InteractionResult.CONSUME;
 	}
 
 	@Nullable
