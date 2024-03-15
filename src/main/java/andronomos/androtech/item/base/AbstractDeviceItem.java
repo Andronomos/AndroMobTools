@@ -31,10 +31,6 @@ public abstract class AbstractDeviceItem extends Item {
 	 */
 	@Override
 	public @NotNull InteractionResultHolder<ItemStack> use(Level level, @NotNull Player player, @NotNull InteractionHand hand) {
-		if(!level.isClientSide) {
-			ItemStack stack = player.getItemInHand(hand);
-			CompoundTag tag = stack.getTag();
-		}
 		return super.use(level, player, hand);
 	}
 
