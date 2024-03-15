@@ -34,10 +34,6 @@ public abstract class AbstractDeviceItem extends Item {
 		if(!level.isClientSide) {
 			ItemStack stack = player.getItemInHand(hand);
 			CompoundTag tag = stack.getTag();
-			AndroTech.LOGGER.info(String.format("MultiStateItem#use | nbt: %s", tag != null ? tag.toString() : "null"));
-			AndroTech.LOGGER.info(String.format("MultiStateItem#use | isDamageableItem: %s", stack.isDamageableItem()));
-			AndroTech.LOGGER.info(String.format("MultiStateItem#use | getMaxDamage: %s", stack.getMaxDamage()));
-			AndroTech.LOGGER.info(String.format("MultiStateItem#use | getDamageValue: %s", stack.getDamageValue()));
 		}
 		return super.use(level, player, hand);
 	}
