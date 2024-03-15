@@ -1,9 +1,7 @@
 package andronomos.androtech.item.base;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.util.ItemStackHelper;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -30,7 +28,7 @@ public abstract class AbstractDeviceItem extends Item {
 	 * For debugging purposes
 	 */
 	@Override
-	public @NotNull InteractionResultHolder<ItemStack> use(Level level, @NotNull Player player, @NotNull InteractionHand hand) {
+	public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
 		return super.use(level, player, hand);
 	}
 
