@@ -24,7 +24,7 @@ public class ItemStackHelper {
 			return;
 		}
 		if (player == null) {
-			stack.setDamageValue(stack.getDamageValue() + 1);
+			stack.setDamageValue(stack.getDamageValue() + amount);
 		}
 		else {
 			stack.hurtAndBreak(amount, player, (p) -> {
