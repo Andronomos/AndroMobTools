@@ -5,14 +5,13 @@ import andronomos.androtech.block.BaseBlockEntity;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.util.InventoryHelper;
-import andronomos.androtech.util.RadiusHelper;
+import andronomos.androtech.util.BoundingBoxHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -48,7 +47,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 
 	@Override
 	public AABB getWorkArea() {
-		return RadiusHelper.nineByNineByNineBoxFromCenter(getBlockPos());
+		return BoundingBoxHelper.nineByNineByNineBoxFromCenter(getBlockPos());
 	}
 
 	@Override

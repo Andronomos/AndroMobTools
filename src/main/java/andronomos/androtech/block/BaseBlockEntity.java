@@ -1,6 +1,6 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.util.RadiusHelper;
+import andronomos.androtech.util.BoundingBoxHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -77,6 +77,6 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	protected void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity blockEntity) { }
 
 	protected AABB getWorkArea() {
-		return RadiusHelper.boxFromCenter(this.worldPosition, 0);
+		return BoundingBoxHelper.boxFromCenter(this.worldPosition, 0);
 	}
 }

@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.AABB;
 
-public class RadiusHelper {
+public class BoundingBoxHelper {
 	/**
 	 * Returns a cube from the center position
 	 * **/
