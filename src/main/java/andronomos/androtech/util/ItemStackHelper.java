@@ -20,8 +20,21 @@ public class ItemStackHelper {
 	 * @param amount The amount of damage to apply to the item
 	 */
 	public static void applyDamage(LivingEntity player, ItemStack stack, int amount) {
-		if(stack.getDamageValue() > stack.getMaxDamage()) return; //the item can't take anymore damage
-		stack.hurtAndBreak(amount, player, (p) -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+		if (!stack.isDamageableItem()) {
+			return;
+		}
+		if (player == null) {
+			stack.setDamageValue(stack.getDamageValue() + 1);
+		}
+		else {
+			stack.hurtAndBreak(amount, player, (p) -> {
+				p.broadcastBreakEvent(InteractionHand.MAIN_HAND);
+			});
+		}
+		if (stack.getDamageValue() >= stack.getMaxDamage()) {
+			stack.shrink(1);
+			stack = ItemStack.EMPTY;
+		}
 	}
 
 	/**
