@@ -24,14 +24,6 @@ public abstract class AbstractDeviceItem extends Item {
 		this.hasDurability = hasDurability;
 	}
 
-	/**
-	 * For debugging purposes
-	 */
-	@Override
-	public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
-		return super.use(level, player, hand);
-	}
-
 	@Override
 	public int getMaxDamage(ItemStack stack) {
 		return AndroTechConfig.DEVICE_DURABILITY.get();
