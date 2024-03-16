@@ -48,7 +48,7 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 		BlockPos pos = ItemStackHelper.getBlockPos(stack);
 		if(pos != null) {
 			tooltip.add(Component.translatable(TOOLTIP_GPS_MODULE).withStyle(ChatFormatting.GRAY));
-			tooltip.add(Component.translatable(GPS_MODULE_SAVED, ChatHelper.blockPosToString(pos)).withStyle(ChatFormatting.BLUE));
+			tooltip.add(Component.translatable(GPS_MODULE_SAVED, blockPosToString(pos)).withStyle(ChatFormatting.BLUE));
 		}
 	}
 
@@ -60,7 +60,7 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 		InteractionHand hand = context.getHand();
 		recordPos(hand, pos, player);
 		player.swing(hand);
-		ChatHelper.sendStatusMessage(player, Component.translatable(GPS_MODULE_SAVED, ChatHelper.blockPosToString(pos)));
+		ChatHelper.sendStatusMessage(player, Component.translatable(GPS_MODULE_SAVED, blockPosToString(pos)));
 		return InteractionResult.SUCCESS;
 	}
 
@@ -93,5 +93,9 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 		NBTHelper.setIntVal(stack, "xpos", pos.getX());
 		NBTHelper.setIntVal(stack, "ypos", pos.getY());
 		NBTHelper.setIntVal(stack, "zpos", pos.getZ());
+	}
+
+	public static String blockPosToString(BlockPos pos) {
+		return pos.getX() + ", " + pos.getY() + ", " + pos.getZ();
 	}
 }
