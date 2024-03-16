@@ -7,6 +7,7 @@ import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlock;
+import andronomos.androtech.item.FluidEvaporator;
 import andronomos.androtech.item.GPSRecorderItem;
 import andronomos.androtech.item.MobStorageDevice;
 import andronomos.androtech.registry.BlockRegistry;
@@ -60,6 +61,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(MobStorageDevice.TOOLTIP_MOB_STORAGE_DEVICE_MOB, "Mob: %1$s");
 		add(MobStorageDevice.TOOLTIP_MOB_STORAGE_DEVICE_HEALTH, "Health: %1$s");
 		add(ItemRegistry.MOB_STORAGE_DEVICE.get(), "Mob Storage Device");
+		add(FluidEvaporator.TOOLTIP_FLUID_EVAPORATOR, "");
+		add(FluidEvaporator.TOOLTIP_FLUID_EVAPORATOR_MODE, "Fluid Mode: %s");
+		add("tooltip.androtech.fluid_evaporator.mode.lava", "Lava");
+		add("tooltip.androtech.fluid_evaporator.mode.water", "Water");
 
 		//add(ItemRegistry.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
 		//add(ItemRegistry.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
