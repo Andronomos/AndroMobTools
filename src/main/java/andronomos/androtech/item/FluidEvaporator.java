@@ -56,7 +56,7 @@ public class FluidEvaporator extends Item {
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
+	public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
 		if(!level.isClientSide) {
 			toggleMode(player, player.getItemInHand(hand));
 		}
