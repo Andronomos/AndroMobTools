@@ -61,6 +61,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(MobStorageDevice.TOOLTIP_MOB_STORAGE_DEVICE_MOB, "Mob: %1$s");
 		add(MobStorageDevice.TOOLTIP_MOB_STORAGE_DEVICE_HEALTH, "Health: %1$s");
 		add(ItemRegistry.MOB_STORAGE_DEVICE.get(), "Mob Storage Device");
+		add(ItemRegistry.FLUID_EVAPORATOR.get(), "Fluid Evaporator");
 		add(FluidEvaporator.TOOLTIP_FLUID_EVAPORATOR, "");
 		add(FluidEvaporator.TOOLTIP_FLUID_EVAPORATOR_MODE, "Fluid Mode: %s");
 		add("tooltip.androtech.fluid_evaporator.mode.lava", "Lava");
