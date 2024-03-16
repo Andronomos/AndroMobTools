@@ -35,6 +35,7 @@ public class AndroTechConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> NANITE_REPAIR_RATE;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> FLUID_EVAPORATOR_RANGE;
+	public static ForgeConfigSpec.ConfigValue<Integer> FLUID_EVAPORATOR_DURABILITY;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -82,6 +83,7 @@ public class AndroTechConfig {
 
 		builder.push("Fluid Evaporator");
 		FLUID_EVAPORATOR_RANGE = builder.comment("How many blocks around the player the Fluid Evaporator will look for fluid").define("range", 8);
+		FLUID_EVAPORATOR_DURABILITY = builder.comment("How many blocks around the player the Fluid Evaporator will look for fluid").define("durability", 1024);
 		builder.pop();
 	}
 
