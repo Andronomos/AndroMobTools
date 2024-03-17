@@ -1,5 +1,19 @@
 {
   "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "androtech:item/fluid_evaporator",
+      "predicate": {
+        "androtech:lava": 0.0
+      }
+    },
+    {
+      "model": "androtech:item/fluid_evaporator_lava",
+      "predicate": {
+        "androtech:lava": 1.0
+      }
+    }
+  ],
   "textures": {
     "layer0": "androtech:item/fluid_evaporator"
   }

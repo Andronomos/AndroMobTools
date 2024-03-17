@@ -4,27 +4,22 @@ import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.item.base.AbstractDeviceItem;
 import andronomos.androtech.util.BlockPosUtils;
 import andronomos.androtech.util.BoundingBoxHelper;
-import andronomos.androtech.util.ItemStackHelper;
 import andronomos.androtech.util.SoundHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -83,8 +78,10 @@ public class FluidEvaporator extends AbstractDeviceItem {
 		};
 		int countSuccess = 0;
 		for (BlockPos posTarget : nearbyFluid) {
-			if (removeFlowingLiquid(level, posTarget, true)) {
+			if (removeFlowingLiquid(level, posTarget)) {
 				countSuccess++;
+			} else {
+				String boop = "";
 			}
 		}
 		if (countSuccess > 0) {
@@ -152,25 +149,15 @@ public class FluidEvaporator extends AbstractDeviceItem {
 		return shape;
 	}
 
-	private static boolean removeFlowingLiquid(Level world, BlockPos pos, boolean nukeOption) {
+	private static boolean removeFlowingLiquid(Level world, BlockPos pos) {
 		BlockState blockHere = world.getBlockState(pos);
 		if (blockHere.hasProperty(BlockStateProperties.WATERLOGGED)) {
-			// un-water log
 			return world.setBlock(pos, blockHere.setValue(BlockStateProperties.WATERLOGGED, false), 18);
 		}
 		if (blockHere.getBlock() instanceof BucketPickup block) {
-			ItemStack res = block.pickupBlock(world, pos, blockHere);
-			if (!res.isEmpty()) {
-				// flowing block
-				return world.setBlock(pos, Blocks.AIR.defaultBlockState(), 18);
+			if(block == Blocks.LAVA || block == Blocks.WATER) {
+				return world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
 			}
-			else {
-				return true; // was source block
-			}
-		}
-		else if (nukeOption) {
-			//ok just nuke it
-			return world.setBlock(pos, Blocks.AIR.defaultBlockState(), 18);
 		}
 		return false;
 	}
