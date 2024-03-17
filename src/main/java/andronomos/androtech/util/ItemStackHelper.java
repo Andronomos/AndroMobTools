@@ -95,6 +95,14 @@ public class ItemStackHelper {
 		stack.setTag(tag);
 	}
 
+	public static void clearEntity(ItemStack stack) {
+		CompoundTag tag = stack.getTag();
+		String entity = tag.getString("Entity");
+		if(entity != null && !entity.trim().isEmpty()) {
+			tag.remove("Entity");
+		}
+	}
+
 	@Nullable
 	public static EntityType getEntityType(ItemStack stack) {
 		return EntityType.byString(stack.getTag().getString("Entity")).orElse(null);

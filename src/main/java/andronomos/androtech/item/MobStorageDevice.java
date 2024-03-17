@@ -50,7 +50,6 @@ public class MobStorageDevice extends AbstractDeviceItem {
 		ItemStack stack = player.getItemInHand(context.getHand());
 		if (!ItemStackHelper.hasEntityTag(stack)) return InteractionResult.PASS;
 		if (!releaseEntity(stack, player, context.getClickedFace(), context.getLevel(), context.getClickedPos())) return InteractionResult.FAIL;
-		stack.setTag(null);
 		return InteractionResult.SUCCESS;
 	}
 
@@ -79,6 +78,7 @@ public class MobStorageDevice extends AbstractDeviceItem {
 		entity.absMoveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0, 0);
 		if(!level.addFreshEntity(entity)) return false;
 		if(hasDurability) doDamage(stack, player, AndroTechConfig.MOB_STORAGE_DEVICE_DAMAGE_RATE.get());
+		ItemStackHelper.clearEntity(stack);
 		return true;
 	}
 
