@@ -2,14 +2,10 @@ package andronomos.androtech.item.base;
 
 import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.util.ItemStackHelper;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractDeviceItem extends Item {
 	public static int DURABILITY = AndroTechConfig.DEVICE_DURABILITY.get();
