@@ -107,6 +107,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		generateDeviceRecipe(ItemRegistry.LOOTING_AUGMENT.get(), Items.RABBIT_FOOT, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.MOB_STORAGE_DEVICE.get(), Items.LEAD, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		//generateDeviceRecipe(ItemRegistry.SMITE_AUGMENT.get(), Items.IRON_SWORD, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
+		generateDeviceRecipe(ItemRegistry.FLUID_EVAPORATOR.get(), Items.SPONGE, ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
 	}
 
 	private void generateAccelerationPadRecipe(Block output, Item chip, Consumer<FinishedRecipe> consumer) {
