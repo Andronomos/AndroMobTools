@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber
 public class TeleportInhibitorEvent {
 	@SubscribeEvent
-	public void teleportEvent (EntityTeleportEvent event) {
+	public void onEntityTeleport (EntityTeleportEvent event) {
 		if(event.getEntity().getCommandSenderWorld().isClientSide ||
 				event instanceof EntityTeleportEvent.TeleportCommand ||
 				event instanceof EntityTeleportEvent.SpreadPlayersCommand) {
