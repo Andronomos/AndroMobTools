@@ -20,9 +20,7 @@ public class TeleportInhibitorEvent {
 			return;
 		}
 
-		if(event.getEntity() instanceof LivingEntity) {
-			LivingEntity living = (LivingEntity)event.getEntity();
-
+		if(event.getEntity() instanceof LivingEntity living) {
 			//Thanks to vadis365 - Mob-Grinding-Utils for this code
 			//https://github.com/vadis365/Mob-Grinding-Utils/blob/d0705ed9054216b06db4b0e8a15af4fcac21325a/MobGrindingUtils/MobGrindingUtils/src/main/java/mob_grinding_utils/events/MGUEndermanInhibitEvent.java#L4
 			AABB inhibitedRange = living.getBoundingBox().inflate(9.0D, 9.0D, 9.0D);
