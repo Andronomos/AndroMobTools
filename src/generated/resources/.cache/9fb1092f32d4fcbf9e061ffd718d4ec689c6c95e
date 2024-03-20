@@ -1,9 +1,10 @@
-// 1.20.1	2024-02-17T01:15:20.4442611	Recipes
+// 1.20.1	2024-03-19T20:12:58.0288084	Recipes
 21f931524e06c577cb0725c109894bea8cdc40ce data/androtech/advancements/recipes/misc/advanced_chip.json
 8452d868daf6f9daaf3ad3985ff247c05281f193 data/androtech/advancements/recipes/misc/basic_chip.json
 0b246f154730e22aca45929b0e7458deb420a733 data/androtech/advancements/recipes/misc/damage_pad.json
 a0275f817c0596b5638ec51f25715320e97d8c32 data/androtech/advancements/recipes/misc/elite_chip.json
 8ac6d7ab6434dfda1bc735f063823d7c776def77 data/androtech/advancements/recipes/misc/fire_augment.json
+e702e07717db681b7465614ac86ebdda30c827f3 data/androtech/advancements/recipes/misc/fluid_evaporator.json
 96bdccffd627df4c5629335a4c4400b742fb2a58 data/androtech/advancements/recipes/misc/gps_recorder.json
 41cddfb16f3c5162dd173b398b994c821a40a7e1 data/androtech/advancements/recipes/misc/item_attraction_emitter.json
 9fc2974f8bb1c69c310535ca90f39a079692d184 data/androtech/advancements/recipes/misc/item_attractor.json
@@ -21,8 +22,9 @@ d1f544d9d5a23da35c56967e810053fda761254e data/androtech/recipes/basic_chip.json
 cc91164950833d364c087e9df6181da2919607c9 data/androtech/recipes/damage_pad.json
 4e446d5f69221f282d707bd70d40f515c9623fe9 data/androtech/recipes/elite_chip.json
 1a2e0d0bdfd2734256b69299ea297be1cfdf72e1 data/androtech/recipes/fire_augment.json
+730aa3f76fd23c938b9e0198a44ba1c7bd7bd62a data/androtech/recipes/fluid_evaporator.json
 a2381360d17d97b6ee6d17e18e0bb60ea9451524 data/androtech/recipes/gps_recorder.json
-ed573ad0d6ec33894f1778de3ed2ffa197dc7251 data/androtech/recipes/item_attraction_emitter.json
+873ecb12550f4c0c12f7d112b0bdae32b39de599 data/androtech/recipes/item_attraction_emitter.json
 e8ccddacae0d13a53585d841968764d41fc3322b data/androtech/recipes/item_attractor.json
 9e0ad9dc10aa9a888359bf1f4f8b62f15d1c3c78 data/androtech/recipes/item_incinerator.json
 88294e6bf2e6db960032493081afe6b435c4e2f4 data/androtech/recipes/looting_augment.json

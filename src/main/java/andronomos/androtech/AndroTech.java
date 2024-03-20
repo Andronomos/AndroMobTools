@@ -6,6 +6,7 @@ import andronomos.androtech.block.itemincinerator.ItemIncineratorMenu;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorScreen;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterScreen;
 import andronomos.androtech.config.AndroTechConfig;
+import andronomos.androtech.event.TeleportInhibitorEvent;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.registry.*;
 import com.mojang.authlib.GameProfile;
@@ -40,6 +41,7 @@ public class AndroTech {
 		BlockEntityRegistry.BLOCK_ENTITIES.register(modEventBus);
 		MenuTypeRegistry.MENU_TYPES.register(modEventBus);
 		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.register(new TeleportInhibitorEvent());
 		modEventBus.addListener(this::clientSetup);
 	}
 

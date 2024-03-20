@@ -2,6 +2,7 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.MachineBlock;
+import andronomos.androtech.block.TeleportInhibitor;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.block.FlatMachineBlock;
@@ -56,7 +57,7 @@ public class BlockRegistry {
 	public static final RegistryObject<MachineBlock> MACHINE_CASE = registerBlock("machine_case", () -> new MachineBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));
-
+	public static final RegistryObject<Block> TELEPORT_INHIBITOR = registerBlock("teleport_inhibitor", () -> new TeleportInhibitor(MACHINE_PROPERTIES));
 
 
 	private static <T extends FlatMachineBlock> RegistryObject<FlatMachineBlock> registerPad(String name, boolean hasToolTip, boolean isDirectional, String topTexture, ICollisionEffect effect) {

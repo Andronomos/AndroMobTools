@@ -12,6 +12,7 @@
   "block.androtech.redstone_signal_transmitter": "Redstone Signal Transmitter",
   "block.androtech.redstone_transmitter.tooltip": "Transmits a redstone signal to a receiver",
   "block.androtech.strong_acceleration_pad": "Strong Acceleration Pad",
+  "block.androtech.teleport_inhibitor": "Teleport Inhibitor",
   "block.androtech.weak_acceleration_pad": "Weak Acceleration Pad",
   "creativetab.androtech": "AndroTech",
   "gui.androtech.powered_off": "Powered Off",
