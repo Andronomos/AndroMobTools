@@ -31,7 +31,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 		registerMachineBlockState(BlockRegistry.ITEM_INCINERATOR.get());
 		registerMachineBlockState(BlockRegistry.MACHINE_CASE.get());
 		registerMachineBlockState(BlockRegistry.REDSTONE_SIGNAL_TRANSMITTER.get());
-		registerMachineBlockState(BlockRegistry.TELEPORT_INHIBITOR.get());
 	}
 
 	private void registerMachineBlockState(MachineBlock machine) {
