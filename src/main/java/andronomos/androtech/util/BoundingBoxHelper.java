@@ -114,15 +114,16 @@ public class BoundingBoxHelper {
 	 * Returns a 3 wide, 3 tall, 3 deep cube from the top position
 	 * **/
 	public static AABB threeByThreeByThreeFromTop(BlockPos pos) {
-		double x1 = pos.getX() - 2D;
-		double y1 = pos.getY() - 2D;
-		double z1 = pos.getZ() - 2D;
-		double x2 = pos.getX() + 2D;
-		double y2 = pos.getY() + 2D;
-		double z2 = pos.getZ() + 2D;
+		//double x1 = pos.getX() - 2D;
+		//double y1 = pos.getY() - 2D;
+		//double z1 = pos.getZ() - 2D;
+		//double x2 = pos.getX() + 2D;
+		//double y2 = pos.getY() + 2D;
+		//double z2 = pos.getZ() + 2D;
 
 		//minX minY minZ maxX maxY maxZ
-		return new AABB(x1, y1, z1, x2, y2, z2);
+		//return new AABB(x1, y1, z1, x2, y2, z2);
+		return new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX(), pos.getY(), pos.getZ()).inflate(3F);
 	}
 
 	/**
