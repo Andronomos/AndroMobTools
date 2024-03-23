@@ -97,13 +97,10 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 			fp.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
 			entity.setLastHurtByMob(null);
 			sword.setDamageValue(0);
-
-			//AndroTech.LOGGER.info(String.format("DamagePadBlockEntity#activate | entity health: %s", entity.getHealth()));
 		}
 	}
 
 	public AABB getWorkArea() {
-		//return BoundingBoxHelper.oneByThreeByOneFromTop(getBlockPos());
 		return BoundingBoxHelper.threeWideThreeTallFromTop(getBlockPos());
 	}
 
