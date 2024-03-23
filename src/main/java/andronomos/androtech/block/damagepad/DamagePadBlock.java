@@ -6,6 +6,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -48,5 +50,10 @@ public class DamagePadBlock extends FlatMachineBlock {
 		} else {
 			throw new IllegalStateException("Missing container provider");
 		}
+	}
+
+	@Override
+	public float getExplosionResistance(BlockState state, BlockGetter level, BlockPos pos, Explosion explosion) {
+		return 2400.0F;
 	}
 }
