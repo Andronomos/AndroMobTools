@@ -70,7 +70,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.ITEM_ATTRACTOR.get(), 1)
 				.define('1', Tags.Items.INGOTS_IRON)
-				.define('2', Items.ENDER_EYE)
+				.define('2', Items.ENDER_PEARL)
 				.define('3', Items.CHEST)
 				.define('4', ItemRegistry.BASIC_CHIP.get())
 				.define('5', Blocks.GLASS)
