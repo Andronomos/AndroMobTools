@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "androtech:elite_chip"
+              "minecraft:ender_pearl"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "androtech:mob_storage_device"
+        "recipe": "androtech:teleport_inhibitor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "androtech:mob_storage_device"
+      "androtech:teleport_inhibitor"
     ]
   },
   "sends_telemetry_event": false

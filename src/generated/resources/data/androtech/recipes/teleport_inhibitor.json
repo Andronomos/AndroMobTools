@@ -3,28 +3,25 @@
   "category": "misc",
   "key": {
     "1": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "2": {
-      "item": "androtech:elite_chip"
+      "item": "minecraft:ender_pearl"
     },
     "3": {
-      "item": "minecraft:lead"
+      "item": "androtech:elite_chip"
     },
     "4": {
-      "item": "minecraft:amethyst_shard"
-    },
-    "5": {
       "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    "151",
-    "434",
-    "121"
+    "141",
+    "424",
+    "131"
   ],
   "result": {
-    "item": "androtech:mob_storage_device"
+    "item": "androtech:teleport_inhibitor"
   },
   "show_notification": true
 }
