@@ -104,7 +104,7 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	public AABB getWorkArea() {
 		//return BoundingBoxHelper.oneByThreeByOneFromTop(getBlockPos());
-		return BoundingBoxHelper.threeByThreeByThreeFromTop(getBlockPos());
+		return BoundingBoxHelper.threeByThreeByOneFromTop(getBlockPos());
 	}
 
 	private boolean hasSharpnessUpgrade() {
