@@ -29,17 +29,12 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 	public static final String GPS_MODULE_SAVED = "item.androtech.gps_module.saved";
 
 	public GPSRecorderItem(Properties properties) {
-		super(properties, AndroTechConfig.GPS_RECORDER_TAKE_DAMAGE.get());
+		super(properties, false);
 	}
 
 	@Override
 	public int getMaxStackSize(ItemStack stack) {
 		return ItemStackHelper.getBlockPos(stack) == null ? 64 : 1;
-	}
-
-	@Override
-	public int getMaxDamage(ItemStack stack) {
-		return AndroTechConfig.GPS_RECORDER_DURABILITY.get();
 	}
 
 	@Override
@@ -81,7 +76,6 @@ public class GPSRecorderItem extends AbstractDeviceItem {
 		} else {
 			ItemStack drop = new ItemStack(ItemRegistry.GPS_RECORDER.get());
 			setBlockPos(drop, pos);
-			if(hasDurability) doDamage(drop, player, AndroTechConfig.GPS_RECORDER_DAMAGE_RATE.get());
 			if(!player.addItem(drop)) ItemStackHelper.drop(player.level(), player.blockPosition(), drop);
 		}
 	}

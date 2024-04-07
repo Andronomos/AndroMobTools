@@ -18,7 +18,8 @@ public class RestrictedSlotHandler extends SlotItemHandler {
 
 	@Override
 	public boolean mayPlace(ItemStack stack) {
-		return stack.getItem() == item.getItem() && stack.getDamageValue() == item.getDamageValue();
+		//return stack.getItem() == item.getItem() && stack.getDamageValue() == item.getDamageValue();
+		return stack.getItem() == item.getItem();
 	}
 
 	@Override
