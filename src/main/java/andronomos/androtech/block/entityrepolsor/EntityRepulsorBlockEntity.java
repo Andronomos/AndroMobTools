@@ -1,12 +1,7 @@
 package andronomos.androtech.block.entityrepolsor;
 
 import andronomos.androtech.block.BaseBlockEntity;
-import andronomos.androtech.block.damagepad.DamagePadBlock;
-import andronomos.androtech.block.damagepad.DamagePadMenu;
-import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
-import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
-import andronomos.androtech.util.InventoryHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
