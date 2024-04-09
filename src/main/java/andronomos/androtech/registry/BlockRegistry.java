@@ -59,7 +59,7 @@ public class BlockRegistry {
 
 
 	private static <T extends FlatMachineBlock> RegistryObject<FlatMachineBlock> registerPad(String name, boolean hasToolTip, ICollisionEffect effect) {
-		return registerBlock(name, () -> new FlatMachineBlock(PAD_PROPERTIES.noOcclusion(), effect));
+		return registerBlock(name, () -> new FlatMachineBlock(PAD_PROPERTIES.noOcclusion(), hasToolTip, effect));
 	}
 
 	public static RegistryObject<Block> registerBlock(final String name, Block.Properties properties) {
