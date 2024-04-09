@@ -16,31 +16,31 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 	@Override
 	protected void registerModels() {
-		createSingleTexture("sharpness_augment");
-		createSingleTexture("looting_augment");
-		createSingleTexture("fire_augment");
-		createSingleTexture("fake_sword");
-		createSingleTexture("nanite_enhanced_pickaxe");
-		createSingleTexture("nanite_enhanced_axe");
-		createSingleTexture("nanite_enhanced_shovel");
-		createSingleTexture("nanite_enhanced_sword");
-		createSingleTexture("basic_chip");
-		createSingleTexture("advanced_chip");
-		createSingleTexture("elite_chip");
+		basicItem("sharpness_augment");
+		basicItem("looting_augment");
+		basicItem("fire_augment");
+		basicItem("fake_sword");
+		basicItem("nanite_enhanced_pickaxe");
+		basicItem("nanite_enhanced_axe");
+		basicItem("nanite_enhanced_shovel");
+		basicItem("nanite_enhanced_sword");
+		basicItem("basic_chip");
+		basicItem("advanced_chip");
+		basicItem("elite_chip");
 
-		buildMultiStateItemModel("gps_recorder", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
-		buildMultiStateItemModel("item_attraction_emitter", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
-		buildMultiStateItemModel("mob_storage_device", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
-		buildMultiStateItemModel("fluid_evaporator", "_lava", PropertyOverrideRegistry.MODE_LAVA);
+		multiStateItem("gps_recorder", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
+		multiStateItem("item_attraction_emitter", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
+		multiStateItem("mob_storage_device", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
+		multiStateItem("fluid_evaporator", "_lava", PropertyOverrideRegistry.MODE_LAVA);
 	}
 
-	private ItemModelBuilder createSingleTexture(String name) {
+	private ItemModelBuilder basicItem(String name) {
 		return singleTexture(name, mcLoc("item/generated"), "layer0", modLoc("item/" + name));
 	}
 
-	private void buildMultiStateItemModel(String name, String textureKey, ResourceLocation resource) {
-		ItemModelBuilder modelNormal = createSingleTexture(name);
-		ModelFile modelActivated = createSingleTexture(name + textureKey);
+	private void multiStateItem(String name, String textureKey, ResourceLocation resource) {
+		ItemModelBuilder modelNormal = basicItem(name);
+		ModelFile modelActivated = basicItem(name + textureKey);
 		modelNormal.override()
 				.predicate(resource, 0)
 				.model(modelNormal)
