@@ -14,6 +14,4 @@ public class ModBlockStateProvider extends BlockStateProvider {
 	protected void registerStatesAndModels() {
 
 	}
-
-
 }
