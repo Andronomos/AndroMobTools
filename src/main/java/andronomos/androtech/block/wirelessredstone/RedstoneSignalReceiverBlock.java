@@ -16,13 +16,7 @@ public class RedstoneSignalReceiverBlock extends MachineBlock {
 	public static final String TOOLTIP = "block.androtech.redstone_receiver.tooltip";
 
 	public RedstoneSignalReceiverBlock(Properties properties) {
-		super(properties, true, false, false);
-		addTexture("top_off", "redstone_signal_receiver_off_top");
-		addTexture("side_off", "redstone_signal_receiver_off_side");
-		addTexture("bottom_off", "redstone_signal_receiver_off_bottom");
-		addTexture("top_on", "redstone_signal_receiver_on_top");
-		addTexture("side_on", "redstone_signal_receiver_on_side");
-		addTexture("bottom_on", "redstone_signal_receiver_on_bottom");
+		super(properties, false);
 	}
 
 	@Override

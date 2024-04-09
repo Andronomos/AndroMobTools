@@ -33,26 +33,18 @@ public class MachineBlock extends Block implements EntityBlock {
 	public static final String GUI_ON = "gui.androtech.powered_on";
 	public static final String GUI_OFF = "gui.androtech.powered_off";
 	public final Hashtable<String, String> textures = new Hashtable<>();
-	public final boolean hasMultipleStates;
 	public final boolean hasTooltip;
-	public final boolean isDirectional;
 
 	public MachineBlock(Properties properties)
 	{
-		this(properties, false, false, false);
+		this(properties, false);
 	}
 
-	public MachineBlock(Properties properties, boolean hasMultipleStates, boolean hasTooltip, boolean isDirectional) {
+	public MachineBlock(Properties properties, boolean hasTooltip) {
 		super(properties);
-		this.hasMultipleStates = hasMultipleStates;
 		this.hasTooltip = hasTooltip;
-		this.isDirectional = isDirectional;
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
-		addTexture("top", "machine_top");
-		addTexture("bottom", "machine_bottom");
-		addTexture("side", "machine_side");
-		addTexture("front", "machine_side");
 	}
 
 	@Override
@@ -120,10 +112,6 @@ public class MachineBlock extends Block implements EntityBlock {
 	@Override
 	public @NotNull BlockState mirror(BlockState state, Mirror mirror) {
 		return state.setValue(FACING, mirror.mirror(state.getValue(FACING)));
-	}
-
-	public void addTexture(String key, String value) {
-		textures.put(key, value);
 	}
 
 	public void OpenScreen(Level level, BlockPos pos, Player player) {

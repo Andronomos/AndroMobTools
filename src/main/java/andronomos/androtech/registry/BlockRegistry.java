@@ -37,18 +37,14 @@ public class BlockRegistry {
 
 	public static final RegistryObject<FlatMachineBlock> WEAK_ACCELERATION_PAD = registerPad("weak_acceleration_pad",
 			false,
-			true,
-			"weak_acceleration_pad_top",
 			FlatMachineEffects.ACCELERATION_WEAK);
 
-	public static final RegistryObject<FlatMachineBlock> NORMAL_ACCELERATION_PAD = registerPad("normal_acceleration_pad", false,
-			true,
-			"normal_acceleration_pad_top",
+	public static final RegistryObject<FlatMachineBlock> NORMAL_ACCELERATION_PAD = registerPad("normal_acceleration_pad",
+			false,
 			FlatMachineEffects.ACCELERATION_NORMAL);
 
-	public static final RegistryObject<FlatMachineBlock> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad",false,
-			true,
-			"strong_acceleration_pad_top",
+	public static final RegistryObject<FlatMachineBlock> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad",
+			false,
 			FlatMachineEffects.ACCELERATION_STRONG);
 
 	public static final RegistryObject<FlatMachineBlock> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
@@ -60,8 +56,8 @@ public class BlockRegistry {
 	public static final RegistryObject<MachineBlock> TELEPORT_INHIBITOR = registerBlock("teleport_inhibitor", () -> new TeleportInhibitor(MACHINE_PROPERTIES));
 
 
-	private static <T extends FlatMachineBlock> RegistryObject<FlatMachineBlock> registerPad(String name, boolean hasToolTip, boolean isDirectional, String topTexture, ICollisionEffect effect) {
-		return registerBlock(name, () -> new FlatMachineBlock(PAD_PROPERTIES.noOcclusion(), hasToolTip, isDirectional, topTexture, effect));
+	private static <T extends FlatMachineBlock> RegistryObject<FlatMachineBlock> registerPad(String name, boolean hasToolTip, ICollisionEffect effect) {
+		return registerBlock(name, () -> new FlatMachineBlock(PAD_PROPERTIES.noOcclusion(), hasToolTip, effect));
 	}
 
 	public static RegistryObject<Block> registerBlock(final String name, Block.Properties properties) {

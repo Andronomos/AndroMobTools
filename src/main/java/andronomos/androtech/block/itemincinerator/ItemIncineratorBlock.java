@@ -18,11 +18,7 @@ public class ItemIncineratorBlock extends MachineBlock {
     public static final String TOOLTIP = "block.androtech.item_incinerator.tooltip";
 
     public ItemIncineratorBlock(Properties properties) {
-        super(properties, false, false, false);
-        addTexture("top", "item_incinerator_top");
-        addTexture("bottom", "item_incinerator_bottom");
-        addTexture("side", "item_incinerator_side");
-        addTexture("front", "item_incinerator_side");
+        super(properties, false);
     }
 
     @Nullable

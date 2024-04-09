@@ -20,9 +20,7 @@ public class RedstoneSignalTransmitterBlock extends MachineBlock {
 	public static final String TOOLTIP = "block.androtech.redstone_transmitter.tooltip";
 
 	public RedstoneSignalTransmitterBlock(Properties properties) {
-		super(properties, true, false, false);
-		addTexture("side_off", "redstone_signal_transmitter_off_side");
-		addTexture("side_on", "redstone_signal_transmitter_on_side");
+		super(properties, false);
 	}
 
 	@Nullable
