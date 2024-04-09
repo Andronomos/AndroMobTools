@@ -24,7 +24,7 @@ public class DamagePadBlock extends FlatMachineBlock {
 	public static final String TOOLTIP = "block.androtech.damage_pad.tooltip";
 
 	public DamagePadBlock(Properties properties) {
-		super(properties, null);
+		super(properties, true, null);
 	}
 
 	@Nullable
