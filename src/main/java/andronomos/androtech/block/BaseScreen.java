@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,19 +31,19 @@ public abstract class BaseScreen<T extends AbstractContainerMenu> extends Abstra
 	}
 
 	@Override
-	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
+	public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
 		renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, delta);
 		renderTooltip(guiGraphics, mouseX, mouseY);
 	}
 
 	@Override
-	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+	protected void renderLabels(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		super.renderLabels(guiGraphics, mouseX, mouseY);
 	}
 
 	public SideButton addButton(SideButton button) {
-		button.setX(this.width / 2 - BUTTON_LEFT);;
+		button.setX(this.width / 2 - BUTTON_LEFT);
 		button.setY(sideButtonY);
 		sideButtonY += button.getHeight() + 2;
 		sideButtons.add(button);

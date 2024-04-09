@@ -12,6 +12,9 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public class ItemAttractorMenu extends BaseMenu {
 	public ItemAttractorMenu(int containerId, Inventory inventory, FriendlyByteBuf data) {
@@ -23,16 +26,14 @@ public class ItemAttractorMenu extends BaseMenu {
 		addPlayerInventory();
 		addPlayerHotbar();
 		if(entity instanceof ItemAttractorBlockEntity itemAttractorBlockEntity) {
-			itemAttractorBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(h -> {
-				addInventory(h);
-			});
+			itemAttractorBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(this::addInventory);
 		}
 		setSlotIndexes(Constants.VANILLA_INVENTORY_SLOT_COUNT);
 		addDataSlots(data);
 	}
 
 	@Override
-	public boolean stillValid(Player playerIn) {
-		return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, BlockRegistry.ITEM_ATTRACTOR.get());
+	public boolean stillValid(@NotNull Player playerIn) {
+		return stillValid(ContainerLevelAccess.create(Objects.requireNonNull(blockEntity.getLevel()), blockEntity.getBlockPos()), player, BlockRegistry.ITEM_ATTRACTOR.get());
 	}
 }

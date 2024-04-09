@@ -16,6 +16,8 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class ItemIncineratorMenu extends BaseMenu {
     public ItemIncineratorMenu(int containerId, Inventory inventory, FriendlyByteBuf data) {
         this(containerId, inventory, inventory.player.level().getBlockEntity(data.readBlockPos()), new SimpleContainerData(inventory.getContainerSize()));
@@ -36,11 +38,11 @@ public class ItemIncineratorMenu extends BaseMenu {
 
     @Override
     public boolean stillValid(@NotNull Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), player, BlockRegistry.ITEM_INCINERATOR.get());
+        return stillValid(ContainerLevelAccess.create(Objects.requireNonNull(blockEntity.getLevel()), blockEntity.getBlockPos()), player, BlockRegistry.ITEM_INCINERATOR.get());
     }
 
     @Override
-    public ItemStack quickMoveStack(Player player, int slotIndex) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player player, int slotIndex) {
         final Slot slot = this.slots.get(slotIndex);
         if(slotIndex > 0 && this.getSlot(0).mayPlace(slot.getItem())) {
             slot.set(ItemStack.EMPTY);

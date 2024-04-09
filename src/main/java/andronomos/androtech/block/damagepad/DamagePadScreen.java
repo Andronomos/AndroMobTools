@@ -6,6 +6,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import org.jetbrains.annotations.NotNull;
 
 public class DamagePadScreen extends BaseScreen<DamagePadMenu> {
 	public DamagePadScreen(DamagePadMenu menu, Inventory inventory, Component component) {
@@ -18,7 +19,7 @@ public class DamagePadScreen extends BaseScreen<DamagePadMenu> {
 	//}
 
 	@Override
-	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+	protected void renderBg(@NotNull GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
 		this.drawBackground(guiGraphics, new ResourceLocation(AndroTech.MODID, "textures/gui/damage_pad.png"));
 	}
 }

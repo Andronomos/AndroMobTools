@@ -1,6 +1,5 @@
 package andronomos.androtech.block.wirelessredstone.redstonetransmitter;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.BaseBlockEntity;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
@@ -19,6 +18,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
 
 public class RedstoneSignalTransmitterBlockEntity extends BaseBlockEntity implements MenuProvider {
 	private BlockPos lastReceiverPosition;
@@ -69,7 +70,7 @@ public class RedstoneSignalTransmitterBlockEntity extends BaseBlockEntity implem
 		if(receiverPos == null) {
 			return null;
 		}
-		return level.getBlockState(receiverPos);
+		return Objects.requireNonNull(level).getBlockState(receiverPos);
 	}
 
 	private void updateReceiver(BlockPos receiverPos) {
@@ -88,7 +89,7 @@ public class RedstoneSignalTransmitterBlockEntity extends BaseBlockEntity implem
 		}
 
 		boolean receiverIsPowered = receiverState.getValue(POWERED);
-		boolean transmitterIsPowered = level.getBlockState(this.worldPosition).getValue(POWERED);
+		boolean transmitterIsPowered = Objects.requireNonNull(level).getBlockState(this.worldPosition).getValue(POWERED);
 
 		if(receiverIsPowered != transmitterIsPowered) {
 			setReceiverPoweredState(receiverPos, receiverState, transmitterIsPowered);

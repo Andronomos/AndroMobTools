@@ -12,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import static andronomos.androtech.Constants.PLAYER_INVENTORY_SLOT_COUNT;
@@ -23,7 +24,6 @@ public abstract class BaseMenu extends AbstractContainerMenu {
 	protected final Inventory inventory;
 	protected final Player player;
 	protected static int blockEntitySlotCount;
-
 	private final ContainerData data;
 
 	public BaseMenu(@Nullable MenuType<?> menuType, int containerId, Inventory inventory, BlockEntity entity, ContainerData data) {
@@ -37,7 +37,7 @@ public abstract class BaseMenu extends AbstractContainerMenu {
 	}
 
 	@Override
-	public ItemStack quickMoveStack(Player player, int slotIndex) {
+	public @NotNull ItemStack quickMoveStack(@NotNull Player player, int slotIndex) {
 		Slot sourceSlot = slots.get(slotIndex);
 		if (!sourceSlot.hasItem()) return ItemStack.EMPTY;
 		ItemStack sourceStack = sourceSlot.getItem();

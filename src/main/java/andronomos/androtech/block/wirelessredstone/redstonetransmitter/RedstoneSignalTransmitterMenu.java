@@ -13,6 +13,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import org.jetbrains.annotations.NotNull;
 
 public class RedstoneSignalTransmitterMenu extends BaseMenu {
 	public RedstoneSignalTransmitterMenu(int containerId, Inventory inventory, FriendlyByteBuf data) {
@@ -33,7 +34,7 @@ public class RedstoneSignalTransmitterMenu extends BaseMenu {
 	}
 
 	@Override
-	public boolean stillValid(Player p_38874_) {
-		return stillValid(ContainerLevelAccess.create(this.level, blockEntity.getBlockPos()), player, BlockRegistry.REDSTONE_SIGNAL_TRANSMITTER.get());
+	public boolean stillValid(@NotNull Player player) {
+		return stillValid(ContainerLevelAccess.create(this.level, blockEntity.getBlockPos()), this.player, BlockRegistry.REDSTONE_SIGNAL_TRANSMITTER.get());
 	}
 }

@@ -9,6 +9,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import org.jetbrains.annotations.NotNull;
 
 public class RedstoneSignalTransmitterScreen extends BaseScreen<RedstoneSignalTransmitterMenu> {
 	private PowerButton powerButton;
@@ -26,13 +27,13 @@ public class RedstoneSignalTransmitterScreen extends BaseScreen<RedstoneSignalTr
 	}
 
 	@Override
-	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+	protected void renderLabels(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		super.renderLabels(guiGraphics, mouseX, mouseY);
 		powerButton.update();
 	}
 
 	@Override
-	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+	protected void renderBg(@NotNull GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
 		this.drawBackground(guiGraphics, new ResourceLocation(AndroTech.MODID, "textures/gui/redstone_signal_transmitter.png"));
 	}
 }

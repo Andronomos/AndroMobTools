@@ -27,6 +27,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Hashtable;
 import java.util.List;
 
+@SuppressWarnings("deprecation")
 public class MachineBlock extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;

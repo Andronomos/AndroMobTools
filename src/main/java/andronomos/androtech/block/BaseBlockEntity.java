@@ -55,7 +55,7 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	protected void saveAdditional(CompoundTag tag) {
+	protected void saveAdditional(@NotNull CompoundTag tag) {
 		if (itemHandler != null) {
 			tag.put("inventory", itemHandler.serializeNBT());
 		}

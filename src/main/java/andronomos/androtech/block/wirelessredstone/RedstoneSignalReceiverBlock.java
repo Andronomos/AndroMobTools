@@ -10,6 +10,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("deprecation")
 public class RedstoneSignalReceiverBlock extends MachineBlock {
 	private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 10, 16);
 	public static final String DISPLAY_NAME = "screen.androtech.redstone_receiver";
@@ -20,17 +21,17 @@ public class RedstoneSignalReceiverBlock extends MachineBlock {
 	}
 
 	@Override
-	public int getSignal(BlockState state, BlockGetter getter, BlockPos pos, Direction side) {
+	public int getSignal(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull Direction side) {
 		return state.getValue(POWERED) ? 15 : 0;
 	}
 
 	@Override
-	public int getDirectSignal(BlockState state, BlockGetter getter, BlockPos pos, Direction side) {
+	public int getDirectSignal(BlockState state, @NotNull BlockGetter getter, @NotNull BlockPos pos, @NotNull Direction side) {
 		return state.getValue(POWERED) ? 15 : 0;
 	}
 
 	@Override
-	public boolean isSignalSource(BlockState state) {
+	public boolean isSignalSource(@NotNull BlockState state) {
 		return true;
 	}
 
