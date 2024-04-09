@@ -33,7 +33,6 @@ public class MachineBlock extends Block implements EntityBlock {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 	public static final String GUI_ON = "gui.androtech.powered_on";
 	public static final String GUI_OFF = "gui.androtech.powered_off";
-	public final Hashtable<String, String> textures = new Hashtable<>();
 	public final boolean hasTooltip;
 
 	public MachineBlock(Properties properties)
