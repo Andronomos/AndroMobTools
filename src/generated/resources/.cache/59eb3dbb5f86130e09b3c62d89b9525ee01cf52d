@@ -1,5 +1,6 @@
-// 1.20.1	2024-04-09T09:13:19.82422	Loot Tables
+// 1.20.1	2024-04-09T10:35:06.6147878	Loot Tables
 a495d59a605aff85a73c653ba9f9189e318e8eaa data/androtech/loot_tables/blocks/damage_pad.json
+6417df79cf122eac6bca7098b89fc0be32e08a17 data/androtech/loot_tables/blocks/entity_repulsor.json
 35faf206fc7411f6391bef35182e77854308529b data/androtech/loot_tables/blocks/item_attractor.json
 540858b6191906ea602f252c753db1f60164adf4 data/androtech/loot_tables/blocks/item_incinerator.json
 0d80e72f35c327df58166944c249b2ffbe5bd358 data/androtech/loot_tables/blocks/normal_acceleration_pad.json

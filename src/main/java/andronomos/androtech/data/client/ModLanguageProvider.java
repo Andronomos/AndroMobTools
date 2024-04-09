@@ -2,6 +2,7 @@ package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.MachineBlock;
+import andronomos.androtech.block.entityrepolsor.EntityRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
@@ -48,6 +49,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(RedstoneSignalReceiverBlock.TOOLTIP, "Emits a redstone signal when powered by a signal transmitter");
 		add(RedstoneSignalTransmitterBlock.DISPLAY_NAME, "Redstone Signal Transmitter");
 		add(RedstoneSignalTransmitterBlock.TOOLTIP, "Transmits a redstone signal to a receiver");
+		add(EntityRepulsorBlock.DISPLAY_NAME, "Entity Repulsor");
+		add(EntityRepulsorBlock.TOOLTIP, "Pushes entities away");
 
 		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
 		//add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");

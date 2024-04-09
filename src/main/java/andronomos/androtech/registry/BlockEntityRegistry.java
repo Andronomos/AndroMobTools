@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.entityrepolsor.EntityRepulsorBlockEntity;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlockEntity;
 import andronomos.androtech.block.damagepad.DamagePadBlockEntity;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlockEntity;
@@ -31,5 +32,10 @@ public class BlockEntityRegistry {
 	public static final RegistryObject<BlockEntityType<ItemIncineratorBlockEntity>> ITEM_INCINERATOR_BE = BLOCK_ENTITIES
 			.register("item_incinerator_be", () -> BlockEntityType.Builder
 					.of(ItemIncineratorBlockEntity::new, BlockRegistry.ITEM_INCINERATOR.get())
+					.build(null));
+
+	public static final RegistryObject<BlockEntityType<EntityRepulsorBlockEntity>> ENTITY_REPULSOR_BE = BLOCK_ENTITIES
+			.register("entity_repulsor_be", () -> BlockEntityType.Builder
+					.of(EntityRepulsorBlockEntity::new, BlockRegistry.ENTITY_REPULSOR.get())
 					.build(null));
 }

@@ -1,6 +1,8 @@
 {
   "block.androtech.damage_pad": "Damage Pad",
   "block.androtech.damage_pad.tooltip": "Damages entities that stand on it",
+  "block.androtech.entity_repulsor": "Entity Repulsor",
+  "block.androtech.entity_repulsor.tooltip": "Pushes entities away",
   "block.androtech.item_attractor": "Item Attractor",
   "block.androtech.item_attractor.tooltip": "Pulls nearby items",
   "block.androtech.item_incinerator": "Item Incinerator",
@@ -28,6 +30,7 @@
   "item.androtech.mob_storage_device": "Mob Storage Device",
   "item.androtech.sharpness_augment": "Sharpness Augment",
   "screen.androtech.damage_pad": "Damage Pad",
+  "screen.androtech.entity_repulsor": "Entity Repulsor",
   "screen.androtech.item_attractor": "Item Attractor",
   "screen.androtech.item_incinerator": "Item Incinerator",
   "screen.androtech.redstone_receiver": "Redstone Signal Receiver",
