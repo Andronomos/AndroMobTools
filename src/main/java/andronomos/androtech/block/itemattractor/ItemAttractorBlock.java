@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemAttractorBlock extends MachineBlock {
+	public static final int SLOTS = 27;
 	public static final String DISPLAY_NAME = "screen.androtech.item_attractor";
 	public static final String TOOLTIP = "block.androtech.item_attractor.tooltip";
 
