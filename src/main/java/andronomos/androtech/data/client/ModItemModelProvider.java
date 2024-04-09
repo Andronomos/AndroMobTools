@@ -19,7 +19,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("sharpness_augment");
 		createSingleTexture("looting_augment");
 		createSingleTexture("fire_augment");
-		//createSingleTexture("smite_augment");
 		createSingleTexture("fake_sword");
 		createSingleTexture("nanite_enhanced_pickaxe");
 		createSingleTexture("nanite_enhanced_axe");
@@ -28,7 +27,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 		createSingleTexture("basic_chip");
 		createSingleTexture("advanced_chip");
 		createSingleTexture("elite_chip");
-		//createSingleTexture("fluid_evaporator");
 
 		buildMultiStateItemModel("gps_recorder", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
 		buildMultiStateItemModel("item_attraction_emitter", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
