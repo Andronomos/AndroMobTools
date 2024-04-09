@@ -68,11 +68,9 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 
 		if (level.getGameTime() % 10 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof ItemAttractorBlock) {
 			setChanged(level, pos, state);
-
 			if(!InventoryHelper.isFull(itemHandler)) {
 				captureDroppedItems();
 			}
-
 			//deleteCapturedXp();
 		}
 	}
