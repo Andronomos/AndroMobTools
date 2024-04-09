@@ -29,7 +29,7 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class MachineBlock extends Block implements EntityBlock {
-	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+	public static final DirectionProperty FACING = BlockStateProperties.FACING;
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 	public static final String GUI_ON = "gui.androtech.powered_on";
 	public static final String GUI_OFF = "gui.androtech.powered_off";
@@ -88,32 +88,25 @@ public class MachineBlock extends Block implements EntityBlock {
 	@javax.annotation.Nullable
 	@Override
 	public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-		BlockState state = super.getStateForPlacement(context);
-		for(final Direction facing : context.getNearestLookingDirections()) {
-			if(facing.getAxis().isHorizontal() && state != null) {
-				state = state.setValue(FACING, facing);
-				break;
-			}
-		}
-		return state;
+		Direction direction = context.getNearestLookingDirection().getOpposite();
+		return this.defaultBlockState().setValue(FACING, direction).setValue(POWERED, false);
 	}
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-		super.createBlockStateDefinition(builder);
 		builder.add(FACING);
 		builder.add(POWERED);
 	}
 
-	@Override
-	public @NotNull BlockState rotate(BlockState state, Rotation rotation) {
-		return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
-	}
+	//@Override
+	//public @NotNull BlockState rotate(BlockState state, Rotation rotation) {
+	//	return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
+	//}
 
-	@Override
-	public @NotNull BlockState mirror(BlockState state, Mirror mirror) {
-		return state.setValue(FACING, mirror.mirror(state.getValue(FACING)));
-	}
+	//@Override
+	//public @NotNull BlockState mirror(BlockState state, Mirror mirror) {
+	//	return state.setValue(FACING, mirror.mirror(state.getValue(FACING)));
+	//}
 
 	public void OpenScreen(Level level, BlockPos pos, Player player) {
 		//do nothing if the block doesn't have a screen
