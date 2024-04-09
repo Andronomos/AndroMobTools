@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,powered=false": {
+      "model": "androtech:block/item_attractor_off"
+    },
+    "facing=east,powered=true": {
+      "model": "androtech:block/item_attractor_on"
+    },
+    "facing=north,powered=false": {
+      "model": "androtech:block/item_attractor_off"
+    },
+    "facing=north,powered=true": {
+      "model": "androtech:block/item_attractor_on"
+    },
+    "facing=south,powered=false": {
+      "model": "androtech:block/item_attractor_off"
+    },
+    "facing=south,powered=true": {
+      "model": "androtech:block/item_attractor_on"
+    },
+    "facing=west,powered=false": {
+      "model": "androtech:block/item_attractor_off"
+    },
+    "facing=west,powered=true": {
+      "model": "androtech:block/item_attractor_on"
+    }
+  }
+}
