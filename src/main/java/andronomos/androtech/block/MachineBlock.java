@@ -31,7 +31,7 @@ public class MachineBlock extends BaseMachine implements EntityBlock {
 	@javax.annotation.Nullable
 	@Override
 	public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-		Direction direction = context.getNearestLookingDirection().getOpposite();
+		Direction direction = context.getNearestLookingDirection();
 		return this.defaultBlockState().setValue(FACING, direction).setValue(POWERED, false);
 	}
 
