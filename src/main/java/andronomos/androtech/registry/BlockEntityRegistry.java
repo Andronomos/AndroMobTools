@@ -1,7 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.entityrepolsor.EntityRepulsorBlockEntity;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlockEntity;
 import andronomos.androtech.block.damagepad.DamagePadBlockEntity;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlockEntity;

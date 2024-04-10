@@ -1,4 +1,4 @@
-package andronomos.androtech.block.entityrepolsor;
+package andronomos.androtech.block.entityrepulsor;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.BaseScreen;

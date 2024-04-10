@@ -1,9 +1,8 @@
 package andronomos.androtech;
 
-import andronomos.androtech.block.entityrepolsor.EntityRepulsorScreen;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorScreen;
 import andronomos.androtech.block.itemattractor.ItemAttractorScreen;
 import andronomos.androtech.block.damagepad.DamagePadScreen;
-import andronomos.androtech.block.itemincinerator.ItemIncineratorMenu;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorScreen;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterScreen;
 import andronomos.androtech.config.AndroTechConfig;

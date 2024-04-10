@@ -2,7 +2,7 @@ package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.MachineBlock;
-import andronomos.androtech.block.entityrepolsor.EntityRepulsorBlock;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
