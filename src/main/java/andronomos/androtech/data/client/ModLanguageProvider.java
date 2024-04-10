@@ -79,8 +79,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemRegistry.ADVANCED_CHIP.get(), "Advanced Chip");
 		add(ItemRegistry.ELITE_CHIP.get(), "Elite Chip");
 
-		add(MachineBlock.GUI_ON, "Powered On");
-		add(MachineBlock.GUI_OFF, "Powered Off");
+		add(MachineBlock.GUI_POWERED_ON, "Powered On");
+		add(MachineBlock.GUI_POWERED_OFF, "Powered Off");
 	}
 
 	static String capitalizeWords(String input) {

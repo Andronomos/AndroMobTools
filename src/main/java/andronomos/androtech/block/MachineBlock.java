@@ -14,8 +14,8 @@ import org.jetbrains.annotations.NotNull;
 public class MachineBlock extends BaseMachine implements EntityBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.FACING;
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
-	public static final String GUI_ON = "gui.androtech.powered_on";
-	public static final String GUI_OFF = "gui.androtech.powered_off";
+	public static final String GUI_POWERED_ON = "gui.androtech.powered_on";
+	public static final String GUI_POWERED_OFF = "gui.androtech.powered_off";
 
 	public MachineBlock(Properties properties)
 	{
