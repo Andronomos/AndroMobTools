@@ -5,24 +5,6 @@
     },
     "powered=true": {
       "model": "androtech:block/redstone_signal_transmitter_on"
-    },
-    "powered=false": {
-      "model": "androtech:block/redstone_signal_transmitter_off"
-    },
-    "powered=true": {
-      "model": "androtech:block/redstone_signal_transmitter_on"
-    },
-    "powered=false": {
-      "model": "androtech:block/redstone_signal_transmitter_off"
-    },
-    "powered=true": {
-      "model": "androtech:block/redstone_signal_transmitter_on"
-    },
-    "powered=false": {
-      "model": "androtech:block/redstone_signal_transmitter_off"
-    },
-    "powered=true": {
-      "model": "androtech:block/redstone_signal_transmitter_on"
     }
   }
 }

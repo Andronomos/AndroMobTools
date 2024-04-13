@@ -5,24 +5,6 @@
     },
     "powered=true": {
       "model": "androtech:block/item_attractor_on"
-    },
-    "powered=false": {
-      "model": "androtech:block/item_attractor_off"
-    },
-    "powered=true": {
-      "model": "androtech:block/item_attractor_on"
-    },
-    "powered=false": {
-      "model": "androtech:block/item_attractor_off"
-    },
-    "powered=true": {
-      "model": "androtech:block/item_attractor_on"
-    },
-    "powered=false": {
-      "model": "androtech:block/item_attractor_off"
-    },
-    "powered=true": {
-      "model": "androtech:block/item_attractor_on"
     }
   }
 }
