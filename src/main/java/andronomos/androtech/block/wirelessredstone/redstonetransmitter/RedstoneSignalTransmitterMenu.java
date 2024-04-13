@@ -1,6 +1,6 @@
 package andronomos.androtech.block.wirelessredstone.redstonetransmitter;
 
-import andronomos.androtech.block.BaseMenu;
+import andronomos.androtech.base.BaseMenu;
 import andronomos.androtech.inventory.server.RestrictedSlotHandler;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.ItemRegistry;

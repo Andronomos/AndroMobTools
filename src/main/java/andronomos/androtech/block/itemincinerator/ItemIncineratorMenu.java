@@ -1,6 +1,6 @@
 package andronomos.androtech.block.itemincinerator;
 
-import andronomos.androtech.block.BaseMenu;
+import andronomos.androtech.base.BaseMenu;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.MenuTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;

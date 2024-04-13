@@ -1,6 +1,6 @@
 package andronomos.androtech.block.itemincinerator;
 
-import andronomos.androtech.block.BaseBlockEntity;
+import andronomos.androtech.base.BaseBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

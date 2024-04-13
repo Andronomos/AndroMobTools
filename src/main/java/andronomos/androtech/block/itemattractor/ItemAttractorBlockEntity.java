@@ -1,8 +1,7 @@
 package andronomos.androtech.block.itemattractor;
 
 import andronomos.androtech.Constants;
-import andronomos.androtech.block.BaseBlockEntity;
-import andronomos.androtech.block.damagepad.DamagePadBlock;
+import andronomos.androtech.base.BaseBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.util.InventoryHelper;
 import andronomos.androtech.util.BoundingBoxHelper;

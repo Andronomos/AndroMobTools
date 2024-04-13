@@ -1,7 +1,7 @@
 package andronomos.androtech.block.damagepad;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.BaseScreen;
+import andronomos.androtech.base.BaseScreen;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

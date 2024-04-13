@@ -1,4 +1,4 @@
-package andronomos.androtech.block;
+package andronomos.androtech.base;
 
 import andronomos.androtech.util.BoundingBoxHelper;
 import net.minecraft.core.BlockPos;
