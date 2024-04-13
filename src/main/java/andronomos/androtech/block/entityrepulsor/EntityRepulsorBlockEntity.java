@@ -1,12 +1,14 @@
 package andronomos.androtech.block.entityrepulsor;
 
-import andronomos.androtech.block.BaseBlockEntity;
+import andronomos.androtech.base.BaseBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.MenuProvider;
@@ -16,19 +18,21 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.SimpleContainerData;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AirBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuProvider {
+	public boolean showRenderBox;
 	float xPos, yPos, zPos;
 	float xNeg, yNeg, zNeg;
 
@@ -60,10 +64,6 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 		return new EntityRepulsorMenu(containerId, inventory, this, this.data);
 	}
 
-	public static <T extends BlockEntity> void tick(Level level, BlockPos pos, BlockState blockState, T t) {
-
-	}
-
 	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity entity) {
 		if (entity instanceof EntityRepulsorBlockEntity) {
@@ -79,10 +79,6 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 				setAABBWithModifiers();
 			}
 		}
-
-		//
-		//Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		//entity.setDeltaMovement(entity.getDeltaMovement().add(this.velocity * (direction.getStepX() * 1.5), 0, this.velocity * (direction.getStepZ() * 1.5)));
 	}
 
 	protected void activate() {
@@ -104,7 +100,7 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 					} else if (facing == Direction.UP) {
 						float f = 0.125F;
 						Vec3 vec3d = entity.getDeltaMovement();
-						entity.setDeltaMovement(vec3d.x, (double) f, vec3d.z);
+						entity.setDeltaMovement(vec3d.x, f, vec3d.z);
 						entity.push(0D, 0.25D, 0D);
 						entity.fallDistance = 0;
 					} else {
@@ -194,6 +190,17 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
 	}
 
+	@OnlyIn(Dist.CLIENT)
+	public AABB getAABBForRender() {
+		return new AABB(- xNeg, - yNeg, - zNeg, 1D + xPos, 1D + yPos, 1D + zPos);
+	}
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public AABB getRenderBoundingBox() {
+		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
+	}
+
 	private float getWidthModifier() {
 		return hasWidthUpgrade() ? itemHandler.getStackInSlot(0).getCount() : 0;
 	}
@@ -224,6 +231,7 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 	@Override
 	public void load(@NotNull CompoundTag tag) {
 		super.load(tag);
+		showRenderBox = tag.getBoolean("showRenderBox");
 		xPos = tag.getFloat("xPos");
 		yPos = tag.getFloat("yPos");
 		zPos = tag.getFloat("zPos");
@@ -235,11 +243,47 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 	@Override
 	protected void saveAdditional(@NotNull CompoundTag tag) {
 		super.saveAdditional(tag);
+		tag.putBoolean("showRenderBox", showRenderBox);
 		tag.putFloat("xPos", xPos);
 		tag.putFloat("yPos", yPos);
 		tag.putFloat("zPos", zPos);
 		tag.putFloat("xNeg", xNeg);
 		tag.putFloat("yNeg", yNeg);
 		tag.putFloat("zNeg", zNeg);
+	}
+
+	public void toggleRenderBox() {
+		showRenderBox = !showRenderBox;
+		setChanged();
+	}
+
+	@Nonnull
+	@Override
+	public CompoundTag getUpdateTag() {
+		CompoundTag nbt = new CompoundTag();
+		saveAdditional(nbt);
+		return nbt;
+	}
+
+	@Override
+	public ClientboundBlockEntityDataPacket getUpdatePacket() {
+		CompoundTag nbt = new CompoundTag();
+		saveAdditional(nbt);
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
+	@Override
+	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket packet) {
+		load(packet.getTag());
+		onContentsChanged();
+	}
+
+	public void onContentsChanged() {
+		if (!getLevel().isClientSide) {
+			final BlockState state = getLevel().getBlockState(getBlockPos());
+			setAABBWithModifiers();
+			getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);
+			setChanged();
+		}
 	}
 }
