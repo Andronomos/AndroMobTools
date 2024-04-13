@@ -2,7 +2,6 @@ package andronomos.androtech.inventory.client;
 
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class RenderOutlineButton extends SideButton {
 	public static final String TOOLTIP_ON = "gui.androtech.overlay_on";
