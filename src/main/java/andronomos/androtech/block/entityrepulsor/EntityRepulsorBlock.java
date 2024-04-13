@@ -1,5 +1,6 @@
 package andronomos.androtech.block.entityrepulsor;
 
+import andronomos.androtech.block.DirectionalMachineBlock;
 import andronomos.androtech.block.MachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -14,13 +15,17 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class EntityRepulsorBlock extends MachineBlock {
+public class EntityRepulsorBlock extends DirectionalMachineBlock {
 	public static final String DISPLAY_NAME = "screen.androtech.entity_repulsor";
 	public static final String TOOLTIP = "block.androtech.entity_repulsor.tooltip";
 	public static final int SLOTS = 3;
 
 	public EntityRepulsorBlock(Properties properties) {
-		super(properties, false);
+		this(properties, false);
+	}
+
+	public EntityRepulsorBlock(Properties properties, boolean hasTooltip) {
+		super(properties, hasTooltip);
 	}
 
 	@Nullable

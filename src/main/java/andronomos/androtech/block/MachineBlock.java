@@ -1,19 +1,15 @@
 package andronomos.androtech.block;
 
 import andronomos.androtech.base.BaseMachineBlock;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import org.jetbrains.annotations.NotNull;
 
 public class MachineBlock extends BaseMachineBlock implements EntityBlock {
-	public static final DirectionProperty FACING = BlockStateProperties.FACING;
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public MachineBlock(Properties properties)
@@ -23,29 +19,11 @@ public class MachineBlock extends BaseMachineBlock implements EntityBlock {
 
 	public MachineBlock(Properties properties, boolean hasTooltip) {
 		super(properties, hasTooltip);
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
-	}
-
-	@javax.annotation.Nullable
-	@Override
-	public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-		Direction direction = context.getNearestLookingDirection().getOpposite();
-		return this.defaultBlockState().setValue(FACING, direction).setValue(POWERED, false);
 	}
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-		builder.add(FACING, POWERED);
+		builder.add(POWERED);
 	}
-
-	//@Override
-	//public @NotNull BlockState rotate(BlockState state, Rotation rotation) {
-	//	return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
-	//}
-
-	//@Override
-	//public @NotNull BlockState mirror(BlockState state, Mirror mirror) {
-	//	return state.setValue(FACING, mirror.mirror(state.getValue(FACING)));
-	//}
 }
