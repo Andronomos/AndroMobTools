@@ -22,10 +22,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
-public class BaseMachine extends Block implements EntityBlock {
+public class BaseMachineBlock extends Block implements EntityBlock {
 	public final boolean hasTooltip;
 
-	public BaseMachine(Properties properties, boolean hasTooltip) {
+	public BaseMachineBlock(Properties properties, boolean hasTooltip) {
 		super(properties);
 		this.hasTooltip = hasTooltip;
 	}

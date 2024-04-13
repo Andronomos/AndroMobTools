@@ -1,6 +1,6 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.base.BaseMachine;
+import andronomos.androtech.base.BaseMachineBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import org.jetbrains.annotations.NotNull;
 
-public class MachineBlock extends BaseMachine implements EntityBlock {
+public class MachineBlock extends BaseMachineBlock implements EntityBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.FACING;
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 

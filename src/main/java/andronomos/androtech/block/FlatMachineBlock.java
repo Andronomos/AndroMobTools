@@ -1,6 +1,6 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.base.BaseMachine;
+import andronomos.androtech.base.BaseMachineBlock;
 import andronomos.androtech.block.collisioneffect.ICollisionEffect;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,7 +19,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
-public class FlatMachineBlock extends BaseMachine implements EntityBlock {
+public class FlatMachineBlock extends BaseMachineBlock implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 	private final ICollisionEffect collisionEffect;
