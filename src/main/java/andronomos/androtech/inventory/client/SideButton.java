@@ -2,14 +2,9 @@ package andronomos.androtech.inventory.client;
 
 import andronomos.androtech.AndroTech;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.gui.widget.ExtendedButton;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SideButton extends ExtendedButton {
 	private static final ResourceLocation TEXTURES = new ResourceLocation(AndroTech.MODID, "textures/gui/icons.png");
