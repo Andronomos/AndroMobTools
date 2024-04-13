@@ -1,5 +1,6 @@
 package andronomos.androtech.block;
 
+import andronomos.androtech.base.BaseMachine;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
@@ -14,8 +15,6 @@ import org.jetbrains.annotations.NotNull;
 public class MachineBlock extends BaseMachine implements EntityBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.FACING;
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
-	public static final String GUI_POWERED_ON = "gui.androtech.powered_on";
-	public static final String GUI_POWERED_OFF = "gui.androtech.powered_off";
 
 	public MachineBlock(Properties properties)
 	{
@@ -31,14 +30,13 @@ public class MachineBlock extends BaseMachine implements EntityBlock {
 	@javax.annotation.Nullable
 	@Override
 	public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-		Direction direction = context.getNearestLookingDirection();
+		Direction direction = context.getNearestLookingDirection().getOpposite();
 		return this.defaultBlockState().setValue(FACING, direction).setValue(POWERED, false);
 	}
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-		builder.add(FACING);
-		builder.add(POWERED);
+		builder.add(FACING, POWERED);
 	}
 
 	//@Override
