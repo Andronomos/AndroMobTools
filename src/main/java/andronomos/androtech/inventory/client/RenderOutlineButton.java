@@ -14,9 +14,8 @@ public class RenderOutlineButton extends SideButton {
 	}
 
 	public void update(boolean showRenderBox) {
-		boolean isOn = showRenderBox;
-		setCurrentTexture(isOn ? TEXTURE_ON : TEXTURE_OFF);
-		Tooltip t = Tooltip.create(Component.translatable(isOn ? TOOLTIP_ON : TOOLTIP_OFF));
+		setCurrentTexture(showRenderBox ? TEXTURE_ON : TEXTURE_OFF);
+		Tooltip t = Tooltip.create(Component.translatable(showRenderBox ? TOOLTIP_ON : TOOLTIP_OFF));
 		setTooltip(t);
 	}
 }
