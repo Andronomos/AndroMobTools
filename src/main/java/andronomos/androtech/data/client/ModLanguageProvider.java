@@ -1,13 +1,14 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.MachineBlock;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlock;
+import andronomos.androtech.inventory.client.PowerButton;
+import andronomos.androtech.inventory.client.RenderOutlineButton;
 import andronomos.androtech.item.FluidEvaporator;
 import andronomos.androtech.item.GPSRecorderItem;
 import andronomos.androtech.item.MobStorageDevice;
@@ -79,8 +80,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemRegistry.ADVANCED_CHIP.get(), "Advanced Chip");
 		add(ItemRegistry.ELITE_CHIP.get(), "Elite Chip");
 
-		add(MachineBlock.GUI_POWERED_ON, "Powered On");
-		add(MachineBlock.GUI_POWERED_OFF, "Powered Off");
+		add(PowerButton.TOOLTIP_ON, "Powered On");
+		add(PowerButton.TOOLTIP_OFF, "Powered Off");
+		add(RenderOutlineButton.TOOLTIP_ON, "Overlay On");
+		add(RenderOutlineButton.TOOLTIP_OFF, "Overlay Off");
 	}
 
 	static String capitalizeWords(String input) {
