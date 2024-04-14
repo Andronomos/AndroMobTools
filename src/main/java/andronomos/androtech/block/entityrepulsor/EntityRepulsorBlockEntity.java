@@ -30,6 +30,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 import java.util.List;
+import java.util.Objects;
 
 public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuProvider {
 	public boolean showRenderBox;
@@ -82,14 +83,13 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 	}
 
 	protected void activate() {
-		BlockState state = getLevel().getBlockState(getBlockPos());
+		BlockState state = Objects.requireNonNull(getLevel()).getBlockState(getBlockPos());
 
 		if (!(state.getBlock() instanceof EntityRepulsorBlock)) {
 			return;
 		}
 
 		Direction facing = state.getValue(EntityRepulsorBlock.FACING);
-
 		List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, getAABBWithModifiers());
 
 		for (Entity entity : list) {
@@ -112,7 +112,7 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 	}
 
 	private void setAABBWithModifiers() {
-		BlockState state = getLevel().getBlockState(getBlockPos());
+		BlockState state = Objects.requireNonNull(getLevel()).getBlockState(getBlockPos());
 
 		if (!(state.getBlock() instanceof EntityRepulsorBlock)) {
 			return;
@@ -274,12 +274,12 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 
 	@Override
 	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket packet) {
-		load(packet.getTag());
+		load(Objects.requireNonNull(packet.getTag()));
 		onContentsChanged();
 	}
 
 	public void onContentsChanged() {
-		if (!getLevel().isClientSide) {
+		if (!Objects.requireNonNull(getLevel()).isClientSide) {
 			final BlockState state = getLevel().getBlockState(getBlockPos());
 			setAABBWithModifiers();
 			getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);
