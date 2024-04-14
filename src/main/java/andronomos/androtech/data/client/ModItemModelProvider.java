@@ -27,6 +27,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 		basicItem("basic_chip");
 		basicItem("advanced_chip");
 		basicItem("elite_chip");
+		basicItem("repulsor_width_upgrade");
+		basicItem("repulsor_height_upgrade");
+		basicItem("repulsor_distance_upgrade");
 
 		multiStateItem("gps_recorder", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
 		multiStateItem("item_attraction_emitter", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);

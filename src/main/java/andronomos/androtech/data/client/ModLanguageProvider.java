@@ -79,6 +79,9 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemRegistry.BASIC_CHIP.get(), "Basic Chip");
 		add(ItemRegistry.ADVANCED_CHIP.get(), "Advanced Chip");
 		add(ItemRegistry.ELITE_CHIP.get(), "Elite Chip");
+		add(ItemRegistry.REPULSOR_WIDTH_UPGRADE.get(), "Repulsor Width Upgrade");
+		add(ItemRegistry.REPULSOR_HEIGHT_UPGRADE.get(), "Repulsor Height Upgrade");
+		add(ItemRegistry.REPULSOR_DISTANCE_UPGRADE.get(), "Repulsor Distance Upgrade");
 
 		add(PowerButton.TOOLTIP_ON, "Powered On");
 		add(PowerButton.TOOLTIP_OFF, "Powered Off");
