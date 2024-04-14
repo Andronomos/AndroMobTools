@@ -27,7 +27,7 @@ public class EntityRepulsorScreen extends BaseScreen<EntityRepulsorMenu> {
 	protected void init() {
 		super.init();
 		powerButton = (PowerButton)this.addButton(new PowerButton((button) -> {
-			AndroTechPacketHandler.sendToServer(new SyncMachinePoweredState(menu.blockEntity.getBlockPos()));
+			AndroTechPacketHandler.sendToServer(new SyncMachinePoweredState(entity.getBlockPos()));
 		}, menu.blockEntity));
 
 		overlayButton = (RenderOutlineButton)this.addButton(new RenderOutlineButton((button) -> {
