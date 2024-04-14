@@ -25,7 +25,7 @@ public class RedstoneSignalTransmitterBlockEntity extends BaseBlockEntity implem
 	private BlockPos lastReceiverPosition;
 
 	public RedstoneSignalTransmitterBlockEntity(BlockPos pos, BlockState state) {
-		super(BlockEntityRegistry.REDSTONE_SIGNAL_TRANSMITTER_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.SLOTS));
+		super(BlockEntityRegistry.REDSTONE_SIGNAL_TRANSMITTER_BE.get(), pos, state, new SimpleContainerData(RedstoneSignalTransmitterBlock.SLOTS));
 	}
 
 	@Override
