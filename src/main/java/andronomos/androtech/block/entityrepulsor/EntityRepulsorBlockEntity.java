@@ -214,18 +214,15 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 	}
 
 	private boolean hasWidthUpgrade() {
-		//return !itemHandler.getStackInSlot(0).isEmpty() && itemHandler.getStackInSlot(0).getItem() == ItemRegistry.FAN_UPGRADE_WIDTH.get();
-		return !itemHandler.getStackInSlot(0).isEmpty() && itemHandler.getStackInSlot(0).getItem() == ItemRegistry.SHARPNESS_AUGMENT.get();
+		return !itemHandler.getStackInSlot(0).isEmpty() && itemHandler.getStackInSlot(0).getItem() == ItemRegistry.REPULSOR_WIDTH_UPGRADE.get();
 	}
 
 	private boolean hasHeightUpgrade() {
-		//return !itemHandler.getStackInSlot(1).isEmpty() && itemHandler.getStackInSlot(1).getItem() == ItemRegistry.AUG.get();
-		return !itemHandler.getStackInSlot(1).isEmpty() && itemHandler.getStackInSlot(1).getItem() == ItemRegistry.LOOTING_AUGMENT.get();
+		return !itemHandler.getStackInSlot(1).isEmpty() && itemHandler.getStackInSlot(1).getItem() == ItemRegistry.REPULSOR_HEIGHT_UPGRADE.get();
 	}
 
 	private boolean hasDistanceUpgrade() {
-		//return !itemHandler.getStackInSlot(2).isEmpty() && itemHandler.getStackInSlot(2).getItem() == ItemRegistry.FAN_UPGRADE_SPEED.get();
-		return !itemHandler.getStackInSlot(2).isEmpty() && itemHandler.getStackInSlot(2).getItem() == ItemRegistry.FIRE_AUGMENT.get();
+		return !itemHandler.getStackInSlot(2).isEmpty() && itemHandler.getStackInSlot(2).getItem() == ItemRegistry.REPULSOR_DISTANCE_UPGRADE.get();
 	}
 
 	@Override
