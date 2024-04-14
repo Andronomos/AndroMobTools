@@ -9,15 +9,20 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class DamagePadBlock extends FlatMachineBlock {
+	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 	public static final int SLOTS = 3;
 	public static final int AUGMENT_STACK_LIMIT = 10;
 	public static final String DISPLAY_NAME = "screen.androtech.damage_pad";
@@ -25,6 +30,7 @@ public class DamagePadBlock extends FlatMachineBlock {
 
 	public DamagePadBlock(Properties properties) {
 		super(properties, true, null);
+		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
 	}
 
 	@Nullable
@@ -55,5 +61,10 @@ public class DamagePadBlock extends FlatMachineBlock {
 	@Override
 	public float getExplosionResistance(BlockState state, BlockGetter level, BlockPos pos, Explosion explosion) {
 		return 2400.0F;
+	}
+
+	@Override
+	protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
+		builder.add(POWERED);
 	}
 }

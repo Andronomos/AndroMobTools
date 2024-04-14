@@ -2,6 +2,7 @@ package andronomos.androtech.block.damagepad;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.base.BaseBlockEntity;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import andronomos.androtech.util.BoundingBoxHelper;
@@ -59,7 +60,9 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	@Override
 	protected void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity blockEntity) {
-		if (level.getGameTime() % 10 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof DamagePadBlock) {
+		if (state.getValue(DamagePadBlock.POWERED) &&
+				level.getGameTime() % 10 == 0 &&
+				level.getBlockState(getBlockPos()).getBlock() instanceof DamagePadBlock) {
 			activate();
 		}
 	}
