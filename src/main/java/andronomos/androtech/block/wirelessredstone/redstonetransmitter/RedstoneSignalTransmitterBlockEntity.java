@@ -1,7 +1,6 @@
 package andronomos.androtech.block.wirelessredstone.redstonetransmitter;
 
 import andronomos.androtech.base.BaseBlockEntity;
-import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.util.ItemStackHelper;
