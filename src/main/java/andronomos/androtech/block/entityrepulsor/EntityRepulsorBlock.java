@@ -21,7 +21,6 @@ import javax.annotation.Nonnull;
 public class EntityRepulsorBlock extends DirectionalMachineBlock {
 	public static final String DISPLAY_NAME = "screen.androtech.entity_repulsor";
 	public static final String TOOLTIP = "block.androtech.entity_repulsor.tooltip";
-	public static final int SLOTS = 3;
 
 	public EntityRepulsorBlock(Properties properties) {
 		this(properties, false);
