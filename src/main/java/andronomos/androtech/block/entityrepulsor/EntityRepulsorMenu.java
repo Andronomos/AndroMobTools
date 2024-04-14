@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class EntityRepulsorMenu extends BaseMenu {
 	public EntityRepulsorBlockEntity repulsor;
+	private static final int UPGRADE_STACK_LIMIT = 3;
 
 	public EntityRepulsorMenu(int containerId, Inventory inventory, FriendlyByteBuf extraData) {
 		this(containerId, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(inventory.getContainerSize()));
@@ -29,17 +30,13 @@ public class EntityRepulsorMenu extends BaseMenu {
 		addPlayerHotbar();
 		if(entity instanceof EntityRepulsorBlockEntity entityRepulsorBlockEntity) {
 			repulsor = entityRepulsorBlockEntity;
-
 			entityRepulsorBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(itemHandler -> {
-				//todo: replace augments with repulsor upgrades
-				addSlot(new RestrictedSlotHandler(itemHandler, 0, 56, 30, ItemRegistry.SHARPNESS_AUGMENT.get().getDefaultInstance(), DamagePadBlock.AUGMENT_STACK_LIMIT));
-				addSlot(new RestrictedSlotHandler(itemHandler, 1, 81, 30, ItemRegistry.LOOTING_AUGMENT.get().getDefaultInstance(), DamagePadBlock.AUGMENT_STACK_LIMIT));
-				addSlot(new RestrictedSlotHandler(itemHandler, 2, 106, 30, ItemRegistry.FIRE_AUGMENT.get().getDefaultInstance(), DamagePadBlock.AUGMENT_STACK_LIMIT));
-				//addSlot(new RestrictedSlotHandler(itemHandler, 3, 118, 30, ItemRegistry.SMITE_AUGMENT.get().getDefaultInstance(), DamagePadBlock.AUGMENT_STACK_LIMIT));
+				addSlot(new RestrictedSlotHandler(itemHandler, 0, 56, 30, ItemRegistry.REPULSOR_WIDTH_UPGRADE.get().getDefaultInstance(), UPGRADE_STACK_LIMIT));
+				addSlot(new RestrictedSlotHandler(itemHandler, 1, 81, 30, ItemRegistry.REPULSOR_HEIGHT_UPGRADE.get().getDefaultInstance(), UPGRADE_STACK_LIMIT));
+				addSlot(new RestrictedSlotHandler(itemHandler, 2, 106, 30, ItemRegistry.REPULSOR_DISTANCE_UPGRADE.get().getDefaultInstance(), UPGRADE_STACK_LIMIT));
 			});
 		}
-		setSlotIndexes(DamagePadBlock.SLOTS);
-		//addDataSlots(data);
+		setSlotIndexes(EntityRepulsorBlock.SLOTS);
 	}
 
 	@Override
