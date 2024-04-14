@@ -1,12 +1,12 @@
 package andronomos.androtech.block.entityrepulsor;
 
 import andronomos.androtech.block.DirectionalMachineBlock;
-import andronomos.androtech.block.MachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -15,6 +15,9 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nonnull;
+
+@SuppressWarnings("ALL")
 public class EntityRepulsorBlock extends DirectionalMachineBlock {
 	public static final String DISPLAY_NAME = "screen.androtech.entity_repulsor";
 	public static final String TOOLTIP = "block.androtech.entity_repulsor.tooltip";
@@ -52,5 +55,11 @@ public class EntityRepulsorBlock extends DirectionalMachineBlock {
 				if(blockEntity instanceof EntityRepulsorBlockEntity entityRepulsorBlockEntity) entityRepulsorBlockEntity.serverTick((ServerLevel) level2, pos, state2, entityRepulsorBlockEntity);
 			}
 		};
+	}
+
+	@Nonnull
+	@Override
+	public RenderShape getRenderShape(BlockState state) {
+		return RenderShape.MODEL;
 	}
 }
