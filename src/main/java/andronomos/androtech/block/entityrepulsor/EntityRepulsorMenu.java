@@ -1,6 +1,7 @@
 package andronomos.androtech.block.entityrepulsor;
 
 import andronomos.androtech.base.BaseMenu;
+import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.inventory.server.RestrictedSlotHandler;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.ItemRegistry;
@@ -18,7 +19,6 @@ import org.jetbrains.annotations.NotNull;
 public class EntityRepulsorMenu extends BaseMenu {
 	public EntityRepulsorBlockEntity repulsor;
 	private static final int UPGRADE_STACK_LIMIT = 3;
-	private static final int SLOT_COUNT = 3;
 
 	public EntityRepulsorMenu(int containerId, Inventory inventory, FriendlyByteBuf extraData) {
 		this(containerId, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(inventory.getContainerSize()));
@@ -36,7 +36,7 @@ public class EntityRepulsorMenu extends BaseMenu {
 				addSlot(new RestrictedSlotHandler(itemHandler, 2, 106, 30, ItemRegistry.REPULSOR_DISTANCE_UPGRADE.get().getDefaultInstance(), UPGRADE_STACK_LIMIT));
 			});
 		}
-		setSlotIndexes(SLOT_COUNT);
+		setSlotIndexes(EntityRepulsorBlock.SLOTS);
 	}
 
 	@Override
