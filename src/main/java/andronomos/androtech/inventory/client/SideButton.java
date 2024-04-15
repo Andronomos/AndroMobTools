@@ -21,13 +21,13 @@ public class SideButton extends ExtendedButton {
 	public void renderWidget(GuiGraphics gg, int mouseX, int mouseY, float partialTick) {
 		super.renderWidget(gg, mouseX, mouseY, partialTick);
 		if (visible) {
-			boolean hover = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
+			//boolean hover = mouseX >= getX() && mouseY >= getY() && mouseX < getX() + width && mouseY < getY() + height;
 
-			if (hover) {
-				gg.setColor(0.75f, 1f, 0.75f, 1f);
-			} else {
-				gg.setColor(0.75f, 0.75f, 0.75f, 0.5f);
-			}
+			//if (hover) {
+			//	gg.setColor(0.75f, 1f, 0.75f, 1f);
+			//} else {
+			//	gg.setColor(0.75f, 0.75f, 0.75f, 0.5f);
+			//}
 
 			gg.blit(TEXTURES, getX(), getY(), currentTexture.getX(), currentTexture.getY(), currentTexture.getWidth(), currentTexture.getHeight());
 			gg.setColor(1.0f, 1.0f, 1.0f, 1.0f);
