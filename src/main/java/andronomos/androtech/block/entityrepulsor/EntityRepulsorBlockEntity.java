@@ -249,11 +249,6 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 		tag.putFloat("zNeg", zNeg);
 	}
 
-	public void toggleRenderBox() {
-		showRenderBox = !showRenderBox;
-		setChanged();
-	}
-
 	@Nonnull
 	@Override
 	public CompoundTag getUpdateTag() {
@@ -282,5 +277,10 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 			getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);
 			setChanged();
 		}
+	}
+
+	public void toggleRenderBox() {
+		showRenderBox = !showRenderBox;
+		setChanged();
 	}
 }
