@@ -1,7 +1,8 @@
 package andronomos.androtech.network;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.network.packet.SyncMachineOverlayState;
+import andronomos.androtech.network.packet.MessageDamagePad;
+import andronomos.androtech.network.packet.MessageEntityRepulsor;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
 //import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
 import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
@@ -44,10 +45,16 @@ public class AndroTechPacketHandler {
 				.consumerMainThread(SyncRedstoneTransmitterState::handle)
 				.add();
 
-		net.messageBuilder(SyncMachineOverlayState.class, id(), NetworkDirection.PLAY_TO_SERVER)
-				.decoder(SyncMachineOverlayState::decode)
-				.encoder(SyncMachineOverlayState::encode)
-				.consumerMainThread(SyncMachineOverlayState::handle)
+		net.messageBuilder(MessageEntityRepulsor.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(MessageEntityRepulsor::decode)
+				.encoder(MessageEntityRepulsor::encode)
+				.consumerMainThread(MessageEntityRepulsor::handle)
+				.add();
+
+		net.messageBuilder(MessageDamagePad.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(MessageDamagePad::decode)
+				.encoder(MessageDamagePad::encode)
+				.consumerMainThread(MessageDamagePad::handle)
 				.add();
 
 		//net.messageBuilder(SyncMachineEnergy.class, id(), NetworkDirection.PLAY_TO_CLIENT)
