@@ -283,5 +283,4 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 	public AABB getAABBWithModifiers() {
 		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
 	}
-
 }
