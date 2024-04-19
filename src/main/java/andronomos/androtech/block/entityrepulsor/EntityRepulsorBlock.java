@@ -24,11 +24,7 @@ public class EntityRepulsorBlock extends DirectionalMachineBlock {
 	public static final int SLOTS = 3;
 
 	public EntityRepulsorBlock(Properties properties) {
-		this(properties, false);
-	}
-
-	public EntityRepulsorBlock(Properties properties, boolean hasTooltip) {
-		super(properties, hasTooltip);
+		super(properties);
 	}
 
 	@Nullable

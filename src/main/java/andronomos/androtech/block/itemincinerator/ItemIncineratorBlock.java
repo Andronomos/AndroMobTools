@@ -1,6 +1,6 @@
 package andronomos.androtech.block.itemincinerator;
 
-import andronomos.androtech.block.MachineBlock;
+import andronomos.androtech.base.BaseMachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -12,13 +12,13 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class ItemIncineratorBlock extends MachineBlock {
+public class ItemIncineratorBlock extends BaseMachineBlock {
     public static final int SLOTS = 1;
     public static final String DISPLAY_NAME = "screen.androtech.item_incinerator";
     public static final String TOOLTIP = "block.androtech.item_incinerator.tooltip";
 
     public ItemIncineratorBlock(Properties properties) {
-        super(properties, false);
+        super(properties);
     }
 
     @Nullable

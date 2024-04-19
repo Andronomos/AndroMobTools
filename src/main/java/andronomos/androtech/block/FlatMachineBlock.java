@@ -24,8 +24,8 @@ public class FlatMachineBlock extends BaseMachineBlock implements EntityBlock {
 	protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 	private final ICollisionEffect collisionEffect;
 
-	public FlatMachineBlock(Properties properties, boolean hasToolTip, ICollisionEffect collisionEffect) {
-		super(properties, hasToolTip);
+	public FlatMachineBlock(Properties properties, ICollisionEffect collisionEffect) {
+		super(properties);
 		this.collisionEffect = collisionEffect;
 	}
 

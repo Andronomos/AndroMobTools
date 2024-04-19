@@ -1,5 +1,6 @@
 package andronomos.androtech.block;
 
+import andronomos.androtech.base.BaseMachineBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
@@ -9,11 +10,11 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import org.jetbrains.annotations.NotNull;
 
-public class DirectionalMachineBlock extends MachineBlock {
+public class DirectionalMachineBlock extends BaseMachineBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.FACING;
 
-	public DirectionalMachineBlock(Properties properties, boolean hasTooltip) {
-		super(properties, hasTooltip);
+	public DirectionalMachineBlock(Properties properties) {
+		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 

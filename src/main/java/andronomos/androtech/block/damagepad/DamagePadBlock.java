@@ -29,7 +29,7 @@ public class DamagePadBlock extends FlatMachineBlock {
 	public static final String TOOLTIP = "block.androtech.damage_pad.tooltip";
 
 	public DamagePadBlock(Properties properties) {
-		super(properties, true, null);
+		super(properties, null);
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
 	}
 

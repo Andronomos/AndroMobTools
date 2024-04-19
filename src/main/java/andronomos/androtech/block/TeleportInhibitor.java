@@ -1,6 +1,8 @@
 package andronomos.androtech.block;
 
-public class TeleportInhibitor extends MachineBlock {
+import andronomos.androtech.base.BaseMachineBlock;
+
+public class TeleportInhibitor extends BaseMachineBlock {
 	public TeleportInhibitor(Properties properties) {
 		super(properties);
 	}
