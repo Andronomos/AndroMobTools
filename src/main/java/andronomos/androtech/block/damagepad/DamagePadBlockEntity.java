@@ -3,11 +3,15 @@ package andronomos.androtech.block.damagepad;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.base.BaseBlockEntity;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import andronomos.androtech.util.BoundingBoxHelper;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.MenuProvider;
@@ -21,15 +25,23 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nonnull;
 import java.util.List;
+import java.util.Objects;
 
 public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvider {
+	public boolean showRenderBox;
+	float xPos, yPos, zPos;
+	float xNeg, yNeg, zNeg;
+
 	public DamagePadBlockEntity(BlockPos pos, BlockState state) {
 		super(BlockEntityRegistry.DAMAGE_PAD_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.SLOTS));
 	}
@@ -60,10 +72,77 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	@Override
 	protected void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity blockEntity) {
-		if (state.getValue(DamagePadBlock.POWERED) &&
-				level.getGameTime() % 10 == 0 &&
-				level.getBlockState(getBlockPos()).getBlock() instanceof DamagePadBlock) {
-			activate();
+		if (blockEntity instanceof DamagePadBlockEntity) {
+			BlockState stateAtPos = level.getBlockState(pos);
+
+			if (level.getGameTime() % 5 == 0 && state.getBlock() instanceof DamagePadBlock) {
+				if (stateAtPos.getValue(DamagePadBlock.POWERED)) {
+					activate();
+				}
+			}
+
+			if (!level.isClientSide) {
+				setAABB();
+			}
+		}
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	public AABB getAABBForRender() {
+		return new AABB(- xNeg, - yNeg, - zNeg, 1D + xPos, 1D + yPos, 1D + zPos);
+	}
+
+	@Override
+	public void load(@NotNull CompoundTag tag) {
+		super.load(tag);
+		showRenderBox = tag.getBoolean("showRenderBox");
+		xPos = tag.getFloat("xPos");
+		yPos = tag.getFloat("yPos");
+		zPos = tag.getFloat("zPos");
+		xNeg = tag.getFloat("xNeg");
+		yNeg = tag.getFloat("yNeg");
+		zNeg = tag.getFloat("zNeg");
+	}
+
+	@Override
+	protected void saveAdditional(@NotNull CompoundTag tag) {
+		super.saveAdditional(tag);
+		tag.putBoolean("showRenderBox", showRenderBox);
+		tag.putFloat("xPos", xPos);
+		tag.putFloat("yPos", yPos);
+		tag.putFloat("zPos", zPos);
+		tag.putFloat("xNeg", xNeg);
+		tag.putFloat("yNeg", yNeg);
+		tag.putFloat("zNeg", zNeg);
+	}
+
+	@Nonnull
+	@Override
+	public CompoundTag getUpdateTag() {
+		CompoundTag nbt = new CompoundTag();
+		saveAdditional(nbt);
+		return nbt;
+	}
+
+	@Override
+	public ClientboundBlockEntityDataPacket getUpdatePacket() {
+		CompoundTag nbt = new CompoundTag();
+		saveAdditional(nbt);
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
+	@Override
+	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket packet) {
+		load(Objects.requireNonNull(packet.getTag()));
+		onContentsChanged();
+	}
+
+	public void onContentsChanged() {
+		if (!Objects.requireNonNull(getLevel()).isClientSide) {
+			final BlockState state = getLevel().getBlockState(getBlockPos());
+			setAABB();
+			getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);
+			setChanged();
 		}
 	}
 
@@ -107,6 +186,25 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 		return BoundingBoxHelper.threeWideThreeTallFromTop(getBlockPos());
 	}
 
+	private void setAABB() {
+		BlockState state = Objects.requireNonNull(getLevel()).getBlockState(getBlockPos());
+
+		if (!(state.getBlock() instanceof DamagePadBlock)) {
+			return;
+		}
+
+		yPos = 3;
+		yNeg = 0;
+		xPos = 1;
+		xNeg = 1;
+		zPos = 1;
+		zNeg = 1;
+	}
+
+	public AABB getAABB() {
+		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
+	}
+
 	private boolean hasSharpnessUpgrade() {
 		return itemHandler.getStackInSlot(0).getItem() == ItemRegistry.SHARPNESS_AUGMENT.get();
 	}
@@ -119,7 +217,8 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 		return itemHandler.getStackInSlot(2).getItem() == ItemRegistry.FIRE_AUGMENT.get();
 	}
 
-	//private boolean hasSmiteUpgrade() {
-	//	return itemHandler.getStackInSlot(3).getItem() == ItemRegistry.SMITE_AUGMENT.get();
-	//}
+	public void toggleRenderBox() {
+		showRenderBox = !showRenderBox;
+		setChanged();
+	}
 }
