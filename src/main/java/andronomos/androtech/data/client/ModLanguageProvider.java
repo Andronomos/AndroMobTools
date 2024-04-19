@@ -66,10 +66,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(MobStorageDevice.TOOLTIP_MOB_STORAGE_DEVICE_HEALTH, "Health: %1$s");
 		add(ItemRegistry.MOB_STORAGE_DEVICE.get(), "Mob Storage Device");
 		add(ItemRegistry.FLUID_EVAPORATOR.get(), "Fluid Evaporator");
-		add(FluidEvaporator.TOOLTIP_FLUID_EVAPORATOR, "");
-		add(FluidEvaporator.TOOLTIP_FLUID_EVAPORATOR_MODE, "Fluid Mode: %s");
-		add("tooltip.androtech.fluid_evaporator.mode.lava", "Lava");
-		add("tooltip.androtech.fluid_evaporator.mode.water", "Water");
+		add(FluidEvaporator.TOOLTIP, "Evaporates fluid in a radius around the player");
+		add(FluidEvaporator.TOOLTIP_MODE, "Fluid Mode: %s");
+		add(FluidEvaporator.TOOLTIP_MODE_WATER, "Water");
+		add(FluidEvaporator.TOOLTIP_MODE_LAVA, "Lava");
 
 		//add(ItemRegistry.NANITE_ENHANCED_PICKAXE.get(), "Nanite Enhanced Pickaxe");
 		//add(ItemRegistry.NANITE_ENHANCED_AXE.get(), "Nanite Enhanced Axe");
