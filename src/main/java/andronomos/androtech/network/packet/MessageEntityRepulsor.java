@@ -9,22 +9,22 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class SyncMachineOverlayState {
+public class MessageEntityRepulsor {
 	private final BlockPos pos;
 
-	public SyncMachineOverlayState(BlockPos pos) {
+	public MessageEntityRepulsor(BlockPos pos) {
 		this.pos = pos;
 	}
 
-	public static void encode(SyncMachineOverlayState msg, FriendlyByteBuf buf) {
+	public static void encode(MessageEntityRepulsor msg, FriendlyByteBuf buf) {
 		buf.writeBlockPos(msg.pos);
 	}
 
-	public static SyncMachineOverlayState decode(FriendlyByteBuf buf) {
-		return new SyncMachineOverlayState(buf.readBlockPos());
+	public static MessageEntityRepulsor decode(FriendlyByteBuf buf) {
+		return new MessageEntityRepulsor(buf.readBlockPos());
 	}
 
-	public static void handle(SyncMachineOverlayState msg, Supplier<NetworkEvent.Context> ctx) {
+	public static void handle(MessageEntityRepulsor msg, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
 			Level level = ctx.get().getSender().level();
 			if(level == null) return;
