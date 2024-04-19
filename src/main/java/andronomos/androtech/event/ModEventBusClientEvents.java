@@ -1,6 +1,7 @@
 package andronomos.androtech.event;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.damagepad.DamagePadBlockEntityRenderer;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntityRenderer;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import net.minecraftforge.api.distmarker.Dist;
@@ -13,5 +14,6 @@ public class ModEventBusClientEvents {
 	@SubscribeEvent
 	public static void registerBlockEntityRenderer(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerBlockEntityRenderer(BlockEntityRegistry.ENTITY_REPULSOR_BE.get(), EntityRepulsorBlockEntityRenderer::new);
+		event.registerBlockEntityRenderer(BlockEntityRegistry.DAMAGE_PAD_BE.get(), DamagePadBlockEntityRenderer::new);
 	}
 }
