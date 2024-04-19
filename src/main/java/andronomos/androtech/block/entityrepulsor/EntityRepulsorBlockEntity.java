@@ -82,6 +82,100 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 		}
 	}
 
+	@OnlyIn(Dist.CLIENT)
+	public AABB getAABBForRender() {
+		return new AABB(- xNeg, - yNeg, - zNeg, 1D + xPos, 1D + yPos, 1D + zPos);
+	}
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public AABB getRenderBoundingBox() {
+		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
+	}
+
+	@Override
+	public void load(@NotNull CompoundTag tag) {
+		super.load(tag);
+		showRenderBox = tag.getBoolean("showRenderBox");
+		xPos = tag.getFloat("xPos");
+		yPos = tag.getFloat("yPos");
+		zPos = tag.getFloat("zPos");
+		xNeg = tag.getFloat("xNeg");
+		yNeg = tag.getFloat("yNeg");
+		zNeg = tag.getFloat("zNeg");
+	}
+
+	@Override
+	protected void saveAdditional(@NotNull CompoundTag tag) {
+		super.saveAdditional(tag);
+		tag.putBoolean("showRenderBox", showRenderBox);
+		tag.putFloat("xPos", xPos);
+		tag.putFloat("yPos", yPos);
+		tag.putFloat("zPos", zPos);
+		tag.putFloat("xNeg", xNeg);
+		tag.putFloat("yNeg", yNeg);
+		tag.putFloat("zNeg", zNeg);
+	}
+
+	@Nonnull
+	@Override
+	public CompoundTag getUpdateTag() {
+		CompoundTag nbt = new CompoundTag();
+		saveAdditional(nbt);
+		return nbt;
+	}
+
+	@Override
+	public ClientboundBlockEntityDataPacket getUpdatePacket() {
+		CompoundTag nbt = new CompoundTag();
+		saveAdditional(nbt);
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
+	@Override
+	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket packet) {
+		load(Objects.requireNonNull(packet.getTag()));
+		onContentsChanged();
+	}
+
+	public void onContentsChanged() {
+		if (!Objects.requireNonNull(getLevel()).isClientSide) {
+			final BlockState state = getLevel().getBlockState(getBlockPos());
+			setAABBWithModifiers();
+			getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);
+			setChanged();
+		}
+	}
+
+	public void toggleRenderBox() {
+		showRenderBox = !showRenderBox;
+		setChanged();
+	}
+
+	private float getWidthModifier() {
+		return hasWidthUpgrade() ? itemHandler.getStackInSlot(0).getCount() : 0;
+	}
+
+	private float getHeightModifier() {
+		return hasHeightUpgrade() ? itemHandler.getStackInSlot(1).getCount() : 0;
+	}
+
+	private int getDistanceModifier() {
+		return hasDistanceUpgrade() ? itemHandler.getStackInSlot(2).getCount() : 0;
+	}
+
+	private boolean hasWidthUpgrade() {
+		return !itemHandler.getStackInSlot(0).isEmpty() && itemHandler.getStackInSlot(0).getItem() == ItemRegistry.REPULSOR_WIDTH_UPGRADE.get();
+	}
+
+	private boolean hasHeightUpgrade() {
+		return !itemHandler.getStackInSlot(1).isEmpty() && itemHandler.getStackInSlot(1).getItem() == ItemRegistry.REPULSOR_HEIGHT_UPGRADE.get();
+	}
+
+	private boolean hasDistanceUpgrade() {
+		return !itemHandler.getStackInSlot(2).isEmpty() && itemHandler.getStackInSlot(2).getItem() == ItemRegistry.REPULSOR_DISTANCE_UPGRADE.get();
+	}
+
 	protected void activate() {
 		BlockState state = Objects.requireNonNull(getLevel()).getBlockState(getBlockPos());
 
@@ -190,97 +284,4 @@ public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuPr
 		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	public AABB getAABBForRender() {
-		return new AABB(- xNeg, - yNeg, - zNeg, 1D + xPos, 1D + yPos, 1D + zPos);
-	}
-
-	@Override
-	@OnlyIn(Dist.CLIENT)
-	public AABB getRenderBoundingBox() {
-		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
-	}
-
-	private float getWidthModifier() {
-		return hasWidthUpgrade() ? itemHandler.getStackInSlot(0).getCount() : 0;
-	}
-
-	private float getHeightModifier() {
-		return hasHeightUpgrade() ? itemHandler.getStackInSlot(1).getCount() : 0;
-	}
-
-	private int getDistanceModifier() {
-		return hasDistanceUpgrade() ? itemHandler.getStackInSlot(2).getCount() : 0;
-	}
-
-	private boolean hasWidthUpgrade() {
-		return !itemHandler.getStackInSlot(0).isEmpty() && itemHandler.getStackInSlot(0).getItem() == ItemRegistry.REPULSOR_WIDTH_UPGRADE.get();
-	}
-
-	private boolean hasHeightUpgrade() {
-		return !itemHandler.getStackInSlot(1).isEmpty() && itemHandler.getStackInSlot(1).getItem() == ItemRegistry.REPULSOR_HEIGHT_UPGRADE.get();
-	}
-
-	private boolean hasDistanceUpgrade() {
-		return !itemHandler.getStackInSlot(2).isEmpty() && itemHandler.getStackInSlot(2).getItem() == ItemRegistry.REPULSOR_DISTANCE_UPGRADE.get();
-	}
-
-	@Override
-	public void load(@NotNull CompoundTag tag) {
-		super.load(tag);
-		showRenderBox = tag.getBoolean("showRenderBox");
-		xPos = tag.getFloat("xPos");
-		yPos = tag.getFloat("yPos");
-		zPos = tag.getFloat("zPos");
-		xNeg = tag.getFloat("xNeg");
-		yNeg = tag.getFloat("yNeg");
-		zNeg = tag.getFloat("zNeg");
-	}
-
-	@Override
-	protected void saveAdditional(@NotNull CompoundTag tag) {
-		super.saveAdditional(tag);
-		tag.putBoolean("showRenderBox", showRenderBox);
-		tag.putFloat("xPos", xPos);
-		tag.putFloat("yPos", yPos);
-		tag.putFloat("zPos", zPos);
-		tag.putFloat("xNeg", xNeg);
-		tag.putFloat("yNeg", yNeg);
-		tag.putFloat("zNeg", zNeg);
-	}
-
-	@Nonnull
-	@Override
-	public CompoundTag getUpdateTag() {
-		CompoundTag nbt = new CompoundTag();
-		saveAdditional(nbt);
-		return nbt;
-	}
-
-	@Override
-	public ClientboundBlockEntityDataPacket getUpdatePacket() {
-		CompoundTag nbt = new CompoundTag();
-		saveAdditional(nbt);
-		return ClientboundBlockEntityDataPacket.create(this);
-	}
-
-	@Override
-	public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket packet) {
-		load(Objects.requireNonNull(packet.getTag()));
-		onContentsChanged();
-	}
-
-	public void onContentsChanged() {
-		if (!Objects.requireNonNull(getLevel()).isClientSide) {
-			final BlockState state = getLevel().getBlockState(getBlockPos());
-			setAABBWithModifiers();
-			getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);
-			setChanged();
-		}
-	}
-
-	public void toggleRenderBox() {
-		showRenderBox = !showRenderBox;
-		setChanged();
-	}
 }
