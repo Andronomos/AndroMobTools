@@ -54,7 +54,6 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(EntityRepulsorBlock.TOOLTIP, "Pushes entities away");
 
 		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
-		//add(ItemRegistry.SMITE_AUGMENT.get(), "Smite Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");
 		add(ItemRegistry.LOOTING_AUGMENT.get(), "Looting Augment");
 		add(ItemRegistry.GPS_RECORDER.get(), "GPS Recorder");
