@@ -1,6 +1,7 @@
 package andronomos.androtech.block.damagepad;
 
 import andronomos.androtech.base.BaseMenu;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
 import andronomos.androtech.inventory.server.RestrictedSlotHandler;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.ItemRegistry;
@@ -16,6 +17,8 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import org.jetbrains.annotations.NotNull;
 
 public class DamagePadMenu extends BaseMenu {
+	public DamagePadBlockEntity damagePad;
+
 	public DamagePadMenu(int containerId, Inventory inventory, FriendlyByteBuf extraData) {
 		this(containerId, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(inventory.getContainerSize()));
 	}
@@ -25,15 +28,14 @@ public class DamagePadMenu extends BaseMenu {
 		addPlayerInventory();
 		addPlayerHotbar();
 		if(entity instanceof DamagePadBlockEntity damagePadBlockEntity) {
+			damagePad = damagePadBlockEntity;
 			damagePadBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(itemHandler -> {
 				addSlot(new RestrictedSlotHandler(itemHandler, 0, 56, 30, ItemRegistry.SHARPNESS_AUGMENT.get().getDefaultInstance(), DamagePadBlock.AUGMENT_STACK_LIMIT));
 				addSlot(new RestrictedSlotHandler(itemHandler, 1, 81, 30, ItemRegistry.LOOTING_AUGMENT.get().getDefaultInstance(), DamagePadBlock.AUGMENT_STACK_LIMIT));
 				addSlot(new RestrictedSlotHandler(itemHandler, 2, 106, 30, ItemRegistry.FIRE_AUGMENT.get().getDefaultInstance(), DamagePadBlock.AUGMENT_STACK_LIMIT));
-				//addSlot(new RestrictedSlotHandler(itemHandler, 3, 118, 30, ItemRegistry.SMITE_AUGMENT.get().getDefaultInstance(), DamagePadBlock.AUGMENT_STACK_LIMIT));
 			});
 		}
 		setSlotIndexes(DamagePadBlock.SLOTS);
-		//addDataSlots(data);
 	}
 
 	@Override
