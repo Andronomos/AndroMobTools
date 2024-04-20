@@ -13,8 +13,8 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("deprecation")
 public class RedstoneSignalReceiverBlock extends MachineBlock {
 	private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 10, 16);
-	public static final String DISPLAY_NAME = "screen.androtech.redstone_receiver";
-	public static final String TOOLTIP = "block.androtech.redstone_receiver.tooltip";
+	public static final String DISPLAY_NAME = "screen.androtech.redstone_signal_receiver";
+	public static final String TOOLTIP = "block.androtech.redstone_signal_receiver.tooltip";
 
 	public RedstoneSignalReceiverBlock(Properties properties) {
 		super(properties);

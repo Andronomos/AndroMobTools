@@ -16,8 +16,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class RedstoneSignalTransmitterBlock extends MachineBlock {
 	public static final int SLOTS = 1;
-	public static final String DISPLAY_NAME = "screen.androtech.redstone_transmitter";
-	public static final String TOOLTIP = "block.androtech.redstone_transmitter.tooltip";
+	public static final String DISPLAY_NAME = "screen.androtech.redstone_signal_transmitter";
+	public static final String TOOLTIP = "block.androtech.redstone_signal_transmitter.tooltip";
 
 	public RedstoneSignalTransmitterBlock(Properties properties) {
 		super(properties);
