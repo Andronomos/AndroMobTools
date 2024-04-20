@@ -8,5 +8,28 @@
     "up": "androtech:block/machine_top",
     "west": "androtech:block/machine_side",
     "particle": "androtech:block/machine_side"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [38, 0, 0],
+      "scale": [0.3, 0.3, 0.3]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [38, 0, 0],
+      "scale": [0.3, 0.3, 0.3]
+    },
+    "firstperson_righthand": {
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "firstperson_lefthand": {
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "ground": {
+      "scale": [0.3, 0.3, 0.3]
+    },
+    "gui": {
+      "rotation": [24, 54, 0],
+      "scale": [0.6, 0.6, 0.6]
+    }
   }
 }
