@@ -1,6 +1,7 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.TeleportInhibitorBlock;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
@@ -52,6 +53,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(RedstoneSignalTransmitterBlock.TOOLTIP, "Transmits a redstone signal to a receiver");
 		add(MobRepulsorBlock.DISPLAY_NAME, "Mob Repulsor");
 		add(MobRepulsorBlock.TOOLTIP, "Pushes entities in-front of it away");
+		add(TeleportInhibitorBlock.DISPLAY_NAME, "Teleport Inhibitor");
+		add(TeleportInhibitorBlock.TOOLTIP, "Prevents Enderman from teleporting in an area");
 
 		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");
