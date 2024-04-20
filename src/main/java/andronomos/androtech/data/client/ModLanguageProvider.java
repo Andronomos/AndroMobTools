@@ -1,7 +1,7 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
+import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
@@ -50,8 +50,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(RedstoneSignalReceiverBlock.TOOLTIP, "Emits a redstone signal when powered by a signal transmitter");
 		add(RedstoneSignalTransmitterBlock.DISPLAY_NAME, "Redstone Signal Transmitter");
 		add(RedstoneSignalTransmitterBlock.TOOLTIP, "Transmits a redstone signal to a receiver");
-		add(EntityRepulsorBlock.DISPLAY_NAME, "Entity Repulsor");
-		add(EntityRepulsorBlock.TOOLTIP, "Pushes entities away");
+		add(MobRepulsorBlock.DISPLAY_NAME, "Mob Repulsor");
+		add(MobRepulsorBlock.TOOLTIP, "Pushes entities in-front of it away");
 
 		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");

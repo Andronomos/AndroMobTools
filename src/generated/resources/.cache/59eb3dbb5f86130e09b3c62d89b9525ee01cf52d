@@ -1,8 +1,8 @@
-// 1.20.1	2024-04-19T18:50:22.9947351	Loot Tables
-6417df79cf122eac6bca7098b89fc0be32e08a17 data/androtech/loot_tables/blocks/entity_repulsor.json
+// 1.20.1	2024-04-19T23:38:52.2462322	Loot Tables
 35faf206fc7411f6391bef35182e77854308529b data/androtech/loot_tables/blocks/item_attractor.json
 540858b6191906ea602f252c753db1f60164adf4 data/androtech/loot_tables/blocks/item_incinerator.json
 5bc529d4c990baf3608611626beb3cdc1468c5d1 data/androtech/loot_tables/blocks/mob_killer.json
+f1f0756008521e33fe009b79baf91185ac7c7650 data/androtech/loot_tables/blocks/mob_repulsor.json
 0d80e72f35c327df58166944c249b2ffbe5bd358 data/androtech/loot_tables/blocks/normal_acceleration_pad.json
 6fd5430a79c72603b8d0991d33a87b1190f68cac data/androtech/loot_tables/blocks/redstone_signal_receiver.json
 8ee86a500fa3c7271ba77c802fdd9de657f772f3 data/androtech/loot_tables/blocks/redstone_signal_transmitter.json

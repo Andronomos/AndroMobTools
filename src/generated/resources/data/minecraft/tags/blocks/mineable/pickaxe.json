@@ -9,6 +9,6 @@
     "androtech:redstone_signal_receiver",
     "androtech:redstone_signal_transmitter",
     "androtech:teleport_inhibitor",
-    "androtech:entity_repulsor"
+    "androtech:mob_repulsor"
   ]
 }

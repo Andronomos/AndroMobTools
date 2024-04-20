@@ -1,4 +1,4 @@
-package andronomos.androtech.block.entityrepulsor;
+package andronomos.androtech.block.mobrepulsor;
 
 import andronomos.androtech.base.BaseMenu;
 import andronomos.androtech.inventory.server.RestrictedSlotHandler;
@@ -15,19 +15,19 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import org.jetbrains.annotations.NotNull;
 
-public class EntityRepulsorMenu extends BaseMenu {
-	public EntityRepulsorBlockEntity repulsor;
+public class MobRepulsorMenu extends BaseMenu {
+	public MobRepulsorBlockEntity repulsor;
 	private static final int UPGRADE_STACK_LIMIT = 3;
 
-	public EntityRepulsorMenu(int containerId, Inventory inventory, FriendlyByteBuf extraData) {
+	public MobRepulsorMenu(int containerId, Inventory inventory, FriendlyByteBuf extraData) {
 		this(containerId, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(inventory.getContainerSize()));
 	}
 
-	public EntityRepulsorMenu(int containerId, Inventory inventory, BlockEntity entity, ContainerData data) {
-		super(MenuTypeRegistry.ENTITY_REPULSOR_MENU.get(), containerId, inventory, entity, data);
+	public MobRepulsorMenu(int containerId, Inventory inventory, BlockEntity entity, ContainerData data) {
+		super(MenuTypeRegistry.MOB_REPULSOR_MENU.get(), containerId, inventory, entity, data);
 		addPlayerInventory();
 		addPlayerHotbar();
-		if(entity instanceof EntityRepulsorBlockEntity entityRepulsorBlockEntity) {
+		if(entity instanceof MobRepulsorBlockEntity entityRepulsorBlockEntity) {
 			repulsor = entityRepulsorBlockEntity;
 			entityRepulsorBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(itemHandler -> {
 				addSlot(new RestrictedSlotHandler(itemHandler, 0, 56, 30, ItemRegistry.REPULSOR_WIDTH_UPGRADE.get().getDefaultInstance(), UPGRADE_STACK_LIMIT));
@@ -35,11 +35,11 @@ public class EntityRepulsorMenu extends BaseMenu {
 				addSlot(new RestrictedSlotHandler(itemHandler, 2, 106, 30, ItemRegistry.REPULSOR_DISTANCE_UPGRADE.get().getDefaultInstance(), UPGRADE_STACK_LIMIT));
 			});
 		}
-		setSlotIndexes(EntityRepulsorBlock.SLOTS);
+		setSlotIndexes(MobRepulsorBlock.SLOTS);
 	}
 
 	@Override
 	public boolean stillValid(@NotNull Player player) {
-		return stillValid(ContainerLevelAccess.create(this.level, blockEntity.getBlockPos()), this.player, BlockRegistry.ENTITY_REPULSOR.get());
+		return stillValid(ContainerLevelAccess.create(this.level, blockEntity.getBlockPos()), this.player, BlockRegistry.MOB_REPULSOR.get());
 	}
 }

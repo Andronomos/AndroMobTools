@@ -1,4 +1,4 @@
-package andronomos.androtech.block.entityrepulsor;
+package andronomos.androtech.block.mobrepulsor;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.base.BaseScreen;
@@ -13,12 +13,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
-public class EntityRepulsorScreen extends BaseScreen<EntityRepulsorMenu> {
+public class MobRepulsorScreen extends BaseScreen<MobRepulsorMenu> {
 	private PowerButton powerButton;
 	private RenderOutlineButton overlayButton;
-	private final EntityRepulsorBlockEntity entity;
+	private final MobRepulsorBlockEntity entity;
 
-	public EntityRepulsorScreen(EntityRepulsorMenu menu, Inventory inventory, Component component) {
+	public MobRepulsorScreen(MobRepulsorMenu menu, Inventory inventory, Component component) {
 		super(menu, inventory, component);
 		entity = menu.repulsor;
 	}
@@ -45,6 +45,6 @@ public class EntityRepulsorScreen extends BaseScreen<EntityRepulsorMenu> {
 
 	@Override
 	protected void renderBg(@NotNull GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
-		this.drawBackground(guiGraphics, new ResourceLocation(AndroTech.MODID, "textures/gui/entity_repulsor.png"));
+		this.drawBackground(guiGraphics, new ResourceLocation(AndroTech.MODID, "textures/gui/mob_repulsor.png"));
 	}
 }

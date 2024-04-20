@@ -3,7 +3,7 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.base.MachineBlock;
 import andronomos.androtech.block.TeleportInhibitor;
-import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
+import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.FlatMachineBlock;
@@ -51,7 +51,7 @@ public class BlockRegistry {
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> TELEPORT_INHIBITOR = registerBlock("teleport_inhibitor", () -> new TeleportInhibitor(MACHINE_PROPERTIES));
-	public static final RegistryObject<MachineBlock> ENTITY_REPULSOR = registerBlock("entity_repulsor", () -> new EntityRepulsorBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> MOB_REPULSOR = registerBlock("mob_repulsor", () -> new MobRepulsorBlock(MACHINE_PROPERTIES));
 
 
 	private static <T extends FlatMachineBlock> RegistryObject<FlatMachineBlock> registerPad(String name, ICollisionEffect effect) {

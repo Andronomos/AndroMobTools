@@ -1,6 +1,6 @@
 package andronomos.androtech.network.packet;
 
-import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
+import andronomos.androtech.block.mobrepulsor.MobRepulsorBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.Level;
@@ -29,7 +29,7 @@ public class MessageEntityRepulsor {
 			Level level = ctx.get().getSender().level();
 			if(level == null) return;
 
-			EntityRepulsorBlockEntity repulsor = (EntityRepulsorBlockEntity)level.getBlockEntity(msg.pos);
+			MobRepulsorBlockEntity repulsor = (MobRepulsorBlockEntity)level.getBlockEntity(msg.pos);
 
 			if(repulsor != null) {
 				repulsor.toggleRenderBox();
