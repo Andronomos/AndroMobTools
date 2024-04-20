@@ -1,7 +1,7 @@
 package andronomos.androtech.network;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.network.packet.MessageDamagePad;
+import andronomos.androtech.network.packet.MessageMobKiller;
 import andronomos.androtech.network.packet.MessageEntityRepulsor;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
 //import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
@@ -51,10 +51,10 @@ public class AndroTechPacketHandler {
 				.consumerMainThread(MessageEntityRepulsor::handle)
 				.add();
 
-		net.messageBuilder(MessageDamagePad.class, id(), NetworkDirection.PLAY_TO_SERVER)
-				.decoder(MessageDamagePad::decode)
-				.encoder(MessageDamagePad::encode)
-				.consumerMainThread(MessageDamagePad::handle)
+		net.messageBuilder(MessageMobKiller.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(MessageMobKiller::decode)
+				.encoder(MessageMobKiller::encode)
+				.consumerMainThread(MessageMobKiller::handle)
 				.add();
 
 		//net.messageBuilder(SyncMachineEnergy.class, id(), NetworkDirection.PLAY_TO_CLIENT)

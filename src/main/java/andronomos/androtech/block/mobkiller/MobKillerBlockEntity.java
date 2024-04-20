@@ -2,7 +2,6 @@ package andronomos.androtech.block.mobkiller;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.base.BaseBlockEntity;
-import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import andronomos.androtech.util.BoundingBoxHelper;
@@ -193,11 +192,11 @@ public class MobKillerBlockEntity extends BaseBlockEntity implements MenuProvide
 			return;
 		}
 
-		Direction facing = state.getValue(EntityRepulsorBlock.FACING);
+		Direction facing = state.getValue(MobKillerBlock.FACING);
 
 		if (facing == Direction.UP) {
 			yPos = 3;
-			yNeg = 0;
+			yNeg = -1;
 			xPos = 1;
 			xNeg = 1;
 			zPos = 1;
@@ -214,39 +213,39 @@ public class MobKillerBlockEntity extends BaseBlockEntity implements MenuProvide
 		}
 
 		if (facing == Direction.WEST) {
-			xNeg = 1;
+			xNeg = 3;
 			xPos = -1;
 			zPos = 1;
 			zNeg = 1;
-			yPos = 1;
-			yNeg = 1;
+			yPos = 2;
+			yNeg = 0;
 		}
 
 		if (facing == Direction.EAST) {
-			xPos = 1;
+			xPos = 3;
 			xNeg = -1;
 			zPos = 1;
 			zNeg = 1;
-			yPos = 1;
-			yNeg = 1;
+			yPos = 2;
+			yNeg = 0;
 		}
 
 		if (facing == Direction.NORTH) {
-			zNeg = 1;
+			zNeg = 3;
 			zPos = -1;
 			xPos = 1;
 			xNeg = 1;
-			yPos = 1;
-			yNeg = 1;
+			yPos = 2;
+			yNeg = 0;
 		}
 
 		if (facing == Direction.SOUTH) {
-			zPos = 1;
+			zPos = 3;
 			zNeg = -1;
 			xPos = 1;
 			xNeg = 1;
-			yPos = 1;
-			yNeg = 1;
+			yPos = 2;
+			yNeg = 0;
 		}
 
 		getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);

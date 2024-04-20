@@ -5,7 +5,7 @@ import andronomos.androtech.base.BaseScreen;
 import andronomos.androtech.inventory.client.PowerButton;
 import andronomos.androtech.inventory.client.RenderOutlineButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
-import andronomos.androtech.network.packet.MessageEntityRepulsor;
+import andronomos.androtech.network.packet.MessageMobKiller;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
@@ -20,7 +20,7 @@ public class MobKillerScreen extends BaseScreen<MobKillerMenu> {
 
 	public MobKillerScreen(MobKillerMenu menu, Inventory inventory, Component component) {
 		super(menu, inventory, component);
-		entity = menu.damagePad;
+		entity = menu.mobKiller;
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class MobKillerScreen extends BaseScreen<MobKillerMenu> {
 		}, menu.blockEntity));
 
 		overlayButton = (RenderOutlineButton)this.addButton(new RenderOutlineButton((button) -> {
-			AndroTechPacketHandler.sendToServer(new MessageEntityRepulsor(entity.getBlockPos()));
+			AndroTechPacketHandler.sendToServer(new MessageMobKiller(entity.getBlockPos()));
 			entity.showRenderBox = !entity.showRenderBox;
 		}));
 	}

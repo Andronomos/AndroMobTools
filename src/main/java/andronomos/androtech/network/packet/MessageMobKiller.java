@@ -9,30 +9,30 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class MessageDamagePad {
+public class MessageMobKiller {
 	private final BlockPos pos;
 
-	public MessageDamagePad(BlockPos pos) {
+	public MessageMobKiller(BlockPos pos) {
 		this.pos = pos;
 	}
 
-	public static void encode(MessageDamagePad msg, FriendlyByteBuf buf) {
+	public static void encode(MessageMobKiller msg, FriendlyByteBuf buf) {
 		buf.writeBlockPos(msg.pos);
 	}
 
-	public static MessageDamagePad decode(FriendlyByteBuf buf) {
-		return new MessageDamagePad(buf.readBlockPos());
+	public static MessageMobKiller decode(FriendlyByteBuf buf) {
+		return new MessageMobKiller(buf.readBlockPos());
 	}
 
-	public static void handle(MessageDamagePad msg, Supplier<NetworkEvent.Context> ctx) {
+	public static void handle(MessageMobKiller msg, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
 			Level level = ctx.get().getSender().level();
 			if(level == null) return;
 
-			MobKillerBlockEntity damagePad = (MobKillerBlockEntity)level.getBlockEntity(msg.pos);
+			MobKillerBlockEntity mobKiller = (MobKillerBlockEntity)level.getBlockEntity(msg.pos);
 
-			if(damagePad != null) {
-				damagePad.toggleRenderBox();
+			if(mobKiller != null) {
+				mobKiller.toggleRenderBox();
 				BlockState state = level.getBlockState(msg.pos);
 				level.setBlockAndUpdate(msg.pos, state);
 			}

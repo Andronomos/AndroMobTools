@@ -1,6 +1,5 @@
 package andronomos.androtech.block.mobkiller;
 
-import andronomos.androtech.base.MachineBlock;
 import andronomos.androtech.block.DirectionalMachineBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
@@ -10,20 +9,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class MobKillerBlock extends DirectionalMachineBlock {
-	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 	public static final int SLOTS = 3;
 	public static final int AUGMENT_STACK_LIMIT = 10;
 	public static final String DISPLAY_NAME = "screen.androtech.mob_killer";
@@ -31,7 +25,6 @@ public class MobKillerBlock extends DirectionalMachineBlock {
 
 	public MobKillerBlock(Properties properties) {
 		super(properties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
 	}
 
 	@Nullable
@@ -44,16 +37,16 @@ public class MobKillerBlock extends DirectionalMachineBlock {
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
 		return level.isClientSide ? null : (level1, pos, state1, blockEntity) -> {
-			if(blockEntity instanceof MobKillerBlockEntity damagePadBlockEntity) {
-				damagePadBlockEntity.serverTick((ServerLevel)level1, pos, state1, damagePadBlockEntity);
+			if(blockEntity instanceof MobKillerBlockEntity mobKillerBlockEntity) {
+				mobKillerBlockEntity.serverTick((ServerLevel)level1, pos, state1, mobKillerBlockEntity);
 			}
 		};
 	}
 
 	public void OpenScreen(Level level, BlockPos pos, Player player) {
 		BlockEntity entity = level.getBlockEntity(pos);
-		if(entity instanceof MobKillerBlockEntity damagePadBlockEntity) {
-			NetworkHooks.openScreen((ServerPlayer) player, damagePadBlockEntity, entity.getBlockPos());
+		if(entity instanceof MobKillerBlockEntity mobKillerBlockEntity) {
+			NetworkHooks.openScreen((ServerPlayer) player, mobKillerBlockEntity, entity.getBlockPos());
 		} else {
 			throw new IllegalStateException("Missing container provider");
 		}
@@ -62,10 +55,5 @@ public class MobKillerBlock extends DirectionalMachineBlock {
 	@Override
 	public float getExplosionResistance(BlockState state, BlockGetter level, BlockPos pos, Explosion explosion) {
 		return 2400.0F;
-	}
-
-	@Override
-	protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-		builder.add(POWERED);
 	}
 }

@@ -40,7 +40,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
 		add("creativetab." + CreativeTabRegistry.BASETABNAME, "AndroTech");
 
-		add(MobKillerBlock.DISPLAY_NAME, "Damage Pad");
+		add(MobKillerBlock.DISPLAY_NAME, "Mob Killer");
 		add(MobKillerBlock.TOOLTIP, "Damages entities in-front of it");
 		add(ItemAttractorBlock.DISPLAY_NAME, "Item Attractor");
 		add(ItemAttractorBlock.TOOLTIP, "Pulls nearby items");
