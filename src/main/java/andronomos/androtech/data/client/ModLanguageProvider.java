@@ -89,6 +89,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(PowerButton.TOOLTIP_OFF, "Powered Off");
 		add(RenderOutlineButton.TOOLTIP_ON, "Overlay On");
 		add(RenderOutlineButton.TOOLTIP_OFF, "Overlay Off");
+
+		add("block.androtech.weak_acceleration_pad.tooltip", "Accelerates any mob or player that steps on it");
+		add("block.androtech.normal_acceleration_pad.tooltip", "Accelerates any mob or player that steps on it");
+		add("block.androtech.strong_acceleration_pad.tooltip", "Accelerates any mob or player that steps on it");
 	}
 
 	static String capitalizeWords(String input) {
