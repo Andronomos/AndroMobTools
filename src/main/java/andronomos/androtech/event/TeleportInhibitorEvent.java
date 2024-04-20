@@ -1,6 +1,6 @@
 package andronomos.androtech.event;
 
-import andronomos.androtech.block.TeleportInhibitor;
+import andronomos.androtech.block.TeleportInhibitorBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
@@ -38,7 +38,7 @@ public class TeleportInhibitorEvent {
 				for (int y = minY; y < maxY; y++) {
 					for (int z = minZ; z < maxZ; z++) {
 						BlockState state = living.getCommandSenderWorld().getBlockState(mutablePos.set(x, y, z));
-						if (state.getBlock() instanceof TeleportInhibitor) {
+						if (state.getBlock() instanceof TeleportInhibitorBlock) {
 							event.setCanceled(true);
 						}
 					}
