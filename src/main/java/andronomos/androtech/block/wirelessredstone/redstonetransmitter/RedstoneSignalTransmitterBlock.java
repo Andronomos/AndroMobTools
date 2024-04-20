@@ -1,6 +1,6 @@
 package andronomos.androtech.block.wirelessredstone.redstonetransmitter;
 
-import andronomos.androtech.base.BaseMachineBlock;
+import andronomos.androtech.base.MachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,7 +14,7 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class RedstoneSignalTransmitterBlock extends BaseMachineBlock {
+public class RedstoneSignalTransmitterBlock extends MachineBlock {
 	public static final int SLOTS = 1;
 	public static final String DISPLAY_NAME = "screen.androtech.redstone_transmitter";
 	public static final String TOOLTIP = "block.androtech.redstone_transmitter.tooltip";

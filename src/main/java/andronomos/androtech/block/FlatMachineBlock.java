@@ -1,6 +1,6 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.base.BaseMachineBlock;
+import andronomos.androtech.base.MachineBlock;
 import andronomos.androtech.block.collisioneffect.ICollisionEffect;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -11,15 +11,21 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class FlatMachineBlock extends BaseMachineBlock implements EntityBlock {
+public class FlatMachineBlock extends MachineBlock implements EntityBlock {
+	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 	private final ICollisionEffect collisionEffect;
@@ -27,6 +33,13 @@ public class FlatMachineBlock extends BaseMachineBlock implements EntityBlock {
 	public FlatMachineBlock(Properties properties, ICollisionEffect collisionEffect) {
 		super(properties);
 		this.collisionEffect = collisionEffect;
+		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
+	}
+
+	@Nullable
+	@Override
+	public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
+		return null;
 	}
 
 	@Override
@@ -77,6 +90,22 @@ public class FlatMachineBlock extends BaseMachineBlock implements EntityBlock {
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-		builder.add(FACING);
+		builder.add(FACING, POWERED);
+	}
+
+	@Override
+	public void onRemove(BlockState state, @NotNull Level level, @NotNull BlockPos pos, BlockState newState, boolean isMoving) {
+		if (state.getBlock() != newState.getBlock()) {
+			final BlockEntity entity = level.getBlockEntity(pos);
+			if(entity != null) {
+				entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(itemHandler -> {
+					for(int i = 0; i < itemHandler.getSlots(); i++) {
+						popResource(level, pos, itemHandler.getStackInSlot(i));
+					}
+					level.updateNeighbourForOutputSignal(pos, this);
+				});
+			}
+			super.onRemove(state, level, pos, newState, isMoving);
+		}
 	}
 }
