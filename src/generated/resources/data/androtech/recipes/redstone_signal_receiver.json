@@ -12,16 +12,13 @@
       "item": "minecraft:repeater"
     },
     "4": {
-      "item": "minecraft:amethyst_shard"
-    },
-    "5": {
       "item": "androtech:basic_chip"
     }
   },
   "pattern": [
     "121",
-    "434",
-    "151"
+    "232",
+    "141"
   ],
   "result": {
     "item": "androtech:redstone_signal_receiver"

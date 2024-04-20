@@ -6,22 +6,22 @@
       "tag": "forge:ingots/iron"
     },
     "2": {
-      "item": "minecraft:ender_pearl"
+      "item": "minecraft:piston"
     },
     "3": {
-      "item": "minecraft:redstone_torch"
+      "item": "minecraft:amethyst_shard"
     },
     "4": {
       "item": "androtech:basic_chip"
     }
   },
   "pattern": [
-    "121",
-    "232",
+    "131",
+    "323",
     "141"
   ],
   "result": {
-    "item": "androtech:redstone_signal_transmitter"
+    "item": "androtech:mob_repulsor"
   },
   "show_notification": true
 }

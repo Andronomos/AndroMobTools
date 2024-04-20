@@ -34,13 +34,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.MOB_KILLER.get(), 1)
 				.define('1', Tags.Items.INGOTS_IRON)
-				.define('2', Items.DIAMOND_SWORD)
-				.define('3', Items.REDSTONE)
-				.define('4', Items.AMETHYST_SHARD)
-				.define('5', ItemRegistry.ELITE_CHIP.get())
-				.pattern("131")
-				.pattern("424")
-				.pattern("151")
+				.define('2', Items.IRON_SWORD)
+				.define('3', ItemRegistry.ELITE_CHIP.get())
+				.pattern("121")
+				.pattern("232")
+				.pattern("121")
 				.unlockedBy("has_item", has(ItemRegistry.ELITE_CHIP.get()))
 				.save(recipeConsumer);
 
@@ -52,11 +50,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.define('1', Tags.Items.INGOTS_IRON)
 				.define('2', Items.ENDER_PEARL)
 				.define('3', Items.REPEATER)
-				.define('4', Items.AMETHYST_SHARD)
-				.define('5', ItemRegistry.BASIC_CHIP.get())
+				.define('4', ItemRegistry.BASIC_CHIP.get())
 				.pattern("121")
-				.pattern("434")
-				.pattern("151")
+				.pattern("232")
+				.pattern("141")
 				.unlockedBy("has_item", has(Items.ENDER_PEARL))
 				.save(recipeConsumer);
 
@@ -64,11 +61,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.define('1', Tags.Items.INGOTS_IRON)
 				.define('2', Items.ENDER_PEARL)
 				.define('3', Items.REDSTONE_TORCH)
-				.define('4', Items.AMETHYST_SHARD)
-				.define('5', ItemRegistry.BASIC_CHIP.get())
+				.define('4', ItemRegistry.BASIC_CHIP.get())
 				.pattern("121")
-				.pattern("434")
-				.pattern("151")
+				.pattern("232")
+				.pattern("141")
 				.unlockedBy("has_item", has(Items.ENDER_PEARL))
 				.save(recipeConsumer);
 
@@ -108,12 +104,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.TELEPORT_INHIBITOR.get(), 1)
 				.define('1', Tags.Items.INGOTS_IRON)
 				.define('2', Items.ENDER_PEARL)
-				.define('3', ItemRegistry.BASIC_CHIP.get())
-				.define('4', Items.AMETHYST_SHARD)
-				.define('5', Items.REDSTONE)
-				.pattern("151")
-				.pattern("424")
+				.define('3', Items.AMETHYST_SHARD)
+				.define('4', ItemRegistry.BASIC_CHIP.get())
 				.pattern("131")
+				.pattern("323")
+				.pattern("141")
+				.unlockedBy("has_item", has(Items.ENDER_PEARL))
+				.save(recipeConsumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.MOB_REPULSOR.get(), 1)
+				.define('1', Tags.Items.INGOTS_IRON)
+				.define('2', Items.PISTON)
+				.define('3', Items.AMETHYST_SHARD)
+				.define('4', ItemRegistry.BASIC_CHIP.get())
+				.pattern("131")
+				.pattern("323")
+				.pattern("141")
 				.unlockedBy("has_item", has(Items.ENDER_PEARL))
 				.save(recipeConsumer);
 

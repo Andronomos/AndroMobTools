@@ -9,19 +9,16 @@
       "item": "minecraft:ender_pearl"
     },
     "3": {
-      "item": "androtech:basic_chip"
-    },
-    "4": {
       "item": "minecraft:amethyst_shard"
     },
-    "5": {
-      "item": "minecraft:redstone"
+    "4": {
+      "item": "androtech:basic_chip"
     }
   },
   "pattern": [
-    "151",
-    "424",
-    "131"
+    "131",
+    "323",
+    "141"
   ],
   "result": {
     "item": "androtech:teleport_inhibitor"
