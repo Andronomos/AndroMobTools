@@ -35,16 +35,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.MOB_KILLER.get(), 1)
 				.define('1', Tags.Items.INGOTS_IRON)
 				.define('2', Items.IRON_SWORD)
-				.define('3', ItemRegistry.ELITE_CHIP.get())
-				.pattern("121")
-				.pattern("232")
-				.pattern("121")
+				.define('3', Items.AMETHYST_SHARD)
+				.define('4', ItemRegistry.ELITE_CHIP.get())
+				.pattern("131")
+				.pattern("323")
+				.pattern("141")
 				.unlockedBy("has_item", has(ItemRegistry.ELITE_CHIP.get()))
 				.save(recipeConsumer);
-
-		generateAccelerationPadRecipe(BlockRegistry.WEAK_ACCELERATION_PAD.get(), ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
-		generateAccelerationPadRecipe(BlockRegistry.NORMAL_ACCELERATION_PAD.get(), ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
-		generateAccelerationPadRecipe(BlockRegistry.STRONG_ACCELERATION_PAD.get(), ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.REDSTONE_SIGNAL_RECEIVER.get(), 1)
 				.define('1', Tags.Items.INGOTS_IRON)
@@ -122,6 +119,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.pattern("141")
 				.unlockedBy("has_item", has(Items.ENDER_PEARL))
 				.save(recipeConsumer);
+
+		generateAccelerationPadRecipe(BlockRegistry.WEAK_ACCELERATION_PAD.get(), ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
+		generateAccelerationPadRecipe(BlockRegistry.NORMAL_ACCELERATION_PAD.get(), ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
+		generateAccelerationPadRecipe(BlockRegistry.STRONG_ACCELERATION_PAD.get(), ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
 
 		generateDeviceRecipe(ItemRegistry.GPS_RECORDER.get(), Items.COMPASS, ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.SHARPNESS_AUGMENT.get(), Items.IRON_SWORD, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);

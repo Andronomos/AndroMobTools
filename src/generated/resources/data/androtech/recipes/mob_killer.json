@@ -9,13 +9,16 @@
       "item": "minecraft:iron_sword"
     },
     "3": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "4": {
       "item": "androtech:elite_chip"
     }
   },
   "pattern": [
-    "121",
-    "232",
-    "121"
+    "131",
+    "323",
+    "141"
   ],
   "result": {
     "item": "androtech:mob_killer"
