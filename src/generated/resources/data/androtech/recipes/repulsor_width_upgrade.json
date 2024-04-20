@@ -6,25 +6,19 @@
       "tag": "forge:ingots/iron"
     },
     "2": {
-      "item": "minecraft:diamond_sword"
+      "item": "androtech:basic_chip"
     },
     "3": {
-      "item": "minecraft:redstone"
-    },
-    "4": {
       "item": "minecraft:amethyst_shard"
-    },
-    "5": {
-      "item": "androtech:elite_chip"
     }
   },
   "pattern": [
-    "131",
-    "424",
-    "151"
+    "1 1",
+    "323",
+    "1 1"
   ],
   "result": {
-    "item": "androtech:mob_killer"
+    "item": "androtech:repulsor_width_upgrade"
   },
   "show_notification": true
 }
