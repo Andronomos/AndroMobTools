@@ -13,15 +13,12 @@
     },
     "4": {
       "item": "minecraft:amethyst_shard"
-    },
-    "5": {
-      "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    "151",
-    "434",
-    "121"
+    "131",
+    "424",
+    "141"
   ],
   "result": {
     "item": "androtech:fluid_evaporator"

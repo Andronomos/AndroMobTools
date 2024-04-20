@@ -174,10 +174,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.define('2', chip)
 				.define('3', item)
 				.define('4', Items.AMETHYST_SHARD)
-				.define('5', Items.REDSTONE)
-				.pattern("151")
-				.pattern("434")
-				.pattern("121")
+				.pattern("131")
+				.pattern("424")
+				.pattern("141")
 				.unlockedBy("has_item", has(chip))
 				.save(consumer);
 	}
