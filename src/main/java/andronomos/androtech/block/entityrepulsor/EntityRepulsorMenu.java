@@ -1,7 +1,6 @@
 package andronomos.androtech.block.entityrepulsor;
 
 import andronomos.androtech.base.BaseMenu;
-import andronomos.androtech.block.damagepad.DamagePadBlock;
 import andronomos.androtech.inventory.server.RestrictedSlotHandler;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.ItemRegistry;
