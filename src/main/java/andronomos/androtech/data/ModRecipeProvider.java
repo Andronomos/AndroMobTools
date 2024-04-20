@@ -108,9 +108,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.TELEPORT_INHIBITOR.get(), 1)
 				.define('1', Tags.Items.INGOTS_IRON)
 				.define('2', Items.ENDER_PEARL)
-				.define('3', ItemRegistry.ELITE_CHIP.get())
-				.define('4', Items.REDSTONE)
-				.pattern("141")
+				.define('3', ItemRegistry.BASIC_CHIP.get())
+				.define('4', Items.AMETHYST_SHARD)
+				.define('5', Items.REDSTONE)
+				.pattern("151")
 				.pattern("424")
 				.pattern("131")
 				.unlockedBy("has_item", has(Items.ENDER_PEARL))
@@ -122,6 +123,36 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		generateDeviceRecipe(ItemRegistry.LOOTING_AUGMENT.get(), Items.RABBIT_FOOT, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.MOB_STORAGE_DEVICE.get(), Items.LEAD, ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.FLUID_EVAPORATOR.get(), Items.SPONGE, ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.REPULSOR_DISTANCE_UPGRADE.get(), 1)
+				.define('1', Tags.Items.INGOTS_IRON)
+				.define('2', ItemRegistry.BASIC_CHIP.get())
+				.define('3', Items.AMETHYST_SHARD)
+				.pattern("131")
+				.pattern("323")
+				.pattern("131")
+				.unlockedBy("has_item", has(ItemRegistry.BASIC_CHIP.get()))
+				.save(recipeConsumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.REPULSOR_HEIGHT_UPGRADE.get(), 1)
+				.define('1', Tags.Items.INGOTS_IRON)
+				.define('2', ItemRegistry.BASIC_CHIP.get())
+				.define('3', Items.AMETHYST_SHARD)
+				.pattern("131")
+				.pattern(" 2 ")
+				.pattern("131")
+				.unlockedBy("has_item", has(ItemRegistry.BASIC_CHIP.get()))
+				.save(recipeConsumer);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.REPULSOR_WIDTH_UPGRADE.get(), 1)
+				.define('1', Tags.Items.INGOTS_IRON)
+				.define('2', ItemRegistry.BASIC_CHIP.get())
+				.define('3', Items.AMETHYST_SHARD)
+				.pattern("1 1")
+				.pattern("323")
+				.pattern("1 1")
+				.unlockedBy("has_item", has(ItemRegistry.BASIC_CHIP.get()))
+				.save(recipeConsumer);
 	}
 
 	private void generateAccelerationPadRecipe(Block output, Item chip, Consumer<FinishedRecipe> consumer) {
