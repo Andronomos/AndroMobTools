@@ -1,6 +1,5 @@
-package andronomos.androtech.block.damagepad;
+package andronomos.androtech.block.mobkiller;
 
-import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.LevelRenderer;
@@ -10,12 +9,12 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import org.jetbrains.annotations.NotNull;
 
-public class DamagePadBlockEntityRenderer implements BlockEntityRenderer<DamagePadBlockEntity> {
-	public DamagePadBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+public class MobKillerBlockEntityRenderer implements BlockEntityRenderer<MobKillerBlockEntity> {
+	public MobKillerBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 	}
 
 	@Override
-	public void render(@NotNull DamagePadBlockEntity entity, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int combinedLight, int combinedOverlay) {
+	public void render(@NotNull MobKillerBlockEntity entity, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int combinedLight, int combinedOverlay) {
 		if (entity == null || !entity.hasLevel()) {
 			return;
 		}

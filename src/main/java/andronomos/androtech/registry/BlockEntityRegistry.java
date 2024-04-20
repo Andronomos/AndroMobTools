@@ -3,7 +3,7 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlockEntity;
-import andronomos.androtech.block.damagepad.DamagePadBlockEntity;
+import andronomos.androtech.block.mobkiller.MobKillerBlockEntity;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlockEntity;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -14,9 +14,9 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlockEntityRegistry {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, AndroTech.MODID);
 
-	public static final RegistryObject<BlockEntityType<DamagePadBlockEntity>> DAMAGE_PAD_BE = BLOCK_ENTITIES
-			.register("damage_pad_be", () -> BlockEntityType.Builder
-			.of(DamagePadBlockEntity::new, BlockRegistry.DAMAGE_PAD.get())
+	public static final RegistryObject<BlockEntityType<MobKillerBlockEntity>> MOB_KILLER_BE = BLOCK_ENTITIES
+			.register("mob_killer_be", () -> BlockEntityType.Builder
+			.of(MobKillerBlockEntity::new, BlockRegistry.MOB_KILLER.get())
 			.build(null));
 
 	public static final RegistryObject<BlockEntityType<ItemAttractorBlockEntity>> ITEM_ATTRACTOR_BE = BLOCK_ENTITIES

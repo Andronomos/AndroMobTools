@@ -3,7 +3,7 @@ package andronomos.androtech.data.client;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
-import andronomos.androtech.block.damagepad.DamagePadBlock;
+import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlock;
@@ -40,8 +40,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
 		add("creativetab." + CreativeTabRegistry.BASETABNAME, "AndroTech");
 
-		add(DamagePadBlock.DISPLAY_NAME, "Damage Pad");
-		add(DamagePadBlock.TOOLTIP, "Damages entities that stand on it");
+		add(MobKillerBlock.DISPLAY_NAME, "Damage Pad");
+		add(MobKillerBlock.TOOLTIP, "Damages entities in-front of it");
 		add(ItemAttractorBlock.DISPLAY_NAME, "Item Attractor");
 		add(ItemAttractorBlock.TOOLTIP, "Pulls nearby items");
 		add(ItemIncineratorBlock.DISPLAY_NAME, "Item Incinerator");

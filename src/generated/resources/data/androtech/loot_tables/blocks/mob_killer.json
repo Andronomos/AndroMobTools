@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "androtech:damage_pad"
+          "name": "androtech:mob_killer"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "androtech:blocks/damage_pad"
+  "random_sequence": "androtech:blocks/mob_killer"
 }

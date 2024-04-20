@@ -3,7 +3,7 @@
     "androtech:weak_acceleration_pad",
     "androtech:normal_acceleration_pad",
     "androtech:strong_acceleration_pad",
-    "androtech:damage_pad",
+    "androtech:mob_killer",
     "androtech:item_attractor",
     "androtech:item_incinerator",
     "androtech:redstone_signal_receiver",

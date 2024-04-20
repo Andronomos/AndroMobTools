@@ -1,13 +1,13 @@
-package andronomos.androtech.block.damagepad;
+package andronomos.androtech.block.mobkiller;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.base.BaseBlockEntity;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
-import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import andronomos.androtech.util.BoundingBoxHelper;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
@@ -37,18 +37,18 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Objects;
 
-public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvider {
+public class MobKillerBlockEntity extends BaseBlockEntity implements MenuProvider {
 	public boolean showRenderBox;
 	float xPos, yPos, zPos;
 	float xNeg, yNeg, zNeg;
 
-	public DamagePadBlockEntity(BlockPos pos, BlockState state) {
-		super(BlockEntityRegistry.DAMAGE_PAD_BE.get(), pos, state, new SimpleContainerData(DamagePadBlock.SLOTS));
+	public MobKillerBlockEntity(BlockPos pos, BlockState state) {
+		super(BlockEntityRegistry.MOB_KILLER_BE.get(), pos, state, new SimpleContainerData(MobKillerBlock.SLOTS));
 	}
 
 	@Override
 	protected ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(DamagePadBlock.SLOTS) {
+		return new ItemStackHandler(MobKillerBlock.SLOTS) {
 			@Override
 			protected void onContentsChanged(int slot) {
 				setChanged();
@@ -61,22 +61,22 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 
 	@Override
 	public @NotNull Component getDisplayName() {
-		return Component.translatable(DamagePadBlock.DISPLAY_NAME);
+		return Component.translatable(MobKillerBlock.DISPLAY_NAME);
 	}
 
 	@Nullable
 	@Override
 	public AbstractContainerMenu createMenu(int containerId, @NotNull Inventory inventory, @NotNull Player player) {
-		return new DamagePadMenu(containerId, inventory, this, this.data);
+		return new MobKillerMenu(containerId, inventory, this, this.data);
 	}
 
 	@Override
 	protected void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity blockEntity) {
-		if (blockEntity instanceof DamagePadBlockEntity) {
+		if (blockEntity instanceof MobKillerBlockEntity) {
 			BlockState stateAtPos = level.getBlockState(pos);
 
-			if (level.getGameTime() % 5 == 0 && state.getBlock() instanceof DamagePadBlock) {
-				if (stateAtPos.getValue(DamagePadBlock.POWERED)) {
+			if (level.getGameTime() % 5 == 0 && state.getBlock() instanceof MobKillerBlock) {
+				if (stateAtPos.getValue(MobKillerBlock.POWERED)) {
 					activate();
 				}
 			}
@@ -153,7 +153,7 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 			return;
 		}
 
-		List<LivingEntity> list = level.getEntitiesOfClass(LivingEntity.class, getWorkArea());
+		List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, getAABB());
 
 		for (LivingEntity entity : list) {
 			if (entity == null || entity.isCrouching()) {
@@ -189,16 +189,67 @@ public class DamagePadBlockEntity extends BaseBlockEntity implements MenuProvide
 	private void setAABB() {
 		BlockState state = Objects.requireNonNull(getLevel()).getBlockState(getBlockPos());
 
-		if (!(state.getBlock() instanceof DamagePadBlock)) {
+		if (!(state.getBlock() instanceof MobKillerBlock)) {
 			return;
 		}
 
-		yPos = 3;
-		yNeg = 0;
-		xPos = 1;
-		xNeg = 1;
-		zPos = 1;
-		zNeg = 1;
+		Direction facing = state.getValue(EntityRepulsorBlock.FACING);
+
+		if (facing == Direction.UP) {
+			yPos = 3;
+			yNeg = 0;
+			xPos = 1;
+			xNeg = 1;
+			zPos = 1;
+			zNeg = 1;
+		}
+
+		if (facing == Direction.DOWN) {
+			yNeg = 3;
+			yPos = -1;
+			xPos = 1;
+			xNeg = 1;
+			zPos = 1;
+			zNeg = 1;
+		}
+
+		if (facing == Direction.WEST) {
+			xNeg = 1;
+			xPos = -1;
+			zPos = 1;
+			zNeg = 1;
+			yPos = 1;
+			yNeg = 1;
+		}
+
+		if (facing == Direction.EAST) {
+			xPos = 1;
+			xNeg = -1;
+			zPos = 1;
+			zNeg = 1;
+			yPos = 1;
+			yNeg = 1;
+		}
+
+		if (facing == Direction.NORTH) {
+			zNeg = 1;
+			zPos = -1;
+			xPos = 1;
+			xNeg = 1;
+			yPos = 1;
+			yNeg = 1;
+		}
+
+		if (facing == Direction.SOUTH) {
+			zPos = 1;
+			zNeg = -1;
+			xPos = 1;
+			xNeg = 1;
+			yPos = 1;
+			yNeg = 1;
+		}
+
+		getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);
 	}
 
 	public AABB getAABB() {

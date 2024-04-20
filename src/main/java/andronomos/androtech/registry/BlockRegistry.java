@@ -1,11 +1,11 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.base.BaseMachineBlock;
+import andronomos.androtech.base.MachineBlock;
 import andronomos.androtech.block.TeleportInhibitor;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
-import andronomos.androtech.block.damagepad.DamagePadBlock;
+import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.FlatMachineBlock;
 import andronomos.androtech.block.FlatMachineEffects;
 import andronomos.androtech.block.collisioneffect.ICollisionEffect;
@@ -45,14 +45,13 @@ public class BlockRegistry {
 	public static final RegistryObject<FlatMachineBlock> STRONG_ACCELERATION_PAD = registerPad("strong_acceleration_pad",
 			FlatMachineEffects.ACCELERATION_STRONG);
 
-	public static final RegistryObject<FlatMachineBlock> DAMAGE_PAD = registerBlock("damage_pad", () -> new DamagePadBlock(PAD_PROPERTIES));
-	public static final RegistryObject<BaseMachineBlock> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
-	public static final RegistryObject<BaseMachineBlock> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncineratorBlock(MACHINE_PROPERTIES));
-	//public static final RegistryObject<MachineBlock> MACHINE_CASE = registerBlock("machine_case", () -> new MachineBlock(MACHINE_PROPERTIES));
-	public static final RegistryObject<BaseMachineBlock> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
-	public static final RegistryObject<BaseMachineBlock> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));
-	public static final RegistryObject<BaseMachineBlock> TELEPORT_INHIBITOR = registerBlock("teleport_inhibitor", () -> new TeleportInhibitor(MACHINE_PROPERTIES));
-	public static final RegistryObject<BaseMachineBlock> ENTITY_REPULSOR = registerBlock("entity_repulsor", () -> new EntityRepulsorBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> MOB_KILLER = registerBlock("mob_killer", () -> new MobKillerBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncineratorBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> TELEPORT_INHIBITOR = registerBlock("teleport_inhibitor", () -> new TeleportInhibitor(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> ENTITY_REPULSOR = registerBlock("entity_repulsor", () -> new EntityRepulsorBlock(MACHINE_PROPERTIES));
 
 
 	private static <T extends FlatMachineBlock> RegistryObject<FlatMachineBlock> registerPad(String name, ICollisionEffect effect) {

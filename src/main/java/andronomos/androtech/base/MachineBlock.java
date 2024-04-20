@@ -25,10 +25,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
-public class BaseMachineBlock extends Block implements EntityBlock {
+public class MachineBlock extends Block implements EntityBlock {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
-	public BaseMachineBlock(Properties properties) {
+	public MachineBlock(Properties properties) {
 		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
 	}

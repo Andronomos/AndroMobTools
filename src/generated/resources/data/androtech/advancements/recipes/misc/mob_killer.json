@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "androtech:damage_pad"
+        "recipe": "androtech:mob_killer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "androtech:damage_pad"
+      "androtech:mob_killer"
     ]
   },
   "sends_telemetry_event": false

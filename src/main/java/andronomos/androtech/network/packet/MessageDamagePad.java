@@ -1,7 +1,6 @@
 package andronomos.androtech.network.packet;
 
-import andronomos.androtech.block.damagepad.DamagePadBlockEntity;
-import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
+import andronomos.androtech.block.mobkiller.MobKillerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.Level;
@@ -30,7 +29,7 @@ public class MessageDamagePad {
 			Level level = ctx.get().getSender().level();
 			if(level == null) return;
 
-			DamagePadBlockEntity damagePad = (DamagePadBlockEntity)level.getBlockEntity(msg.pos);
+			MobKillerBlockEntity damagePad = (MobKillerBlockEntity)level.getBlockEntity(msg.pos);
 
 			if(damagePad != null) {
 				damagePad.toggleRenderBox();

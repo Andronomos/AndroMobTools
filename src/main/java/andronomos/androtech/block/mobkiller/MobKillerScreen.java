@@ -1,4 +1,4 @@
-package andronomos.androtech.block.damagepad;
+package andronomos.androtech.block.mobkiller;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.base.BaseScreen;
@@ -13,12 +13,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
-public class DamagePadScreen extends BaseScreen<DamagePadMenu> {
+public class MobKillerScreen extends BaseScreen<MobKillerMenu> {
 	private PowerButton powerButton;
 	private RenderOutlineButton overlayButton;
-	private final DamagePadBlockEntity entity;
+	private final MobKillerBlockEntity entity;
 
-	public DamagePadScreen(DamagePadMenu menu, Inventory inventory, Component component) {
+	public MobKillerScreen(MobKillerMenu menu, Inventory inventory, Component component) {
 		super(menu, inventory, component);
 		entity = menu.damagePad;
 	}
@@ -46,6 +46,6 @@ public class DamagePadScreen extends BaseScreen<DamagePadMenu> {
 
 	@Override
 	protected void renderBg(@NotNull GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
-		this.drawBackground(guiGraphics, new ResourceLocation(AndroTech.MODID, "textures/gui/damage_pad.png"));
+		this.drawBackground(guiGraphics, new ResourceLocation(AndroTech.MODID, "textures/gui/mob_killer.png"));
 	}
 }

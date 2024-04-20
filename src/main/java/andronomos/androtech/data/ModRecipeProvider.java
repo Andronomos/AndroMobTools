@@ -32,7 +32,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		generateChipRecipe(ItemRegistry.ADVANCED_CHIP.get(), Items.GOLD_INGOT, recipeConsumer);
 		generateChipRecipe(ItemRegistry.ELITE_CHIP.get(), Items.DIAMOND, recipeConsumer);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.DAMAGE_PAD.get(), 1)
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.MOB_KILLER.get(), 1)
 				.define('1', Tags.Items.INGOTS_IRON)
 				.define('2', Items.DIAMOND_SWORD)
 				.define('3', ItemRegistry.ELITE_CHIP.get())
@@ -117,7 +117,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 		generateDeviceRecipe(ItemRegistry.FIRE_AUGMENT.get(), Items.BLAZE_POWDER, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.LOOTING_AUGMENT.get(), Items.RABBIT_FOOT, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.MOB_STORAGE_DEVICE.get(), Items.LEAD, ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
-		//generateDeviceRecipe(ItemRegistry.SMITE_AUGMENT.get(), Items.IRON_SWORD, ItemRegistry.ADVANCED_CHIP.get(), recipeConsumer);
 		generateDeviceRecipe(ItemRegistry.FLUID_EVAPORATOR.get(), Items.SPONGE, ItemRegistry.ELITE_CHIP.get(), recipeConsumer);
 	}
 

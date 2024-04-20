@@ -1,6 +1,7 @@
-package andronomos.androtech.block.damagepad;
+package andronomos.androtech.block.mobkiller;
 
-import andronomos.androtech.block.FlatMachineBlock;
+import andronomos.androtech.base.MachineBlock;
+import andronomos.androtech.block.DirectionalMachineBlock;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -21,29 +22,29 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class DamagePadBlock extends FlatMachineBlock {
+public class MobKillerBlock extends DirectionalMachineBlock {
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 	public static final int SLOTS = 3;
 	public static final int AUGMENT_STACK_LIMIT = 10;
-	public static final String DISPLAY_NAME = "screen.androtech.damage_pad";
-	public static final String TOOLTIP = "block.androtech.damage_pad.tooltip";
+	public static final String DISPLAY_NAME = "screen.androtech.mob_killer";
+	public static final String TOOLTIP = "block.androtech.mob_killer.tooltip";
 
-	public DamagePadBlock(Properties properties) {
-		super(properties, null);
+	public MobKillerBlock(Properties properties) {
+		super(properties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
 	}
 
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-		return BlockEntityRegistry.DAMAGE_PAD_BE.get().create(pos, state);
+		return BlockEntityRegistry.MOB_KILLER_BE.get().create(pos, state);
 	}
 
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
 		return level.isClientSide ? null : (level1, pos, state1, blockEntity) -> {
-			if(blockEntity instanceof DamagePadBlockEntity damagePadBlockEntity) {
+			if(blockEntity instanceof MobKillerBlockEntity damagePadBlockEntity) {
 				damagePadBlockEntity.serverTick((ServerLevel)level1, pos, state1, damagePadBlockEntity);
 			}
 		};
@@ -51,7 +52,7 @@ public class DamagePadBlock extends FlatMachineBlock {
 
 	public void OpenScreen(Level level, BlockPos pos, Player player) {
 		BlockEntity entity = level.getBlockEntity(pos);
-		if(entity instanceof DamagePadBlockEntity damagePadBlockEntity) {
+		if(entity instanceof MobKillerBlockEntity damagePadBlockEntity) {
 			NetworkHooks.openScreen((ServerPlayer) player, damagePadBlockEntity, entity.getBlockPos());
 		} else {
 			throw new IllegalStateException("Missing container provider");
