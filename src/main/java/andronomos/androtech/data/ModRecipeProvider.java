@@ -36,10 +36,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.define('1', Tags.Items.INGOTS_IRON)
 				.define('2', Items.DIAMOND_SWORD)
 				.define('3', ItemRegistry.ELITE_CHIP.get())
-				.pattern(" 2 ")
+				.pattern("121")
 				.pattern("232")
-				.pattern("111")
-				.unlockedBy("has_item", has(Tags.Items.INGOTS_IRON))
+				.pattern("121")
+				.unlockedBy("has_item", has(ItemRegistry.ELITE_CHIP.get()))
 				.save(recipeConsumer);
 
 		generateAccelerationPadRecipe(BlockRegistry.WEAK_ACCELERATION_PAD.get(), ItemRegistry.BASIC_CHIP.get(), recipeConsumer);
