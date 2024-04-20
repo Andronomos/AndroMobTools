@@ -13,9 +13,9 @@
     }
   },
   "pattern": [
-    " 2 ",
+    "121",
     "232",
-    "111"
+    "121"
   ],
   "result": {
     "item": "androtech:mob_killer"
