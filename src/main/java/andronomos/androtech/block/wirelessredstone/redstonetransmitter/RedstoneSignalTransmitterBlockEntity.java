@@ -57,6 +57,9 @@ public class RedstoneSignalTransmitterBlockEntity extends BaseBlockEntity implem
 
 		if(receiverCard.isEmpty()) {
 			BlockState receiverState = getReceiverState(lastReceiverPosition);
+			if(receiverState == null || receiverState.getBlock() != BlockRegistry.REDSTONE_SIGNAL_RECEIVER.get()) {
+				return;
+			}
 			setReceiverPoweredState(lastReceiverPosition, receiverState, false);
 		}
 
