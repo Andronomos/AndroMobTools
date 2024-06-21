@@ -10,6 +10,8 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
@@ -38,6 +40,13 @@ public abstract class BaseMenu extends AbstractContainerMenu {
 
 	@Override
 	public @NotNull ItemStack quickMoveStack(@NotNull Player player, int slotIndex) {
+		LazyOptional<IItemHandler> h = blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER);
+
+		//Some machines don't have an item inventory
+		if(!h.isPresent()) {
+			return ItemStack.EMPTY;
+		}
+
 		Slot sourceSlot = slots.get(slotIndex);
 		if (!sourceSlot.hasItem()) return ItemStack.EMPTY;
 		ItemStack sourceStack = sourceSlot.getItem();
