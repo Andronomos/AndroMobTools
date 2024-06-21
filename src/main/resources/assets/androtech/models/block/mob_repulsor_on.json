@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "androtech:block/machine_bottom",
-    "east": "androtech:block/machine_side",
+    "east": "androtech:block/mob_repulsor_side",
     "north": "androtech:block/mob_repulsor_back",
     "south": "androtech:block/mob_repulsor_front_on",
-    "up": "androtech:block/machine_top",
-    "west": "androtech:block/machine_side",
-    "particle": "androtech:block/machine_side"
+    "up": "androtech:block/mob_repulsor_top",
+    "west": "androtech:block/mob_repulsor_side",
+    "particle": "androtech:block/mob_repulsor_side"
   }
 }
