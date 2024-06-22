@@ -13,7 +13,7 @@ import org.joml.Vector3f;
 
 public class FluidTypeRegistry {
 	public static final ResourceLocation WATER_STILL_RL = new ResourceLocation("block/water_still");
-	public static final ResourceLocation WATER_FLOWING_RL = new ResourceLocation("block/water_flowing");
+	public static final ResourceLocation WATER_FLOWING_RL = new ResourceLocation("block/water_flow");
 	public static final ResourceLocation XP_OVERLAY_RL = new ResourceLocation(AndroTech.MODID, "fluids/in_liquid_xp");
 
 	public static DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, AndroTech.MODID);
