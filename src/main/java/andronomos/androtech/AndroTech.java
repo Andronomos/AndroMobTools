@@ -58,7 +58,7 @@ public class AndroTech {
 			MenuScreens.register(MenuTypeRegistry.REDSTONE_SIGNAL_TRANSMITTER_MENU.get(), RedstoneSignalTransmitterScreen::new);
 			MenuScreens.register(MenuTypeRegistry.MOB_REPULSOR_MENU.get(), MobRepulsorScreen::new);
 			MenuScreens.register(MenuTypeRegistry.EXPERIENCE_ATTRACTOR_MENU.get(), ExperienceAttractorScreen::new);
-			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP_SOURCE.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP_FLOWING.get(), RenderType.translucent());
 			PropertyOverrideRegistry.register();
 		});
