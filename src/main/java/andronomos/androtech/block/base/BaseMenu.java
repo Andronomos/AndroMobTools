@@ -1,4 +1,4 @@
-package andronomos.androtech.base;
+package andronomos.androtech.block.base;
 
 import andronomos.androtech.Constants;
 import net.minecraft.world.entity.player.Inventory;

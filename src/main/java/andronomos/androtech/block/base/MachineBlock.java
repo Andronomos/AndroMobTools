@@ -1,4 +1,4 @@
-package andronomos.androtech.base;
+package andronomos.androtech.block.base;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;

@@ -1,4 +1,4 @@
-package andronomos.androtech.base;
+package andronomos.androtech.block.base;
 
 import andronomos.androtech.util.BoundingBoxHelper;
 import net.minecraft.core.BlockPos;
@@ -34,7 +34,7 @@ public abstract class BaseBlockEntity extends BlockEntity {
 
 	@Override
 	public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-		if(cap == ForgeCapabilities.ITEM_HANDLER) {
+		if(cap == ForgeCapabilities.ITEM_HANDLER && itemHandler != null) {
 			return lazyItemHandler.cast();
 		}
 		return super.getCapability(cap, side);
