@@ -1,5 +1,6 @@
 package andronomos.androtech;
 
+import andronomos.androtech.block.ExperienceAttractor.ExperienceAttractorScreen;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorScreen;
 import andronomos.androtech.block.itemattractor.ItemAttractorScreen;
 import andronomos.androtech.block.mobkiller.MobKillerScreen;
@@ -11,6 +12,8 @@ import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.registry.*;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -54,6 +57,7 @@ public class AndroTech {
 			MenuScreens.register(MenuTypeRegistry.ITEM_INCINERATOR_MENU.get(), ItemIncineratorScreen::new);
 			MenuScreens.register(MenuTypeRegistry.REDSTONE_SIGNAL_TRANSMITTER_MENU.get(), RedstoneSignalTransmitterScreen::new);
 			MenuScreens.register(MenuTypeRegistry.MOB_REPULSOR_MENU.get(), MobRepulsorScreen::new);
+			MenuScreens.register(MenuTypeRegistry.EXPERIENCE_ATTRACTOR_MENU.get(), ExperienceAttractorScreen::new);
 			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP_SOURCE.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP_FLOWING.get(), RenderType.translucent());
 			PropertyOverrideRegistry.register();
