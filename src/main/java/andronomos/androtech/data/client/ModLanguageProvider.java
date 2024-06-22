@@ -84,6 +84,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(ItemRegistry.REPULSOR_WIDTH_UPGRADE.get(), "Repulsor Width Upgrade");
 		add(ItemRegistry.REPULSOR_HEIGHT_UPGRADE.get(), "Repulsor Height Upgrade");
 		add(ItemRegistry.REPULSOR_DISTANCE_UPGRADE.get(), "Repulsor Distance Upgrade");
+		add(ItemRegistry.LIQUID_XP_BUCKET.get(), "Liquid XP Bucket");
 
 		add(PowerButton.TOOLTIP_ON, "Powered On");
 		add(PowerButton.TOOLTIP_OFF, "Powered Off");
