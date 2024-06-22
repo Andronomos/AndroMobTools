@@ -69,7 +69,7 @@ public class ItemRegistry {
 	//		() -> new NaniteEnhancedSword(Tiers.NETHERITE, 3, -2.4F, NANITE_TOOL_PROPERTIES));
 
 	public static final RegistryObject<Item> LIQUID_XP_BUCKET = ITEMS.register("liquid_xp_bucket",
-			() -> new BucketItem(FluidRegistry.LIQUID_XP_SOURCE, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+			() -> new BucketItem(FluidRegistry.LIQUID_XP, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
 
 	private static RegistryObject<Item> register(String name) {
 		return ITEMS.register(name, () -> new Item(new Item.Properties()));
