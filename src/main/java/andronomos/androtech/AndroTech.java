@@ -40,6 +40,8 @@ public class AndroTech {
 		CreativeTabRegistry.CREATIVE_MODE_TABS.register(modEventBus);
 		BlockEntityRegistry.BLOCK_ENTITIES.register(modEventBus);
 		MenuTypeRegistry.MENU_TYPES.register(modEventBus);
+		FluidRegistry.FLUIDS.register(modEventBus);
+		FluidTypeRegistry.FLUID_TYPES.register(modEventBus);
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(new TeleportInhibitorEvent());
 		modEventBus.addListener(this::clientSetup);
@@ -52,6 +54,8 @@ public class AndroTech {
 			MenuScreens.register(MenuTypeRegistry.ITEM_INCINERATOR_MENU.get(), ItemIncineratorScreen::new);
 			MenuScreens.register(MenuTypeRegistry.REDSTONE_SIGNAL_TRANSMITTER_MENU.get(), RedstoneSignalTransmitterScreen::new);
 			MenuScreens.register(MenuTypeRegistry.MOB_REPULSOR_MENU.get(), MobRepulsorScreen::new);
+			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP_SOURCE.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP_FLOWING.get(), RenderType.translucent());
 			PropertyOverrideRegistry.register();
 		});
 	}
