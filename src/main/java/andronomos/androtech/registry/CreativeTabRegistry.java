@@ -5,6 +5,7 @@ import andronomos.androtech.item.FakeSword;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -17,9 +18,7 @@ public class CreativeTabRegistry {
 			.title(Component.translatable("creativetab." + BASETABNAME))
 			.icon(BlockRegistry.WEAK_ACCELERATION_PAD.get().asItem()::getDefaultInstance)
 			.displayItems((parameters, output) -> {
-				BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(b -> {
-					output.accept(b);
-				});
+				BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get).filter(block -> !(block instanceof LiquidBlock)).forEach(output::accept);
 
 				ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach(i -> {
 					if(i instanceof FakeSword) {
