@@ -1,7 +1,7 @@
 package andronomos.androtech.block.mobrepulsor;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.base.BaseScreen;
+import andronomos.androtech.block.base.BaseScreen;
 import andronomos.androtech.inventory.client.PowerButton;
 import andronomos.androtech.inventory.client.RenderOutlineButton;
 import andronomos.androtech.network.AndroTechPacketHandler;

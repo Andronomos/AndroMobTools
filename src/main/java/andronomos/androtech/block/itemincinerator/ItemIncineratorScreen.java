@@ -1,7 +1,7 @@
 package andronomos.androtech.block.itemincinerator;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.base.BaseScreen;
+import andronomos.androtech.block.base.BaseScreen;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

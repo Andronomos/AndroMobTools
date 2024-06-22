@@ -1,6 +1,6 @@
 package andronomos.androtech.block.itemincinerator;
 
-import andronomos.androtech.base.MachineBlock;
+import andronomos.androtech.block.base.MachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;

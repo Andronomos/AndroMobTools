@@ -1,6 +1,6 @@
 package andronomos.androtech.block.mobrepulsor;
 
-import andronomos.androtech.base.BaseBlockEntity;
+import andronomos.androtech.block.base.BaseBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;

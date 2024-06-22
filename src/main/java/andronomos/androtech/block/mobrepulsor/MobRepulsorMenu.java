@@ -1,6 +1,6 @@
 package andronomos.androtech.block.mobrepulsor;
 
-import andronomos.androtech.base.BaseMenu;
+import andronomos.androtech.block.base.BaseMenu;
 import andronomos.androtech.inventory.server.RestrictedSlotHandler;
 import andronomos.androtech.registry.BlockRegistry;
 import andronomos.androtech.registry.ItemRegistry;

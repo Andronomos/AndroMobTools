@@ -1,7 +1,7 @@
 package andronomos.androtech.block.mobkiller;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.base.BaseBlockEntity;
+import andronomos.androtech.block.base.BaseBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import andronomos.androtech.util.BoundingBoxHelper;

@@ -1,6 +1,6 @@
 package andronomos.androtech.block;
 
-import andronomos.androtech.base.MachineBlock;
+import andronomos.androtech.block.base.MachineBlock;
 import andronomos.androtech.block.collisioneffect.ICollisionEffect;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

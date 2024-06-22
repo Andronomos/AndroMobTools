@@ -1,7 +1,7 @@
 package andronomos.androtech.block.wirelessredstone.redstonetransmitter;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.base.BaseScreen;
+import andronomos.androtech.block.base.BaseScreen;
 import andronomos.androtech.inventory.client.PowerButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.network.packet.SyncMachinePoweredState;

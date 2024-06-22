@@ -1,6 +1,6 @@
 package andronomos.androtech.block.wirelessredstone;
 
-import andronomos.androtech.base.MachineBlock;
+import andronomos.androtech.block.base.MachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;

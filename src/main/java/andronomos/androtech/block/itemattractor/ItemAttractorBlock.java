@@ -1,6 +1,6 @@
 package andronomos.androtech.block.itemattractor;
 
-import andronomos.androtech.base.MachineBlock;
+import andronomos.androtech.block.base.MachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;

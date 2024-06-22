@@ -1,7 +1,8 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.base.MachineBlock;
+import andronomos.androtech.block.base.MachineBlock;
+import andronomos.androtech.block.ExperienceAttractor.ExperienceAttractorBlock;
 import andronomos.androtech.block.TeleportInhibitorBlock;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
