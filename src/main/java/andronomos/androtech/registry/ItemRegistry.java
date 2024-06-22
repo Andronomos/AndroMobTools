@@ -3,12 +3,9 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.item.*;
 import andronomos.androtech.item.base.AbstractDeviceItem;
-import andronomos.androtech.item.tools.NaniteEnhancedAxe;
-import andronomos.androtech.item.tools.NaniteEnhancedPickAxe;
-import andronomos.androtech.item.tools.NaniteEnhancedShovel;
-import andronomos.androtech.item.tools.NaniteEnhancedSword;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -70,6 +67,9 @@ public class ItemRegistry {
 	//
 	//public static final RegistryObject<Item> NANITE_ENHANCED_SWORD = ITEMS.register("nanite_enhanced_sword",
 	//		() -> new NaniteEnhancedSword(Tiers.NETHERITE, 3, -2.4F, NANITE_TOOL_PROPERTIES));
+
+	public static final RegistryObject<Item> LIQUID_XP_BUCKET = ITEMS.register("liquid_xp_bucket.json",
+			() -> new BucketItem(FluidRegistry.LIQUID_XP_SOURCE, new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
 
 	private static RegistryObject<Item> register(String name) {
 		return ITEMS.register(name, () -> new Item(new Item.Properties()));
