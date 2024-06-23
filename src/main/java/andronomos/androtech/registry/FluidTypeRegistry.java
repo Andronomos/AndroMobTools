@@ -18,7 +18,7 @@ public class FluidTypeRegistry {
 
 	public static DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, AndroTech.MODID);
 
-	public static final RegistryObject<FluidType> LIQUID_XP_FLUID_TYPE = register("liquid_xp_fluid",
+	public static final RegistryObject<FluidType> LIQUID_XP_FLUID_TYPE = register("liquid_xp",
 			FluidType.Properties.create()
 					.lightLevel(10)
 					.canSwim(true)
