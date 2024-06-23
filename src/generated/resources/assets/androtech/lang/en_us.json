@@ -23,6 +23,7 @@
   "block.androtech.weak_acceleration_pad": "Weak Acceleration Pad",
   "block.androtech.weak_acceleration_pad.tooltip": "Accelerates any mob or player that steps on it",
   "creativetab.androtech": "AndroTech",
+  "fluidtype.androtech.liquid_xp": "Liquid XP",
   "gui.androtech.overlay_off": "Overlay Off",
   "gui.androtech.overlay_on": "Overlay On",
   "gui.androtech.powered_off": "Powered Off",
