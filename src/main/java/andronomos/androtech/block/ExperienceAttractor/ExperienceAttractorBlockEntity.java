@@ -1,9 +1,6 @@
 package andronomos.androtech.block.ExperienceAttractor;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseBlockEntity;
-import andronomos.androtech.network.AndroTechPacketHandler;
-import andronomos.androtech.network.packet.FluidSyncPacket;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.FluidRegistry;
 import andronomos.androtech.util.BoundingBoxHelper;
@@ -26,6 +23,8 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -41,14 +40,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements MenuProvider {
+	public boolean showRenderBox;
+	float xPos, yPos, zPos;
+	float xNeg, yNeg, zNeg;
 	public int prevTankAmount;
 	private final FluidTank FLUID_TANK = new FluidTank(1000 * 16) {
 		@Override
 		protected void onContentsChanged() {
 			setChanged();
-			//if(!level.isClientSide()) {
-			//	AndroTechPacketHandler.sendToClients(new FluidSyncPacket(this.fluid, worldPosition));
-			//}
 		}
 
 		@Override
@@ -64,10 +63,6 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 
 	public void setFluid(FluidStack stack) {
 		this.FLUID_TANK.setFluid(stack);
-	}
-
-	public FluidTank getFluidTank() {
-		return this.FLUID_TANK;
 	}
 
 	public FluidStack getFluidStack() {
@@ -95,6 +90,7 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 	public void onLoad() {
 		super.onLoad();
 		lazyFluidHandler = LazyOptional.of(() -> FLUID_TANK);
+		setAABBWithModifiers();
 	}
 
 	@Override
@@ -110,7 +106,27 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 		if (lazyFluidHandler != null) {
 			FLUID_TANK.writeToNBT(tag);
 		}
+		tag.putBoolean("showRenderBox", showRenderBox);
+		tag.putFloat("xPos", xPos);
+		tag.putFloat("yPos", yPos);
+		tag.putFloat("zPos", zPos);
+		tag.putFloat("xNeg", xNeg);
+		tag.putFloat("yNeg", yNeg);
+		tag.putFloat("zNeg", zNeg);
 		super.saveAdditional(tag);
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	public AABB getAABBForRender() {
+		return new AABB(- xNeg, - yNeg, - zNeg, 1D + xPos, 1D + yPos, 1D + zPos);
+		//return getWorkArea();
+	}
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public AABB getRenderBoundingBox() {
+		//return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
+		return getWorkArea();
 	}
 
 	@Override
@@ -118,6 +134,13 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 		if (lazyFluidHandler != null) {
 			FLUID_TANK.readFromNBT(tag);
 		}
+		showRenderBox = tag.getBoolean("showRenderBox");
+		xPos = tag.getFloat("xPos");
+		yPos = tag.getFloat("yPos");
+		zPos = tag.getFloat("zPos");
+		xNeg = tag.getFloat("xNeg");
+		yNeg = tag.getFloat("yNeg");
+		zNeg = tag.getFloat("zNeg");
 		super.load(tag);
 	}
 
@@ -156,7 +179,7 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 		if(blockEntity instanceof ExperienceAttractorBlockEntity entity) {
 			entity.prevTankAmount = entity.FLUID_TANK.getFluidAmount();
 
-			if(level.getGameTime() % 10 == 0) {
+			if(level.getGameTime() % 3 == 0) {
 				if(entity.FLUID_TANK.isEmpty() || entity.FLUID_TANK.getFluid().containsFluid(new FluidStack(FluidRegistry.LIQUID_XP.get(), 1))) {
 					CaptureExperience();
 				}
@@ -168,7 +191,7 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 		}
 	}
 
-	private boolean CaptureExperience() {
+	private void CaptureExperience() {
 		for(ExperienceOrb orb : getNearbyExperience()) {
 			int xpAmount = orb.getValue();
 
@@ -177,11 +200,7 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 				orb.value = 0;
 				orb.remove(RemovalReason.DISCARDED);
 			}
-
-			return true;
 		}
-
-		return false;
 	}
 
 	private List<ExperienceOrb> getNearbyExperience() {
@@ -189,6 +208,20 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 	}
 
 	private void sendUpdate() {
-		getLevel().sendBlockUpdated(worldPosition, getLevel().getBlockState(worldPosition), getLevel().getBlockState(worldPosition), Block.UPDATE_ALL);
+		Objects.requireNonNull(getLevel()).sendBlockUpdated(worldPosition, getLevel().getBlockState(worldPosition), getLevel().getBlockState(worldPosition), Block.UPDATE_ALL);
+	}
+
+	public void toggleRenderBox() {
+		showRenderBox = !showRenderBox;
+		setChanged();
+	}
+
+	private void setAABBWithModifiers() {
+		yPos = 4;
+		yNeg = -1;
+		xPos = 4;
+		xNeg = 4;
+		zPos = 4;
+		zNeg = 4;
 	}
 }

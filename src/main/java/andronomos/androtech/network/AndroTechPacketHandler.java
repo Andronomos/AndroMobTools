@@ -42,16 +42,22 @@ public class AndroTechPacketHandler {
 				.consumerMainThread(TransmitterStateSyncPacket::handle)
 				.add();
 
-		net.messageBuilder(MessageEntityRepulsor.class, id(), NetworkDirection.PLAY_TO_SERVER)
-				.decoder(MessageEntityRepulsor::decode)
-				.encoder(MessageEntityRepulsor::encode)
-				.consumerMainThread(MessageEntityRepulsor::handle)
+		net.messageBuilder(EntityRepulsorOverlaySyncPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(EntityRepulsorOverlaySyncPacket::decode)
+				.encoder(EntityRepulsorOverlaySyncPacket::encode)
+				.consumerMainThread(EntityRepulsorOverlaySyncPacket::handle)
 				.add();
 
-		net.messageBuilder(MessageMobKiller.class, id(), NetworkDirection.PLAY_TO_SERVER)
-				.decoder(MessageMobKiller::decode)
-				.encoder(MessageMobKiller::encode)
-				.consumerMainThread(MessageMobKiller::handle)
+		net.messageBuilder(MobKillerOverlaySyncPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(MobKillerOverlaySyncPacket::decode)
+				.encoder(MobKillerOverlaySyncPacket::encode)
+				.consumerMainThread(MobKillerOverlaySyncPacket::handle)
+				.add();
+
+		net.messageBuilder(ExperienceAttractorOverlaySyncPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(ExperienceAttractorOverlaySyncPacket::decode)
+				.encoder(ExperienceAttractorOverlaySyncPacket::encode)
+				.consumerMainThread(ExperienceAttractorOverlaySyncPacket::handle)
 				.add();
 
 		//net.messageBuilder(SyncMachineEnergy.class, id(), NetworkDirection.PLAY_TO_CLIENT)
@@ -59,12 +65,6 @@ public class AndroTechPacketHandler {
 		//		.encoder(SyncMachineEnergy::encode)
 		//		.consumerMainThread(SyncMachineEnergy::handle)
 		//		.add();
-
-		net.messageBuilder(FluidSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
-				.decoder(FluidSyncPacket::decode)
-				.encoder(FluidSyncPacket::encode)
-				.consumerMainThread(FluidSyncPacket::handle)
-				.add();
 	}
 
 	public static <MSG> void sendToServer(MSG message) {

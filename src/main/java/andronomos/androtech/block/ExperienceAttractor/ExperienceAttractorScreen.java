@@ -4,27 +4,30 @@ import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseScreen;
 import andronomos.androtech.fluid.FluidTankRenderer;
 import andronomos.androtech.inventory.client.PowerButton;
+import andronomos.androtech.inventory.client.RenderOutlineButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
+import andronomos.androtech.network.packet.ExperienceAttractorOverlaySyncPacket;
+import andronomos.androtech.network.packet.MobKillerOverlaySyncPacket;
 import andronomos.androtech.network.packet.PoweredStateSyncPacket;
-import andronomos.androtech.registry.FluidRegistry;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
 public class ExperienceAttractorScreen extends BaseScreen<ExperienceAttractorMenu> {
 	private PowerButton powerButton;
+	private RenderOutlineButton overlayButton;
 	private FluidTankRenderer fluidRenderer;
+	private final ExperienceAttractorBlockEntity entity;
 
 	public ExperienceAttractorScreen(ExperienceAttractorMenu menu, Inventory inventory, Component component) {
 		super(menu, inventory, component);
+		entity = (ExperienceAttractorBlockEntity)menu.blockEntity;
 	}
 
 	@Override
@@ -33,6 +36,10 @@ public class ExperienceAttractorScreen extends BaseScreen<ExperienceAttractorMen
 		powerButton = (PowerButton)this.addButton(new PowerButton((button) -> {
 			AndroTechPacketHandler.sendToServer(new PoweredStateSyncPacket(menu.blockEntity.getBlockPos()));
 		}, menu.blockEntity));
+		overlayButton = (RenderOutlineButton)this.addButton(new RenderOutlineButton((button) -> {
+			AndroTechPacketHandler.sendToServer(new ExperienceAttractorOverlaySyncPacket(entity.getBlockPos()));
+			entity.showRenderBox = !entity.showRenderBox;
+		}));
 		fluidRenderer = new FluidTankRenderer(64000, 124, 51);
 	}
 
@@ -40,6 +47,7 @@ public class ExperienceAttractorScreen extends BaseScreen<ExperienceAttractorMen
 	protected void renderLabels(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		super.renderLabels(guiGraphics, mouseX, mouseY);
 		powerButton.update();
+		overlayButton.update(entity.showRenderBox);
 		int x = (width - imageWidth) / 2;
 		int y = (height - imageHeight) / 2;
 		renderFluidAreaTooltips(guiGraphics, mouseX, mouseY, x, y);
@@ -56,13 +64,8 @@ public class ExperienceAttractorScreen extends BaseScreen<ExperienceAttractorMen
 	}
 
 	private void renderFluidAreaTooltips(GuiGraphics graphics, int pMouseX, int pMouseY, int x, int y) {
-		if(isMouseAboveArea(pMouseX, pMouseY, x, y, 55, 15)) {
-			renderTooltip(graphics, pMouseX - x, pMouseY - y);
-
+		if(isMouseAboveArea(pMouseX, pMouseY, x, y, 8, 19)) {
 			graphics.renderTooltip(this.font, fluidRenderer.getTooltip(((ExperienceAttractorBlockEntity)menu.blockEntity).getFluidStack(), TooltipFlag.Default.NORMAL), Optional.empty(), pMouseX - x, pMouseY - y);
-
-			//renderTooltip(graphics.pose(), fluidRenderer.getTooltip(((ExperienceAttractorBlockEntity)menu.blockEntity).getFluidStack(), TooltipFlag.Default.NORMAL),
-			//		Optional.empty(), pMouseX - x, pMouseY - y);
 		}
 	}
 
