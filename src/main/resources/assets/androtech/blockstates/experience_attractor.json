@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "androtech:block/experience_attractor_off"
+    },
+    "powered=true": {
+      "model": "androtech:block/experience_attractor_on"
+    }
+  }
+}
