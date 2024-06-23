@@ -60,6 +60,8 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(TeleportInhibitorBlock.DISPLAY_NAME, "Teleport Inhibitor");
 		add(TeleportInhibitorBlock.TOOLTIP, "Prevents Enderman from teleporting in an area");
 
+		add("fluidtype.androtech.liquid_xp", "Liquid XP");
+
 		add(ItemRegistry.FIRE_AUGMENT.get(), "Fire Aspect Augment");
 		add(ItemRegistry.SHARPNESS_AUGMENT.get(), "Sharpness Augment");
 		add(ItemRegistry.LOOTING_AUGMENT.get(), "Looting Augment");
