@@ -7,7 +7,6 @@ import andronomos.androtech.inventory.client.PowerButton;
 import andronomos.androtech.inventory.client.RenderOutlineButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.network.packet.ExperienceAttractorOverlaySyncPacket;
-import andronomos.androtech.network.packet.MobKillerOverlaySyncPacket;
 import andronomos.androtech.network.packet.PoweredStateSyncPacket;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
@@ -33,9 +32,8 @@ public class ExperienceAttractorScreen extends BaseScreen<ExperienceAttractorMen
 	@Override
 	protected void init() {
 		super.init();
-		powerButton = (PowerButton)this.addButton(new PowerButton((button) -> {
-			AndroTechPacketHandler.sendToServer(new PoweredStateSyncPacket(menu.blockEntity.getBlockPos()));
-		}, menu.blockEntity));
+		powerButton = (PowerButton)this.addButton(new PowerButton((button) ->
+				AndroTechPacketHandler.sendToServer(new PoweredStateSyncPacket(menu.blockEntity.getBlockPos())), menu.blockEntity));
 		overlayButton = (RenderOutlineButton)this.addButton(new RenderOutlineButton((button) -> {
 			AndroTechPacketHandler.sendToServer(new ExperienceAttractorOverlaySyncPacket(entity.getBlockPos()));
 			entity.showRenderBox = !entity.showRenderBox;
