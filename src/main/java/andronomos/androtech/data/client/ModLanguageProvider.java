@@ -1,6 +1,7 @@
 package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.ExperienceAttractor.ExperienceAttractorBlock;
 import andronomos.androtech.block.TeleportInhibitorBlock;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
@@ -44,9 +45,12 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(MobKillerBlock.DISPLAY_NAME, "Mob Killer");
 		add(MobKillerBlock.TOOLTIP, "Damages entities in-front of it");
 		add(ItemAttractorBlock.DISPLAY_NAME, "Item Attractor");
-		add(ItemAttractorBlock.TOOLTIP, "Pulls nearby items");
+		add(ItemAttractorBlock.TOOLTIP, "Vacuums up nearby items");
 		add(ItemIncineratorBlock.DISPLAY_NAME, "Item Incinerator");
 		add(ItemIncineratorBlock.TOOLTIP, "Destroys items placed inside it");
+		add(ExperienceAttractorBlock.DISPLAY_NAME, "Experience Attractor");
+		add(ExperienceAttractorBlock.TOOLTIP, "Vacuums up nearby experience orbs");
+		add(ExperienceAttractorBlock.AMOUNT_TOOLTIP, "%s / %s mB");
 		add(RedstoneSignalReceiverBlock.DISPLAY_NAME, "Redstone Signal Receiver");
 		add(RedstoneSignalReceiverBlock.TOOLTIP, "Emits a redstone signal when powered by a signal transmitter");
 		add(RedstoneSignalTransmitterBlock.DISPLAY_NAME, "Redstone Signal Transmitter");
