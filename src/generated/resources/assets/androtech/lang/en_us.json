@@ -44,6 +44,8 @@
   "item.androtech.repulsor_height_upgrade": "Repulsor Height Upgrade",
   "item.androtech.repulsor_width_upgrade": "Repulsor Width Upgrade",
   "item.androtech.sharpness_augment": "Sharpness Augment",
+  "screen.androtech.experience_attractor": "Experience Attractor",
+  "screen.androtech.experience_attractor.tooltip.liquid.amount": "%s / %s mB",
   "screen.androtech.item_attractor": "Item Attractor",
   "screen.androtech.item_incinerator": "Item Incinerator",
   "screen.androtech.mob_killer": "Mob Killer",
