@@ -162,13 +162,6 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 				}
 			}
 
-			//debug
-			AndroTech.LOGGER.info("==================================================================================================================");
-			AndroTech.LOGGER.info(String.format("ExperienceAttractorBlockEntity#serverTick | fluidTank.isEmpty: %s", entity.FLUID_TANK.isEmpty()));
-			AndroTech.LOGGER.info(String.format("ExperienceAttractorBlockEntity#serverTick | fluidTank contains xp: %s", entity.FLUID_TANK.getFluid().containsFluid(new FluidStack(FluidRegistry.LIQUID_XP.get(), 1))));
-			AndroTech.LOGGER.info(String.format("ExperienceAttractorBlockEntity#serverTick | fluid display name: %s", entity.FLUID_TANK.getFluid().getDisplayName()));
-			AndroTech.LOGGER.info(String.format("ExperienceAttractorBlockEntity#serverTick | fluidTank amount: %s", entity.FLUID_TANK.getFluidAmount()));
-
 			if(entity.prevTankAmount != entity.FLUID_TANK.getFluidAmount()) {
 				entity.sendUpdate();
 			}

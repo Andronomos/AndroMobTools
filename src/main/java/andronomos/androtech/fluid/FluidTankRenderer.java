@@ -59,15 +59,6 @@ public class FluidTankRenderer {
 	private void drawFluid(PoseStack stack, final int width, final int height, FluidStack fluidStack) {
 		Fluid fluid = fluidStack.getFluid();
 
-		//debug
-		AndroTech.LOGGER.info(String.format("FluidTankRenderer#drawFluid | fluidStack: %s", fluidStack));
-		AndroTech.LOGGER.info(String.format("FluidTankRenderer#drawFluid | fluidStack isEmpty: %s", fluidStack.isEmpty()));
-		AndroTech.LOGGER.info(String.format("FluidTankRenderer#drawFluid | fluidStack display name: %s", fluidStack.getDisplayName()));
-		AndroTech.LOGGER.info(String.format("FluidTankRenderer#drawFluid | fluidStack contains xp: %s", fluidStack.containsFluid(new FluidStack(FluidRegistry.LIQUID_XP.get(), 1))));
-		AndroTech.LOGGER.info(String.format("FluidTankRenderer#drawFluid | fluid class: %s", fluid.getClass()));
-		AndroTech.LOGGER.info(String.format("FluidTankRenderer#drawFluid | fluid type: %s", fluid.getFluidType()));
-		AndroTech.LOGGER.info("==================================================================================================================");
-
 		if (fluid.isSame(Fluids.EMPTY)) {
 			return;
 		}

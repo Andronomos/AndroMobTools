@@ -12,6 +12,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.NotNull;
@@ -51,22 +52,17 @@ public class ExperienceAttractorScreen extends BaseScreen<ExperienceAttractorMen
 		int y = (this.height - this.imageHeight) / 2;
 		ExperienceAttractorBlockEntity entity = (ExperienceAttractorBlockEntity)menu.blockEntity;
 		FluidStack fluidStack = entity.getFluidStack();
-
-		//debug
-		FluidTank tank = entity.getFluidTank();
-		AndroTech.LOGGER.info(String.format("ExperienceAttractorScreen#renderBg | entity.fluidTank: %s", tank));
-		AndroTech.LOGGER.info(String.format("ExperienceAttractorScreen#renderBg | fluidTank capacity: %s", tank.getCapacity()));
-		AndroTech.LOGGER.info(String.format("ExperienceAttractorScreen#renderBg | fluidTank amount: %s", tank.getFluidAmount()));
-		AndroTech.LOGGER.info(String.format("ExperienceAttractorScreen#renderBg | fluidStack is empty: %s", fluidStack.isEmpty()));
-		AndroTech.LOGGER.info(String.format("ExperienceAttractorScreen#renderBg | fluidStack contains xp: %s", fluidStack.containsFluid(new FluidStack(FluidRegistry.LIQUID_XP.get(), 1))));
-		AndroTech.LOGGER.info(String.format("ExperienceAttractorScreen#renderBg | fluidStack display name: %s", fluidStack.getDisplayName()));
-
 		fluidRenderer.render(guiGraphics.pose(), x + 8, y + 19, fluidStack);
 	}
 
 	private void renderFluidAreaTooltips(GuiGraphics graphics, int pMouseX, int pMouseY, int x, int y) {
 		if(isMouseAboveArea(pMouseX, pMouseY, x, y, 55, 15)) {
 			renderTooltip(graphics, pMouseX - x, pMouseY - y);
+
+			graphics.renderTooltip(this.font, fluidRenderer.getTooltip(((ExperienceAttractorBlockEntity)menu.blockEntity).getFluidStack(), TooltipFlag.Default.NORMAL), Optional.empty(), pMouseX - x, pMouseY - y);
+
+			//renderTooltip(graphics.pose(), fluidRenderer.getTooltip(((ExperienceAttractorBlockEntity)menu.blockEntity).getFluidStack(), TooltipFlag.Default.NORMAL),
+			//		Optional.empty(), pMouseX - x, pMouseY - y);
 		}
 	}
 
