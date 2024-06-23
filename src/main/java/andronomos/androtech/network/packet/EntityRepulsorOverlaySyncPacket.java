@@ -7,28 +7,27 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.network.NetworkEvent;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
-public class MessageEntityRepulsor {
+public class EntityRepulsorOverlaySyncPacket {
 	private final BlockPos pos;
 
-	public MessageEntityRepulsor(BlockPos pos) {
+	public EntityRepulsorOverlaySyncPacket(BlockPos pos) {
 		this.pos = pos;
 	}
 
-	public static void encode(MessageEntityRepulsor msg, FriendlyByteBuf buf) {
+	public static void encode(EntityRepulsorOverlaySyncPacket msg, FriendlyByteBuf buf) {
 		buf.writeBlockPos(msg.pos);
 	}
 
-	public static MessageEntityRepulsor decode(FriendlyByteBuf buf) {
-		return new MessageEntityRepulsor(buf.readBlockPos());
+	public static EntityRepulsorOverlaySyncPacket decode(FriendlyByteBuf buf) {
+		return new EntityRepulsorOverlaySyncPacket(buf.readBlockPos());
 	}
 
-	public static void handle(MessageEntityRepulsor msg, Supplier<NetworkEvent.Context> ctx) {
+	public static void handle(EntityRepulsorOverlaySyncPacket msg, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
-			Level level = ctx.get().getSender().level();
-			if(level == null) return;
-
+			Level level = Objects.requireNonNull(ctx.get().getSender()).level();
 			MobRepulsorBlockEntity repulsor = (MobRepulsorBlockEntity)level.getBlockEntity(msg.pos);
 
 			if(repulsor != null) {

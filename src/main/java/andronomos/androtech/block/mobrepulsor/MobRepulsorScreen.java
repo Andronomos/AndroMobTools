@@ -5,7 +5,7 @@ import andronomos.androtech.block.base.BaseScreen;
 import andronomos.androtech.inventory.client.PowerButton;
 import andronomos.androtech.inventory.client.RenderOutlineButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
-import andronomos.androtech.network.packet.MessageEntityRepulsor;
+import andronomos.androtech.network.packet.EntityRepulsorOverlaySyncPacket;
 import andronomos.androtech.network.packet.PoweredStateSyncPacket;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
@@ -30,7 +30,7 @@ public class MobRepulsorScreen extends BaseScreen<MobRepulsorMenu> {
 				AndroTechPacketHandler.sendToServer(new PoweredStateSyncPacket(entity.getBlockPos())), menu.blockEntity));
 
 		overlayButton = (RenderOutlineButton)this.addButton(new RenderOutlineButton((button) -> {
-			AndroTechPacketHandler.sendToServer(new MessageEntityRepulsor(entity.getBlockPos()));
+			AndroTechPacketHandler.sendToServer(new EntityRepulsorOverlaySyncPacket(entity.getBlockPos()));
 			entity.showRenderBox = !entity.showRenderBox;
 		}));
 	}

@@ -7,28 +7,27 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.network.NetworkEvent;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
-public class MessageMobKiller {
+public class MobKillerOverlaySyncPacket {
 	private final BlockPos pos;
 
-	public MessageMobKiller(BlockPos pos) {
+	public MobKillerOverlaySyncPacket(BlockPos pos) {
 		this.pos = pos;
 	}
 
-	public static void encode(MessageMobKiller msg, FriendlyByteBuf buf) {
+	public static void encode(MobKillerOverlaySyncPacket msg, FriendlyByteBuf buf) {
 		buf.writeBlockPos(msg.pos);
 	}
 
-	public static MessageMobKiller decode(FriendlyByteBuf buf) {
-		return new MessageMobKiller(buf.readBlockPos());
+	public static MobKillerOverlaySyncPacket decode(FriendlyByteBuf buf) {
+		return new MobKillerOverlaySyncPacket(buf.readBlockPos());
 	}
 
-	public static void handle(MessageMobKiller msg, Supplier<NetworkEvent.Context> ctx) {
+	public static void handle(MobKillerOverlaySyncPacket msg, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
-			Level level = ctx.get().getSender().level();
-			if(level == null) return;
-
+			Level level = Objects.requireNonNull(ctx.get().getSender()).level();
 			MobKillerBlockEntity mobKiller = (MobKillerBlockEntity)level.getBlockEntity(msg.pos);
 
 			if(mobKiller != null) {
