@@ -1,11 +1,8 @@
 package andronomos.androtech.network;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.network.packet.MessageMobKiller;
-import andronomos.androtech.network.packet.MessageEntityRepulsor;
-import andronomos.androtech.network.packet.SyncMachinePoweredState;
+import andronomos.androtech.network.packet.*;
 //import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
-import andronomos.androtech.network.packet.SyncRedstoneTransmitterState;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -33,16 +30,16 @@ public class AndroTechPacketHandler {
 
 		INSTANCE = net;
 
-		net.messageBuilder(SyncMachinePoweredState.class, id(), NetworkDirection.PLAY_TO_SERVER)
-				.decoder(SyncMachinePoweredState::decode)
-				.encoder(SyncMachinePoweredState::encode)
-				.consumerMainThread(SyncMachinePoweredState::handle)
+		net.messageBuilder(PoweredStateSyncPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(PoweredStateSyncPacket::decode)
+				.encoder(PoweredStateSyncPacket::encode)
+				.consumerMainThread(PoweredStateSyncPacket::handle)
 				.add();
 
-		net.messageBuilder(SyncRedstoneTransmitterState.class, id(), NetworkDirection.PLAY_TO_SERVER)
-				.decoder(SyncRedstoneTransmitterState::decode)
-				.encoder(SyncRedstoneTransmitterState::encode)
-				.consumerMainThread(SyncRedstoneTransmitterState::handle)
+		net.messageBuilder(TransmitterStateSyncPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(TransmitterStateSyncPacket::decode)
+				.encoder(TransmitterStateSyncPacket::encode)
+				.consumerMainThread(TransmitterStateSyncPacket::handle)
 				.add();
 
 		net.messageBuilder(MessageEntityRepulsor.class, id(), NetworkDirection.PLAY_TO_SERVER)
@@ -62,6 +59,12 @@ public class AndroTechPacketHandler {
 		//		.encoder(SyncMachineEnergy::encode)
 		//		.consumerMainThread(SyncMachineEnergy::handle)
 		//		.add();
+
+		net.messageBuilder(FluidSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+				.decoder(FluidSyncPacket::decode)
+				.encoder(FluidSyncPacket::encode)
+				.consumerMainThread(FluidSyncPacket::handle)
+				.add();
 	}
 
 	public static <MSG> void sendToServer(MSG message) {

@@ -6,7 +6,7 @@ import andronomos.androtech.inventory.client.PowerButton;
 import andronomos.androtech.inventory.client.RenderOutlineButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.network.packet.MessageMobKiller;
-import andronomos.androtech.network.packet.SyncMachinePoweredState;
+import andronomos.androtech.network.packet.PoweredStateSyncPacket;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -27,9 +27,8 @@ public class MobKillerScreen extends BaseScreen<MobKillerMenu> {
 	protected void init() {
 		super.init();
 
-		powerButton = (PowerButton)this.addButton(new PowerButton((button) -> {
-			AndroTechPacketHandler.sendToServer(new SyncMachinePoweredState(menu.blockEntity.getBlockPos()));
-		}, menu.blockEntity));
+		powerButton = (PowerButton)this.addButton(new PowerButton((button) ->
+				AndroTechPacketHandler.sendToServer(new PoweredStateSyncPacket(menu.blockEntity.getBlockPos())), menu.blockEntity));
 
 		overlayButton = (RenderOutlineButton)this.addButton(new RenderOutlineButton((button) -> {
 			AndroTechPacketHandler.sendToServer(new MessageMobKiller(entity.getBlockPos()));
@@ -38,7 +37,7 @@ public class MobKillerScreen extends BaseScreen<MobKillerMenu> {
 	}
 
 	@Override
-	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+	protected void renderLabels(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		super.renderLabels(guiGraphics, mouseX, mouseY);
 		powerButton.update();
 		overlayButton.update(entity.showRenderBox);

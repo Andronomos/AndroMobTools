@@ -7,26 +7,27 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.network.NetworkEvent;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
-public class SyncMachinePoweredState {
+public class PoweredStateSyncPacket {
 	private final BlockPos pos;
 
-	public SyncMachinePoweredState(BlockPos pos) {
+	public PoweredStateSyncPacket(BlockPos pos) {
 		this.pos = pos;
 	}
 
-	public static void encode(SyncMachinePoweredState msg, FriendlyByteBuf buf) {
+	public static void encode(PoweredStateSyncPacket msg, FriendlyByteBuf buf) {
 		buf.writeBlockPos(msg.pos);
 	}
 
-	public static SyncMachinePoweredState decode(FriendlyByteBuf buf) {
-		return new SyncMachinePoweredState(buf.readBlockPos());
+	public static PoweredStateSyncPacket decode(FriendlyByteBuf buf) {
+		return new PoweredStateSyncPacket(buf.readBlockPos());
 	}
 
-	public static void handle(SyncMachinePoweredState msg, Supplier<NetworkEvent.Context> ctx) {
+	public static void handle(PoweredStateSyncPacket msg, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
-			Level level = ctx.get().getSender().level();
+			Level level = Objects.requireNonNull(ctx.get().getSender()).level();
 			if(level == null) return;
 			BlockState state = level.getBlockState(msg.pos);
 			level.setBlockAndUpdate(msg.pos, state.cycle(BlockStateProperties.POWERED));

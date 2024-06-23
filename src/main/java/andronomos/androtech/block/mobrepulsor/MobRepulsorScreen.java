@@ -6,7 +6,7 @@ import andronomos.androtech.inventory.client.PowerButton;
 import andronomos.androtech.inventory.client.RenderOutlineButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
 import andronomos.androtech.network.packet.MessageEntityRepulsor;
-import andronomos.androtech.network.packet.SyncMachinePoweredState;
+import andronomos.androtech.network.packet.PoweredStateSyncPacket;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -26,9 +26,8 @@ public class MobRepulsorScreen extends BaseScreen<MobRepulsorMenu> {
 	@Override
 	protected void init() {
 		super.init();
-		powerButton = (PowerButton)this.addButton(new PowerButton((button) -> {
-			AndroTechPacketHandler.sendToServer(new SyncMachinePoweredState(entity.getBlockPos()));
-		}, menu.blockEntity));
+		powerButton = (PowerButton)this.addButton(new PowerButton((button) ->
+				AndroTechPacketHandler.sendToServer(new PoweredStateSyncPacket(entity.getBlockPos())), menu.blockEntity));
 
 		overlayButton = (RenderOutlineButton)this.addButton(new RenderOutlineButton((button) -> {
 			AndroTechPacketHandler.sendToServer(new MessageEntityRepulsor(entity.getBlockPos()));

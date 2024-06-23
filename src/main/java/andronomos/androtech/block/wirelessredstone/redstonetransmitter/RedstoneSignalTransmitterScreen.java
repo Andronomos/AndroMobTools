@@ -4,7 +4,7 @@ import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseScreen;
 import andronomos.androtech.inventory.client.PowerButton;
 import andronomos.androtech.network.AndroTechPacketHandler;
-import andronomos.androtech.network.packet.SyncMachinePoweredState;
+import andronomos.androtech.network.packet.PoweredStateSyncPacket;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -21,9 +21,8 @@ public class RedstoneSignalTransmitterScreen extends BaseScreen<RedstoneSignalTr
 	@Override
 	protected void init() {
 		super.init();
-		powerButton = (PowerButton)this.addButton(new PowerButton((button) -> {
-			AndroTechPacketHandler.sendToServer(new SyncMachinePoweredState(menu.blockEntity.getBlockPos()));
-		}, menu.blockEntity));
+		powerButton = (PowerButton)this.addButton(new PowerButton((button) ->
+				AndroTechPacketHandler.sendToServer(new PoweredStateSyncPacket(menu.blockEntity.getBlockPos())), menu.blockEntity));
 	}
 
 	@Override
