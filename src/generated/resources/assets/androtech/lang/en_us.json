@@ -1,6 +1,8 @@
 {
+  "block.androtech.experience_attractor": "Experience Attractor",
+  "block.androtech.experience_attractor.tooltip": "Vacuums up nearby experience orbs",
   "block.androtech.item_attractor": "Item Attractor",
-  "block.androtech.item_attractor.tooltip": "Pulls nearby items",
+  "block.androtech.item_attractor.tooltip": "Vacuums up nearby items",
   "block.androtech.item_incinerator": "Item Incinerator",
   "block.androtech.item_incinerator.tooltip": "Destroys items placed inside it",
   "block.androtech.liquid_xp_block": "Liquid Xp Block",
@@ -37,7 +39,7 @@
   "item.androtech.gps_module.saved": "Saved Block Position %1$s",
   "item.androtech.gps_recorder": "GPS Recorder",
   "item.androtech.item_attraction_emitter": "Item Attraction Emitter",
-  "item.androtech.liquid_xp_bucket.json": "Liquid XP Bucket",
+  "item.androtech.liquid_xp_bucket": "Liquid XP Bucket",
   "item.androtech.looting_augment": "Looting Augment",
   "item.androtech.mob_storage_device": "Mob Storage Device",
   "item.androtech.repulsor_distance_upgrade": "Repulsor Distance Upgrade",
