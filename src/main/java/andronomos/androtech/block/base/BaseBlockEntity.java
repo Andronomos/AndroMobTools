@@ -57,17 +57,17 @@ public abstract class BaseBlockEntity extends BlockEntity {
 	@Override
 	protected void saveAdditional(@NotNull CompoundTag tag) {
 		if (itemHandler != null) {
-			tag.put("inventory", itemHandler.serializeNBT());
+			tag.put("Inventory", itemHandler.serializeNBT());
 		}
 		super.saveAdditional(tag);
 	}
 
 	@Override
 	public void load(@NotNull CompoundTag tag) {
-		super.load(tag);
 		if (itemHandler != null) {
-			itemHandler.deserializeNBT(tag.getCompound("inventory"));
+			itemHandler.deserializeNBT(tag.getCompound("Inventory"));
 		}
+		super.load(tag);
 	}
 
 	protected abstract ItemStackHandler createInventoryItemHandler();
