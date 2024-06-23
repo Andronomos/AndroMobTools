@@ -1,6 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.ExperienceAttractor.ExperienceAttractorBlockEntity;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlockEntity;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlockEntity;
 import andronomos.androtech.block.mobkiller.MobKillerBlockEntity;
@@ -37,5 +38,10 @@ public class BlockEntityRegistry {
 	public static final RegistryObject<BlockEntityType<MobRepulsorBlockEntity>> MOB_REPULSOR_BE = BLOCK_ENTITIES
 			.register("mob_repulsor_be", () -> BlockEntityType.Builder
 					.of(MobRepulsorBlockEntity::new, BlockRegistry.MOB_REPULSOR.get())
+					.build(null));
+
+	public static final RegistryObject<BlockEntityType<ExperienceAttractorBlockEntity>> EXPERIENCE_ATTRACTOR_BE = BLOCK_ENTITIES
+			.register("experience_attractor_be", () -> BlockEntityType.Builder
+					.of(ExperienceAttractorBlockEntity::new, BlockRegistry.EXPERIENCE_ATTRACTOR.get())
 					.build(null));
 }
