@@ -1,6 +1,5 @@
 package andronomos.androtech.util;
 
-import andronomos.androtech.AndroTech;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.AABB;

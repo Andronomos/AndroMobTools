@@ -28,7 +28,6 @@ public class PoweredStateSyncPacket {
 	public static void handle(PoweredStateSyncPacket msg, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
 			Level level = Objects.requireNonNull(ctx.get().getSender()).level();
-			if(level == null) return;
 			BlockState state = level.getBlockState(msg.pos);
 			level.setBlockAndUpdate(msg.pos, state.cycle(BlockStateProperties.POWERED));
 		});
