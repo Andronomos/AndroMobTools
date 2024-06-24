@@ -46,7 +46,7 @@ public class MobKillerBlockEntity extends BaseBlockEntity implements MenuProvide
 	}
 
 	@Override
-	protected ItemStackHandler createInventoryItemHandler() {
+	public ItemStackHandler createInventoryItemHandler() {
 		return new ItemStackHandler(MobKillerBlock.SLOTS) {
 			@Override
 			protected void onContentsChanged(int slot) {

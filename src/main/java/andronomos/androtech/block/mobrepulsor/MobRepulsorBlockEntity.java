@@ -42,7 +42,7 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 	}
 
 	@Override
-	protected ItemStackHandler createInventoryItemHandler() {
+	public ItemStackHandler createInventoryItemHandler() {
 		return new ItemStackHandler(MobRepulsorBlock.SLOTS) {
 			@Override
 			protected void onContentsChanged(int slot) {

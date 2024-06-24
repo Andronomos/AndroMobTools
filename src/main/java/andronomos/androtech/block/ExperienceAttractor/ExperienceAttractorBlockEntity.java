@@ -70,7 +70,7 @@ public class ExperienceAttractorBlockEntity extends BaseBlockEntity implements M
 	}
 
 	@Override
-	protected ItemStackHandler createInventoryItemHandler() {
+	public ItemStackHandler createInventoryItemHandler() {
 		return null;
 	}
 

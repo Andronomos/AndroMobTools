@@ -23,7 +23,7 @@ public class ItemIncineratorBlockEntity extends BaseBlockEntity implements MenuP
     }
 
     @Nonnull
-    protected ItemStackHandler createInventoryItemHandler() {
+    public ItemStackHandler createInventoryItemHandler() {
         return new ItemStackHandler(ItemIncineratorBlock.SLOTS) {
             @Nonnull
             @Override

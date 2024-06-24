@@ -19,6 +19,7 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -33,7 +34,7 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 	}
 
 	@Nonnull
-	protected ItemStackHandler createInventoryItemHandler() {
+	public ItemStackHandler createInventoryItemHandler() {
 		return new ItemStackHandler(Constants.VANILLA_INVENTORY_SLOT_COUNT) {
 			@Override
 			protected void onContentsChanged(int slot) {

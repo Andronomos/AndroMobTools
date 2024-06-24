@@ -28,7 +28,7 @@ public class RedstoneSignalTransmitterBlockEntity extends BaseBlockEntity implem
 	}
 
 	@Override
-	protected ItemStackHandler createInventoryItemHandler() {
+	public ItemStackHandler createInventoryItemHandler() {
 		return new ItemStackHandler(RedstoneSignalTransmitterBlock.SLOTS) {
 			@Override
 			protected void onContentsChanged(int slot) {
