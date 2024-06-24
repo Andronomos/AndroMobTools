@@ -42,8 +42,8 @@ public class ExperienceAttractorScreen extends BaseScreen<ExperienceAttractorMen
 	}
 
 	@Override
-	protected void renderLabels(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		super.renderLabels(guiGraphics, mouseX, mouseY);
+	protected void renderLabels(@NotNull GuiGraphics graphics, int mouseX, int mouseY) {
+		super.renderLabels(graphics, mouseX, mouseY);
 		powerButton.update();
 		overlayButton.update(entity.showRenderBox);
 		int x = (width - imageWidth) / 2;
