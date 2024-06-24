@@ -38,7 +38,7 @@ public class ExperienceAttractorScreen extends BaseScreen<ExperienceAttractorMen
 			AndroTechPacketHandler.sendToServer(new ExperienceAttractorOverlaySyncPacket(entity.getBlockPos()));
 			entity.showRenderBox = !entity.showRenderBox;
 		}));
-		fluidRenderer = new FluidTankRenderer(64000, 124, 51);
+		setFluidRenderer(new FluidTankRenderer(64000, 124, 51));
 	}
 
 	@Override
@@ -46,19 +46,13 @@ public class ExperienceAttractorScreen extends BaseScreen<ExperienceAttractorMen
 		super.renderLabels(graphics, mouseX, mouseY);
 		powerButton.update();
 		overlayButton.update(entity.showRenderBox);
-		int x = (width - imageWidth) / 2;
-		int y = (height - imageHeight) / 2;
-		renderFluidAreaTooltips(guiGraphics, mouseX, mouseY, x, y);
+		renderFluidTooltips(graphics, mouseX, mouseY, 8, 19, entity.getFluidStack());
 	}
 
 	@Override
 	protected void renderBg(@NotNull GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
 		drawBackground(guiGraphics, new ResourceLocation(AndroTech.MODID, "textures/gui/experience_attractor.png"));
-		int x = (this.width - this.imageWidth) / 2;
-		int y = (this.height - this.imageHeight) / 2;
-		ExperienceAttractorBlockEntity entity = (ExperienceAttractorBlockEntity)menu.blockEntity;
-		FluidStack fluidStack = entity.getFluidStack();
-		fluidRenderer.render(guiGraphics.pose(), x + 8, y + 19, fluidStack);
+		renderFluid(guiGraphics, 8, 19, entity.getFluidStack());
 	}
 
 	private void renderFluidAreaTooltips(GuiGraphics graphics, int pMouseX, int pMouseY, int x, int y) {
