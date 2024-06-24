@@ -10,7 +10,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
@@ -147,7 +146,7 @@ public class FluidTankRenderer {
 		tessellator.end();
 	}
 
-	public List<Component> getTooltip(FluidStack fluidStack, TooltipFlag tooltipFlag) {
+	public List<Component> getTooltip(FluidStack fluidStack, String tooltipKey) {
 		List<Component> tooltip = new ArrayList<>();
 		Fluid fluidType = fluidStack.getFluid();
 
@@ -161,7 +160,7 @@ public class FluidTankRenderer {
 		long amount = fluidStack.getAmount();
 		long milliBuckets = (amount * 1000) / FluidType.BUCKET_VOLUME;
 
-		MutableComponent amountString = Component.translatable(ExperienceAttractorBlock.AMOUNT_TOOLTIP, nf.format(milliBuckets), nf.format(capacity));
+		MutableComponent amountString = Component.translatable(tooltipKey, nf.format(milliBuckets), nf.format(capacity));
 		tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
 
 		return tooltip;

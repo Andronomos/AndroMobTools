@@ -81,7 +81,7 @@ public abstract class BaseScreen<T extends AbstractContainerMenu> extends Abstra
 		}
 	}
 
-	protected void renderFluidTooltips(GuiGraphics graphics, int mouseX, int mouseY, int offsetX, int offsetY, FluidStack fluidStack) {
+	protected void renderFluidTooltips(GuiGraphics graphics, int mouseX, int mouseY, int offsetX, int offsetY, FluidStack fluidStack, String tooltipKey) {
 		if(fluidRenderer == null) {
 			return;
 		}
@@ -90,7 +90,7 @@ public abstract class BaseScreen<T extends AbstractContainerMenu> extends Abstra
 		int y = (height - imageHeight) / 2;
 
 		if(isMouseAboveArea(mouseX, mouseY, x, y, offsetX, offsetY)) {
-			graphics.renderTooltip(this.font, fluidRenderer.getTooltip(fluidStack, TooltipFlag.Default.NORMAL), Optional.empty(), mouseX - x, mouseY - y);
+			graphics.renderTooltip(this.font, fluidRenderer.getTooltip(fluidStack, tooltipKey), Optional.empty(), mouseX - x, mouseY - y);
 		}
 	}
 

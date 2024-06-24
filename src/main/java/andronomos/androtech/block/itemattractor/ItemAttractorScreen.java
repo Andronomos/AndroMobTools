@@ -43,7 +43,7 @@ public class ItemAttractorScreen extends BaseScreen<ItemAttractorMenu> {
 		super.renderLabels(graphics, mouseX, mouseY);
 		powerButton.update();
 		overlayButton.update(entity.showRenderBox);
-		renderFluidTooltips(graphics, mouseX, mouseY, X_OFFSET, Y_OFFSET, entity.getFluidStack());
+		renderFluidTooltips(graphics, mouseX, mouseY, X_OFFSET, Y_OFFSET, entity.getFluidStack(), ItemAttractorBlock.TOOLTIP);
 	}
 
 	@Override
