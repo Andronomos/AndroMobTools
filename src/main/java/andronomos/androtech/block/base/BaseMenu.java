@@ -115,18 +115,16 @@ public abstract class BaseMenu extends AbstractContainerMenu {
 	}
 
 	protected void addInventory(IItemHandler handler) {
-		for (int y = 0; y < 3; y++) {
-			for(int x = 0; x < 9; x++) {
-				addSlot(new SlotItemHandler(handler, x + y * 9,
-						Constants.MENU_SLOT_X_OFFSET + x * Constants.SCREEN_SLOT_SIZE,
-						Constants.SCREEN_SLOT_SIZE + y * Constants.SCREEN_SLOT_SIZE));
-			}
-		}
+		this.addInventory(handler,3, 9);
 	}
 
 	protected void addLargeInventory(IItemHandler handler) {
-		for (int y = 0; y < 6; y++) {
-			for(int x = 0; x < 9; x++) {
+		this.addInventory(handler,6, 9);
+	}
+
+	protected void addInventory(IItemHandler handler, int rows, int columns) {
+		for (int y = 0; y < rows; y++) {
+			for(int x = 0; x < columns; x++) {
 				addSlot(new SlotItemHandler(handler, x + y * 9,
 						Constants.MENU_SLOT_X_OFFSET + x * Constants.SCREEN_SLOT_SIZE,
 						Constants.SCREEN_SLOT_SIZE + y * Constants.SCREEN_SLOT_SIZE));
