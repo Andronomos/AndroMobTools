@@ -3,6 +3,7 @@ package andronomos.androtech.block.itemattractor;
 import andronomos.androtech.Constants;
 import andronomos.androtech.block.base.BaseBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
+import andronomos.androtech.registry.FluidRegistry;
 import andronomos.androtech.util.InventoryHelper;
 import andronomos.androtech.util.BoundingBoxHelper;
 import net.minecraft.core.BlockPos;
@@ -11,6 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -19,6 +21,8 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -47,6 +51,21 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 	}
 
 	@Override
+	public FluidTank createFluidHandler() {
+		return new FluidTank(1000 * 16) {
+			@Override
+			protected void onContentsChanged() {
+				setChanged();
+			}
+
+			@Override
+			public boolean isFluidValid(FluidStack stack) {
+				return stack.getFluid() == FluidRegistry.LIQUID_XP.get();
+			}
+		};
+	}
+
+	@Override
 	public AABB getWorkArea() {
 		return BoundingBoxHelper.nineByNineByNineBoxFromCenter(getBlockPos());
 	}
@@ -66,17 +85,27 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity entity) {
 		if(!state.getValue(POWERED)) return;
 
-		if (level.getGameTime() % 10 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof ItemAttractorBlock) {
-			setChanged(level, pos, state);
+		if (level.getGameTime() % 3 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof ItemAttractorBlock) {
 			if(!InventoryHelper.isFull(itemHandler)) {
 				captureDroppedItems();
 			}
-			//deleteCapturedXp();
+
+			prevTankAmount = fluidHandler.getFluidAmount();
+
+			if(fluidHandler.isEmpty() || fluidHandler.getFluid().containsFluid(new FluidStack(FluidRegistry.LIQUID_XP.get(), 1))) {
+				CaptureExperience();
+			}
+
+			if(prevTankAmount != fluidHandler.getFluidAmount()) {
+				sendUpdate();
+			}
+
+			setChanged(level, pos, state);
 		}
 	}
 
 	private void captureDroppedItems() {
-		for(ItemEntity item : getCapturedItems()) {
+		for(ItemEntity item : getNearbyItems()) {
 			if(item == null)
 				return;
 
@@ -90,17 +119,23 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 		}
 	}
 
-	private List<ItemEntity> getCapturedItems() {
+	private void CaptureExperience() {
+		for(ExperienceOrb orb : getNearbyExperience()) {
+			int xpAmount = orb.getValue();
+
+			if(fluidHandler.getFluidAmount() < fluidHandler.getCapacity() - xpAmount * 20) {
+				fluidHandler.fill(new FluidStack(FluidRegistry.LIQUID_XP.get(), xpAmount * 20), IFluidHandler.FluidAction.EXECUTE);
+				orb.value = 0;
+				orb.remove(Entity.RemovalReason.DISCARDED);
+			}
+		}
+	}
+
+	private List<ItemEntity> getNearbyItems() {
 		return Objects.requireNonNull(getLevel()).getEntitiesOfClass(ItemEntity.class, getWorkArea(), EntitySelector.ENTITY_STILL_ALIVE);
 	}
 
-	//private List<ExperienceOrb> getCapturedXP() {
-	//	return getLevel().getEntitiesOfClass(ExperienceOrb.class, getWorkArea(), EntitySelector.ENTITY_STILL_ALIVE);
-	//}
-
-	//private void deleteCapturedXp() {
-	//	for(ExperienceOrb orb : getCapturedXP()) {
-	//		orb.remove(Entity.RemovalReason.KILLED);
-	//	}
-	//}
+	private List<ExperienceOrb> getNearbyExperience() {
+		return Objects.requireNonNull(getLevel()).getEntitiesOfClass(ExperienceOrb.class, getWorkArea(), EntitySelector.ENTITY_STILL_ALIVE);
+	}
 }

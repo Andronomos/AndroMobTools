@@ -46,11 +46,11 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(MobKillerBlock.TOOLTIP, "Damages entities in-front of it");
 		add(ItemAttractorBlock.DISPLAY_NAME, "Item Attractor");
 		add(ItemAttractorBlock.TOOLTIP, "Vacuums up nearby items");
+		add(ItemAttractorBlock.AMOUNT_TOOLTIP, "%s / %s mB");
 		add(ItemIncineratorBlock.DISPLAY_NAME, "Item Incinerator");
 		add(ItemIncineratorBlock.TOOLTIP, "Destroys items placed inside it");
-		add(ExperienceAttractorBlock.DISPLAY_NAME, "Experience Attractor");
-		add(ExperienceAttractorBlock.TOOLTIP, "Vacuums up nearby experience orbs");
-		add(ExperienceAttractorBlock.AMOUNT_TOOLTIP, "%s / %s mB");
+		//add(ExperienceAttractorBlock.DISPLAY_NAME, "Experience Attractor");
+		//add(ExperienceAttractorBlock.TOOLTIP, "Vacuums up nearby experience orbs");
 		add(RedstoneSignalReceiverBlock.DISPLAY_NAME, "Redstone Signal Receiver");
 		add(RedstoneSignalReceiverBlock.TOOLTIP, "Emits a redstone signal when powered by a signal transmitter");
 		add(RedstoneSignalTransmitterBlock.DISPLAY_NAME, "Redstone Signal Transmitter");
