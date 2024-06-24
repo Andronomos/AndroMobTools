@@ -26,9 +26,11 @@ public class ItemAttractorMenu extends BaseMenu {
 		addPlayerInventory();
 		addPlayerHotbar();
 		if(entity instanceof ItemAttractorBlockEntity itemAttractorBlockEntity) {
-			itemAttractorBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(this::addInventory);
+			itemAttractorBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
+				addInventory(handler, 3, 7);
+			});
 		}
-		setSlotIndexes(Constants.VANILLA_INVENTORY_SLOT_COUNT);
+		setSlotIndexes(21);
 		addDataSlots(data);
 	}
 
