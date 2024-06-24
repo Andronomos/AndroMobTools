@@ -2,7 +2,6 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.MachineBlock;
-import andronomos.androtech.block.ExperienceAttractor.ExperienceAttractorBlock;
 import andronomos.androtech.block.TeleportInhibitorBlock;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
 import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
@@ -51,7 +50,6 @@ public class BlockRegistry {
 	public static final RegistryObject<MachineBlock> MOB_KILLER = registerBlock("mob_killer", () -> new MobKillerBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncineratorBlock(MACHINE_PROPERTIES));
-	public static final RegistryObject<MachineBlock> EXPERIENCE_ATTRACTOR = registerBlock("experience_attractor", () -> new ExperienceAttractorBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> TELEPORT_INHIBITOR = registerBlock("teleport_inhibitor", () -> new TeleportInhibitorBlock(MACHINE_PROPERTIES));

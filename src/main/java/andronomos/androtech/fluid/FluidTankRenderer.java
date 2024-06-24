@@ -1,8 +1,5 @@
 package andronomos.androtech.fluid;
 
-import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.ExperienceAttractor.ExperienceAttractorBlock;
-import andronomos.androtech.registry.FluidRegistry;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.ChatFormatting;

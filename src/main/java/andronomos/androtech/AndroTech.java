@@ -1,6 +1,5 @@
 package andronomos.androtech;
 
-import andronomos.androtech.block.ExperienceAttractor.ExperienceAttractorScreen;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorScreen;
 import andronomos.androtech.block.itemattractor.ItemAttractorScreen;
 import andronomos.androtech.block.mobkiller.MobKillerScreen;
@@ -57,7 +56,6 @@ public class AndroTech {
 			MenuScreens.register(MenuTypeRegistry.ITEM_INCINERATOR_MENU.get(), ItemIncineratorScreen::new);
 			MenuScreens.register(MenuTypeRegistry.REDSTONE_SIGNAL_TRANSMITTER_MENU.get(), RedstoneSignalTransmitterScreen::new);
 			MenuScreens.register(MenuTypeRegistry.MOB_REPULSOR_MENU.get(), MobRepulsorScreen::new);
-			MenuScreens.register(MenuTypeRegistry.EXPERIENCE_ATTRACTOR_MENU.get(), ExperienceAttractorScreen::new);
 			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP_FLOWING.get(), RenderType.translucent());
 			PropertyOverrideRegistry.register();
