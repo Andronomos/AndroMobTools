@@ -38,8 +38,8 @@ import java.util.Objects;
 
 public class MobKillerBlockEntity extends BaseBlockEntity implements MenuProvider {
 	public boolean showRenderBox;
-	float xPos, yPos, zPos;
-	float xNeg, yNeg, zNeg;
+	private float xPos, yPos, zPos;
+	private float xNeg, yNeg, zNeg;
 
 	public MobKillerBlockEntity(BlockPos pos, BlockState state) {
 		super(BlockEntityRegistry.MOB_KILLER_BE.get(), pos, state, new SimpleContainerData(MobKillerBlock.SLOTS));

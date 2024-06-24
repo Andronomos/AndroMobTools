@@ -37,8 +37,8 @@ import java.util.Objects;
 
 public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuProvider {
 	public boolean showRenderBox;
-	float xPos, yPos, zPos;
-	float xNeg, yNeg, zNeg;
+	private float xPos, yPos, zPos;
+	private float xNeg, yNeg, zNeg;
 
 	public ItemAttractorBlockEntity(BlockPos pos, BlockState state) {
 		super(BlockEntityRegistry.ITEM_ATTRACTOR_BE.get(), pos, state, new SimpleContainerData(ItemAttractorBlock.SLOTS));
