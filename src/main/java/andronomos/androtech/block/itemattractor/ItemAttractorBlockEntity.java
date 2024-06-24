@@ -7,6 +7,7 @@ import andronomos.androtech.registry.FluidRegistry;
 import andronomos.androtech.util.InventoryHelper;
 import andronomos.androtech.util.BoundingBoxHelper;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.MenuProvider;
@@ -21,6 +22,8 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
@@ -33,8 +36,53 @@ import java.util.List;
 import java.util.Objects;
 
 public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuProvider {
+	public boolean showRenderBox;
+	float xPos, yPos, zPos;
+	float xNeg, yNeg, zNeg;
+
 	public ItemAttractorBlockEntity(BlockPos pos, BlockState state) {
 		super(BlockEntityRegistry.ITEM_ATTRACTOR_BE.get(), pos, state, new SimpleContainerData(ItemAttractorBlock.SLOTS));
+	}
+
+	@Override
+	public void onLoad() {
+		setAABBWithModifiers();
+		super.onLoad();
+	}
+
+	@Override
+	protected void saveAdditional(@NotNull CompoundTag tag) {
+		tag.putBoolean("showRenderBox", showRenderBox);
+		tag.putFloat("xPos", xPos);
+		tag.putFloat("yPos", yPos);
+		tag.putFloat("zPos", zPos);
+		tag.putFloat("xNeg", xNeg);
+		tag.putFloat("yNeg", yNeg);
+		tag.putFloat("zNeg", zNeg);
+		super.saveAdditional(tag);
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	public AABB getAABBForRender() {
+		return new AABB(- xNeg, - yNeg, - zNeg, 1D + xPos, 1D + yPos, 1D + zPos);
+	}
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public AABB getRenderBoundingBox() {
+		return getWorkArea();
+	}
+
+	@Override
+	public void load(@NotNull CompoundTag tag) {
+		showRenderBox = tag.getBoolean("showRenderBox");
+		xPos = tag.getFloat("xPos");
+		yPos = tag.getFloat("yPos");
+		zPos = tag.getFloat("zPos");
+		xNeg = tag.getFloat("xNeg");
+		yNeg = tag.getFloat("yNeg");
+		zNeg = tag.getFloat("zNeg");
+		super.load(tag);
 	}
 
 	@Nonnull
@@ -137,5 +185,19 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 
 	private List<ExperienceOrb> getNearbyExperience() {
 		return Objects.requireNonNull(getLevel()).getEntitiesOfClass(ExperienceOrb.class, getWorkArea(), EntitySelector.ENTITY_STILL_ALIVE);
+	}
+
+	public void toggleRenderBox() {
+		showRenderBox = !showRenderBox;
+		setChanged();
+	}
+
+	private void setAABBWithModifiers() {
+		yPos = 4;
+		yNeg = -1;
+		xPos = 4;
+		xNeg = 4;
+		zPos = 4;
+		zNeg = 4;
 	}
 }
