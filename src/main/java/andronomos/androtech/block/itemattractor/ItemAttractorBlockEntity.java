@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuProvider {
+	private static int RANGE = AndroTechConfig.ITEM_ATTRACTOR_RANGE.get();
 	public boolean showRenderBox;
 	private float xPos, yPos, zPos;
 	private float xNeg, yNeg, zNeg;
@@ -46,7 +47,12 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 
 	@Override
 	public void onLoad() {
-		setAABBWithModifiers();
+		xPos = RANGE;
+		xNeg = RANGE;
+		yPos = RANGE;
+		yNeg = RANGE;
+		zPos = RANGE;
+		zNeg = RANGE;
 		super.onLoad();
 	}
 
