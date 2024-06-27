@@ -6,7 +6,6 @@ import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.FluidRegistry;
 import andronomos.androtech.util.InventoryHelper;
-import andronomos.androtech.util.BoundingBoxHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
