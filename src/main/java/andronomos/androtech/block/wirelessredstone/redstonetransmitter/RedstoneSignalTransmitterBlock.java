@@ -1,15 +1,20 @@
 package andronomos.androtech.block.wirelessredstone.redstonetransmitter;
 
 import andronomos.androtech.block.base.MachineBlock;
+import andronomos.androtech.network.AndroTechPacketHandler;
+import andronomos.androtech.network.packet.PoweredStateSyncPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -47,5 +52,17 @@ public class RedstoneSignalTransmitterBlock extends MachineBlock {
 				if(blockEntity instanceof RedstoneSignalTransmitterBlockEntity transmitterBlockEntity) transmitterBlockEntity.serverTick((ServerLevel) level2, pos, state2, transmitterBlockEntity);
 			}
 		};
+	}
+
+	@Override
+	public @NotNull InteractionResult use(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult result) {
+		if(!level.isClientSide) {
+			if(player.isCrouching()) {
+				AndroTechPacketHandler.sendToServer(new PoweredStateSyncPacket(pos));
+			} else {
+				OpenScreen(level, pos, player);
+			}
+		}
+		return InteractionResult.CONSUME;
 	}
 }
