@@ -74,6 +74,11 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 	}
 
 	@Override
+	public AABB getWorkArea() {
+		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
+	}
+
+	@Override
 	public void load(@NotNull CompoundTag tag) {
 		showRenderBox = tag.getBoolean("showRenderBox");
 		xPos = tag.getFloat("xPos");
