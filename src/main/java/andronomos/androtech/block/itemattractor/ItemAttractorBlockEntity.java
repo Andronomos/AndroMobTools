@@ -2,6 +2,7 @@ package andronomos.androtech.block.itemattractor;
 
 import andronomos.androtech.Constants;
 import andronomos.androtech.block.base.BaseBlockEntity;
+import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.FluidRegistry;
 import andronomos.androtech.util.InventoryHelper;
@@ -125,11 +126,6 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 	}
 
 	@Override
-	public AABB getWorkArea() {
-		return BoundingBoxHelper.nineByNineByNineBoxFromCenter(getBlockPos());
-	}
-
-	@Override
 	public @NotNull Component getDisplayName() {
 		return Component.translatable(ItemAttractorBlock.DISPLAY_NAME);
 	}
@@ -201,14 +197,5 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 	public void toggleRenderBox() {
 		showRenderBox = !showRenderBox;
 		setChanged();
-	}
-
-	private void setAABBWithModifiers() {
-		yPos = 4;
-		yNeg = -1;
-		xPos = 4;
-		xNeg = 4;
-		zPos = 4;
-		zNeg = 4;
 	}
 }
