@@ -1,6 +1,6 @@
 {
   "block.androtech.item_attractor": "Item Attractor",
-  "block.androtech.item_attractor.tooltip": "Vacuums up nearby items",
+  "block.androtech.item_attractor.tooltip": "Vacuums up nearby items and experience",
   "block.androtech.item_incinerator": "Item Incinerator",
   "block.androtech.item_incinerator.tooltip": "Destroys items placed inside it",
   "block.androtech.liquid_xp_block": "Liquid Xp Block",

@@ -44,7 +44,7 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(MobKillerBlock.DISPLAY_NAME, "Mob Killer");
 		add(MobKillerBlock.TOOLTIP, "Damages entities in-front of it");
 		add(ItemAttractorBlock.DISPLAY_NAME, "Item Attractor");
-		add(ItemAttractorBlock.TOOLTIP, "Vacuums up nearby items");
+		add(ItemAttractorBlock.TOOLTIP, "Vacuums up nearby items and experience");
 		add(ItemAttractorBlock.AMOUNT_TOOLTIP, "%s / %s mB");
 		add(ItemIncineratorBlock.DISPLAY_NAME, "Item Incinerator");
 		add(ItemIncineratorBlock.TOOLTIP, "Destroys items placed inside it");
