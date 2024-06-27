@@ -54,10 +54,10 @@ public class AndroTechPacketHandler {
 				.consumerMainThread(MobKillerOverlaySyncPacket::handle)
 				.add();
 
-		net.messageBuilder(ItemAttractorOverlaySyncPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
-				.decoder(ItemAttractorOverlaySyncPacket::decode)
-				.encoder(ItemAttractorOverlaySyncPacket::encode)
-				.consumerMainThread(ItemAttractorOverlaySyncPacket::handle)
+		net.messageBuilder(EntityVacuumOverlaySyncPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(EntityVacuumOverlaySyncPacket::decode)
+				.encoder(EntityVacuumOverlaySyncPacket::encode)
+				.consumerMainThread(EntityVacuumOverlaySyncPacket::handle)
 				.add();
 
 		//net.messageBuilder(SyncMachineEnergy.class, id(), NetworkDirection.PLAY_TO_CLIENT)

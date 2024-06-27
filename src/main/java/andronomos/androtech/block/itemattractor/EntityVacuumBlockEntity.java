@@ -35,14 +35,14 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Objects;
 
-public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuProvider {
-	private static int RANGE = AndroTechConfig.ITEM_ATTRACTOR_RANGE.get();
+public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProvider {
+	private static int RANGE = AndroTechConfig.ENTITY_VACUUM_RANGE.get();
 	public boolean showRenderBox;
 	private float xPos, yPos, zPos;
 	private float xNeg, yNeg, zNeg;
 
-	public ItemAttractorBlockEntity(BlockPos pos, BlockState state) {
-		super(BlockEntityRegistry.ITEM_ATTRACTOR_BE.get(), pos, state, new SimpleContainerData(ItemAttractorBlock.SLOTS));
+	public EntityVacuumBlockEntity(BlockPos pos, BlockState state) {
+		super(BlockEntityRegistry.ENTITY_VACUUM_BE.get(), pos, state, new SimpleContainerData(EntityVacuumBlock.SLOTS));
 	}
 
 	@Override
@@ -126,20 +126,20 @@ public class ItemAttractorBlockEntity extends BaseBlockEntity implements MenuPro
 
 	@Override
 	public @NotNull Component getDisplayName() {
-		return Component.translatable(ItemAttractorBlock.DISPLAY_NAME);
+		return Component.translatable(EntityVacuumBlock.DISPLAY_NAME);
 	}
 
 	@Nullable
 	@Override
 	public AbstractContainerMenu createMenu(int containerId, @NotNull Inventory playerInventory, @NotNull Player player) {
-		return new ItemAttractorMenu(containerId, playerInventory, this, this.data);
+		return new EntityVacuumMenu(containerId, playerInventory, this, this.data);
 	}
 
 	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity entity) {
 		if(!state.getValue(POWERED)) return;
 
-		if (level.getGameTime() % 3 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof ItemAttractorBlock) {
+		if (level.getGameTime() % 3 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof EntityVacuumBlock) {
 			if(!InventoryHelper.isFull(itemHandler)) {
 				captureDroppedItems();
 			}

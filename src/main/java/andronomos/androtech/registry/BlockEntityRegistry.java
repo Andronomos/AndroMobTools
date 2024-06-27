@@ -2,7 +2,7 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlockEntity;
-import andronomos.androtech.block.itemattractor.ItemAttractorBlockEntity;
+import andronomos.androtech.block.itemattractor.EntityVacuumBlockEntity;
 import andronomos.androtech.block.mobkiller.MobKillerBlockEntity;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlockEntity;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlockEntity;
@@ -19,9 +19,9 @@ public class BlockEntityRegistry {
 			.of(MobKillerBlockEntity::new, BlockRegistry.MOB_KILLER.get())
 			.build(null));
 
-	public static final RegistryObject<BlockEntityType<ItemAttractorBlockEntity>> ITEM_ATTRACTOR_BE = BLOCK_ENTITIES
-			.register("item_attractor_be", () -> BlockEntityType.Builder
-					.of(ItemAttractorBlockEntity::new, BlockRegistry.ITEM_ATTRACTOR.get())
+	public static final RegistryObject<BlockEntityType<EntityVacuumBlockEntity>> ENTITY_VACUUM_BE = BLOCK_ENTITIES
+			.register("entity_vacuum_be", () -> BlockEntityType.Builder
+					.of(EntityVacuumBlockEntity::new, BlockRegistry.ENTITY_VACUUM.get())
 					.build(null));
 
 	public static final RegistryObject<BlockEntityType<RedstoneSignalTransmitterBlockEntity>> REDSTONE_SIGNAL_TRANSMITTER_BE = BLOCK_ENTITIES

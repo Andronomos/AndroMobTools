@@ -1,5 +1,5 @@
-// 1.20.1	2024-06-24T01:30:30.2956738	Loot Tables
-35faf206fc7411f6391bef35182e77854308529b data/androtech/loot_tables/blocks/item_attractor.json
+// 1.20.1	2024-06-27T09:26:06.9337775	Loot Tables
+afb9188deb9e40b56f57c01ff6303090e12468dd data/androtech/loot_tables/blocks/entity_vacuum.json
 540858b6191906ea602f252c753db1f60164adf4 data/androtech/loot_tables/blocks/item_incinerator.json
 136d1bd0f0efef3f9abde4f2267af3b82e07a001 data/androtech/loot_tables/blocks/liquid_xp_block.json
 5bc529d4c990baf3608611626beb3cdc1468c5d1 data/androtech/loot_tables/blocks/mob_killer.json

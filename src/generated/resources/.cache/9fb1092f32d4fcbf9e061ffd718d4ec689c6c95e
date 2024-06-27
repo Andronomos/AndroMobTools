@@ -1,12 +1,12 @@
-// 1.20.1	2024-04-20T14:41:42.4188637	Recipes
+// 1.20.1	2024-06-27T09:26:06.9347835	Recipes
 21f931524e06c577cb0725c109894bea8cdc40ce data/androtech/advancements/recipes/misc/advanced_chip.json
 8452d868daf6f9daaf3ad3985ff247c05281f193 data/androtech/advancements/recipes/misc/basic_chip.json
 a0275f817c0596b5638ec51f25715320e97d8c32 data/androtech/advancements/recipes/misc/elite_chip.json
+7547076f3c44d88ad49c25fe1d821d206974b6d0 data/androtech/advancements/recipes/misc/entity_vacuum.json
 8ac6d7ab6434dfda1bc735f063823d7c776def77 data/androtech/advancements/recipes/misc/fire_augment.json
 e702e07717db681b7465614ac86ebdda30c827f3 data/androtech/advancements/recipes/misc/fluid_evaporator.json
 96bdccffd627df4c5629335a4c4400b742fb2a58 data/androtech/advancements/recipes/misc/gps_recorder.json
 41cddfb16f3c5162dd173b398b994c821a40a7e1 data/androtech/advancements/recipes/misc/item_attraction_emitter.json
-9fc2974f8bb1c69c310535ca90f39a079692d184 data/androtech/advancements/recipes/misc/item_attractor.json
 e9465447575007af00708295b33de9f69748f490 data/androtech/advancements/recipes/misc/item_incinerator.json
 e1e5e5f449b5564a248de72d327dba416efdbf9a data/androtech/advancements/recipes/misc/looting_augment.json
 61e69659fe584f1a4a18bc4393176d7005522102 data/androtech/advancements/recipes/misc/mob_killer.json
@@ -25,11 +25,11 @@ fc46674ae9e351fcdfcacc4aea8672b34828ca93 data/androtech/advancements/recipes/mis
 76a70f30dafb5e62721e71630730715fae6bacbb data/androtech/recipes/advanced_chip.json
 d1f544d9d5a23da35c56967e810053fda761254e data/androtech/recipes/basic_chip.json
 4e446d5f69221f282d707bd70d40f515c9623fe9 data/androtech/recipes/elite_chip.json
+843ecb465acda697056766b64344d92aabaeddb6 data/androtech/recipes/entity_vacuum.json
 a853248f1d4fadad572adf941eea2bf08c521f14 data/androtech/recipes/fire_augment.json
 8a8598584c6a9b036f2b21f1cfc04e2ff8681bdd data/androtech/recipes/fluid_evaporator.json
 38bc6499732b0e0f44deb207562ed51b66566a0f data/androtech/recipes/gps_recorder.json
 873ecb12550f4c0c12f7d112b0bdae32b39de599 data/androtech/recipes/item_attraction_emitter.json
-e58f101367306c3346132714dda0402e3fa7e627 data/androtech/recipes/item_attractor.json
 9e0ad9dc10aa9a888359bf1f4f8b62f15d1c3c78 data/androtech/recipes/item_incinerator.json
 82ce643b8ce6c0c7beef0643c317baa0bf7686cf data/androtech/recipes/looting_augment.json
 bcb2117fd9fafff16bd602f494b97b27f97f9694 data/androtech/recipes/mob_killer.json

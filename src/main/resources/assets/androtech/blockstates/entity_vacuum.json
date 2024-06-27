@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "androtech:block/entity_vacuum_off"
+    },
+    "powered=true": {
+      "model": "androtech:block/entity_vacuum_on"
+    }
+  }
+}

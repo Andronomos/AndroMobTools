@@ -14,27 +14,27 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class ItemAttractorBlock extends MachineBlock {
+public class EntityVacuumBlock extends MachineBlock {
 	public static final int SLOTS = 21;
-	public static final String DISPLAY_NAME = "screen.androtech.item_attractor";
-	public static final String TOOLTIP = "block.androtech.item_attractor.tooltip";
-	public static final String AMOUNT_TOOLTIP = "screen.androtech.item_attractor.tooltip.liquid.amount";
+	public static final String DISPLAY_NAME = "screen.androtech.entity_vacuum";
+	public static final String TOOLTIP = "block.androtech.entity_vacuum.tooltip";
+	public static final String AMOUNT_TOOLTIP = "screen.androtech.entity_vacuum.tooltip.liquid.amount";
 
-	public ItemAttractorBlock(Properties properties) {
+	public EntityVacuumBlock(Properties properties) {
 		super(properties);
 	}
 
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-		return new ItemAttractorBlockEntity(pos, state);
+		return new EntityVacuumBlockEntity(pos, state);
 	}
 
 	@Override
 	public void OpenScreen(Level level, BlockPos pos, Player player) {
 		BlockEntity entity = level.getBlockEntity(pos);
-		if(entity instanceof ItemAttractorBlockEntity itemAttractorBlockEntity) {
-			NetworkHooks.openScreen((ServerPlayer) player, itemAttractorBlockEntity, entity.getBlockPos());
+		if(entity instanceof EntityVacuumBlockEntity entityVacuumBlockEntity) {
+			NetworkHooks.openScreen((ServerPlayer) player, entityVacuumBlockEntity, entity.getBlockPos());
 		} else {
 			throw new IllegalStateException("Missing container provider");
 		}
@@ -45,7 +45,7 @@ public class ItemAttractorBlock extends MachineBlock {
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
 		return (level2, pos, state2, blockEntity) -> {
 			if(!level.isClientSide()) {
-				if(blockEntity instanceof ItemAttractorBlockEntity itemAttractor) itemAttractor.serverTick((ServerLevel) level2, pos, state2, itemAttractor);
+				if(blockEntity instanceof EntityVacuumBlockEntity itemAttractor) itemAttractor.serverTick((ServerLevel) level2, pos, state2, itemAttractor);
 			}
 		};
 	}

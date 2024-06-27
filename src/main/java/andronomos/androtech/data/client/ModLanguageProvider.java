@@ -2,8 +2,8 @@ package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.TeleportInhibitorBlock;
+import andronomos.androtech.block.itemattractor.EntityVacuumBlock;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
-import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
@@ -43,9 +43,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
 		add(MobKillerBlock.DISPLAY_NAME, "Mob Killer");
 		add(MobKillerBlock.TOOLTIP, "Damages entities in-front of it");
-		add(ItemAttractorBlock.DISPLAY_NAME, "Item Attractor");
-		add(ItemAttractorBlock.TOOLTIP, "Vacuums up nearby items and experience");
-		add(ItemAttractorBlock.AMOUNT_TOOLTIP, "%s / %s mB");
+		add(EntityVacuumBlock.DISPLAY_NAME, "Entity Vacuum");
+		add(EntityVacuumBlock.TOOLTIP, "Vacuums up nearby items and experience");
+		add(EntityVacuumBlock.AMOUNT_TOOLTIP, "%s / %s mB");
 		add(ItemIncineratorBlock.DISPLAY_NAME, "Item Incinerator");
 		add(ItemIncineratorBlock.TOOLTIP, "Destroys items placed inside it");
 		add(RedstoneSignalReceiverBlock.DISPLAY_NAME, "Redstone Signal Receiver");

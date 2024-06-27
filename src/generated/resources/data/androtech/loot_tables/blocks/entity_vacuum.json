@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "androtech:item_attractor"
+          "name": "androtech:entity_vacuum"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "androtech:blocks/item_attractor"
+  "random_sequence": "androtech:blocks/entity_vacuum"
 }

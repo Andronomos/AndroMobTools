@@ -3,8 +3,8 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.MachineBlock;
 import andronomos.androtech.block.TeleportInhibitorBlock;
+import andronomos.androtech.block.itemattractor.EntityVacuumBlock;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
-import andronomos.androtech.block.itemattractor.ItemAttractorBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.FlatMachineBlock;
 import andronomos.androtech.block.FlatMachineEffects;
@@ -48,7 +48,7 @@ public class BlockRegistry {
 			FlatMachineEffects.ACCELERATION_STRONG);
 
 	public static final RegistryObject<MachineBlock> MOB_KILLER = registerBlock("mob_killer", () -> new MobKillerBlock(MACHINE_PROPERTIES));
-	public static final RegistryObject<MachineBlock> ITEM_ATTRACTOR = registerBlock("item_attractor", () -> new ItemAttractorBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> ENTITY_VACUUM = registerBlock("entity_vacuum", () -> new EntityVacuumBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> ITEM_INCINERATOR = registerBlock("item_incinerator", () -> new ItemIncineratorBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));

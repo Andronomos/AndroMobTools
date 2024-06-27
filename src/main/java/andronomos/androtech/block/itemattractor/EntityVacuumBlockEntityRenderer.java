@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import org.jetbrains.annotations.NotNull;
 
-public class ItemAttractorBlockEntityRenderer implements BlockEntityRenderer<ItemAttractorBlockEntity> {
-	public ItemAttractorBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+public class EntityVacuumBlockEntityRenderer implements BlockEntityRenderer<EntityVacuumBlockEntity> {
+	public EntityVacuumBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 	}
 
 	@Override
-	public void render(@NotNull ItemAttractorBlockEntity entity, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int combinedLight, int combinedOverlay) {
+	public void render(@NotNull EntityVacuumBlockEntity entity, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int combinedLight, int combinedOverlay) {
 		if (entity == null || !entity.hasLevel()) {
 			return;
 		}

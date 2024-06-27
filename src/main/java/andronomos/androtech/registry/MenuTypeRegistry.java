@@ -1,8 +1,8 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
+import andronomos.androtech.block.itemattractor.EntityVacuumMenu;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorMenu;
-import andronomos.androtech.block.itemattractor.ItemAttractorMenu;
 import andronomos.androtech.block.mobkiller.MobKillerMenu;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorMenu;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterMenu;
@@ -18,7 +18,7 @@ public class MenuTypeRegistry {
 	public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, AndroTech.MODID);
 
 	public static final RegistryObject<MenuType<MobKillerMenu>> MOB_KILLER_MENU = register(MobKillerMenu::new, "mob_killer_menu");
-	public static final RegistryObject<MenuType<ItemAttractorMenu>> ITEM_ATTRACTOR_MENU = register(ItemAttractorMenu::new, "item_attractor_menu");
+	public static final RegistryObject<MenuType<EntityVacuumMenu>> ENTITY_VACUUM_MENU = register(EntityVacuumMenu::new, "entity_vacuum_menu");
 	public static final RegistryObject<MenuType<ItemIncineratorMenu>> ITEM_INCINERATOR_MENU = register(ItemIncineratorMenu::new, "item_incinerator_menu");
 	public static final RegistryObject<MenuType<RedstoneSignalTransmitterMenu>> REDSTONE_SIGNAL_TRANSMITTER_MENU = register(RedstoneSignalTransmitterMenu::new, "redstone_signal_transmitter_menu");
 	public static final RegistryObject<MenuType<MobRepulsorMenu>> MOB_REPULSOR_MENU = register(MobRepulsorMenu::new, "mob_repulsor_menu");

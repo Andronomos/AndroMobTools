@@ -65,7 +65,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 				.unlockedBy("has_item", has(Items.ENDER_PEARL))
 				.save(recipeConsumer);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.ITEM_ATTRACTOR.get(), 1)
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.ENTITY_VACUUM.get(), 1)
 				.define('1', Tags.Items.INGOTS_IRON)
 				.define('2', Items.ENDER_PEARL)
 				.define('3', Items.CHEST)

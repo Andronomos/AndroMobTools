@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "androtech:block/entity_vacuum_on_bottom",
+    "east": "androtech:block/entity_vacuum_on_side",
+    "north": "androtech:block/entity_vacuum_on_side",
+    "particle": "androtech:block/entity_vacuum_on_side",
+    "south": "androtech:block/entity_vacuum_on_side",
+    "up": "androtech:block/entity_vacuum_on_top",
+    "west": "androtech:block/entity_vacuum_on_side"
+  }
+}

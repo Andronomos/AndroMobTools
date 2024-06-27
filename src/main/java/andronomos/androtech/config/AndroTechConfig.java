@@ -9,7 +9,7 @@ import java.nio.file.Path;
 public class AndroTechConfig {
 	public static final ForgeConfigSpec CONFIG;
 
-	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_ATTRACTOR_RANGE;
+	public static ForgeConfigSpec.ConfigValue<Integer> ENTITY_VACUUM_RANGE;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> DEVICE_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Boolean> DEVICE_TAKE_DAMAGE;
@@ -42,8 +42,8 @@ public class AndroTechConfig {
 	}
 
 	public static void setupConfig(ForgeConfigSpec.Builder builder) {
-		builder.push("Item Attractor");
-		ITEM_ATTRACTOR_RANGE = builder.comment("Range").define("range", 4);
+		builder.push("Entity Vacuum");
+		ENTITY_VACUUM_RANGE = builder.comment("Range").define("range", 4);
 		builder.pop();
 
 

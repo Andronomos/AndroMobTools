@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "androtech:item_attractor"
+        "recipe": "androtech:entity_vacuum"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "androtech:item_attractor"
+      "androtech:entity_vacuum"
     ]
   },
   "sends_telemetry_event": false
