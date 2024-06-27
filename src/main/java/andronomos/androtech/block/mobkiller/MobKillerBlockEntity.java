@@ -92,6 +92,17 @@ public class MobKillerBlockEntity extends BaseBlockEntity implements MenuProvide
 	}
 
 	@Override
+	@OnlyIn(Dist.CLIENT)
+	public AABB getRenderBoundingBox() {
+		return getWorkArea();
+	}
+
+	@Override
+	protected AABB getWorkArea() {
+		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
+	}
+
+	@Override
 	public void load(@NotNull CompoundTag tag) {
 		super.load(tag);
 		showRenderBox = tag.getBoolean("showRenderBox");
@@ -152,7 +163,7 @@ public class MobKillerBlockEntity extends BaseBlockEntity implements MenuProvide
 			return;
 		}
 
-		List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, getAABB());
+		List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, getWorkArea());
 
 		for (LivingEntity entity : list) {
 			if (entity == null || entity.isCrouching()) {
@@ -179,10 +190,6 @@ public class MobKillerBlockEntity extends BaseBlockEntity implements MenuProvide
 			entity.setLastHurtByMob(null);
 			sword.setDamageValue(0);
 		}
-	}
-
-	public AABB getWorkArea() {
-		return BoundingBoxHelper.threeWideThreeTallFromTop(getBlockPos());
 	}
 
 	private void setAABB() {
@@ -249,10 +256,6 @@ public class MobKillerBlockEntity extends BaseBlockEntity implements MenuProvide
 		}
 
 		getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);
-	}
-
-	public AABB getAABB() {
-		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
 	}
 
 	private boolean hasSharpnessUpgrade() {

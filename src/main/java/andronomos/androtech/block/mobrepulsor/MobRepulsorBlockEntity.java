@@ -1,5 +1,6 @@
 package andronomos.androtech.block.mobrepulsor;
 
+import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
@@ -90,12 +91,16 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public AABB getRenderBoundingBox() {
+		return getWorkArea();
+	}
+
+	@Override
+	protected AABB getWorkArea() {
 		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
 	}
 
 	@Override
 	public void load(@NotNull CompoundTag tag) {
-		super.load(tag);
 		showRenderBox = tag.getBoolean("showRenderBox");
 		xPos = tag.getFloat("xPos");
 		yPos = tag.getFloat("yPos");
@@ -103,11 +108,11 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 		xNeg = tag.getFloat("xNeg");
 		yNeg = tag.getFloat("yNeg");
 		zNeg = tag.getFloat("zNeg");
+		super.load(tag);
 	}
 
 	@Override
 	protected void saveAdditional(@NotNull CompoundTag tag) {
-		super.saveAdditional(tag);
 		tag.putBoolean("showRenderBox", showRenderBox);
 		tag.putFloat("xPos", xPos);
 		tag.putFloat("yPos", yPos);
@@ -115,6 +120,7 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 		tag.putFloat("xNeg", xNeg);
 		tag.putFloat("yNeg", yNeg);
 		tag.putFloat("zNeg", zNeg);
+		super.saveAdditional(tag);
 	}
 
 	@Nonnull
@@ -184,7 +190,7 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 		}
 
 		Direction facing = state.getValue(MobRepulsorBlock.FACING);
-		List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, getAABBWithModifiers());
+		List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, getWorkArea());
 
 		for (Entity entity : list) {
 			if (entity != null) {
@@ -280,7 +286,4 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 		getLevel().sendBlockUpdated(getBlockPos(), state, state, 8);
 	}
 
-	public AABB getAABBWithModifiers() {
-		return new AABB(getBlockPos().getX() - xNeg, getBlockPos().getY() - yNeg, getBlockPos().getZ() - zNeg, getBlockPos().getX() + 1D + xPos, getBlockPos().getY() + 1D + yPos, getBlockPos().getZ() + 1D + zPos);
-	}
 }
