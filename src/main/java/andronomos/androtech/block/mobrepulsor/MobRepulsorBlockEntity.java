@@ -15,6 +15,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -190,23 +191,51 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 		}
 
 		Direction facing = state.getValue(MobRepulsorBlock.FACING);
-		List<LivingEntity> list = getLevel().getEntitiesOfClass(LivingEntity.class, getWorkArea());
+		List<LivingEntity> nearbyMobs = getLevel().getEntitiesOfClass(LivingEntity.class, getWorkArea());
+		List<ItemEntity> nearbyItems = getLevel().getEntitiesOfClass(ItemEntity.class, getWorkArea());
 
-		for (Entity entity : list) {
-			if (entity != null) {
-				if (entity instanceof LivingEntity) {
-					if (facing != Direction.UP && facing != Direction.DOWN) {
-						entity.push(Mth.sin(facing.getOpposite().toYRot() * 3.141593F / 180.0F) * 0.5D, 0D, -Mth.cos(facing.getOpposite().toYRot() * 3.141593F / 180.0F) * 0.5D);
-					} else if (facing == Direction.UP) {
-						float f = 0.125F;
-						Vec3 vec3d = entity.getDeltaMovement();
-						entity.setDeltaMovement(vec3d.x, f, vec3d.z);
-						entity.push(0D, 0.25D, 0D);
-						entity.fallDistance = 0;
-					} else {
-						entity.push(0D, -0.2D, 0D);
-					}
-				}
+		repulseEntities(nearbyMobs, facing);
+		repulseEntities(nearbyItems, facing);
+
+		//for (Entity entity : nearbyMobs) {
+		//	if (entity != null) {
+		//		if (entity instanceof LivingEntity) {
+		//			if (facing != Direction.UP && facing != Direction.DOWN) {
+		//				entity.push(Mth.sin(facing.getOpposite().toYRot() * 3.141593F / 180.0F) * 0.5D, 0D, -Mth.cos(facing.getOpposite().toYRot() * 3.141593F / 180.0F) * 0.5D);
+		//			} else if (facing == Direction.UP) {
+		//				float f = 0.125F;
+		//				Vec3 vec3d = entity.getDeltaMovement();
+		//				entity.setDeltaMovement(vec3d.x, f, vec3d.z);
+		//				entity.push(0D, 0.25D, 0D);
+		//				entity.fallDistance = 0;
+		//			} else {
+		//				entity.push(0D, -0.2D, 0D);
+		//			}
+		//		}
+		//	}
+		//}
+	}
+
+	private void repulseEntities(List<? extends Entity> entities, Direction facing) {
+		for (Entity entity : entities) {
+			if (entity == null) {
+				continue;
+			}
+
+			if(!(entity instanceof LivingEntity) && !(entity instanceof ItemEntity)) {
+				continue;
+			}
+
+			if (facing != Direction.UP && facing != Direction.DOWN) {
+				entity.push(Mth.sin(facing.getOpposite().toYRot() * 3.141593F / 180.0F) * 0.5D, 0D, -Mth.cos(facing.getOpposite().toYRot() * 3.141593F / 180.0F) * 0.5D);
+			} else if (facing == Direction.UP) {
+				float f = 0.125F;
+				Vec3 vec3d = entity.getDeltaMovement();
+				entity.setDeltaMovement(vec3d.x, f, vec3d.z);
+				entity.push(0D, 0.25D, 0D);
+				entity.fallDistance = 0;
+			} else {
+				entity.push(0D, -0.2D, 0D);
 			}
 		}
 	}
