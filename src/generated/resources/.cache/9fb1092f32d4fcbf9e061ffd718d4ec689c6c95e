@@ -1,7 +1,8 @@
-// 1.20.1	2024-06-27T09:26:06.9347835	Recipes
+// 1.20.1	2024-06-28T20:53:38.7814584	Recipes
 21f931524e06c577cb0725c109894bea8cdc40ce data/androtech/advancements/recipes/misc/advanced_chip.json
 8452d868daf6f9daaf3ad3985ff247c05281f193 data/androtech/advancements/recipes/misc/basic_chip.json
 a0275f817c0596b5638ec51f25715320e97d8c32 data/androtech/advancements/recipes/misc/elite_chip.json
+d44ef652af62638a50840bfb8a9f6d0124a6abb6 data/androtech/advancements/recipes/misc/entity_repulsor.json
 7547076f3c44d88ad49c25fe1d821d206974b6d0 data/androtech/advancements/recipes/misc/entity_vacuum.json
 8ac6d7ab6434dfda1bc735f063823d7c776def77 data/androtech/advancements/recipes/misc/fire_augment.json
 e702e07717db681b7465614ac86ebdda30c827f3 data/androtech/advancements/recipes/misc/fluid_evaporator.json
@@ -10,7 +11,6 @@ e702e07717db681b7465614ac86ebdda30c827f3 data/androtech/advancements/recipes/mis
 e9465447575007af00708295b33de9f69748f490 data/androtech/advancements/recipes/misc/item_incinerator.json
 e1e5e5f449b5564a248de72d327dba416efdbf9a data/androtech/advancements/recipes/misc/looting_augment.json
 61e69659fe584f1a4a18bc4393176d7005522102 data/androtech/advancements/recipes/misc/mob_killer.json
-62b1ea3e63e8dbeb73ba9ee7919463755f360e66 data/androtech/advancements/recipes/misc/mob_repulsor.json
 0177b21da467b18b724ef4dedd4840ded045f823 data/androtech/advancements/recipes/misc/mob_storage_device.json
 e9a8e29c00abc1aef74ddbe5dda6d8a87420bafd data/androtech/advancements/recipes/misc/normal_acceleration_pad.json
 8f48c214f34294223a51d1f91e77aac276ff4567 data/androtech/advancements/recipes/misc/redstone_signal_receiver.json
@@ -25,6 +25,7 @@ fc46674ae9e351fcdfcacc4aea8672b34828ca93 data/androtech/advancements/recipes/mis
 76a70f30dafb5e62721e71630730715fae6bacbb data/androtech/recipes/advanced_chip.json
 d1f544d9d5a23da35c56967e810053fda761254e data/androtech/recipes/basic_chip.json
 4e446d5f69221f282d707bd70d40f515c9623fe9 data/androtech/recipes/elite_chip.json
+5b320f2ce44fced891784a453ef09bb8d10568a3 data/androtech/recipes/entity_repulsor.json
 843ecb465acda697056766b64344d92aabaeddb6 data/androtech/recipes/entity_vacuum.json
 a853248f1d4fadad572adf941eea2bf08c521f14 data/androtech/recipes/fire_augment.json
 8a8598584c6a9b036f2b21f1cfc04e2ff8681bdd data/androtech/recipes/fluid_evaporator.json
@@ -33,7 +34,6 @@ a853248f1d4fadad572adf941eea2bf08c521f14 data/androtech/recipes/fire_augment.jso
 9e0ad9dc10aa9a888359bf1f4f8b62f15d1c3c78 data/androtech/recipes/item_incinerator.json
 82ce643b8ce6c0c7beef0643c317baa0bf7686cf data/androtech/recipes/looting_augment.json
 bcb2117fd9fafff16bd602f494b97b27f97f9694 data/androtech/recipes/mob_killer.json
-d005b4f04bb55f4c0fd4cc63c70c3148968737f8 data/androtech/recipes/mob_repulsor.json
 f3924b0a48af93d42dfcf7ad4c784cf1f4b7fde3 data/androtech/recipes/mob_storage_device.json
 0fe80cf6a5982dcbf1cd4b7236c955f1d03184bb data/androtech/recipes/normal_acceleration_pad.json
 3ff4c35ddc1b7ff81bdcc916e2cc444c688a4512 data/androtech/recipes/redstone_signal_receiver.json

@@ -2,8 +2,8 @@ package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.TeleportInhibitorBlock;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.block.entityvacuum.EntityVacuumBlock;
-import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
@@ -52,10 +52,10 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(RedstoneSignalReceiverBlock.TOOLTIP, "Emits a redstone signal when powered by a signal transmitter");
 		add(RedstoneSignalTransmitterBlock.DISPLAY_NAME, "Redstone Signal Transmitter");
 		add(RedstoneSignalTransmitterBlock.TOOLTIP, "Transmits a redstone signal to a receiver");
-		add(MobRepulsorBlock.DISPLAY_NAME, "Mob Repulsor");
-		add(MobRepulsorBlock.TOOLTIP, "Pushes entities in-front of it away");
+		add(EntityRepulsorBlock.DISPLAY_NAME, "Entity Repulsor");
+		add(EntityRepulsorBlock.TOOLTIP, "Pushes items and mobs away");
 		add(TeleportInhibitorBlock.DISPLAY_NAME, "Teleport Inhibitor");
-		add(TeleportInhibitorBlock.TOOLTIP, "Prevents Enderman from teleporting in an area");
+		add(TeleportInhibitorBlock.TOOLTIP, "Prevents Endermen from teleporting in an area");
 
 		add("fluid_type.androtech.liquid_xp", "Liquid XP");
 

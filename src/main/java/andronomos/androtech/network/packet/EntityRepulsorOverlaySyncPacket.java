@@ -1,6 +1,6 @@
 package andronomos.androtech.network.packet;
 
-import andronomos.androtech.block.mobrepulsor.MobRepulsorBlockEntity;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.Level;
@@ -28,7 +28,7 @@ public class EntityRepulsorOverlaySyncPacket {
 	public static void handle(EntityRepulsorOverlaySyncPacket msg, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
 			Level level = Objects.requireNonNull(ctx.get().getSender()).level();
-			MobRepulsorBlockEntity repulsor = (MobRepulsorBlockEntity)level.getBlockEntity(msg.pos);
+			EntityRepulsorBlockEntity repulsor = (EntityRepulsorBlockEntity)level.getBlockEntity(msg.pos);
 
 			if(repulsor != null) {
 				repulsor.toggleRenderBox();

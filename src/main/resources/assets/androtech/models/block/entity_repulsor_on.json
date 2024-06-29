@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "androtech:block/machine_bottom",
+    "east": "androtech:block/entity_repulsor_side",
+    "north": "androtech:block/entity_repulsor_back",
+    "south": "androtech:block/entity_repulsor_front_on",
+    "up": "androtech:block/entity_repulsor_top",
+    "west": "androtech:block/entity_repulsor_side",
+    "particle": "androtech:block/entity_repulsor_side"
+  }
+}

@@ -1,7 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.mobrepulsor.MobRepulsorBlockEntity;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
 import andronomos.androtech.block.entityvacuum.EntityVacuumBlockEntity;
 import andronomos.androtech.block.mobkiller.MobKillerBlockEntity;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlockEntity;
@@ -34,8 +34,8 @@ public class BlockEntityRegistry {
 					.of(ItemIncineratorBlockEntity::new, BlockRegistry.ITEM_INCINERATOR.get())
 					.build(null));
 
-	public static final RegistryObject<BlockEntityType<MobRepulsorBlockEntity>> MOB_REPULSOR_BE = BLOCK_ENTITIES
-			.register("mob_repulsor_be", () -> BlockEntityType.Builder
-					.of(MobRepulsorBlockEntity::new, BlockRegistry.MOB_REPULSOR.get())
+	public static final RegistryObject<BlockEntityType<EntityRepulsorBlockEntity>> ENTITY_REPULSOR_BE = BLOCK_ENTITIES
+			.register("entity_repulsor_be", () -> BlockEntityType.Builder
+					.of(EntityRepulsorBlockEntity::new, BlockRegistry.ENTITY_REPULSOR.get())
 					.build(null));
 }

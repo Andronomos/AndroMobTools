@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "androtech:mob_repulsor"
+          "name": "androtech:entity_repulsor"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "androtech:blocks/mob_repulsor"
+  "random_sequence": "androtech:blocks/entity_repulsor"
 }

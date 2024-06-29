@@ -1,6 +1,5 @@
-package andronomos.androtech.block.mobrepulsor;
+package andronomos.androtech.block.entityrepulsor;
 
-import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseBlockEntity;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.ItemRegistry;
@@ -34,18 +33,18 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Objects;
 
-public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvider {
+public class EntityRepulsorBlockEntity extends BaseBlockEntity implements MenuProvider {
 	public boolean showRenderBox;
 	private float xPos, yPos, zPos;
 	private float xNeg, yNeg, zNeg;
 
-	public MobRepulsorBlockEntity(BlockPos pos, BlockState state) {
-		super(BlockEntityRegistry.MOB_REPULSOR_BE.get(), pos, state, new SimpleContainerData(MobRepulsorBlock.SLOTS));
+	public EntityRepulsorBlockEntity(BlockPos pos, BlockState state) {
+		super(BlockEntityRegistry.ENTITY_REPULSOR_BE.get(), pos, state, new SimpleContainerData(EntityRepulsorBlock.SLOTS));
 	}
 
 	@Override
 	public ItemStackHandler createInventoryItemHandler() {
-		return new ItemStackHandler(MobRepulsorBlock.SLOTS) {
+		return new ItemStackHandler(EntityRepulsorBlock.SLOTS) {
 			@Override
 			protected void onContentsChanged(int slot) {
 				setChanged();
@@ -58,22 +57,22 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 
 	@Override
 	public @NotNull Component getDisplayName() {
-		return Component.translatable(MobRepulsorBlock.DISPLAY_NAME);
+		return Component.translatable(EntityRepulsorBlock.DISPLAY_NAME);
 	}
 
 	@Nullable
 	@Override
 	public AbstractContainerMenu createMenu(int containerId, @NotNull Inventory inventory, @NotNull Player player) {
-		return new MobRepulsorMenu(containerId, inventory, this, this.data);
+		return new EntityRepulsorMenu(containerId, inventory, this, this.data);
 	}
 
 	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity entity) {
-		if (entity instanceof MobRepulsorBlockEntity) {
+		if (entity instanceof EntityRepulsorBlockEntity) {
 			BlockState stateAtPos = level.getBlockState(pos);
 
-			if (level.getGameTime() % 2 == 0 && state.getBlock() instanceof MobRepulsorBlock) {
-				if (stateAtPos.getValue(MobRepulsorBlock.POWERED)) {
+			if (level.getGameTime() % 2 == 0 && state.getBlock() instanceof EntityRepulsorBlock) {
+				if (stateAtPos.getValue(EntityRepulsorBlock.POWERED)) {
 					activate();
 				}
 			}
@@ -186,11 +185,11 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 	protected void activate() {
 		BlockState state = Objects.requireNonNull(getLevel()).getBlockState(getBlockPos());
 
-		if (!(state.getBlock() instanceof MobRepulsorBlock)) {
+		if (!(state.getBlock() instanceof EntityRepulsorBlock)) {
 			return;
 		}
 
-		Direction facing = state.getValue(MobRepulsorBlock.FACING);
+		Direction facing = state.getValue(EntityRepulsorBlock.FACING);
 		List<LivingEntity> nearbyMobs = getLevel().getEntitiesOfClass(LivingEntity.class, getWorkArea());
 		List<ItemEntity> nearbyItems = getLevel().getEntitiesOfClass(ItemEntity.class, getWorkArea());
 
@@ -243,11 +242,11 @@ public class MobRepulsorBlockEntity extends BaseBlockEntity implements MenuProvi
 	private void setAABBWithModifiers() {
 		BlockState state = Objects.requireNonNull(getLevel()).getBlockState(getBlockPos());
 
-		if (!(state.getBlock() instanceof MobRepulsorBlock)) {
+		if (!(state.getBlock() instanceof EntityRepulsorBlock)) {
 			return;
 		}
 
-		Direction facing = state.getValue(MobRepulsorBlock.FACING);
+		Direction facing = state.getValue(EntityRepulsorBlock.FACING);
 
 		int distance;
 

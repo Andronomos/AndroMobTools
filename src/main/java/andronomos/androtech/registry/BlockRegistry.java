@@ -3,8 +3,8 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.MachineBlock;
 import andronomos.androtech.block.TeleportInhibitorBlock;
+import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.block.entityvacuum.EntityVacuumBlock;
-import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.FlatMachineBlock;
 import andronomos.androtech.block.FlatMachineEffects;
@@ -53,7 +53,7 @@ public class BlockRegistry {
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_RECEIVER = registerBlock("redstone_signal_receiver", () -> new RedstoneSignalReceiverBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> REDSTONE_SIGNAL_TRANSMITTER = registerBlock("redstone_signal_transmitter", () -> new RedstoneSignalTransmitterBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> TELEPORT_INHIBITOR = registerBlock("teleport_inhibitor", () -> new TeleportInhibitorBlock(MACHINE_PROPERTIES));
-	public static final RegistryObject<MachineBlock> MOB_REPULSOR = registerBlock("mob_repulsor", () -> new MobRepulsorBlock(MACHINE_PROPERTIES));
+	public static final RegistryObject<MachineBlock> ENTITY_REPULSOR = registerBlock("entity_repulsor", () -> new EntityRepulsorBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<LiquidBlock> LIQUID_XP_BLOCK = BLOCKS.register("liquid_xp_block", () -> new LiquidBlock(FluidRegistry.LIQUID_XP, BlockBehaviour.Properties.copy(Blocks.WATER)));
 
 
