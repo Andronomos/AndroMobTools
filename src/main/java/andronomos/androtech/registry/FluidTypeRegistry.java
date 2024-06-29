@@ -28,7 +28,7 @@ public class FluidTypeRegistry {
 	);
 
 	private static RegistryObject<FluidType> register(String name, FluidType.Properties properties) {
-		return FLUID_TYPES.register(name, () -> new BaseFluidType(properties, WATER_STILL_RL, WATER_FLOWING_RL, XP_OVERLAY_RL, 0xA1E038D0,
-				new Vector3f(224f / 255f, 56f /255f, 208f / 255f)));
+		return FLUID_TYPES.register(name, () -> new BaseFluidType(properties, WATER_STILL_RL, WATER_FLOWING_RL, XP_OVERLAY_RL, 0xA1C7FF3A,
+				new Vector3f(199f / 255f, 255f /255f, 58f / 255f)));
 	}
 }
