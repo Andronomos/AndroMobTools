@@ -1,4 +1,4 @@
-package andronomos.androtech.block.itemattractor;
+package andronomos.androtech.block.entityvacuum;
 
 import andronomos.androtech.block.base.MachineBlock;
 import net.minecraft.core.BlockPos;

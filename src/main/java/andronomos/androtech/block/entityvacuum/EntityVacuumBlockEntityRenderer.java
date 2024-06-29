@@ -1,4 +1,4 @@
-package andronomos.androtech.block.itemattractor;
+package andronomos.androtech.block.entityvacuum;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

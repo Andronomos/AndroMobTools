@@ -1,7 +1,7 @@
 package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.itemattractor.EntityVacuumMenu;
+import andronomos.androtech.block.entityvacuum.EntityVacuumMenu;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorMenu;
 import andronomos.androtech.block.mobkiller.MobKillerMenu;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorMenu;

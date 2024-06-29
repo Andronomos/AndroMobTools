@@ -2,7 +2,7 @@ package andronomos.androtech.registry;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlockEntity;
-import andronomos.androtech.block.itemattractor.EntityVacuumBlockEntity;
+import andronomos.androtech.block.entityvacuum.EntityVacuumBlockEntity;
 import andronomos.androtech.block.mobkiller.MobKillerBlockEntity;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlockEntity;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlockEntity;

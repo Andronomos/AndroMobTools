@@ -2,7 +2,7 @@ package andronomos.androtech.data.client;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.TeleportInhibitorBlock;
-import andronomos.androtech.block.itemattractor.EntityVacuumBlock;
+import andronomos.androtech.block.entityvacuum.EntityVacuumBlock;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;

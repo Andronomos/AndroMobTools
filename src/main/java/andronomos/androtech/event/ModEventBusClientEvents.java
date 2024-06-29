@@ -1,7 +1,7 @@
 package andronomos.androtech.event;
 
 import andronomos.androtech.AndroTech;
-import andronomos.androtech.block.itemattractor.EntityVacuumBlockEntityRenderer;
+import andronomos.androtech.block.entityvacuum.EntityVacuumBlockEntityRenderer;
 import andronomos.androtech.block.mobkiller.MobKillerBlockEntityRenderer;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorBlockEntityRenderer;
 import andronomos.androtech.registry.BlockEntityRegistry;

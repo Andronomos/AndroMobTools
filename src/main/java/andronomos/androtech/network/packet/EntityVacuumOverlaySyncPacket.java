@@ -1,6 +1,6 @@
 package andronomos.androtech.network.packet;
 
-import andronomos.androtech.block.itemattractor.EntityVacuumBlockEntity;
+import andronomos.androtech.block.entityvacuum.EntityVacuumBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.Level;

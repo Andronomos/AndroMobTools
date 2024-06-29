@@ -1,4 +1,4 @@
-package andronomos.androtech.block.itemattractor;
+package andronomos.androtech.block.entityvacuum;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseScreen;

@@ -1,6 +1,6 @@
 package andronomos.androtech;
 
-import andronomos.androtech.block.itemattractor.EntityVacuumScreen;
+import andronomos.androtech.block.entityvacuum.EntityVacuumScreen;
 import andronomos.androtech.block.mobrepulsor.MobRepulsorScreen;
 import andronomos.androtech.block.mobkiller.MobKillerScreen;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorScreen;
