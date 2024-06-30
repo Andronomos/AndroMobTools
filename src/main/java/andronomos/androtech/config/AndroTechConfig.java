@@ -10,6 +10,7 @@ public class AndroTechConfig {
 	public static final ForgeConfigSpec CONFIG;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> ENTITY_VACUUM_RANGE;
+	public static ForgeConfigSpec.ConfigValue<Integer> ENTITY_VACUUM_XP_CAPACITY;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> DEVICE_DURABILITY;
 	public static ForgeConfigSpec.ConfigValue<Boolean> DEVICE_TAKE_DAMAGE;
@@ -44,6 +45,7 @@ public class AndroTechConfig {
 	public static void setupConfig(ForgeConfigSpec.Builder builder) {
 		builder.push("Entity Vacuum");
 		ENTITY_VACUUM_RANGE = builder.comment("Range").define("range", 4);
+		ENTITY_VACUUM_XP_CAPACITY = builder.comment("Liquid Experience Capacity").define("xp_capacity", 16000);
 		builder.pop();
 
 

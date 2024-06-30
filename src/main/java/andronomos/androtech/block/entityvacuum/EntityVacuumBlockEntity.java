@@ -37,6 +37,7 @@ import java.util.Objects;
 
 public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProvider {
 	private static int RANGE = AndroTechConfig.ENTITY_VACUUM_RANGE.get();
+	private static int XP_CAPACITY = AndroTechConfig.ENTITY_VACUUM_XP_CAPACITY.get();
 	public boolean showRenderBox;
 	private float xPos, yPos, zPos;
 	private float xNeg, yNeg, zNeg;
@@ -111,7 +112,7 @@ public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProv
 
 	@Override
 	public FluidTank createFluidHandler() {
-		return new FluidTank(1000 * 16) {
+		return new FluidTank(XP_CAPACITY) {
 			@Override
 			protected void onContentsChanged() {
 				setChanged();
