@@ -29,7 +29,7 @@ public class EntityVacuumMenu extends BaseMenu {
 				addInventory(handler, 3, 7);
 			});
 		}
-		setSlotIndexes(21);
+		setSlotIndexes(EntityVacuumBlock.SLOTS);
 		addDataSlots(data);
 	}
 
