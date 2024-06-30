@@ -142,13 +142,13 @@ public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProv
 
 		if (level.getGameTime() % 3 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof EntityVacuumBlock) {
 			if(!InventoryHelper.isFull(itemHandler)) {
-				captureDroppedItems();
+				captureDroppedItems(level);
 			}
 
 			prevTankAmount = fluidHandler.getFluidAmount();
 
 			if(fluidHandler.isEmpty() || fluidHandler.getFluid().containsFluid(new FluidStack(FluidRegistry.LIQUID_XP.get(), 1))) {
-				CaptureExperience();
+				CaptureExperience(level);
 			}
 
 			if(prevTankAmount != fluidHandler.getFluidAmount()) {
@@ -159,10 +159,11 @@ public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProv
 		}
 	}
 
-	private void captureDroppedItems() {
-		for(ItemEntity item : getNearbyItems()) {
-			if(item == null)
+	private void captureDroppedItems(ServerLevel level) {
+		for(ItemEntity item : EntityHelper.getNearbyItems(level, getWorkArea())) {
+			if(item == null) {
 				return;
+			}
 
 			ItemStack stack = InventoryHelper.insert(item.getItem().copy(), itemHandler, false);
 
@@ -174,8 +175,8 @@ public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProv
 		}
 	}
 
-	private void CaptureExperience() {
-		for(ExperienceOrb orb : getNearbyExperience()) {
+	private void CaptureExperience(ServerLevel level) {
+		for(ExperienceOrb orb : EntityHelper.getNearbyExperience(level, getWorkArea())) {
 			int xpAmount = orb.getValue();
 
 			if(fluidHandler.getFluidAmount() < fluidHandler.getCapacity() - xpAmount * 20) {

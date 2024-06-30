@@ -3,6 +3,7 @@ package andronomos.androtech.item;
 import andronomos.androtech.Constants;
 import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.item.base.TickingItem;
+import andronomos.androtech.util.EntityHelper;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
@@ -25,22 +26,17 @@ public class PortableEntityVacuumItem extends TickingItem {
 	public void onTick(ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
 		ServerPlayer player = (ServerPlayer)entity;
 		AABB area = player.getBoundingBox().inflate(range);
-		attractItems(stack, level, player, area);
-		attractExperience(stack, level, player, area);
+		vacuumItems(stack, level, player, area);
+		vacuumExperience(stack, level, player, area);
 	}
 
-	private void attractItems(ItemStack stack, Level level, ServerPlayer player, AABB area) {
-		List<ItemEntity> itemsInRange = level.getEntitiesOfClass(ItemEntity.class, area,
-				item -> !item.getPersistentData().contains("PreventRemoteMovement") &&
-						(item.getOwner() == null || !item.getOwner().getUUID().equals(player.getUUID()) || !item.isPickable())
-		);
-
-		itemsInRange.forEach(item -> {
+	private void vacuumItems(ItemStack stack, Level level, ServerPlayer player, AABB area) {
+		EntityHelper.getNearbyItems(level, area, player).forEach(item -> {
 			if(!isBroken(stack)) {
 				item.setNoPickUpDelay();
 				item.playerTouch(player);
 				if(hasDurability) {
-					doDamage(stack, player, AndroTechConfig.ITEM_ATTRACTION_EMITTER_DAMAGE_RATE.get());
+					doDamage(stack, player, AndroTechConfig.PORTABLE_ENTITY_VACUUM_DAMAGE_RATE.get());
 				}
 			}
 		});
