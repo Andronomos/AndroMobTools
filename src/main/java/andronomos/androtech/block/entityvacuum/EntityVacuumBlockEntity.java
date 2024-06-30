@@ -112,7 +112,7 @@ public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProv
 
 	@Override
 	public FluidTank createFluidHandler() {
-		return new FluidTank(XP_CAPACITY) {
+		return new FluidTank(XP_CAPACITY * 16) {
 			@Override
 			protected void onContentsChanged() {
 				setChanged();

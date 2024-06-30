@@ -44,8 +44,8 @@ public class AndroTechConfig {
 
 	public static void setupConfig(ForgeConfigSpec.Builder builder) {
 		builder.push("Entity Vacuum");
-		ENTITY_VACUUM_RANGE = builder.comment("Range").define("range", 4);
-		ENTITY_VACUUM_XP_CAPACITY = builder.comment("Liquid Experience Capacity").define("xp_capacity", 16000);
+		ENTITY_VACUUM_RANGE = builder.comment("Distance in blocks in each direction to search for items").define("range", 4);
+		ENTITY_VACUUM_XP_CAPACITY = builder.comment("How many bucket of liquid xp the vacuum can hold").define("xp_capacity", 16);
 		builder.pop();
 
 
