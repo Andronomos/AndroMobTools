@@ -5,6 +5,7 @@ import andronomos.androtech.block.base.BaseBlockEntity;
 import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.registry.BlockEntityRegistry;
 import andronomos.androtech.registry.FluidRegistry;
+import andronomos.androtech.util.EntityHelper;
 import andronomos.androtech.util.InventoryHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -12,7 +13,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
@@ -32,12 +32,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
-import java.util.List;
-import java.util.Objects;
 
 public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProvider {
-	private static int RANGE = AndroTechConfig.ENTITY_VACUUM_RANGE.get();
-	private static int XP_CAPACITY = AndroTechConfig.ENTITY_VACUUM_XP_CAPACITY.get();
+	private static final int RANGE = AndroTechConfig.ENTITY_VACUUM_RANGE.get();
+	private static final int XP_CAPACITY = AndroTechConfig.ENTITY_VACUUM_XP_CAPACITY.get();
 	public boolean showRenderBox;
 	private float xPos, yPos, zPos;
 	private float xNeg, yNeg, zNeg;
@@ -138,7 +136,9 @@ public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProv
 
 	@Override
 	public void serverTick(ServerLevel level, BlockPos pos, BlockState state, BaseBlockEntity entity) {
-		if(!state.getValue(POWERED)) return;
+		if(!state.getValue(POWERED)) {
+			return;
+		}
 
 		if (level.getGameTime() % 3 == 0 && level.getBlockState(getBlockPos()).getBlock() instanceof EntityVacuumBlock) {
 			if(!InventoryHelper.isFull(itemHandler)) {
@@ -185,14 +185,6 @@ public class EntityVacuumBlockEntity extends BaseBlockEntity implements MenuProv
 				orb.remove(Entity.RemovalReason.DISCARDED);
 			}
 		}
-	}
-
-	private List<ItemEntity> getNearbyItems() {
-		return Objects.requireNonNull(getLevel()).getEntitiesOfClass(ItemEntity.class, getWorkArea(), EntitySelector.ENTITY_STILL_ALIVE);
-	}
-
-	private List<ExperienceOrb> getNearbyExperience() {
-		return Objects.requireNonNull(getLevel()).getEntitiesOfClass(ExperienceOrb.class, getWorkArea(), EntitySelector.ENTITY_STILL_ALIVE);
 	}
 
 	public void toggleRenderBox() {
