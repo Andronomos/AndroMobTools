@@ -38,8 +38,8 @@ public class ItemRegistry {
 	public static final RegistryObject<Item> GPS_RECORDER = ITEMS.register("gps_recorder",
 			() -> new GPSRecorderItem(DEVICE_PROPERTIES));
 
-	public static final RegistryObject<Item> ITEM_ATTRACTION_EMITTER = ITEMS.register("item_attraction_emitter",
-			() -> new ItemAttractionEmitterItem(DEVICE_PROPERTIES));
+	public static final RegistryObject<Item> PORTABLE_ENTITY_VACUUM = ITEMS.register("portable_entity_vacuum",
+			() -> new PortableEntityVacuumItem(DEVICE_PROPERTIES));
 
 	public static final RegistryObject<Item> MOB_STORAGE_DEVICE = ITEMS.register("mob_storage_device",
 			() -> new MobStorageDevice(DEVICE_PROPERTIES));

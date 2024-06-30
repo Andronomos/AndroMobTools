@@ -32,7 +32,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		basicItem("repulsor_distance_upgrade");
 
 		multiStateItem("gps_recorder", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
-		multiStateItem("item_attraction_emitter", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
+		multiStateItem("portable_entity_vacuum", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
 		multiStateItem("mob_storage_device", "_activated", PropertyOverrideRegistry.IS_ACTIVATED);
 		multiStateItem("fluid_evaporator", "_lava", PropertyOverrideRegistry.MODE_LAVA);
 	}

@@ -16,9 +16,9 @@ public class AndroTechConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> DEVICE_TAKE_DAMAGE;
 	public static ForgeConfigSpec.ConfigValue<Integer> TICKING_DEVICE_DURABILITY;
 
-	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_ATTRACTION_EMITTER_RANGE;
-	public static ForgeConfigSpec.ConfigValue<Boolean> ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE;
-	public static ForgeConfigSpec.ConfigValue<Integer> ITEM_ATTRACTION_EMITTER_DAMAGE_RATE;
+	public static ForgeConfigSpec.ConfigValue<Integer> PORTABLE_ENTITY_VACUUM_RANGE;
+	public static ForgeConfigSpec.ConfigValue<Boolean> PORTABLE_ENTITY_VACUUM_TAKE_DAMAGE;
+	public static ForgeConfigSpec.ConfigValue<Integer> PORTABLE_ENTITY_VACUUM_DAMAGE_RATE;
 
 	public static ForgeConfigSpec.ConfigValue<Integer> MENDING_MODULE_REPAIR_RATE;
 	public static ForgeConfigSpec.ConfigValue<Integer> MENDING_MODULE_DURABILITY;
@@ -62,9 +62,9 @@ public class AndroTechConfig {
 		//builder.pop();
 
 		builder.push("Item Attraction Emitter");
-		ITEM_ATTRACTION_EMITTER_RANGE = builder.comment("Range").define("range", 10);
-		ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE = builder.comment("Take damage").define("take_damage", false);
-		ITEM_ATTRACTION_EMITTER_DAMAGE_RATE = builder.comment("Damage per item").define("damage_rate", 1);
+		PORTABLE_ENTITY_VACUUM_RANGE = builder.comment("Range").define("range", 10);
+		PORTABLE_ENTITY_VACUUM_TAKE_DAMAGE = builder.comment("Take damage").define("take_damage", false);
+		PORTABLE_ENTITY_VACUUM_DAMAGE_RATE = builder.comment("Damage per item").define("damage_rate", 1);
 		builder.pop();
 
 		builder.push("Mob Storage Device");

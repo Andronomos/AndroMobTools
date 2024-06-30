@@ -27,7 +27,7 @@ public class PropertyOverrideRegistry {
 					return tag.getInt("mode");
 				});
 
-		registerMultiStateItem(ItemRegistry.ITEM_ATTRACTION_EMITTER.get());
+		registerMultiStateItem(ItemRegistry.PORTABLE_ENTITY_VACUUM.get());
 	}
 
 	private static void registerMultiStateItem(Item item) {

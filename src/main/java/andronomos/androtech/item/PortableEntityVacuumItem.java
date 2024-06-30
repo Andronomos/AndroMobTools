@@ -5,19 +5,15 @@ import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.item.base.TickingItem;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.ExperienceOrb;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 
-import java.util.List;
+public class PortableEntityVacuumItem extends TickingItem {
+	private final int range = AndroTechConfig.PORTABLE_ENTITY_VACUUM_RANGE.get();
 
-public class ItemAttractionEmitterItem extends TickingItem {
-	private final int range = AndroTechConfig.ITEM_ATTRACTION_EMITTER_RANGE.get();
-
-	public ItemAttractionEmitterItem(Properties properties) {
-		super(properties, AndroTechConfig.ITEM_ATTRACTION_EMITTER_TAKE_DAMAGE.get());
+	public PortableEntityVacuumItem(Properties properties) {
+		super(properties, AndroTechConfig.PORTABLE_ENTITY_VACUUM_TAKE_DAMAGE.get());
 	}
 
 	@Override
