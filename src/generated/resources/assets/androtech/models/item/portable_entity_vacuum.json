@@ -2,19 +2,19 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "androtech:item/item_attraction_emitter",
+      "model": "androtech:item/portable_entity_vacuum",
       "predicate": {
         "androtech:activated": 0.0
       }
     },
     {
-      "model": "androtech:item/item_attraction_emitter_activated",
+      "model": "androtech:item/portable_entity_vacuum_activated",
       "predicate": {
         "androtech:activated": 1.0
       }
     }
   ],
   "textures": {
-    "layer0": "androtech:item/item_attraction_emitter"
+    "layer0": "androtech:item/portable_entity_vacuum"
   }
 }

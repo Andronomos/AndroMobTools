@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-14T12:26:57.3956657	Item Models: androtech
+// 1.20.1	2024-06-29T18:39:56.1458425	Item Models: androtech
 4261117b814aab7a2e6a5492a685b419c57fc864 assets/androtech/models/item/advanced_chip.json
 ea868c2641eee86e789edb6b5d104d13164c70e0 assets/androtech/models/item/basic_chip.json
 e04c098489f798bfa2053a9de67b59136eab20d1 assets/androtech/models/item/elite_chip.json
@@ -8,8 +8,6 @@ c9485ebe24e626aa19733f9763c52a9318342135 assets/androtech/models/item/fluid_evap
 7dbebdd0b0ff9afd8c2774cea0a69d35e7403d7a assets/androtech/models/item/fluid_evaporator_lava.json
 a1619b2a26777c0b14cac94b48a8a55308f88f61 assets/androtech/models/item/gps_recorder.json
 bc30da8a921ff4c8495c46eac2eec05c2df5e36d assets/androtech/models/item/gps_recorder_activated.json
-48800e36048cda74e1f245c412e83d0e1f5a7ce2 assets/androtech/models/item/item_attraction_emitter.json
-a8b8b129e43ae4ef7fba290663b332a58acddc65 assets/androtech/models/item/item_attraction_emitter_activated.json
 05c2e96cc6a11860869849b29f802786b613634a assets/androtech/models/item/looting_augment.json
 587620144619fa06e224f64e9ed2369340876cf1 assets/androtech/models/item/mob_storage_device.json
 d32085815b8efc7ca1f86dfbfc34d4f795a84573 assets/androtech/models/item/mob_storage_device_activated.json
@@ -17,6 +15,8 @@ d32085815b8efc7ca1f86dfbfc34d4f795a84573 assets/androtech/models/item/mob_storag
 e46395f08d1489c564e0bd9c40f65b1b6cc43886 assets/androtech/models/item/nanite_enhanced_pickaxe.json
 9750200c83cd210911ccd18ccc39c5eb2ec2d494 assets/androtech/models/item/nanite_enhanced_shovel.json
 d2592148738811d2a974e41046755d83612aef0f assets/androtech/models/item/nanite_enhanced_sword.json
+0900c7e5e403ebf0ac4839e7c6a1b6b16697d4fa assets/androtech/models/item/portable_entity_vacuum.json
+81b6f1f98a4d0fd3bcdf64657e69ae879591d4ec assets/androtech/models/item/portable_entity_vacuum_activated.json
 9f48b289670fd60dd24a787fefa30d4ff23ac773 assets/androtech/models/item/repulsor_distance_upgrade.json
 f59d0ea347e2196c3fef26d7d22825475f91c87d assets/androtech/models/item/repulsor_height_upgrade.json
 276b2bbccd96ebbcf6b9f9505620f4640f4307b2 assets/androtech/models/item/repulsor_width_upgrade.json

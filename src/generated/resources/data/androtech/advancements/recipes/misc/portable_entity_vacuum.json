@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "androtech:item_attraction_emitter"
+        "recipe": "androtech:portable_entity_vacuum"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "androtech:item_attraction_emitter"
+      "androtech:portable_entity_vacuum"
     ]
   },
   "sends_telemetry_event": false
