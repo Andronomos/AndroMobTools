@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class MobKillerBlock extends DirectionalMachineBlock {
 	public static final int SLOTS = 3;
-	public static final int AUGMENT_STACK_LIMIT = 10;
+	public static final int AUGMENT_STACK_LIMIT = 20;
 	public static final String DISPLAY_NAME = "screen.androtech.mob_killer";
 	public static final String TOOLTIP = "block.androtech.mob_killer.tooltip";
 
