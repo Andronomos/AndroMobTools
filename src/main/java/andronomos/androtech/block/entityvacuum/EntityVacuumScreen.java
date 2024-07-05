@@ -2,6 +2,7 @@ package andronomos.androtech.block.entityvacuum;
 
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.base.BaseScreen;
+import andronomos.androtech.config.AndroTechConfig;
 import andronomos.androtech.fluid.FluidTankRenderer;
 import andronomos.androtech.inventory.client.PowerButton;
 import andronomos.androtech.inventory.client.RenderOutlineButton;
@@ -35,7 +36,7 @@ public class EntityVacuumScreen extends BaseScreen<EntityVacuumMenu> {
 			AndroTechPacketHandler.sendToServer(new EntityVacuumOverlaySyncPacket(entity.getBlockPos()));
 			entity.showRenderBox = !entity.showRenderBox;
 		}));
-		setFluidRenderer(new FluidTankRenderer(64000, 16, 52));
+		setFluidRenderer(new FluidTankRenderer(AndroTechConfig.ENTITY_VACUUM_XP_CAPACITY.get() * 1000, 16, 52));
 	}
 
 	@Override
