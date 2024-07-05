@@ -3,6 +3,7 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.entityvacuum.EntityVacuumMenu;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorMenu;
+import andronomos.androtech.block.fluidtank.FluidTankMenu;
 import andronomos.androtech.block.mobkiller.MobKillerMenu;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorMenu;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterMenu;
@@ -22,6 +23,7 @@ public class MenuTypeRegistry {
 	public static final RegistryObject<MenuType<ItemIncineratorMenu>> ITEM_INCINERATOR_MENU = register(ItemIncineratorMenu::new, "item_incinerator_menu");
 	public static final RegistryObject<MenuType<RedstoneSignalTransmitterMenu>> REDSTONE_SIGNAL_TRANSMITTER_MENU = register(RedstoneSignalTransmitterMenu::new, "redstone_signal_transmitter_menu");
 	public static final RegistryObject<MenuType<EntityRepulsorMenu>> ENTITY_REPULSOR_MENU = register(EntityRepulsorMenu::new, "entity_repulsor_menu");
+	public static final RegistryObject<MenuType<FluidTankMenu>> FLUID_TANK_MENU = register(FluidTankMenu::new, "fluid_tank_menu");
 
 	public static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> register(IContainerFactory<T> factory, String name) {
 		return MENU_TYPES.register(name, () -> IForgeMenuType.create(factory));

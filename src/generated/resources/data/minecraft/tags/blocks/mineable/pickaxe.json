@@ -10,6 +10,7 @@
     "androtech:redstone_signal_transmitter",
     "androtech:teleport_inhibitor",
     "androtech:entity_repulsor",
-    "androtech:liquid_xp_block"
+    "androtech:liquid_xp_block",
+    "androtech:fluid_tank"
   ]
 }

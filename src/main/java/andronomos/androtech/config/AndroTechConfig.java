@@ -36,6 +36,8 @@ public class AndroTechConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> FLUID_EVAPORATOR_RANGE;
 	public static ForgeConfigSpec.ConfigValue<Integer> FLUID_EVAPORATOR_DURABILITY;
 
+	public static ForgeConfigSpec.ConfigValue<Integer> FLUID_TANK_CAPACITY;
+
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
 		setupConfig(configBuilder);
@@ -46,6 +48,10 @@ public class AndroTechConfig {
 		builder.push("Entity Vacuum");
 		ENTITY_VACUUM_RANGE = builder.comment("Distance in blocks in each direction to search for items").define("range", 4);
 		ENTITY_VACUUM_XP_CAPACITY = builder.comment("How many bucket of liquid xp the vacuum can hold").define("xp_capacity", 16);
+		builder.pop();
+
+		builder.push("Fluid Tank");
+		FLUID_TANK_CAPACITY = builder.comment("How many bucket of liquid xp the tank can hold").define("capacity", 16);
 		builder.pop();
 
 

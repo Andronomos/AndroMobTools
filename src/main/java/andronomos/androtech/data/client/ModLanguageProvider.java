@@ -4,6 +4,7 @@ import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.TeleportInhibitorBlock;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.block.entityvacuum.EntityVacuumBlock;
+import andronomos.androtech.block.fluidtank.FluidTankBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlock;
 import andronomos.androtech.block.wirelessredstone.RedstoneSignalReceiverBlock;
@@ -18,6 +19,7 @@ import andronomos.androtech.registry.CreativeTabRegistry;
 import andronomos.androtech.registry.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -56,6 +58,9 @@ public class ModLanguageProvider extends LanguageProvider {
 		add(EntityRepulsorBlock.TOOLTIP, "Pushes items and mobs away");
 		add(TeleportInhibitorBlock.DISPLAY_NAME, "Teleport Inhibitor");
 		add(TeleportInhibitorBlock.TOOLTIP, "Prevents Endermen from teleporting in an area");
+		add(FluidTankBlock.DISPLAY_NAME, "Fluid Tank");
+		add(FluidTankBlock.TOOLTIP, "Stores Fluids");
+		add(FluidTankBlock.AMOUNT_TOOLTIP, "%s / %s mB");
 
 		add("fluid_type.androtech.liquid_xp", "Liquid XP");
 

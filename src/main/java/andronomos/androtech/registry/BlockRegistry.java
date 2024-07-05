@@ -5,6 +5,7 @@ import andronomos.androtech.block.base.MachineBlock;
 import andronomos.androtech.block.TeleportInhibitorBlock;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlock;
 import andronomos.androtech.block.entityvacuum.EntityVacuumBlock;
+import andronomos.androtech.block.fluidtank.FluidTankBlock;
 import andronomos.androtech.block.mobkiller.MobKillerBlock;
 import andronomos.androtech.block.FlatMachineBlock;
 import andronomos.androtech.block.FlatMachineEffects;
@@ -55,6 +56,7 @@ public class BlockRegistry {
 	public static final RegistryObject<MachineBlock> TELEPORT_INHIBITOR = registerBlock("teleport_inhibitor", () -> new TeleportInhibitorBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<MachineBlock> ENTITY_REPULSOR = registerBlock("entity_repulsor", () -> new EntityRepulsorBlock(MACHINE_PROPERTIES));
 	public static final RegistryObject<LiquidBlock> LIQUID_XP_BLOCK = BLOCKS.register("liquid_xp_block", () -> new LiquidBlock(FluidRegistry.LIQUID_XP, BlockBehaviour.Properties.copy(Blocks.WATER)));
+	public static final RegistryObject<FluidTankBlock> FLUID_TANK = registerBlock("fluid_tank", () -> new FluidTankBlock(Block.Properties.copy(Blocks.CAULDRON)));
 
 
 

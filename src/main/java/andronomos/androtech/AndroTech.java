@@ -2,6 +2,7 @@ package andronomos.androtech;
 
 import andronomos.androtech.block.entityvacuum.EntityVacuumScreen;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorScreen;
+import andronomos.androtech.block.fluidtank.FluidTankScreen;
 import andronomos.androtech.block.mobkiller.MobKillerScreen;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorScreen;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterScreen;
@@ -56,6 +57,7 @@ public class AndroTech {
 			MenuScreens.register(MenuTypeRegistry.ITEM_INCINERATOR_MENU.get(), ItemIncineratorScreen::new);
 			MenuScreens.register(MenuTypeRegistry.REDSTONE_SIGNAL_TRANSMITTER_MENU.get(), RedstoneSignalTransmitterScreen::new);
 			MenuScreens.register(MenuTypeRegistry.ENTITY_REPULSOR_MENU.get(), EntityRepulsorScreen::new);
+			MenuScreens.register(MenuTypeRegistry.FLUID_TANK_MENU.get(), FluidTankScreen::new);
 			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP.get(), RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(FluidRegistry.LIQUID_XP_FLOWING.get(), RenderType.translucent());
 			PropertyOverrideRegistry.register();

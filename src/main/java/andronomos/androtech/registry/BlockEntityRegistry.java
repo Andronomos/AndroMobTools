@@ -3,6 +3,7 @@ package andronomos.androtech.registry;
 import andronomos.androtech.AndroTech;
 import andronomos.androtech.block.entityrepulsor.EntityRepulsorBlockEntity;
 import andronomos.androtech.block.entityvacuum.EntityVacuumBlockEntity;
+import andronomos.androtech.block.fluidtank.FluidTankBlockEntity;
 import andronomos.androtech.block.mobkiller.MobKillerBlockEntity;
 import andronomos.androtech.block.itemincinerator.ItemIncineratorBlockEntity;
 import andronomos.androtech.block.wirelessredstone.redstonetransmitter.RedstoneSignalTransmitterBlockEntity;
@@ -37,5 +38,10 @@ public class BlockEntityRegistry {
 	public static final RegistryObject<BlockEntityType<EntityRepulsorBlockEntity>> ENTITY_REPULSOR_BE = BLOCK_ENTITIES
 			.register("entity_repulsor_be", () -> BlockEntityType.Builder
 					.of(EntityRepulsorBlockEntity::new, BlockRegistry.ENTITY_REPULSOR.get())
+					.build(null));
+
+	public static final RegistryObject<BlockEntityType<FluidTankBlockEntity>> FLUID_TANK_BE = BLOCK_ENTITIES
+			.register("fluid_tank_be", () -> BlockEntityType.Builder
+					.of(FluidTankBlockEntity::new, BlockRegistry.FLUID_TANK.get())
 					.build(null));
 }

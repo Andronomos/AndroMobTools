@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "androtech:block/fluid_tank_bottom",
+    "east": "androtech:block/fluid_tank_side",
+    "north": "androtech:block/fluid_tank_side",
+    "particle": "androtech:block/fluid_tank_side",
+    "south": "androtech:block/fluid_tank_side",
+    "up": "androtech:block/fluid_tank_top",
+    "west": "androtech:block/fluid_tank_side"
+  }
+}
